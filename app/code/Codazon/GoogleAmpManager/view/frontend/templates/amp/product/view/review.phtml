@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Review\Block\Product\Review $block */
+?>
+<?php
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+$product = $ampHelper->getCurrentProduct();
+?>
+<?php if ($product) : ?>
+<?= $this->getChildHtml() ?>
+<amp-list id="cdz-amp-reviews-list" class="cdz-amp-reviews-list" width="auto" height="80" layout="fixed-height" src="<?= $ampHelper->getProductReviewsDataAjaxUrl($product) ?>" load-more="manual" load-more-bookmark="next">
+    <template type="amp-mustache">
+    {{#nickname}}
+        <div class="cdz-amp-item">
+            <div class="cdz-amp-details">
+                <p class="cdz-amp-author">{{nickname}}</p>
+                <time class="cdz-amp-date" datetime="{{created_at}}">{{created_at}}</time>
+            </div>
+            <div class="cdz-amp-title-block">
+                <b class="cdz-amp-title">{{title}}</b>
+                <ul class="cdz-amp-rating-list">
+                    {{#rating_votes}}
+                    <li class="cdz-amp-rating-item _table-row">
+                        <div class="cdz-amp-label _table-cell">{{rating_code}}</div>
+                        <div class="cdz-amp-value _table-cell">
+                            <div class="cdz-amp-rating-summary">
+                                <span class="cdz-rating-result" title="{{percent}}%">
+                                    <span style="width:{{percent}}%">{{percent}}%</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    {{/rating_votes}}
+                </ul>
+            </div>
+            <div class="cdz-amp-content">{{detail}}</div>
+        </div>
+    {{/nickname}}
+    </template>
+    <amp-list-load-more class="cdz-amp-load-more _text-center _pd-top-20 _pd-bottom-20" load-more-button>
+        <button class="btn-large btn-primary _full-width _text-uppercase" aria-label="Collapse" on="tap:cdz-details-accordion.collapse(section=section-details-reviews), section-details-reviews.scrollTo(duration=200)"><?= __('Hide') ?></button>
+        <button class="btn-large btn-primary _full-width _text-uppercase" aria-label="<?= __('See more') ?>" load-more-clickable><?= __('See more') ?></button>
+    </amp-list-load-more>
+    <amp-list-load-more class="cdz-amp-load-more -end _text-center _pd-top-20 _pd-bottom-20" load-more-end>
+        <button class="btn-large btn-secondary _full-width _text-uppercase" aria-label="Collapse" on="tap:cdz-details-accordion.collapse(section=section-details-reviews), section-details-reviews.scrollTo(duration=200)"><?= __('Hide') ?></button>
+    </amp-list-load-more>
+</amp-list>
+<?php endif ?>

@@ -1,0 +1,44 @@
+<div class="social-feed instagram clearfix instagram-60d09b7e4ac05">
+    <section class="section-content"
+                    data-autoplay='true'
+                    data-arrows='false'
+                    data-speed='6000'
+                    data-autoplay-Speed='0'
+                    data-center-Mode='false'
+                    data-dots='false'
+                    data-fade='false'
+                    data-infinite='true'
+                    data-padding='0'
+                    data-vertical='false'
+                    data-vertical-Swiping='false'
+                    data-responsive='[{"breakpoint": "1921", "settings": {"slidesToShow": "6"}}, {"breakpoint": "1920", "settings": {"slidesToShow": "6"}}, {"breakpoint": "1480", "settings": {"slidesToShow": "5"}}, {"breakpoint": "1200", "settings": {"slidesToShow": "5"}}, {"breakpoint": "992", "settings": {"slidesToShow": "4"}}, {"breakpoint": "768", "settings": {"slidesToShow": "4"}}, {"breakpoint": "576", "settings": {"slidesToShow": "3"}}, {"breakpoint": "481", "settings": {"slidesToShow": "3"}}, {"breakpoint": "361", "settings": {"slidesToShow": "2"}}, {"breakpoint": "1", "settings": {"slidesToShow": "2"}}]'
+                    data-rows='1'
+                    data-slides-To-Show='6'
+                    data-swipe-To-Slide='true'
+            >
+        <h4 class="title">@Instagram</h4>
+    </section>
+</div>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'themeoptions/instagram',
+        ], function($, instagram){
+            $('.instagram-60d09b7e4ac05 .section-content').instagram({
+                username: 'binhadobe',
+                limit: 12,
+                accessToken: 'IGQVJWNHpJSjM1eXFLMnBsTDd5UFRWc1huem43VFBBTnZALejBzcFZAucmRreGUxYmpzVE1uemRRSFdNckhrdVl1d083MWFkeHVDYno3ZAVJrMGYtN2gyTF9MOU0zRlByOHlwOEVudnN0d0oxeHlsUVlxMAZDZD',                lazy : false,
+                afterload: function() {
+                    var el = $(this).find('.social-list');
+                    if( el.length ){
+                        if( !$(this).data( 'vertical') && $('body').hasClass('rtl') ){
+                            el.attr('dir', 'rtl');
+                            $(this).data( 'rtl', true );
+                        } 
+                        var options = $(this).data();
+                    }   
+            
+                }
+            }) 
+    });
+</script>

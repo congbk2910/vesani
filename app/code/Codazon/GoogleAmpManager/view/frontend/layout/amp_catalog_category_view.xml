@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="amp-page-products" />
+        <referenceBlock name="amp_custom_style">
+            <action method="addCustomStyleFile">
+                <argument name="file" xsi:type="string">category-view-styles.less</argument>
+            </action>
+        </referenceBlock>
+        <!-- page content -->
+        <referenceBlock name="category.products.list">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/list.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product_list_toolbar">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/list/toolbar.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product_list_toolbar_pager">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/html/pager.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="amp_page_content">
+            <block class="Magento\Catalog\Block\Category\View" name="amp-category-products" template="Codazon_GoogleAmpManager::amp/category/view.phtml" />
+        </referenceContainer>
+        
+        <referenceContainer name="amp_before_body_end">
+            <block name="amp_page_product_layer_sidebar" class="Magento\Framework\View\Element\Template" template="Codazon_GoogleAmpManager::amp/product/layer/sidebar.phtml">
+                <block name="amp_page_product_layer_sidebar_content" class="Magento\Framework\View\Element\Template" template="Codazon_GoogleAmpManager::amp/product/layer/sidebar-content.phtml">
+                    <block class="Magento\Framework\View\Element\Template" name="amp-catalog-navigation-state" as="state" template="Codazon_GoogleAmpManager::amp/product/layer/state.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

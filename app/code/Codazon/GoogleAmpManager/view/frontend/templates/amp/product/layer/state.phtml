@@ -1,0 +1,62 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$navStateBlock = $this->getLayout()->getBlock('catalog.navigation.state');
+?>
+<?php if ($navStateBlock) : ?>
+<?php
+$_filters = $navStateBlock->getActiveFilters();
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+?>
+<?php if (!empty($_filters)) : ?>
+<div class="cdz-filter-current _mg-bottom-10">
+    <div class="cdz-block-subtitle filter-current-subtitle"
+            role="heading"
+            aria-level="2"
+            data-count="<?= count($_filters) ?>"><?= $block->escapeHtml(__('Now Shopping by')) ?></div>
+    <ul class="cdz-items">
+        <?php foreach ($_filters as $_filter) : ?><?php
+        $label = $_filter->getLabel();
+        $label = is_array($label) ? implode(" + ", $label) : $label;
+        $label = $block->escapeHtml($block->stripTags($label));
+        $code = $_filter->getFilter()->getRequestVar();
+        ?>
+            <li class="cdz-item">
+                <div class="cdz-item-inner tag">
+                    <strong class="filter-label"><?= $block->escapeHtml(__($_filter->getName())) ?></strong>
+                    <span class="filter-value"><?= $label ?></span>
+                    <?php
+                    $clearLinkUrl = $_filter->getClearLinkUrl();
+                    $currentFilterName = $block->escapeHtmlAttr(__($_filter->getName()) . " " . $label);
+                    if ($clearLinkUrl) :
+                        ?>
+                        <a class="action previous" href="<?= $ampHelper->transformToAmpUrl($block->escapeUrl($_filter->getRemoveUrl())) ?>"
+                           title="<?= $block->escapeHtmlAttr(__('Previous')) ?>">
+                            <span><?= $block->escapeHtml(__('Previous')) ?></span>
+                        </a>
+                        <a class="action remove"
+                           title="<?= $block->escapeHtmlAttr($_filter->getFilter()->getClearLinkText()) ?>"
+                           href="<?= $ampHelper->transformToAmpUrl($block->escapeUrl($clearLinkUrl)) ?>">
+                            <span><?= $block->escapeHtml($_filter->getFilter()->getClearLinkText()) ?></span>
+                        </a>
+                    <?php else : ?>
+                        <a class="action remove" href="<?= $ampHelper->transformToAmpUrl($block->escapeUrl($_filter->getRemoveUrl())) ?>"
+                           title="<?= $block->escapeHtmlAttr(__('Remove')) . " " . $currentFilterName ?>">
+                            <span><?= $block->escapeHtml(__('Remove This Item')) ?></span>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        <li class="cdz-item item-action"><a class="action-clear btn-action btn btn-non-primary cdz-item-inner" title="<?= __('Clear All') ?>" href="<?= $ampHelper->transformToAmpUrl($navStateBlock->getClearUrl()) ?>"><span><?= __('Clear All') ?></span> <span class="action remove"></span></a></li>
+        <li class="cdz-item item-action hide-from-list">
+            <button class="action-change btn-action btn-non-primary cdz-item-inner" title="<?= __('Open filters list') ?>" on="tap: cdz-product-filters-sidebar.toggle"><span><?= __('Change Condition') ?></span></button>
+        </li>
+    </ul>
+</div>
+<?php endif ?>
+<?php endif ?>

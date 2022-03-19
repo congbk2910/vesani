@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_load_before">
+        <observer name="google_amp_manager_layout_load_before" instance="Codazon\GoogleAmpManager\Observer\LayoutLoadBefore" />
+    </event>
+    <event name="catalog_controller_product_view">
+        <observer name="google_amp_manager_catalog_controller_product_view" instance="Codazon\GoogleAmpManager\Observer\ControllerProductView" />
+    </event>
+</config>

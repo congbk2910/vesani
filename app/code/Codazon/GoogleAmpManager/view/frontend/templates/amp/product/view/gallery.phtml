@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php
+$images = $block->getGalleryImages()->getItems();
+?>
+<?php if ($images) : ?>
+<?php
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+$images[$mainImage->getId()] = null;
+unset($images[$mainImage->getId()]);
+$images = array_merge([$mainImage->getId() => $mainImage], $images);
+
+$width = $ampHelper->getConfig('googleampmanager/images/product_view_main_image_width') ? : 200;
+$height = $ampHelper->getConfig('googleampmanager/images/product_view_main_image_height') ? : 200;
+$thumbWidth = $ampHelper->getConfig('googleampmanager/images/product_more_view_image_width') ? : 95;
+$thumbHeight = $ampHelper->getConfig('googleampmanager/images/product_more_view_image_height') ? : 95;
+?>
+<div class="gallery-container">
+    <amp-carousel id="productCarousel" width="<?= $width ?>" height="<?= $height ?>"
+        class="cdz-amp-carousel-img cdz-amp-slider" layout="responsive" type="slides"
+        on="slideChange: productCarouselSelector.toggle(index=event.index, value=true), productCarouselPreview.goToSlide(index=event.index)">
+        <?php $i = 0; foreach ($images as $image) : ?>
+            <amp-img layout="responsive" src="<?= $image->getData('medium_image_url') ?>" width="<?= $width ?>" height="<?= $height ?>" alt="<?= $image->getLabel() ?>"></amp-img>
+        <?php $i++; endforeach ?>
+    </amp-carousel>
+    <amp-selector id="productCarouselSelector" on="select:productCarousel.goToSlide(index=event.targetOption)" layout="container">
+        <amp-carousel id="productCarouselPreview" class="cdz-amp-carousel-preview cdz-amp-slider" height="<?= $thumbHeight + 3 ?>" type="carousel" layout="fixed-height">
+        <?php $i = 0; foreach ($images as $image) : ?>
+            <amp-img option="<?= $i ?>" class="thumb-img" src="<?= $image->getData('small_image_url') ?>" width="<?= $thumbWidth ?>" height="<?= $thumbHeight ?>" alt="<?= $image->getLabel() ?>" <?= ($i==0) ? 'selected' : '' ?>></amp-img>
+        <?php $i++; endforeach ?>
+        </amp-carousel>
+    </amp-selector>
+</div>
+<?php endif ?>

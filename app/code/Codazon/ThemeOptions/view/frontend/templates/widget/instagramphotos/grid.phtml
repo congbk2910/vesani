@@ -1,0 +1,45 @@
+<?php $rid = md5(uniqid(rand(), true));?>
+<div class="social-feed instagram clearfix instagram-<?php echo $rid ?>">
+    <div class="section-content instagram-wrapper"></div>
+</div>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'Codazon_ThemeOptions/js/instagram',
+		'js/owlcarousel/owl.carousel.min'
+        ], function($, instagram){
+            $('.instagram-<?php echo $rid ?> .section-content').instagram({
+                limit: 12,
+                accessToken: '<?php echo $block->getData("access_token") ?>',
+                lazy : false,
+                afterload: function() {
+                    var el = $(this).find('.social-list');
+                    if( el.length ){
+                        el.owlCarousel({
+							loop: false,
+							margin: 20,
+							responsiveClass: true,
+							nav: true,
+							dots: false,
+							rtl: ThemeOptions.rtl_layout == 1 ? true : false,
+							responsive:{
+								0:		{items: 1},
+								320:	{items:	1},
+								360:	{items:	1},
+								480:	{items:	2},
+								768:	{items:	3},
+								980:	{items:	5},
+								1200:	{items: 5}
+							}	
+						});
+                    }   
+                }
+            }) 
+    });
+</script>
+<style>
+.owl-carousel 
+{
+    touch-action: manipulation; 
+}
+</style>

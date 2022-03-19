@@ -1,0 +1,258 @@
+title,identifier,content
+"Fastest - Garden - Main Menu",fastest-garden-main-menu,"<div class=""cdz-main-menu"">{{widget type=""Codazon\MegaMenu\Block\Widget\Megamenu"" menu=""fastest-garden-main-menu""}}</div>"
+"Fastest - Garden - Block Popup Content",fastest-garden-block-popup-content,"<div class=""cdz-popup-newsletter"">
+<div class=""cdz-popup-newsletter-left"">
+<div class=""popup-banner"">
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/banner-newsletter.jpg'}}"" alt=""Banner 01""></a></div>
+</div>
+</div>
+<div class=""cdz-popup-newsletter-right"">
+<div class=""popup-title"">
+<h3 class=""text-uppercase"">Sign up Newsletter</h3>
+</div>
+<div class=""popup-content"">
+<div class=""popup-content-ads"">
+<p class=""popup-content-title h3"">Join YourStore's squad for 20% off</p>
+<p class=""popup-content-desc"">and get all the latest news, trends and offs and offers straight to your inbox. Or get 15% off using code SQUAD15</p>
+<div class=""popup-content-newsletter"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""cdz.newsletter.style05"" template=""popup_subscribe.phtml""}}</div>
+<p class=""popup-content-small"">1 UK only; 2. Offar expiras 23:59(GMT) 10/02/16; 3.</p>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content Top - Slideshow",fastest-garden-main-content-top-slideshow,"<div class=""row"">
+<div class=""col-sm-14"">
+<div class=""slideshow-banner"">
+<div class=""slideshow-container"">{{widget type=""Codazon\Slideshow\Block\Widget\Slideshow"" slideshow_id=""fastest-garden-home-slideshow""}}</div>
+</div>
+</div>
+<div class=""col-sm-10"">
+<div class=""banners-wrapper-top hidden-xs"">
+<div class=""row"">
+<div class=""col-sm-12 space-xs"">
+<div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img01.jpg'}}"" alt=""banner 1""></a></div>
+</div>
+<div class=""col-sm-12 space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img02.jpg'}}"" alt=""banner 2""></a></div></div>
+</div>
+<div class=""row"">
+<div class=""col-sm-12 space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img03.jpg'}}"" alt=""banner 1""></a></div></div>
+<div class=""col-sm-12 space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img04.jpg'}}"" alt=""banner 2""></a></div></div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content Top - Advertisement Banners",fastest-garden-main-content-top-advertisement-banners,"<div class=""banners-wrapper-top hidden-xs"">
+<div class=""row"">
+<div class=""col-sm-6"">
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img05.jpg'}}"" alt=""banner 1""></a>
+</div></div>
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img06.jpg'}}"" alt=""banner 2""></a>
+</div></div>
+</div>
+<div class=""col-sm-6"">
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img07.jpg'}}"" alt=""banner 3""></a>
+</div></div>
+</div>
+<div class=""col-sm-6"">
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img08.jpg'}}"" alt=""banner 1""></a>
+</div></div>
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img09.jpg'}}"" alt=""banner 1""></a>
+</div></div>
+</div>
+<div class=""col-sm-6"">
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img17.jpg'}}"" alt=""banner 1""></a>
+</div></div>
+<div class="" space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img18.jpg'}}"" alt=""banner 1""></a>
+</div></div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content 7 - Product Tab 01",fastest-garden-main-content-7-product-tab-01,"<div class=""cdz-product-tabs home-product-style02"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""block-title"">
+<p class=""b-title h2"">New Products</p>
+<a class=""view-all"" href=""#"">View all</a></div>
+<div class=""tabs-list bestseller-product home-tabstyle01 cdz-tabs"">
+<ul class=""nav nav-tabs hidden-xs abs-dropdown cdz-mobiledropdown"">
+<li class=""data item title active"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#new-products-tab-1"" data-toggle=""switch"">Watering Cans</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#new-products-tab-2"" data-toggle=""switch"">Organic Gardening</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#new-products-tab-3"" data-toggle=""switch"">Fertilizers</a></li>
+</ul>
+<div class=""tab-content product data items"">
+<div id=""new-products-tab-1"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`221`^]^]""}}</div>
+<div id=""new-products-tab-2"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`221`^]^]""}}</div>
+<div id=""new-products-tab-3"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`218`^]^]""}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content 6 - Banner",fastest-garden-main-content-6-banner,"<div class=""banners-wrapper row hidden-xs"">
+<div class=""col-sm-24""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img15.jpg'}}"" alt=""Main Content Banner""></a></div></div>
+</div>"
+"Fastest - Garden - Main Content 4 - From Our Blog",fastest-garden-main-content-4-from-our-blog,"<div class=""block-title custom-title"">
+<p class=""b-title h2"">Our Blog</p>
+</div>
+<p>{{widget type=""Magefan\Blog\Block\Widget\PostList"" categories=""23"" order_by=""publish_time"" order=""desc"" post_count=""6"" show_in_front=""thumb,name,description,published_date,author"" desc_length=""150"" thumb_width=""380"" thumb_height=""281"" show_slider=""1"" post_template=""custom"" custom_template=""blog_slider.phtml""}}</p>"
+"Fastest - Garden - Main Content 5  - Brands Slider",fastest-garden-main-content-5-brands-slider,"<div class=""cdz-brand-slider-wrap"">
+<div class=""cdz-brand-slider"">{{widget type=""Codazon\Shopbybrandpro\Block\Widget\BrandSlider"" list_style=""widget/brand_slider.phtml"" alphabet_table=""a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"" items_per_column=""1"" order_by=""brand_label"" order_way=""asc"" thumb_width=""180"" thumb_height=""180"" slider_dots=""0"" slider_nav=""1"" slider_loop=""0"" slider_margin=""20"" items_1900=""8"" items_1600=""7"" items_1420=""7"" items_1280=""7"" items_980=""6"" items_768=""5"" items_480=""4"" items_320=""3"" items_0=""2""}}</div>
+</div>"
+"Fastest - Garden - Footer Container Top - Newsletter",fastest-garden-footer-container-top-newsletter,"<div class=""row"">
+<div class="" col-sm-12"">
+<div class=""newsletter-wrapper"">
+<div class=""newsletter-container"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""form.subscribe"" as=""subscribe"" before=""-"" template=""subscribe.phtml""}}</div>
+</div>
+</div>
+<div class=""col-sm-12"">
+<div class=""footer-social"">
+<p class=""social pull-right""><a href=""#""><span class=""fa fa-facebook"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-twitter"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-pinterest-p"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-google-plus"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-tumblr"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-vimeo"">&nbsp;</span></a></p>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Footer Content - Links",fastest-garden-footer-content-links,"<div class=""row"">
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-1"">CORPORATE</p>
+<ul id=""footer-content-1"" class=""footer-link showhide"">
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">About Us</a></li>
+<li><a href=""#"">Orders and Returns</a></li>
+<li><a href=""{{store url=""""}}contacts/"">Afiliates</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-2"">Your Links</p>
+<ul id=""footer-content-2"" class=""footer-link showhide"">
+<li><a href=""#"">Shipping guide</a></li>
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">Store location</a></li>
+<li><a href=""#"">Afiliates</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Customer point policy</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-3"">Support</p>
+<ul id=""footer-content-3"" class=""footer-link showhide"">
+<li><a href=""#"">FAQ</a></li>
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">Our services</a></li>
+<li><a href=""{{store url=""""}}contacts/"">Contact Us</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Forum Support</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-4"">Pages</p>
+<ul id=""footer-content-4"" class=""footer-link showhide"">
+<li><a href=""#"">Home</a></li>
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">Our Categories</a></li>
+<li><a href=""{{store url=""""}}contacts/"">Products</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Checkout</a></li>
+</ul>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Footer Payment",fastest-garden-footer-payment,"<div class=""footer-payment-logo"">
+<div class=""cdz-footer-bottom-payment""><img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/fastest_fashion/home/cdz-footer-payment.png""}}"" alt=""Accept Payment""></div>
+</div>"
+"Fastest - Garden - Main Content Top - Popular Categories",fastest-garden-main-content-top-popular-categories,"<div class=""categories-banner-grid"">
+<div class=""categories-col group"">
+<div class=""block-title"">
+<p class=""b-title h3"">Popular Categories</p>
+<a class=""view-all"" href=""#"">View all</a></div>
+<div class=""cat-list"">
+<div class=""cdz-slider cdz-slider-banners cdz-slider-navigation-icon owl-carousel"" data-items=""4"" data-items-0=""2"" data-items-320=""3"" data-items-480=""4"" data-items-768=""5"" data-items-980=""6"" data-items-1280=""8"" data-margin=""0"">
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-01.jpg""}}"" alt=""cat-banner.jpg""> </span> <span class=""title"">Planter Pots</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-02.jpg""}}"" alt=""cat-banner.jpg""> </span> <span class=""title"">Garden Tool</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-03.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Gardening Gloves</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-04.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Trowel Black</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-05.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Window Box</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-06.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Aerocart</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-07.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Seed Grow Kit</span> </a></div>
+<div class=""cat-item""><a href=""#""> <span class=""thumb""> <img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/cat-08.jpg""}}"" alt=""cat-banner.jpg""></span> <span class=""title"">Soil</span> </a></div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content 3 - Hot Deals",fastest-garden-main-content-3-hot-deals,"<div class=""home-product-style02 home-hotdeal"">
+<div class=""cdz-products box-product"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""block-title  bg-block-title"">
+<p class=""b-title h2"">Hot Deals</p>
+<a class=""view-all"" href=""#"">View all</a></div>
+</div>
+</div>
+<div class=""col-sm-24 text-center "">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""deals"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_hotdeal.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`218,219,220,221,222`^]^]""}}</div>
+</div>
+</div>"
+"Fastest - Garden - Main Content 5 - Best Selling Products",fastest-garden-main-content-5-best-selling-products,"<div class=""cdz-product-tabs home-product-style02"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""block-title"">
+<p class=""b-title h2"">Top Best Seller</p>
+</div>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-sm-7"">
+<div class=""banner-category"">
+<div class=""block-banner-content"">
+<div class=""cdz-shadow shine-effect cdz-banner""><a title=""Your title"" href=""#""><img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/garden/img11.jpg""}}"" alt=""codazon-banner""></a></div>
+</div>
+</div>
+</div>
+<div class=""col-sm-17"">
+<div class=""tabs-list bestseller-product home-tabstyle01 cdz-tabs"">
+<ul class=""nav nav-tabs hidden-xs abs-dropdown"">
+<li class=""data item title active"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#best-seller-tab-1"" data-toggle=""switch"">Garden Tools</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#best-seller-tab-2"" data-toggle=""switch"">Garden Stools</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#best-seller-tab-3"" data-toggle=""switch"">Accessories</a></li>
+</ul>
+<div class=""tab-content product data items"">
+<div id=""best-seller-tab-1"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`218`^]^]""}}</div>
+<div id=""best-seller-tab-2"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`219`^]^]""}}</div>
+<div id=""best-seller-tab-3"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`220`^]^]""}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Header Phone Number",fastest-garden-header-phone-number,"<p class=""header-phone"">HotLine: <a href=""#"">(286)909xxxx</a></p>"
+"Fastest - Garden - Main Content 4 - Three Banner",fastest-garden-main-content-4-three-anner,"<div class=""banners-wrapper-top hidden-xs"">
+<div class=""row"">
+<div class=""col-sm-8 space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img12.jpg'}}"" alt=""banner 1""></a></div></div>
+<div class=""col-sm-8  space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img13.jpg'}}"" alt=""banner 1""></a></div></div>
+<div class=""col-sm-8  space-xs""><div class=""shine-effect cdz-banner""><a class=""effect"" href=""#""> <img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/garden/img14.jpg'}}"" alt=""banner 2""></a></div></div>
+</div>
+</div>"
+"Fastest - Garden - Main Content 8 - Product Tab 02",fastest-garden-main-content-8-product-tab-02,"<div class=""cdz-product-tabs home-product-style02"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""block-title"">
+<p class=""b-title h2"">Featured Products</p>
+<a class=""view-all"" href=""#"">View all</a></div>
+<div class=""tabs-list bestseller-product home-tabstyle01 cdz-tabs"">
+<ul class=""nav nav-tabs hidden-xs abs-dropdown cdz-mobiledropdown"">
+<li class=""data item title active"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-1"" data-toggle=""switch"">Live Plants</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-2"" data-toggle=""switch"">Planters</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-3"" data-toggle=""switch"">Seeds</a></li>
+</ul>
+<div class=""tab-content product data items"">
+<div id=""featured-products-tab-1"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`219`^]^]""}}</div>
+<div id=""featured-products-tab-2"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`220`^]^]""}}</div>
+<div id=""featured-products-tab-3"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""14"" order_by=""name DESC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""220"" thumb_height=""220"" filter_template=""custom"" custom_template=""grid_slider_1.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`221`^]^]""}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Garden - Header Link",fastest-garden-header-link,"<ul>
+<li><a href=""#"">Contact</a></li>
+<li><a href=""#"">FAQ</a></li>
+<li><a href=""#"">Ship to United State</a></li>
+</ul>"

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php /** @var $block \Magento\Catalog\Block\Product\AbstractProduct */ ?>
+<?php
+$product = $block->getProduct();
+$block->getReviewsSummaryHtml($product, false, true);
+echo $this->getLayout()->createBlock(\Magento\Review\Block\Product\ReviewRenderer::class)
+    ->setProduct($product)
+    ->setDisplayIfEmpty(true)
+    ->setTemplate('Codazon_GoogleAmpManager::amp/product/view/review-info-content.phtml')->toHtml();
+?>

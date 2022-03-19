@@ -1,0 +1,184 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+switch ($type = $block->getType()) {
+    case 'related-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+        break;
+
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+        if ($exist = $block->getItems()->getSize()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getItems();
+            $limit = 0;
+            $shuffle = 0;
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+        break;
+
+    case 'upsell-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('We found other products you might like!');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'upsell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Upsell $block */
+        if ($exist = count($block->getItemCollection()->getItems())) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('We found other products you might like!');
+            $items = $block->getItemCollection()->getItems();
+            $limit = $block->getItemLimit('upsell');
+            $shuffle = 0;
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'crosssell-rule':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->hasItems()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItemCollection();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = count($block->getItems())) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItems();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'new':
+        if ($exist = $block->getProductCollection()) {
+            $type = 'new';
+            $mode = 'grid';
+            $type = $type . ' ' . $mode;
+
+            $class = 'widget' . ' ' . $type;
+
+            $image = 'new_products_content_widget_grid';
+            $title = __('New Products');
+            $items = $exist;
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = ($mode == 'list') ? true : false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    default:
+        $exist = null;
+}
+?>
+<?php if ($exist) : ?>
+<?php
+$ampHelper = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+$width = $ampHelper->getConfig('googleampmanager/images/product_list_image_width') ? : 200;
+$height = $ampHelper->getConfig('googleampmanager/images/product_list_image_height') ? : 200;
+$imageHelper = $this->helper('Magento\Catalog\Helper\Image');
+$buttonText = __('View details');
+$ampHelper = $this->helper('Codazon\GoogleAmpManager\Helper\Data');
+?>
+<div class="_mg-top-20 _mg-bottom-20 cdz-products cdz-block <?= $class ?>">
+    <div class="cdz-block-title"><?= $title ?></div>
+    <div class="cdz-block-content">
+        <ul class="cdz-product-listing cdz-list">
+            <?php foreach ($items as $_item) :
+                $url = $ampHelper->transformToAmpUrl($block->escapeUrl($block->getProductUrl($_item)));
+                $mainImage = $_item->getData('small_image');
+            ?><li class="cdz-item">
+                <div class="product-item-info cdz-list-inner">
+                    <div class="product-item-top cdz-list-left">
+                        <a href="<?= $url ?>" class="product-item-photo">
+                             <amp-img class="product-image-photo cdz-list-img" layout="responsive" src="<?php echo $imageHelper->init($_item, $image)->setImageFile($mainImage)->resize($width, $height)->getUrl() ?>" width="<?= $width ?>" height="<?= $height ?>"></amp-img>
+                        </a>
+                    </div>
+                    <div class="product-item-detail cdz-list-right">
+                        <strong class="product-item-name"><a class="product-item-link" title="<?= $block->escapeHtmlAttr($_item->getName()) ?>" href="<?= $url ?>"><?= $block->escapeHtml($_item->getName()) ?></a></strong>
+                        <?= $block->getProductPrice($_item); ?>
+                        <p class="actions"><a href="<?= $url ?>" class="cdz-amp-button btn-small btn-primary"><?= $buttonText ?></a></p>
+                    </div>
+                </div>
+            </li>
+            <?php endforeach ?>
+        </div>
+    </ul>
+</div>
+<?php endif ?>

@@ -1,0 +1,88 @@
+.cdz-amp-footer{
+    .color_box(@footer_background, @footer_text, none);
+    a{
+        color: @footer_text;
+    }
+    .cdz-title{
+        color: @footer_title;
+        font: @h3_font;
+        font-weight: bold;
+        margin-bottom: 15px;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .cdz-links-list{
+        padding: 0;
+        margin: 0;
+        li{
+            list-style: none;
+            margin-bottom: 5px;
+        }
+    }
+    .cdz-block{
+        margin-bottom: 20px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+    button, input[type=submit], .btn{
+        .color_box(@footer_button_background, @footer_button_text, 2px solid @footer_button_border);
+    }
+}
+.cdz-logo-footer {
+    display: block;
+    width: ~'calc(100% - 40px)';
+}
+.cdz-footer-top{
+    .color_box(@footer_top_background, @footer_top_text, none);
+    padding: 20px 0px;
+}
+.cdz-footer-middle {
+    padding: 20px 0px;
+}
+.cdz-footer-bottom{
+    .color_box(@footer_bottom_background, @footer_bottom_text, none);
+    padding: 20px 0px;
+}
+.footer-box-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+.footer-box{
+    width: 100%;
+    max-width: (@container_max_width - 40px )/ @footer_max_columns;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+.cdz-copyright{
+    
+}
+//***** Subscribe Form *****
+.cdz-block-newsletter {
+    .cdz-title{
+        display: inline-block;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .cdz-amp-form{
+        display: flex;
+        align-items: center;
+        .field{
+            width: 100%;
+            padding-right: 8px;
+            margin-bottom: 0;
+        }
+        input{
+            width: 100%;
+            border: 2px solid @footer_button_border;
+            border-radius: 0;
+        }
+        .actions button{
+            padding: 5px 10px;
+            //.color_box(@footer_button_background, @footer_button_text, 2px solid @footer_button_border);
+            text-transform: uppercase;
+        }
+    }
+}

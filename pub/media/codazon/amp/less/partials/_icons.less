@@ -1,0 +1,48 @@
+.cdz-amp-star{
+    font-size: 0;
+    color: #ccc;
+    margin-right: 5px;
+    &:before{
+        .fa-icon("\f005", 18px);
+    }
+    &:hover{
+        color: #ffeb3b;
+        ~ .cdz-amp-star{
+            color: #ffeb3b;
+        }
+    }
+}
+.cdz-icon{
+    font-size: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-style: normal;
+    &:before{
+        font-family: FontAwesome;
+        content: attr(data-icon);
+        font-size: 18px;
+        line-height: 18px;
+    }
+}
+.cdz-amp-icon{
+    font-style: normal;
+    &:before{
+        font-family: FontAwesome;
+    }
+}
+.cdz-amp-times:before{
+    content: "\f00d";
+}
+.cdz-amp-shopping-basket:before{
+    content: "\f291";
+}
+.cdz-amp-shopping-cart:before{
+    content: "\f07a";
+}
+.cdz-amp-search:before{
+    content: "\f002";
+}
+.cdz-amp-bars:before{
+    content: "\f0c9";
+}

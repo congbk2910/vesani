@@ -1,0 +1,237 @@
+title,identifier,content
+"Fastest - Beauty - Three Banners",fastest-beauty-threebanner,"<div class=""cdz-three-banner"">
+<div class=""row"">
+<div class=""col-sm-8"">
+<div class=""groupbanner-text hover-scale ""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/img06.jpg'}}"" alt=""Banner 01""></a>
+<div class=""group-info"">
+<div class=""groupinfo-inner"">
+<div class=""groupinfo-desc text-center"">
+<p class=""grifo-title text-uppercase""><a href=""#"">Anti-Blackhead</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=""col-sm-8"">
+<div class=""groupbanner-text hover-scale""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/img07.jpg'}}"" alt=""Banner 03""></a>
+<div class=""group-info"">
+<div class=""groupinfo-inner"">
+<div class=""groupinfo-desc text-center"">
+<p class=""grifo-title text-uppercase""><a href=""#"">Black Sol</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=""col-sm-8"">
+<div class=""groupbanner-text hover-scale""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/img08.jpg'}}"" alt=""Banner 03""></a>
+<div class=""group-info"">
+<div class=""groupinfo-inner"">
+<div class=""groupinfo-desc text-center"">
+<p class=""grifo-title text-uppercase""><a href=""#"">Accessories Set</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Footer Links",fastest-beauty-footer-links,"<div class=""row"">
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5 hidden-xs"">About us</p>
+<div>
+<p class=""hidden-xs"">Fastest Magento 2 store has seen some remarkable accomplishments over the past 30 years. With a goal to become an $8 billion company by 2017</p>
+<div class=""footer-social"">
+<p class=""h5 visible-xs"">Follow us</p>
+<p class=""social""><a href=""#""><span class=""fa fa-facebook"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-twitter"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-pinterest-p"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-google-plus"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-tumblr"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-vimeo"">&nbsp;</span></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-2"">You Link</p>
+<ul id=""footer-content-2"" class=""footer-link showhide"">
+<li><a href=""#"">Side Navigation</a></li>
+<li><a href=""{{store url=""""}}about-us"">About Us</a></li>
+<li><a href=""{{store url=""""}}contact"">Contact Us</a></li>
+<li><a href=""#"">Forum Support</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode"">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-3"">Infomation</p>
+<ul id=""footer-content-3"" class=""footer-link showhide"">
+<li><a href=""#"">Side Navigation</a></li>
+<li><a href=""{{store url=""""}}about-us"">About Us</a></li>
+<li><a href=""{{store url=""""}}contact"">Contact Us</a></li>
+<li><a href=""#"">Forum Support</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode"">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-4"">Item Tags</p>
+<ul id=""footer-content-4"" class=""item_tag showhide"">
+<li><a href=""#"">awesome</a></li>
+<li><a href=""#"">beautiful</a></li>
+<li><a href=""#"">flat design</a></li>
+<li><a href=""#"">ios</a></li>
+<li><a href=""#"">mass</a></li>
+<li><a href=""#"">awesome</a></li>
+<li><a href=""#"">beautiful</a></li>
+<li><a href=""#"">flat design</a></li>
+</ul>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Footer Bottom Payment",fastest-beauty-footer-bottom-payment,"<div class=""pull-right footer-payment-logo"">
+<div class=""cdz-footer-bottom-payment""><img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/fastest_ellyana/home/cdz-footer-payment.png""}}"" alt=""Accept Payment"" /></div>
+</div>"
+"Fastest - Beauty - Main Area - Best Seller",fastest-beauty-main-area-best-seller,"<div class=""cdz-product-tabs cdz-best-seller-wrap"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""cdz-block-title"">
+<p class=""b-title h1"">Best Sellers</p>
+</div>
+<div class=""tabs-list bestseller-product product-style09 cdz-tabs"">
+<ul class=""nav nav-tabs hidden-xs abs-dropdown cdz-mobiledropdown"">
+<li class=""data item title active"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-1"" data-toggle=""switch"">Make up sets</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-2"" data-toggle=""switch"">Bath and body</a></li>
+<li class=""data item title"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#featured-products-tab-3"" data-toggle=""switch"">Fragrance</a></li>
+</ul>
+<div class=""tab-content product data items"">
+<div id=""featured-products-tab-1"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,sku,review,price,addtocart,addto"" thumb_width=""280"" thumb_height=""320"" filter_template=""custom"" custom_template=""grid_slider.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`223`^]^]""}}</div>
+<div id=""featured-products-tab-2"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,sku,review,price,addtocart,addto"" thumb_width=""280"" thumb_height=""320"" filter_template=""custom"" custom_template=""grid_slider.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`225`^]^]""}}</div>
+<div id=""featured-products-tab-3"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,sku,review,price,addtocart,addto"" thumb_width=""280"" thumb_height=""320"" filter_template=""custom"" custom_template=""grid_slider.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`227, 228`^]^]""}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Main Area - New Trend Beauty",fastest-beauty-main-area-new-trend-beauty,"<div class=""cdz-new-trend-wrap"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""cdz-block-title"">
+<p class=""b-title h2"">New trending Product</p>
+</div>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-sm-24 cdz-new-trend product-style09"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""entity_id ASC"" show=""thumb,name,sku,review,price,addtocart,addto"" thumb_width=""280"" thumb_height=""320"" filter_template=""custom"" custom_template=""grid_slider.phtml"" show_slider=""1"" slider_item=""4"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`61`^]^]""}}</div>
+</div>
+</div>
+<p>&nbsp;</p>"
+"Fastest - Beauty - Main Area - Advertisement",fastest-beauty-main-area-home-advertisement,"<div class=""main-advertisement"">
+<div class=""row"">
+<div class=""col-sm-12"">
+<div class=""row"">
+<div class=""col-sm-12  col-xs-12 col-first "">
+<div class=""banner space-base""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads01.jpg'}}"" alt=""Banner 01""></a></div>
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads02.jpg'}}"" alt=""Banner 02""></a></div>
+</div>
+<div class=""col-sm-12  col-xs-12 col-second"">
+<div class=""banner space-base""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads03.jpg'}}"" alt=""Banner 03""></a></div>
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads04.jpg'}}"" alt=""Banner 04""></a></div>
+</div>
+</div>
+</div>
+<div class=""col-sm-12"">
+<div class=""row"">
+<div class=""col-sm-12 col-xs-12 col-third"">
+<div class=""banner space-base""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads05.jpg'}}"" alt=""Banner 05""></a></div>
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads06.jpg'}}"" alt=""Banner 06""></a></div>
+</div>
+<div class=""col-sm-12  col-xs-12 col-fourth"">
+<div class=""adver-content space-base"">
+<p class=""adver-title"">3 Brands - 3 Special Offers</p>
+<div class=""adver-desc"">
+<p>Save a massive 15% on 3 fantastic brands: Dr. Bronner's, Unique Beauty &amp; Karethic! Sale ends on 09.05.2021.</p>
+<p>Now available at Victorian Plumbing.</p>
+<p><a class=""view-more"" href=""#"">view more</a></p>
+</div>
+</div>
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/ads07.jpg'}}"" alt=""Banner 07""></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Main Menu",fastest-beauty-main-menu,"<div class=""cdz-main-menu"">{{widget type=""Codazon\MegaMenu\Block\Widget\Megamenu"" menu=""fastest-beauty-main-menu""}}</div>"
+"Fastest - Beauty - Footer Top - Newsletter",fastest-beauty-footer-top-newsletter,"<div class=""footer-top-ads text-center cls-style02"">
+<p class=""ftop-ads-title"">Join us missguided's squad for 20% off</p>
+<p class=""ftop-ads-desc"">and get all the latest news, trends and offs and offers straight to your inbox. Or get 15% off using code SQUAD15</p>
+<div class=""ftop-newsletter"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""cdz.newsletter.style05"" template=""subscribe.phtml""}}</div>
+<p class=""ftop-ads-small"">1 UK only; 2. Offar expiras 23:59(GMT) 10/02/16; 3. T&amp;C's apply</p>
+</div>"
+"Fastest - Beauty - Block Popup Content",fastest-beauty-block-popup-content,"<div class=""cdz-popup-newsletter"">
+<div class=""cdz-popup-newsletter-left"">
+<div class=""popup-banner"">
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/banner-newsletter.jpg'}}"" alt=""Banner 01""></a></div>
+</div>
+</div>
+<div class=""cdz-popup-newsletter-right"">
+<div class=""popup-title"">
+<h3 class=""text-uppercase"">Sign up Newsletter</h3>
+</div>
+<div class=""popup-content"">
+<div class=""popup-content-ads"">
+<p class=""popup-content-title h3"">Join YourStore's squad for 20% off</p>
+<p class=""popup-content-desc"">and get all the latest news, trends and offs and offers straight to your inbox. Or get 15% off using code SQUAD15</p>
+<div class=""popup-content-newsletter"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""cdz.newsletter.style05"" template=""popup_subscribe.phtml""}}</div>
+<p class=""popup-content-small"">1 UK only; 2. Offar expiras 23:59(GMT) 10/02/16; 3.</p>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Product Static Block - SizeChart",fastest-beauty-product-static-block-sizechart,"<div class=""size-chart-fashion"">
+<div class=""size-chart-link""><a class=""sizechart-trigger"" title=""Size Chart"" href=""#"" data-dlg-options=""{&quot;width&quot;:800,&quot;height&quot;:800}"">Size Chart</a></div>
+<div class=""size-chart-content modal"" style=""display: none;"">
+<div class=""content""><!-- Dynamically Insert Content Here --> <img src=""{{media url=""wysiwyg/codazon/size_chart_all.jpg""}}"" alt="""" /> <button class=""close""></button></div>
+<div class=""overlay""> </div>
+</div>
+</div>"
+"Fastest - Beauty - Home Slideshow",fastest-beauty-home-slideshow,"<div class=""slideshow-container"">{{widget type=""Codazon\Slideshow\Block\Widget\Slideshow"" slideshow_id=""fastest-beauty-home-slideshow""}}</div>"
+"Fastest - Beauty - Main Area - New Blog Posts List",fastest-beauty-main-area-new-blog-posts-list,"<div class=""cdz-block-title"">
+<p class=""b-title h2"">Our recent work</p>
+</div>
+<p>{{widget type=""Magefan\Blog\Block\Widget\PostList"" title=""Our recent work"" categories=""24"" order_by=""publish_time"" order=""desc"" post_count=""6"" show_in_front=""thumb,name,description,published_date,author"" desc_length=""150"" thumb_width=""380"" thumb_height=""380"" show_slider=""1"" post_template=""custom"" custom_template=""post/widget/blog_slider.phtml""}}</p>"
+"Fastest - Beauty - Main Area - Instagram",fastest-beauty-main-area-instagram,"<div class=""main-instagram text-center space-lg"">
+<div class=""cdz-block-title special-title"">
+<p class=""b-title h1"">#ELLYANA Style Trending</p>
+<p class=""title-desc"">Follow us on instagram</p>
+</div>
+<div class=""main-instagram-content"">{{widget type=""Codazon\ThemeOptions\Block\Instagramphotos"" access_token=""3893338542.38fb276.e8dbfaac57214bf69c0439027ee39d85"" use_user_id=""1"" user_id=""3893338542"" max_items=""9""}}</div>
+</div>"
+"Fastest - Beauty - Banner Top",fastest-beauty-banner-top,"<div class=""cdz-banner-top"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""image hover-scale""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/img01.jpg'}}"" alt=""Banner 01""></a>
+<div class=""banner-info"">
+<div class=""banner-inner"">
+<div class=""banner-desc"">
+<p class=""banner-sub hidden-xs"">Spring/Summer 2021 Sale!</p>
+<p class=""banner-title text-uppercase h3""><a href=""#"">Top 10 colors for the best lipstick</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Beauty - Middle Banner ",fastest-beauty-middle-banner,"<div class=""cdz-banner-middle"">
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/beauty/img05.jpg'}}"" alt=""Banner 01""></a>
+<div class=""banner-info"">
+<div class=""banner-inner"">
+<div class=""banner-desc"">
+<p class=""banner-text"">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam</p>
+<p class=""banner-button""><a class=""action primary"">Learn More</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>"

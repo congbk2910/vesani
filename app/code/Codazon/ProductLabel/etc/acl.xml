@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Codazon_ProductLabel::menu" title="Codazon - Product Label" sortOrder="9" >
+                    <resource id="Codazon_ProductLabel::productlabel" title="Product Label" sortOrder="10">
+                        <resource id="Codazon_ProductLabel::edit" title="Edit" sortOrder="10" />
+                        <resource id="Codazon_ProductLabel::save" title="Save" sortOrder="20" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

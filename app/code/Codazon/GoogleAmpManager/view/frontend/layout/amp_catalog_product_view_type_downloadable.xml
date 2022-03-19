@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.downloadable.options">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/downloadable/links.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.downloadable.samples">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/downloadable/samples.phtml</argument>
+            </action>
+        </referenceBlock>
+        <move element="product.info.downloadable.samples"  destination="amp_product.info.main" />
+    </body>
+</page>

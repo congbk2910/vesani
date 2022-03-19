@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Codazon_ShippingCostCalculator::css/shipping-estimation.css" />
+    </head>
+    <body>
+        <referenceContainer name="product.info.form.content">
+            <block class="Magento\Directory\Block\Data" ifconfig="codazon_shipping_cost_calculator/general/enable" before="product.info.addtocart" name="shipping-estimation-simple" template="Codazon_ShippingCostCalculator::shipping-estimation.phtml">
+                <arguments>
+                    <argument name="attribute_data" xsi:type="object">Codazon\ShippingCostCalculator\Block\DataProviders\AddressAttributeData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.options.wrapper">
+            <block class="Magento\Directory\Block\Data" ifconfig="codazon_shipping_cost_calculator/general/enable" after="product.info.options.configurable" before="-" name="shipping-estimation-configurable" template="Codazon_ShippingCostCalculator::shipping-estimation.phtml">
+                <arguments>
+                    <argument name="attribute_data" xsi:type="object">Codazon\ShippingCostCalculator\Block\DataProviders\AddressAttributeData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © 2021 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$alphabetTable = $block->getAlphabetTable();
+$brands = $this->getBrandCollection();
+$width = $block->getData('thumb_width') ? : 200;
+$height = $block->getData('thumb_height') ? : 200;
+$paddingBottom = 100*$height/$width;
+$helper = $this->helper(\Codazon\Shopbybrandpro\Helper\Data::class);
+?>
+<div class="brand-alphabet-list page-products" data-role="brand_list">
+    <div class="brand-loader double-bounce-spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+    <div class="brand-inner">
+        <div class="char-list" data-role="char-list" data-activechar=<?= $this->getRequest()->getParam('first_char') ?>>
+            <a class="char-item all" data-char="all" class="active" href="javascirpt:;"><?php echo __('All') ?></a>
+            <a class="char-item number" data-char="num" class="active" href="javascirpt:;"><?php echo __('0 - 9') ?></a>
+            <?php foreach ($alphabetTable as $char) : ?>
+            <a class="char-item alphabet" data-char="<?= $char ?>" href="javascirpt:;"><?= $char ?></a>
+            <?php endforeach ?>
+        </div>
+        <?php if ($brands->count()) : ?>
+        <?= $this->getToolBarHtml() ?>
+        <div class="brand-list products wrapper flex-grid" data-role="brand-list">
+            <?php foreach ($brands as $brand) : ?>
+            <?php
+            $label = strip_tags($brand->getName());
+            $optId = $brand->getData('option_id');
+            $url = $helper->getBrandUrl($brand);
+            $productCount = $helper->getProductCount(null, $optId);
+            ?>
+            <div class="brand-item col-lg-3 col-md-3 col-sm-6 col-xs-8 pd-<?= $productCount ?>" data-label='<?= $label ?>'>
+                <div class="brand-item-inner">
+                    <div class="item-top">
+                        <a class="brand-link abs-img" style="padding-bottom: calc(<?= $paddingBottom ?>% - 2px)" href="<?= $url ?>" title="<?= $label; ?>">
+                            <img class="brand-img zoom-eff" alt="<?= $label ?>" src="<?= $block->getThumbnailImage($brand, ['width' => $width, 'height' => $height]) ?>" />
+                        </a>
+                    </div>
+                    <div class="item-bottom">
+                        <a class="brand-name" href="<?= $url ?>" title="<?= $label; ?>">
+                            <?= $label; ?>
+                        </a>
+                        <?php if ($productCount > 1) : ?>
+                        <div class="count"><?= __('%1 products', $productCount) ?></div>
+                        <?php else : ?>
+                        <div class="count"><?= __('%1 product', $productCount) ?></div>
+                        <?php endif ?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
+        <?= $this->getToolBarHtml() ?>
+        <?php else : ?>
+        <div class="message info empty"><div class="no-item"><?= __('There is no brand macthing your select') ?></div></div>
+        <?php endif ?>
+    </div>
+</div>

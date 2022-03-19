@@ -1,0 +1,83 @@
+body.rtl-layout{
+    direction: rtl;
+}
+
+@right: ~'right';
+
+.rtl-layout{
+    //***** General
+    .input-large{
+        padding: 5px 7px 5px 0px;
+    }
+    .cdz-amp-accordion .cdz-section-heading:after{
+        left: 10px;
+        right: auto;
+    }
+    .cdz-amp-rating-summary .cdz-rating-result > span{
+        right: 0;
+        left: auto;
+    }
+    .cdz-amp-msg:before{
+        float: right;
+        margin-left: 5px;
+        margin-right: 0;
+    }
+     ._btn-cart{
+        &:before{
+            content: '';
+            margin-right: 0px;
+        }
+        &:after{
+            .fa-icon("\f07a", inherit);
+            margin-left: 8px;
+        }
+    }
+    //***** Header
+    .cdz-amp-search-submit{
+        left: 20px;
+        right: auto;
+    }
+    .cdz-amp-search-reset{
+        right: auto;
+        left: 50px;
+    }
+    .cdz-amp-search-btn{
+        margin-left: 10px;
+        margin-right: 0;
+    }
+    //***** Footer
+    .cdz-block-newsletter .cdz-amp-form .field{
+        padding-right: 0;
+        padding-left: 8px;
+    }
+    //***** Sidebar
+    .cdz-amp-menu-acc .cdz-sec-heading.parent{
+        padding-right: 0px;
+        padding-left: 30px;
+        &:after{
+            right: auto;
+            left: 0;
+        }
+    }
+    .cdz-minicart-list .cart-actions{
+        right: 5px;
+        left: auto;
+    }
+    //***** Category
+    .cdz-toolbar .cdz-toolbar-filter{
+        margin-right: 0;
+        margin-left: 3px;
+    }
+    .pages-items .item .next:before{
+        content: "\f104";
+    }
+    .pages-items .item .previous:before{
+        content: "\f105";
+    }
+    .cdz-option-list .cdz-label input{
+        margin: 0 0 0 10px;
+    }
+    .cdz-swatch-list.text .cdz-option{
+        margin: 0 0 10px 10px;
+    }
+}

@@ -1,0 +1,41 @@
+@import '_variables-default.less';
+@import (optional,less)'_variables-custom.less';
+@import (optional,less)'scope/@{website}/0/_variables-custom.less';
+@import (optional,less)'scope/@{website}/@{store}/_variables-custom.less';
+
+
+/*
+@store_variables_length: length(@scope_variables);
+.inport_less_file(@scope_variables; @index) when (@index > 0) {
+    .inport_less_file(@scope_variables; @index - 1);
+    @file: extract(@scope_variables, @index);
+    @import (optional,less)~"@{file}";
+}
+.inport_less_file(@scope_variables, @store_variables_length); */
+
+//-------------------------------------------------//
+
+@normal_text: @text_1;
+
+
+@small_tilte_text: @text_8;
+@small_tilte_background: @background_8;
+@small_tilte_border: @border_8;
+
+@btn_primary_text: @text_3;
+@btn_primary_background: @background_3;
+@btn_primary_border: @border_3;
+
+@btn_secondary_text: @text_4;
+@btn_secondary_background: @background_4;
+@btn_secondary_border: @border_4;
+
+@general_border: @light_border;
+@table_border: @dark_border;
+
+//fa icon
+@fa_times: "\f00d";
+@fa_times_circle: "\f057";
+
+@media_ie: ~'screen and (-ms-high-contrast: active), (-ms-high-contrast: none)';
+@block_shadow: 0px 2px 3px lighten(@general_border, 3%);

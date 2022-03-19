@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div id="cdz-page-message-popup" class="cdz-popup cdz-page-message-popup popup-small" hidden>
+    <div class="cdz-amp-overlay" role="button" tabindex="0" on="tap:cdz-page-message-popup.hide"></div>
+    <div class="cdz-popup-inner">
+        <div class="cdz-popup-heading">
+            <button class="cdz-amp-close-icon _trnsp-box" role="button" on="tap:cdz-page-message-popup.hide" tabindex="0"></button>
+        </div>
+        <div class="cdz-popup-content">
+            <div class="cdz-amp-msg" [class]="'cdz-amp-msg ' + page_message_type" [text]="page_message"></div>
+        </div>
+    </div>
+</div>

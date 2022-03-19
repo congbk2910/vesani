@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$filter = $this->getOptionsFilter();
+$filterItems = $filter->getItems();
+$helper = $this->helper('Codazon\AjaxLayeredNavPro\Helper\Data');
+$code = $filter->getRequestVar();
+$selectedOption = $this->getRequest()->getParam($code);
+$action = $helper->getFilterAction($filter);
+$widgetParams = [
+    'action'        => $action,
+    'code'          => $filter->getRequestVar(),
+    'multiSelect'   => false
+];
+?>
+<?php  if (count($filterItems)) : ?>
+<div class="checkbox-container <?= $code ?>" data-role="filter-checkbox-container" data-filter='<?= json_encode($widgetParams) ?>'>
+    <ul class="items <?= $this->getData('custom_style') ?>-container">
+        <?php foreach ($filterItems as $filterItem) : ?>
+        <?php
+        $value = (float)$filterItem->getValue();
+        $width = 100*$value/5;
+        $isActive = ($selectedOption == $value);
+        ?>
+        <li class="rating-item<?= $isActive?' active': '' ?>">
+            <input type="checkbox" <?= $isActive?'checked':'' ?> id="filter-<?= $code ?>-<?= $value ?>" value="<?= $value ?>" />
+            <label for="filter-<?= $code ?>-<?= $value ?>" title="<?= $filterItem->getLabel() ?>" href="<?= $block->escapeUrl($filterItem->getUrl()); ?>">
+                <div class="rating-box">
+                    <div class="rating" style="width: <?= $width ?>%;"></div>
+                </div>
+                <span class="text"></span>
+                <span class="count"><?= $filterItem->getCount() ?></span>
+            </label>
+        </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+<?php endif ?>

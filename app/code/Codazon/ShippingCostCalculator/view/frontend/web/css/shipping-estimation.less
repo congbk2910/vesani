@@ -1,0 +1,158 @@
+.block-shipping-estimation{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    display: inline-block;
+    width: ~'calc(100% - 20px)';
+    .current-address{
+        margin-left: 5px;
+        .rtl-layout &{
+            margin-left: 0px;
+            margin-right: 5px;
+        }
+    }
+    .fieldset{
+        margin-bottom: 0px;
+        width: 100% !important;
+        padding: 0px 10px;
+        @media(min-width: 768px) {
+            margin-bottom: -5px;
+        }
+        display: inline-block;
+        > .field, > .fields > .field{
+            margin-bottom: 10px;
+        }
+    }
+    .actions{
+        .btn-submit{
+            text-transform: none;
+            padding: 3px 10px;
+        }
+    }
+    .empty-msg {
+        padding: 5px 0px;
+    }
+    select, input[type="text"]{
+        height: 30px;
+    }
+    .field:not(.date) > .control{
+        .product-add-form .product-options-wrapper  &{
+            width: 100%
+        }
+    }
+    .form-address-edit {
+        .block-title{
+            margin: 5px 0px;
+        }
+    }
+    img.country-flag {
+        max-width: 20px;
+        margin-left: 10px;
+        .rtl-layout &{
+            margin-left: 0px;
+            margin-right: 10px;
+        }
+    }
+    .block-content{
+        margin-top: 5px;
+    }
+    .block-heading {
+        padding: 5px 10px;
+        a.content-toggle {
+            float: right;
+            color: #5c6ac3;
+            .rtl-layout &{
+                float: left;
+            }
+        }
+    }
+    .shipping-cost-result{
+        position: relative;
+        //border-bottom: 1px solid #eee;
+        margin-bottom: 0px;
+        display: block;
+        width: 100%;
+        clear: both;
+        .rs-inner {
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+        }
+        .rs-title {
+            //font-weight: bold;
+            //border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+        }
+        .shipping-estimation{
+            .shipping-item:last-child{
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .loader-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .shipping-loader{
+            position: relative;
+            text-align: center;
+        }
+        .shipping-estimation{
+            line-height:1;
+        }
+        .shipping-item{
+            display: inline-block;
+            width: 100%;
+            padding: 5px 0px;
+            .shipping-title{
+                width: 100%;
+                font-weight: 600;
+                &:before{
+                    font-family: FontAwesome;
+                    content: "\f105";
+                    margin-right: 10px;
+                    .rtl-layout &{
+                        margin-right: 0px;
+                        margin-left: 10px;
+                        float: right;
+                        content: "\f104";
+                    }
+                }
+            }
+            .shipping-detail{
+                width: 100%;
+                display: inline-block;
+                margin-top: 10px;
+                padding-left: 16px;
+                .rtl-layout &{
+                    padding-left: 0px;
+                    padding-right: 16px;
+                }
+                .method-title{
+                    float: left;
+                    margin-right: 20px;
+                    .rtl-layout &{
+                        margin-right: 0px;
+                        margin-left: 20px;
+                        float: right;
+                    }
+                }
+            }
+            .shipping-cost{
+                float: left;
+                font-weight: bold;
+                &.error-msg{
+                    font-weight: normal;
+                }
+                .rtl-layout &{
+                    float: right;
+                }
+            }
+        }
+    }
+    .bottom-section {
+        background: #fafafa;
+        padding: 10px;
+    }
+}

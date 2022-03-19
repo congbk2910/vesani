@@ -1,0 +1,27 @@
+Firstly, Looking the file you will get there files and folder:
+
+1. db file : 1_schema.sql and 2_init_data.sql
+2. Full package : fastest-magento2-fullpackage.zip
+
+Quick-start package is included Magento 2 and Codazon Fastest theme. Supposing that you've just started building a Magento store, you can choose this solution to install demo store with all the sample data (similar to live demo of Codazon Fastest) and follow the instruction below.
+
+Download full package theme (zip file) and upload it to your website folder. You can use a FTP software such as FileZilla or Cpanel to upload
+Extract the package to your website folder where Magento is installed. Please note that Magento 2 directories consists app, lib, pub, ...
+Create a new database, and a new database user (in case you haven't had a database user) with full privileges on created database.
+
+Step 1 : Finding 1_schema.sql file inside the package and import it into newly created database
+
+Step 2 : Finding 2_init_data.sql file inside the package and import it into above database
+
+Step 3 : Download product images (fastest-magento21-product-image.zip) for Full demo from : https://drive.google.com/open?id=0B1i3ekI-frikTGFYeWliSE1yUUk and unzip in root folder.
+
+The demo database must be imported before running the Magento Setup Wizard.
+
+You can use database management tool such as phpMyAdmin to do this step
+Open a web browser and enter your domain to run Magento Setup Wizard. On the wizard screen, you do following instruction step by step to set-up your Magento site (refer Magento guides)
+
+You can use database management tool such as phpMyAdmin to do this step.
+If you have any issues or you want hire us to do it, Please, submit a request via our online help-desk https://codazon.zendesk.com/hc/en-gb/requests/new – we’ll get back to you ASAP.
+
+Best Regards
+Codazon Group - www.codazon.com

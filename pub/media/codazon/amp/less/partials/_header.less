@@ -1,0 +1,109 @@
+.cdz-amp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    .color_box(@header_background, @header_text, 1px solid @header_border);
+}
+.cdz-amp-menu-trigger{
+    border: none;
+    background: transparent;
+    color: @header_text;
+    display: block;
+    float: left;
+    .cdz-amp-menu-icon{
+        &:before{
+            font-size: 22px;
+        }
+    }
+}
+.cdz-amp-logo{
+    display: flex;
+    padding: 0 10px;
+    &.logo-center{
+        margin: 0 auto;
+    }
+    &.logo-left{
+        margin: 0 auto 0 0;
+    }
+    &.logo-right{
+        margin: 0 0 0 auto;
+    }
+}
+.header-icon{
+    color: @header_text;
+    position: relative;
+    .cdz-amp-icon{
+        line-height: 22px;
+        &:before{
+            line-height: inherit;
+            font-size: 22px
+        }
+    }
+    .count{
+        position: absolute;
+        right: -3px;
+        top: -12px;
+        background: @header_label_background;
+        color: @header_label_text;
+        border-radius: 10px;
+        padding: 3px 5px;
+        font-size: 10px;
+        line-height: 10px;
+        &:empty{
+            display: none;
+        }
+    }
+    &.has-count{
+        padding-right: 10px;
+    }
+}
+
+.cdz-amp-search-btn{
+    margin-right: 10px;
+}
+.cdz-amp-search-block{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    .input-search-text{
+        width: 100%;
+        font-size: 15px;
+    }
+}
+.cdz-amp-overlay{
+    position: fixed;
+    background: #000;
+    opacity: 0.5;
+    z-index: 10;
+    .full_box();
+}
+.cdz-amp-search-form{
+    position: relative;
+    padding: 15px 20px;
+    .cdz-amp-icon{
+        font-size: 14px;
+    }
+}
+.cdz-amp-search-reset, .cdz-amp-search-submit{
+    position: absolute;
+    right: 50px;
+    top: 0px;
+    height: 100%;
+}
+.cdz-amp-search-submit{
+    right: 20px;
+}
+
+.cdz-minicart-sidebar{
+    .view-cart{
+        line-height: 0;
+        margin-top: 4px;
+    }
+    .qty-count{
+        color: @secondary_text;
+        margin-left: 10px;
+    }
+}

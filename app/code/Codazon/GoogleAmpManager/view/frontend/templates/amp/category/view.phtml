@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$ampHelper  = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+$_category = $block->getCurrentCategory();
+if ($ampHelper->getConfig('googleampmanager/category_view/display_cat_img')) {
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_helper    = $this->helper(Magento\Catalog\Helper\Output::class);
+        $width = str_replace('px', '', $ampHelper->getConfig('googleampmanager/styles/container_max_width'));
+        $height = $ampHelper->getConfig('googleampmanager/category_view/cat_img_height');
+        $_imgHtml = '<div class="cdz-category-image _mg-bottom-20"><amp-img class="cdz-img cdz-flex-img" layout="responsive" width="'.$width.'" height="'.$height.'" src="'
+            . $block->escapeUrl($_imgUrl)
+            . '" alt="'
+            . $block->escapeHtmlAttr($_category->getName())
+            . '" title="'
+            . $block->escapeHtmlAttr($_category->getName())
+            . '" class="image" /></div>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+        echo $_imgHtml;
+    }
+}
+?>
+<?php if ($ampHelper->getConfig('googleampmanager/category_view/display_cat_desc')) : ?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()) :?>
+<div class="category-description _mg-bottom-20">
+    <?= $ampHelper->filterTags($this->helper(Magento\Catalog\Helper\Output::class)->categoryAttribute(
+        $block->getCurrentCategory(),
+        $_description,
+        'description'
+    )) ?>
+</div>
+<?php endif ?>
+<?php endif ?>
+<?= $this->getBlockHtml('category.products') ?>

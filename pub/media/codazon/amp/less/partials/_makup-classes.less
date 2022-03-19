@@ -1,0 +1,158 @@
+._mg-v-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+._mg-top-10{
+    margin-top: 10px;
+}
+._mg-bottom-10{
+    margin-bottom: 10px;
+}
+._mg-v-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+._mg-top-20{
+    margin-top: 20px;
+}
+._mg-bottom-20{
+    margin-bottom: 20px;
+}
+._pd-top-20{
+    padding-top: 20px;
+}
+._pd-bottom-20{
+    padding-bottom: 20px;
+}
+._text-center{
+    text-align: center;
+}
+._text-uppercase{
+    text-transform: uppercase;
+}
+._text-strong{
+    font-weight: bold;
+}
+._table-row{
+    display: table-row;
+}
+._table-cell{
+    display: table-cell;
+}
+._full-width{
+    width: 100%;
+}
+._flex{
+    display: flex;
+}
+._disabled{
+    opacity: .5;
+    pointer-events: none;
+}
+._nice-scroll {
+    .nice_scroll();
+}
+._sub-color{
+    color: @secondary_text;
+}
+.price-box{
+    .special-price{
+        .price-label{
+            display: none;
+        }
+    }
+    .special-price{
+        .price-label{
+            display: none;
+        }
+    }
+    .old-price{
+        .price-label{
+            display: none;
+        }
+        .price{
+            text-decoration: line-through;
+        }
+    }
+}
+.btn{
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-small{
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+.btn-large{
+    padding: 6px 15px;
+    border-radius: 3px;
+}
+.btn-primary{
+    .primary_box();
+}
+.btn-secondary{
+    .secondary_box();
+}
+.btn-non-primary{
+    .non_primary_box();
+}
+._btn-cart{
+    &:before{
+        .fa-icon("\f07a", inherit);
+        margin-right: 8px;
+    }
+}
+.input-small{
+    padding: 5px 7px;
+    height: auto;
+    width: 50px;
+    max-width: 100%;
+}
+.input-large{
+    padding: 5px 7px;
+    max-width: 100%;
+    height: auto;
+}
+.cdz-amp-selector{
+    [option][selected] {
+        outline: none;
+    }
+}
+button[disabled] {
+    opacity: 0.7;
+    cursor: default;
+}
+.cdz-items{
+    padding: 0;
+    margin: 0;
+}
+.external-link{
+    &:after{
+        .fa-icon("\f08e", 14px);
+        margin-left: 6px;
+    }
+}
+._trnsp-box{
+    background: transparent;
+    border-color: transparent;
+}
+._border-light-box{
+    border: 1px solid @light_border;
+}
+._border-dark-box{
+    border: 1px solid @dark_border;
+}
+._border-emphasis-box{
+    border: 1px solid @emphasis_border;
+}
+.cdz-flex-img{
+        img[class*=amphtml]{
+            max-height: none;
+            height: auto;
+            bottom: auto;
+            right: auto;
+            min-height: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }

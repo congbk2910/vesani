@@ -1,0 +1,89 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$ampHelper = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+$currency = $ampHelper->getStoreManager()->getStore()->getCurrentCurrency();
+?>
+<amp-sidebar id="cdz-minicart-sidebar" class="cdz-product-filters-sidebar cdz-amp-sidebar cdz-minicart-sidebar _nice-scroll" layout="nodisplay" side="<?= $ampHelper->enableRTL() ? 'left' : 'right' ?>">
+    <button class="cdz-amp-close-icon" role="button" aria-label="close sidebar" on="tap:cdz-minicart-sidebar.toggle" tabindex="0"></button>
+    <div class="cdz-amp-sidebar-heading">
+        <div class="_mg-top-20 _pd-top-20 sidebar-raw">
+            <span><strong class="text _text-uppercase h2"><?= __('Your cart') ?></strong> <span class="qty-count" [text]="cartInfo.cart.items.length + ((cartInfo.items.length > 1) ? ' <?= __('items') ?>': ' <?= __('item') ?>')"></span></span>
+            <a title="<?= __('View Cart ') ?>" href="<?= $block->escapeUrl($block->getUrl('checkout/cart')) ?>" class="view-cart cdz-icon" data-icon="&#xf08e;"><?= __('View Cart ') ?></a>
+        </div>
+    </div>
+    <amp-list id="cdz-minicart-list" layout="fixed-height" single-item height="140" [height]="100 * cartInfo.cart.items.length + 170" src="amp-state:cartInfo" items="cart" binding="refresh">
+    <template type="amp-mustache">
+    <div class="cdz-amp-sidebar-content">
+        {{^items}}
+        <div class="cdz-amp-msg notice"><span class="cdz-amp-text"><?= __('You have no items in your shopping cart.') ?></span></div>
+        {{/items}}
+        {{#items}}
+        <div class="cdz-product-listing cdz-list cdz-minicart-list _small-list">
+            <div class="cdz-item">
+                <div class="product-item-info cdz-list-inner">
+                    <div class="product-item-top cdz-list-left">
+                        <amp-img layout="responsive" width="{{product_image.width}}" height="{{product_image.height}}" alt="{{product_image.alt}}" src="{{product_image.src}}"></amp-img>
+                        <div class="cart-actions">
+                            <form action-xhr="<?= $ampHelper->filterUrl($block->getUrl('checkout/sidebar/removeItem')) ?>" method="post" on="submit-success: cartInfo.refresh, cdz-minicart-list.refresh">
+                                <input type="hidden" name="item_id" value="{{item_id}}" />
+                                <input type="hidden" name="<?= \Codazon\GoogleAmpManager\Helper\Data::AMP_PARAM ?>" value="1" />
+                                <button class="action cdz-icon remove-icon" data-icon="&#xf057;" type="submit"><?= __('Remove') ?></button>
+                                <a href="{{configure_url}}" class="action cdz-icon edit-icon" data-icon="&#xf040;"><?= __('Edit') ?></a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="product-item-detail cdz-list-right">
+                        {{#product_has_url}}
+                        <strong class="product-item-name" title="{{product_name}}"><a class="product-item-link" href="{{product_url}}">{{{product_name}}}</a></strong>
+                        {{/product_has_url}}
+                        {{^product_has_url}}
+                        <strong class="product-item-name" title="{{product_name}}">{{{product_name}}}</strong>
+                        {{/product_has_url}}
+                        <div class="price-box">{{{product_price}}}</div>
+                        <div class="item-options _mg-bottom-10 h6 _sub-color" [hidden]="!{{options.length}}">
+                            <a class="_sub-color" role="button" on="tap: AMP.setState({cart_item_options_{{item_id}}: !cart_item_options_{{item_id}}})"><?= __('See Details') ?></a>
+                            <div class="item-options-list" [hidden]="!cart_item_options_{{item_id}}" >
+                            {{#options}}
+                            <span><strong class="label">{{label}}:</strong>&nbsp;&nbsp;<span class="value">{{{value}}}</span></span><br />
+                            {{/options}}
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <form action-xhr="<?= $ampHelper->filterUrl($block->getUrl('checkout/sidebar/updateItemQty')) ?>" method="post" on="
+                                submit-success: cartInfo.refresh, cdz-minicart-list.refresh, AMP.setState({
+                                    page_message: event.response.success ? '<?= __('Your cart was updated.') ?>' : event.response.message,
+                                    page_message_type: event.response.success ? 'success' : 'notice',
+                                    can_update_item_qty_{{item_id}}: false
+                                }), cdz-page-message-popup.show
+                            ">
+                                <input type="hidden" name="item_id" value="{{item_id}}" />
+                                <input type="hidden" name="<?= \Codazon\GoogleAmpManager\Helper\Data::AMP_PARAM ?>" value="1" />
+                                <input type="number" name="item_qty" on="change: AMP.setState({can_update_item_qty_{{item_id}}: true})" min="1" title="<?= __('Qty') ?>" class="input-text qty input-small" [value]='{{qty}}' />&nbsp;&nbsp;
+                                <button type="submit" class="cdz-amp-button btn-small btn-primary" disabled [disabled]="!can_update_item_qty_{{item_id}}"><?= __('Update') ?></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/items}}
+    </div>
+    <div class="cdz-amp-sidebar-footer" [hidden]="cartInfo.cart.items.length == 0" hidden>
+        <div class="subtotal sidebar-raw">
+            <strong class="label _text-uppercase h3 _text-strong"><?= __('Cart Subtotal') ?></strong>
+            <span class="price-wrapper"><span class="price h3">{{{subtotal}}}</span></span>
+        </div>
+        {{#possible_onepage_checkout}}
+        <div class="actions _mg-top-20 _text-center" hidden [hidden]="possible_onepage_checkout == false">
+            <a class="btn-checkout btn-large btn-primary _text-uppercase btn _full-width" href="<?= $block->escapeUrl($block->getUrl('checkout')) ?>"><span><?= __('Go to Checkout') ?></span></a>
+        </div>
+        {{/possible_onepage_checkout}}
+    </div>
+    </template>
+    </amp-list>
+</amp-sidebar>

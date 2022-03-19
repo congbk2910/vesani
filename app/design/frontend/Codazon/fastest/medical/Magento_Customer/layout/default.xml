@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>    	
+        <referenceBlock name="authorization-link-login" display="false" />
+        <move element="customer" destination="authorization-link-login" />
+        <referenceBlock name="customer">
+        	<block class="Magento\Customer\Block\Account\AuthorizationLink" name="log.out.link" template="account/link/authorization.phtml" after="my-account-link" />							
+        </referenceBlock>
+        <move element="my-account-link" destination="customer" before="log.out.link" />
+        <referenceBlock name="register-link" display="false" />
+
+        <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link-dropdown" template="account/link/authorization_dropdown.phtml" after="-" />
+        <container name="dropdown-account-links" htmlTag='ul' htmlClass='account-links'>
+            <block class="Magento\Customer\Block\Account\RegisterLink" name="account-register-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\Link" name="account-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Dashboard</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Wishlist\Block\Link" name="account-wish-list-link" />
+            <block class="Magento\Framework\View\Element\Template" name="account-compare-link" template="Magento_Catalog::product/compare/link.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="compareProducts" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </container>
+        
+        <move element="authorization-link-dropdown" destination="header.links" />
+        <move element="customer_form_login_mini" destination="authorization-link-dropdown" before="-" />
+        <move element="dropdown-account-links" destination="authorization-link-dropdown" after="-" /> 
+    </body>
+</page>

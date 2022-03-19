@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$_filters = $block->getActiveFilters();
+$helper = $this->helper('Codazon\Shopbybrandpro\Helper\Data');
+$brandAttributeCode = $helper->getStoreBrandCode();
+
+if (!empty($_filters)) {
+    foreach ($_filters as $key => $_filter) {
+        if ($_filter->getFilter()->getRequestVar() == $brandAttributeCode) {
+            unset($_filters[$key]);
+            $block->getLayer()->getState()->setFilters($_filters);
+            break;
+        }
+    }
+}
+echo $block->setTemplate('layer/state.phtml')->toHtml();
+
+?>

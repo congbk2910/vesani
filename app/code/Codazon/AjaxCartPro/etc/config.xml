@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Codazon_ThemeLayoutPro:etc/config.xsd">
+    <default>
+        <shoppingcart>
+            <general>
+                <enable>1</enable>
+            </general>
+        </shoppingcart>
+        <ajax_addto>
+            <wishlist>
+                <enable>1</enable>
+            </wishlist>
+            <compare>
+                <enable>1</enable>
+            </compare>
+        </ajax_addto>
+    </default>
+</config>

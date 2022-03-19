@@ -1,0 +1,54 @@
+.fa-icon(@icon, @font_size: 14px) {
+    font-family: FontAwesome;
+    font-size: @font_size;
+    content: @icon;
+}
+.color_box(@background, @color, @border) {
+    background: @background;
+    color: @color;
+    border: @border;
+}
+.full_box() {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.primary_box() {
+    .color_box(@btn_primary_background, @btn_primary_text, 1px solid @btn_primary_border);
+}
+.non_primary_box() {
+    .color_box(@btn_primary_text, @btn_primary_background, 1px solid @btn_primary_border);
+}
+.secondary_box() {
+    .color_box(@btn_secondary_background, @btn_secondary_text, 1px solid @btn_secondary_border);
+}
+.nice_scroll(@width: 7px, @height: 7px, @track: #f1f1f1, @thumb: #c0c0c0, @thumb_hover: #888) { //thumb: short bar; track: long bar
+    scrollbar-color: @thumb @track;
+    scrollbar-width: thin;
+    scrollbar-border: none;
+    &::-webkit-scrollbar{
+        width: @width;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: @thumb;
+        &:hover{
+            background: @thumb_hover;
+        }
+    }
+    &::-webkit-scrollbar-track{
+        background: @track;
+    }
+    &::-webkit-scrollbar:horizontal{
+        height: @height;
+    }
+    &::-webkit-scrollbar-thumb:horizontal{
+        background: @thumb;
+        &:hover{
+            background: @thumb_hover;
+        }
+    }
+    &::-webkit-scrollbar-track:horizontal{
+        background: @track;
+    }
+}

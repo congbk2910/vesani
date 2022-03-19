@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+?>
+<?php if ($block->isReviewEnabled() && $block->getReviewsCount()) : ?>
+    <?php $rating = $block->getRatingSummary(); ?>
+    <div class="product-reviews-summary<?= !$rating ? ' no-rating' : '' ?>">
+        <?php if ($rating) :?>
+        <span class="rating-summary">
+             <span class="rating-result" title="<?= $block->escapeHtmlAttr($rating); ?>%">
+                 <span class="cdz-amp-rating-summary">
+                    <span title="<?= $block->escapeHtmlAttr($rating); ?>%" class="cdz-rating-result">
+                        <span style="width:<?= $block->escapeHtmlAttr($rating); ?>%"></span>
+                    </span>
+                </span>
+             </span>
+             <span class="rating-score"><?= 5 * ((float)$rating/100) ?></span>
+         </span>
+        <?php endif;?>
+    </div>
+<?php endif; ?>

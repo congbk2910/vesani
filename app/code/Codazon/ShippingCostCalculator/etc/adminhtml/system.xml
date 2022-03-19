@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+		<section id="codazon_shipping_cost_calculator" translate="label" type="text" sortOrder="226" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Shipping Estimation</label>
+            <tab>sales</tab>
+			<resource>Codazon_ShippingCostCalculator::settings</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_country" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Country Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_region" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Region Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_postcode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Zip/Postal Code Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!-- <field id="selected_method" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1"> -->
+                    <!-- <label>Methods Displayed</label> -->
+                    <!-- <source_model>Magento\Shipping\Model\Config\Source\Allmethods</source_model> -->
+                <!-- </field> -->
+                <field id="use_price_inclucding_tax" translate="label,comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Use Price Including Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set No, Price Excluding Tax will be displayed for shipping price</comment>
+                </field>
+                <!-- <field id="auto_calculate" translate="label,comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1"> -->
+                    <!-- <label>Check Shipping Cost Automatically</label> -->
+                    <!-- <source_model>Magento\Config\Model\Config\Source\Yesno</source_model> -->
+                    <!-- <comment>If you set Yes, the shipping cost will be calculated automatically every once customer changes region options. If you set No, customer need to click button "Calculate" for checking shipping cost.</comment> -->
+                <!-- </field> -->
+                <!--field id="address_format" translate="label,comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Address format</label>
+                    <comment><![CDATA[You can use: <%- country_id %>, <%- region_name %> <%- postcode %>]]></comment>
+                </field-->
+                <field id="title" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="no_shipping_message" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>No shipping message</label>
+                </field>
+                <field id="action_label" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Action label</label>
+                </field>
+                <field id="display_flag" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Flag</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+		</section>
+	</system>
+</config>

@@ -1,0 +1,53 @@
+<?php
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+$swatchesBlock = $block;
+$attributes = json_decode($swatchesBlock->getJsonConfig(), true);
+$swatches = json_decode($swatchesBlock->getJsonSwatchConfig(), true);
+?>
+<div class="cdz-swatches-options _mg-v-10">
+<?php foreach ($attributes['attributes'] as $attr) : ?>
+    <?php
+    $swatchConfig = empty($swatches[$attr['id']]) ? [] : $swatches[$attr['id']] ;
+    $additionalData = empty($swatchConfig['additional_data']) ? ['swatch_input_type' => 'select'] : json_decode($swatchConfig['additional_data'], true);
+    $type = $additionalData['swatch_input_type'];
+    ?>
+    <amp-selector layout="container">
+        <div class="cdz-swatch-list <?= $type ?>">
+            <?php if ($type == 'visual') : ?>
+                <?php foreach ($attr['options'] as $option) : ?>
+                    <?php $swatchOption = $swatchConfig[$option['id']]; ?>
+                    <div title="<?= $swatchOption['label'] ?>" class="cdz-option <?= $attr['code'] ?>" option="<?= $option['id'] ?>" style="
+                        <?php if (!empty($swatchOption['thumb'])) : ?>background-image: url(<?= $swatchOption['value'] ?>); <?php else : ?>background-color: <?= $swatchOption['value'] ?><?php endif ?>">
+                        <?= $option['label'] ?>
+                        <input class="cdz-amp-checkbox" type="radio" name="super_attribute[<?= $attr['id'] ?>]" value="<?= $option['id'] ?>" required />
+                    </div>
+                <?php endforeach ?>
+            <?php elseif ($type == 'text') : ?>
+                <?php foreach ($attr['options'] as $option) : ?>
+                    <?php if(isset($swatchConfig[$option['id']])): ?>
+                    <?php $swatchOption = $swatchConfig[$option['id']]; ?>
+                    <div title="<?= $swatchOption['label'] ?>" class="cdz-option <?= $attr['code'] ?>" option="<?= $option['id'] ?>">
+                        <?= $swatchOption['value'] ?>
+                        <input class="cdz-amp-checkbox" type="radio" name="super_attribute[<?= $attr['id'] ?>]" value="<?= $option['id'] ?>" required />
+                    </div>
+                    <?php endif ?>
+                <?php endforeach ?>
+            <?php else : ?>
+                <select class="input-large" name="super_attribute[<?= $attr['id'] ?>]" required>
+                    <option value=""><?= __('Choose an Option...') ?></option>
+                    <?php foreach ($attr['options'] as $option) : ?>
+                    <option option="<?= $option['id'] ?>" value="<?= $option['id'] ?>" ><?= $option['label'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            <?php endif ?>
+        </div>
+    </amp-selector>
+<?php endforeach ?>
+</div>
+
+

@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$ampHelper = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+$cartInfoUrl = $ampHelper->filterUrl($block->escapeUrl($this->getUrl('customer/section/load', ['_query' => 
+    ['sections' => 'cart', 'force_new_section_timestamp' => 'true']
+])));
+?>
+<amp-state id="cartInfo" src="<?= $cartInfoUrl ?>"></amp-state>
+
+<a class="cdz-header-cart header-icon has-count" on="tap: AMP.setState({}), cdz-minicart-sidebar.toggle">
+    <i class="cdz-amp-icon cdz-amp-shopping-cart"></i>
+    <span [text]="cartInfo.cart.summary_count ? cartInfo.cart.summary_count : 0" class="qty count"></span>
+</a>

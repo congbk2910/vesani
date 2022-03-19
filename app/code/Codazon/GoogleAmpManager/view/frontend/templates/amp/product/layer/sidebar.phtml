@@ -1,0 +1,10 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<amp-sidebar id="cdz-product-filters-sidebar" class="cdz-product-filters-sidebar cdz-amp-sidebar _nice-scroll" layout="nodisplay" side="<?= $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class)->getSidebarDirection() ?>">
+    <button class="cdz-amp-close-icon" role="button" aria-label="close sidebar" on="tap:cdz-product-filters-sidebar.close" tabindex="0"></button>
+    <div class="cdz-amp-sidebar-content"><?= $block->getChildHtml() ?></div>
+</amp-sidebar>

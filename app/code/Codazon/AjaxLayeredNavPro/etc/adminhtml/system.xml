@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="codazon" translate="label" sortOrder="400">
+            <label>Codazon</label>
+        </tab>
+		<section id="codazon_ajaxlayerednavpro" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Ajax Layered Navigation</label>
+            <tab>codazon</tab>
+            <resource>Codazon_AjaxLayeredNavPro::settings</resource>
+			<group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+				<field id="enable" translate="label,comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set No, multi-select feature and ajax filter feature will be disabled.</comment>
+                </field>
+                <field id="enable_multiselect" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable multi select</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="options_box_state" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Options box state</label>
+                    <source_model>Codazon\AjaxLayeredNavPro\Model\Config\Source\OptionsBoxState</source_model>
+                </field>
+                <field id="box_max_height" translate="label,comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Filter box maximum height</label>
+                    <comment>Maximum height of attribute options box. Leave empty or 0 to unassign maximum height.</comment>
+                </field>
+                <field id="enable_infinite_scroll" translate="label,comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable product listing infinite scroll</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+			</group>
+            <group id="rating_builder" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Filter and sort by rating</label>
+                <field id="enable_filter" translate="label,comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable filter by rating</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_sort" translate="label,comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable sort by rating</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="rating_code" translate="label,comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Code of attribute used as rating</label>
+                </field>
+                <field id="filter_type" translate="label,comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Filter type</label>
+                    <source_model>Codazon\AjaxLayeredNavPro\Model\Config\Source\RatingFilterTypes</source_model>
+                </field>
+                <field id="filter_label" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Filter label</label>
+                </field>
+                <field id="sort_label" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sort label</label>
+                </field>
+            </group>
+		</section>
+	 </system>
+</config>

@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$ampHelper = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+$submitUrl = $ampHelper->filterUrl($ampHelper->filterCartUrl(
+    $block->escapeUrl($helper->getResultUrl())
+));
+?>
+
+<div class="cdz-amp-search-block" id="cdz-amp-search-block" hidden>
+    <form class="cdz-amp-form cdz-amp-search-form" action="<?= $submitUrl ?>" target="_top" method="get" id="cdz-amp-mini-search-form">
+        <input type="text" class="input-large input-search-text" placeholder="<?= __('Search entire store here ...') ?>" name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>" on="input-throttled: cdz-amp-search-reset.show" />
+        <button id="cdz-amp-search-reset" class="cdz-amp-search-reset  _trnsp-box" type="reset" title="<?= __('Reset') ?>" on="tap: cdz-amp-search-reset.hide">
+            <i class="cdz-amp-icon cdz-amp-times"></i>
+        </button>
+        <button id="cdz-amp-search-submit" class="cdz-amp-search-submit _trnsp-box" type="submit" title="<?= __('Submit') ?>">
+            <i class="cdz-amp-icon cdz-amp-search"></i>
+        </button>
+    </form>
+</div>
+<button id="cdz-amp-search-btn" class="cdz-amp-search-btn amp-btn header-icon _trnsp-box" type="button" title="<?= __('Open search pop up') ?>"  on="tap: cdz-amp-search-block.show, cdz-amp-search-btn.hide, cdz-amp-overlay.show, cdz-amp-search-reset.hide">
+    <i class="cdz-amp-icon cdz-amp-search"></i>
+</button>

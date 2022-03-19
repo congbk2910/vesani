@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <codazon_osc>
+            <general>
+                <enable>1</enable>
+            </general>
+            <customization>
+                <place_order_label></place_order_label>
+                <enable_order_comment>1</enable_order_comment>
+                <enable_discount_code>1</enable_discount_code>
+                <!-- <default_shipping_method>tablerate_bestway</default_shipping_method> -->
+            </customization>
+        </codazon_osc>
+    </default>
+</config>

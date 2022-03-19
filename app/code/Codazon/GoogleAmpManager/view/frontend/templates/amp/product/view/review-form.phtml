@@ -1,0 +1,90 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+$product = $ampHelper->getCurrentProduct();
+?>
+<?php if ($block->getAllowWriteReviewFlag()) : ?>
+<div class="cdz-review-form-container _text-center">
+    <button class="btn-large btn-primary review-trigger-btn _text-uppercase" role="button" on="tap:cdz-amp-review-form-sidebar.toggle" tabindex="0"><?= __('Write a review') ?></button>
+</div>
+<amp-sidebar id="cdz-amp-review-form-sidebar" class="cdz-amp-review-form-sidebar cdz-amp-sidebar _nice-scroll" layout="nodisplay" side="<?= $ampHelper->getSidebarDirection() ?>">
+    <div class="cdz-amp-sidebar-heading">
+        <button class="cdz-amp-close-icon" role="button" aria-label="close sidebar" on="tap:cdz-amp-review-form-sidebar.toggle" tabindex="0"></button>
+        <p class="cdz-amp-title">
+            <?= __('You\'re reviewing:') ?>
+        </p>
+        <b class="cdz-amp-name h2"><?= $product->getName() ?></b>
+    </div>
+    <div class="cdz-amp-sidebar-content">
+        <form id="cdz-amp-review-form" class="cdz-amp-review-form cdz-amp-form" action-xhr="<?= $block->escapeUrl($ampHelper->getProductReviewPostAjaxUrl($product))?>" method="post" on="submit:cdz-amp-review-form.clear">
+            <div submit-success>
+                <template type="amp-mustache">
+                    {{#message}}
+                    <p class="cdz-amp-msg {{type}}">
+                        {{message}}
+                    </p>
+                    {{/message}}
+                </template>
+            </div>
+            <input type="hidden" name="ajax" value="1" />
+            <?= $block->getBlockHtml('formkey') ?>
+            <fieldset class="cdz-amp-fieldset">
+                <div class="control _mg-v-20">
+                    <div class="nested" id="product-review-table">
+                        <?php foreach ($block->getRatings() as $_rating) : ?>
+                            <div class="field choice review-field-rating _table-row">
+                                <label class="label _table-cell" id="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>_rating_label"><span><?= $block->escapeHtml($_rating->getRatingCode()) ?></span></label>
+                                <div class="control review-control-vote _table-cell">
+                                <?php $options = $_rating->getOptions();?>
+                                <?php for ($iterator = 5; $iterator > 0; $iterator--) : $_option = $options[$iterator - 1]; ?>
+                                <input type="radio" name="ratings[<?= $block->escapeHtmlAttr($_rating->getId()) ?>]" id="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>_<?= $block->escapeHtmlAttr($_option->getValue()) ?>" value="<?= $block->escapeHtmlAttr($_option->getId()) ?>" class="radio" />
+                                <label class="rating-<?= $block->escapeHtmlAttr($iterator) ?> cdz-amp-star" for="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>_<?= $block->escapeHtmlAttr($_option->getValue()) ?>" title="<?= $block->escapeHtmlAttr(__('%1 %2', $iterator, $iterator > 1 ? __('stars') : __('star'))) ?>" id="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>_<?= $block->escapeHtmlAttr($_option->getValue()) ?>_label">
+                                    <span><?= $block->escapeHtml(__('%1 %2', $iterator, $iterator > 1 ? __('stars') : __('star'))) ?></span>
+                                </label>
+                                <?php endfor; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+                </div>
+                <div class="field review-field-nickname required">
+                    <label for="nickname_field" class="label"><span><?= $block->escapeHtml(__('Nickname')) ?></span></label>
+                    <div class="control">
+                        <input type="text" name="nickname" id="nickname_field" class="input-large" required />
+                    </div>
+                </div>
+                <div class="field review-field-summary required">
+                    <label for="summary_field" class="label"><span><?= $block->escapeHtml(__('Summary')) ?></span></label>
+                    <div class="control">
+                        <input type="text" name="title" id="summary_field" class="input-large" required />
+                    </div>
+                </div>
+                <div class="field review-field-text required">
+                    <label for="review_field" class="label"><span><?= $block->escapeHtml(__('Review')) ?></span></label>
+                    <div class="control">
+                        <textarea class="input-large" name="detail" id="review_field" cols="5" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="actions-toolbar review-form-actions">
+                    <div class="primary actions-primary">
+                        <button type="submit" class="btn-large submit btn-primary _text-uppercase"><span><?= $block->escapeHtml(__('Submit Review')) ?></span></button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</amp-sidebar>
+<?php else : ?>
+    <div class="cdz-amp-msg notice notlogged">
+        <span>
+            <?= $block->escapeHtml(__('Only registered users can write reviews. Please <a href="%1">Sign in</a> or <a href="%2">create an account</a>', 
+                $ampHelper->filterUrl($block->getLoginLink()), $ampHelper->filterUrl($block->getRegisterUrl())), ['a']) ?>
+        </span>
+    </div>
+<?php endif ?>

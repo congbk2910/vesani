@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$_product = $this->getProduct();
+?>
+<div class="box-tocart box-options-reference">
+    <div class="fieldset">
+        <div class="actions">
+            <a class="btn cdz-amp-button btn-large btn-primary btn-tocart btn-product-url" href="<?= $_product->getProductUrl() ?>"><?= __('Customize and Add to Cart') ?></a>
+        </div>
+    </div>
+</div>

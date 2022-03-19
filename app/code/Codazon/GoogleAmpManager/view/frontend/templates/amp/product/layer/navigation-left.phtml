@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Category left navigation
+ *
+ * @var $block \Magento\Catalog\Block\Navigation
+ */
+?>
+<?php if (!$block->getCategory()) {
+    return;
+} ?>
+<?php
+$_categories = $block->getCurrentChildCategories() ;
+$_count = is_array($_categories) ? count($_categories) : $_categories->count();
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+?>
+<?php if ($_count) :?>
+<div class="cdz-product-filters">
+        <div class="cdz-block-title"><?= __('Shop by Category') ?></div>
+        <div class="cdz-block-content">
+        <div class="cdz-amp-accordion _static-list">
+        <?php foreach ($_categories as $_category) :?>
+        <?php if ($_category->getIsActive()) :?>
+            <section class="cdz-data-section">
+                <h4 class="cdz-section-heading<?= ($block->isCategoryActive($_category)) ? " current" : ''?>">
+                    <a href="<?= $ampHelper->transformToAmpUrl($block->escapeUrl($block->getCategoryUrl($_category))) ?>"><span><?= $block->escapeHtml($_category->getName()) ?></span> <span class="count"><?= $block->escapeHtml($_category->getProductCount()) ?></span></a>
+                </h4>
+            </section>
+        <?php endif; ?>
+        <?php endforeach ?>
+        </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<?php
+$position = $this->getToolbarPosition() ? : 'top';
+$isBottom = ($position == 'bottom');
+?>
+<?php if ($block->getCollection()->getSize()) :?>
+    <div class="cdz-toolbar cdz-toolbar-products <?= $position ?>">
+        <?php /* include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?> */ ?>
+        <?php if ($isBottom) : ?>
+        <?= $block->getPagerHtml() ?>
+        <?php else : ?>
+        <?php if ($block->isExpanded()) :?>
+        <div class="cdz-toolbar-row cdz-toolbar-box">
+            <div class="cdz-toolbar-col cdz-buttons-group _flex">
+                <?php include ($block->getTemplateFile('Codazon_GoogleAmpManager::amp/product/list/toolbar/filter.phtml')) ?>
+                <?php include ($block->getTemplateFile('Codazon_GoogleAmpManager::amp/product/list/toolbar/viewmode.phtml')) ?>
+            </div>
+            <div class="cdz-toolbar-col _full">
+                <?php include ($block->getTemplateFile('Codazon_GoogleAmpManager::amp/product/list/toolbar/sorter.phtml')) ?>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="cdz-toolbar-row">
+            <div class="cdz-toolbar-col _full">
+            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+            </div>
+        </div>
+        <?php endif ?>
+    </div>
+<?php endif ?>

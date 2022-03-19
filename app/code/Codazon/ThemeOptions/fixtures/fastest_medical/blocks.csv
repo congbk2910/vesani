@@ -1,0 +1,203 @@
+title,identifier,content
+"Fastest - Medical - Main Menu",fastest-medical-main-menu,"<div class=""cdz-main-menu"">{{widget type=""Codazon\MegaMenu\Block\Widget\Megamenu"" menu=""fastest-medical-main-menu""}}</div>"
+"Fastest - Medical - Block Popup Content",fastest-medical-block-popup-content,"<div class=""cdz-popup-newsletter"">
+<div class=""cdz-popup-newsletter-left"">
+<div class=""popup-banner"">
+<div class=""banner""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/medical/banner-newsletter.jpg'}}"" alt=""Banner 01""></a></div>
+</div>
+</div>
+<div class=""cdz-popup-newsletter-right"">
+<div class=""popup-title"">
+<h3 class=""text-uppercase"">Sign up Newsletter</h3>
+</div>
+<div class=""popup-content"">
+<div class=""popup-content-ads"">
+<p class=""popup-content-title h3"">Join YourStore's squad for 20% off</p>
+<p class=""popup-content-desc"">and get all the latest news, trends and offs and offers straight to your inbox. Or get 15% off using code SQUAD15</p>
+<div class=""popup-content-newsletter"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""cdz.newsletter.style05"" template=""popup_subscribe.phtml""}}</div>
+<p class=""popup-content-small"">1 UK only; 2. Offar expiras 23:59(GMT) 10/02/16; 3.</p>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Main Content Top - Slideshow",fastest-medical-main-content-top-slideshow,"<div class=""slideshow-banner"">
+<div class=""slideshow-container"">{{widget type=""Codazon\Slideshow\Block\Widget\Slideshow"" slideshow_id=""fastest-medical-home-slideshow""}}</div>
+</div>
+"
+"Fastest - Medical - Main Content Top - Advertisement Banners",fastest-medical-main-content-top-advertisement-banners,"<div class=""wrapper-ads08 hidden-xs"">
+<div class=""top-container"">
+<div class=""row"">
+<div class=""col-sm-12 col-md-6 space-xs"">
+<div class=""text-area""><span class=""icon-font pe-7s-ticket"">&nbsp;</span>
+<h4>+15.000 products</h4>
+<p class=""text"">Sports , Movies etc</p>
+</div>
+</div>
+<div class=""col-sm-12 col-md-6 space-xs"">
+<div class=""text-area""><span class=""icon-font pe-7s-star"">&nbsp;</span>
+<h4>More then 20 Categories</h4>
+<p class=""text"">Fashion , Electronics, Book</p>
+</div>
+</div>
+<div class=""col-sm-12 col-md-6 space-xs"">
+<div class=""text-area""><span class=""icon-font pe-7s-car"">&nbsp;</span>
+<h4>Free Shipping</h4>
+<p class=""text"">Free shipping on the world</p>
+</div>
+</div>
+<div class=""col-sm-12 col-md-6 space-xs"">
+<div class=""text-area""><span class=""icon-font pe-7s-piggy"">&nbsp;</span>
+<h4>Refund in 2 days</h4>
+<p class=""text"">100% guarantee</p>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Main Content 3- New Products",fastest-medical-main-content-3-new-products,"<div class=""cdz-best-seller-wrap cdz-products product-style23"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""cdz-block-title"">
+<p class=""b-title h2"">New Arrivals</p>
+</div>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-sm-24"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,review,price,addtocart,addto"" thumb_width=""300"" thumb_height=""300"" filter_template=""custom"" custom_template=""grid_slider_3.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`171`^]^]""}}</div>
+</div>
+</div>"
+"Fastest - Medical - Main Content 2 - Banner",fastest-medical-main-content-2-banner,"<div class=""home-banner-block space-lg""><img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/medical/banner01.jpg""}}"" alt="""">
+<div class=""banner-content"">
+<h1>Welcome to The Medical Store</h1>
+<p class=""desc"">Providing Students with the Tools to Learn for Over 20 Years! We offer medical professionals and allied health students the highest quality and most trusted brands with reliable and dedicated personal service.</p>
+<a class=""button btn-link"" href=""#"">View all collection</a></div>
+</div>"
+"Fastest - Medical - Main Content 1 - Product Tabs ",fastest-medical-main-content-1-product-tabs,"<div class=""cdz-product-tabs fullwidth-content"">
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""cdz-block-title"">
+<p class=""b-title h2"">Best Selling Products</p>
+</div>
+</div>
+</div>
+<div class=""row"">
+<div class=""col-sm-24"">
+<div class=""tabs-list tabs-list-sty06 bestseller-product product data items cdz-tabs product-style23"">
+<div class=""data item title text-uppercase"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#sportswear-tab-1"" data-toggle=""switch"">Featured Products</a></div>
+<div id=""sportswear-tab-1"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,description,price,addtocart,addto"" thumb_width=""280"" thumb_height=""280"" filter_template=""custom"" custom_template=""grid_slider_3.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`168`^]^]""}}</div>
+<div class=""data item title text-uppercase"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#sportswear-tab-2"" data-toggle=""switch"">New Arrivals</a></div>
+<div id=""sportswear-tab-2"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,description,price,addtocart,addto"" thumb_width=""280"" thumb_height=""280"" filter_template=""custom"" custom_template=""grid_slider_3.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`169`^]^]""}}</div>
+<div class=""data item title text-uppercase"" data-role=""collapsible""><a class=""data switch"" tabindex=""0"" href=""#sportswear-tab-3"" data-toggle=""switch"">Top Selling</a></div>
+<div id=""sportswear-tab-3"" class=""data item content"" data-role=""content"">{{widget type=""Codazon\ProductFilter\Block\Product\ProductsList"" display_type=""all_products"" products_count=""8"" order_by=""name ASC"" show=""thumb,name,description,price,addtocart,addto"" thumb_width=""280"" thumb_height=""280"" filter_template=""custom"" custom_template=""grid_slider_3.phtml"" show_slider=""1"" slider_item=""5"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`170`^]^]""}}</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Main Content 4 - From Our Blog",fastest-medical-main-content-4-from-our-blog,"<div class=""cdz-block-title"">
+<p class=""b-title h2"">Last Blog Posts</p>
+</div>
+{{widget type=""Magefan\Blog\Block\Widget\PostList"" categories=""21"" order_by=""title"" order=""asc"" post_count=""6"" show_in_front=""thumb,name,description,published_date,author"" desc_length=""150"" show_slider=""1"" thumb_width=""446"" thumb_height=""308"" show_slider=""1"" post_template=""custom"" custom_template=""latest_blog_slider.phtml""}}"
+"Fastest - Medical - Main Content 5  - Testimonials",fastest-medical-main-content-5-testimonials,"<div class=""wrapper-ads07 bg-wrapper-ads"">
+<div class=""cdz-parallax-wrapper maxwidth"">
+<div class=""parallax-container row"">
+<div class=""cdz-block-title text-center "">
+<p class=""b-title h2"">#Testimonials</p>
+</div>
+<div class=""parallax-inner col-md-20 col-md-push-2 col-sm-20 col-sm-push-2"">
+<div class=""cdz-wrapper-banner cdz-slider cdz-slider-banners cdz-slider-navigation-icon"" data-items=""1"" data-items-0=""1"" data-items-480=""1"" data-items-768=""1"" data-items-1024=""1"" data-items-1280=""1"" data-margin=""20"" data-dots=""1"" data-nav=""0"">
+<div class=""cdz-banners-item content"">
+<p class=""ads-desc"">""Lorem ipsum dolor sit amet, consectetur adipiscing sent et nisi venenatis, suscipit lacus nec, Lorem ipsrolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing sent et nisi venenatis, suscipit lacus nec, Lorem ipsrolor sit amet..""</p>
+<div class=""item-image"">
+<p class=""ads-img""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/handbag/home/img06.png'}}"" alt=""""></a></p>
+<p class=""ads-author"">Amanda Robinson</p>
+</div>
+</div>
+<div class=""cdz-banners-item content"">
+<p class=""ads-desc"">""Love Codazon Toys! The employees are very happy to help and give suggestions. The events they do to bring people in all over the community are wonderful!""</p>
+<div class=""item-image"">
+<p class=""ads-img""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/handbag/home/img06.png'}}"" alt=""""></a></p>
+<p class=""ads-author"">Daniel Radcliffe</p>
+</div>
+</div>
+<div class=""cdz-banners-item content"">
+<p class=""ads-desc"">""So much variety and the employees are always helpful. My daughter loves to be able to play and try out many of the toys before we buy them, we love Codazon Toys!.""</p>
+<div class=""item-image"">
+<p class=""ads-img""><a href=""#""><img class=""img-responsive"" src=""{{media url='wysiwyg/codazon/handbag/home/img06.png'}}"" alt=""""></a></p>
+<p class=""ads-author"">Stephanie</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Footer Container Top - Newsletter",fastest-medical-footer-container-top-newsletter,"<div class=""row"">
+<div class="" col-sm-12"">
+<div class=""newsletter-wrapper"">
+<div class=""newsletter-container"">{{block class=""Magento\Newsletter\Block\Subscribe"" name=""form.subscribe"" as=""subscribe"" before=""-"" template=""subscribe.phtml""}}</div>
+</div>
+</div>
+<div class=""col-sm-12"">
+<div class=""footer-social"">
+<p class=""social pull-right""><a href=""#""><span class=""fa fa-facebook"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-twitter"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-pinterest-p"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-google-plus"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-tumblr"">&nbsp;</span></a> <a href=""#""><span class=""fa fa-vimeo"">&nbsp;</span></a></p>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Footer Content - Links",fastest-medical-footer-content-links,"<div class=""row"">
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-1"">CORPORATE</p>
+<ul id=""footer-content-1"" class=""footer-link showhide"">
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">About Us</a></li>
+<li><a href=""#"">Orders and Returns</a></li>
+<li><a href=""{{store url=""""}}contacts/"">Afiliates</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-2"">Your Links</p>
+<ul id=""footer-content-2"" class=""footer-link showhide"">
+<li><a href=""#"">Shipping guide</a></li>
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">Store location</a></li>
+<li><a href=""#"">Afiliates</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Customer point policy</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-3"">Support</p>
+<ul id=""footer-content-3"" class=""footer-link showhide"">
+<li><a href=""#"">FAQ</a></li>
+<li><a href=""{{store url=""""}}about-magento-demo-store/"">Our services</a></li>
+<li><a href=""{{store url=""""}}contacts/"">Contact Us</a></li>
+<li class=""last""><a href=""{{store url=""""}}privacy-policy-cookie-restriction-mode/"">Forum Support</a></li>
+</ul>
+</div>
+</div>
+<div class=""col-sm-6"">
+<div class=""footer-box"">
+<p class=""h5"" data-cdz-toggle=""#footer-content-4"">SHOP LOCATION</p>
+<ul id=""footer-content-4"" class=""footer-link showhide"">
+<li><span class=""fa fa-map-marker"">&nbsp;</span>200 Lincoln Ave, Salinas, CA 93901</li>
+<li><span class=""fa fa-phone"">&nbsp;</span>Phone: 023 32423 223</li>
+<li><span class=""fa fa-envelope"">&nbsp;</span>Email: owner@example.com</li>
+<li class=""last""><span class=""fa fa-clock-o"">&nbsp;</span>Support 24/7</li>
+</ul>
+</div>
+</div>
+</div>"
+"Fastest - Medical - Footer Payment",fastest-medical-footer-payment,"<div class=""pull-right footer-payment-logo"">
+<div class=""cdz-footer-bottom-payment""><img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/fastest_fashion/home/cdz-footer-payment.png""}}"" alt=""Accept Payment"" /></div>
+</div>"
+"Fastest - Medical - Header Links",fastest-medical-header-links,"<ul>
+<li><a href=""#"">Contact</a></li>
+<li><a href=""#"">FAQ</a></li>
+<li><a href=""#"">Ship to United State</a></li>
+</ul>"
+"Fastest - Medical - Header Phone",fastest-medical-header-phone,"<div class=""hot-line-wrapper"">
+	<span class=""msg-text"">Need Help? Call us now</span>
+	<a class=""telephone"" href=""tel:(123) 4568719"">(123) 4568719</a>
+</div>"

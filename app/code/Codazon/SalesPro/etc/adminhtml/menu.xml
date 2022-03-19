@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codazon_SalesPro::core" parent="Codazon_Options::Codazon_Options" title="Sales Pro" translate="title" module="Codazon_SalesPro" sortOrder="100" resource="Codazon_SalesPro::core" />
+        <add id="Codazon_SalesPro::osc_settings" parent="Codazon_SalesPro::core" title="One Step Checkout" translate="title" module="Codazon_SalesPro" sortOrder="30" resource="Codazon_SalesPro::settings" action="adminhtml/system_config/edit/section/codazon_osc" />
+    </menu>
+</config>

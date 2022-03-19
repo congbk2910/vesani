@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$contents = $this->getFooterContentArray();
+?>
+<?php if (count($contents)) : ?>
+<div class="footer-box-container">
+    <?php foreach ($contents as $content) : ?>
+    <div class="footer-box">
+        <?= $content ?>
+    </div>
+    <?php endforeach ?>
+</div>
+<?php endif ?>

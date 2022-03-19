@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$filterBlock = $block->getLayout()->getBlock('catalog.leftnav');
+?>
+
+<?php if ($filterBlock instanceof \Magento\Catalog\Block\Navigation) : ?>
+<?= $filterBlock->setTemplate('Codazon_GoogleAmpManager::amp/product/layer/navigation-left.phtml')->toHtml() ?>
+<?php else : ?>
+<?= $block->setTemplate('Codazon_GoogleAmpManager::amp/product/layer/view.phtml')->toHtml() ?>
+<?php endif ?>

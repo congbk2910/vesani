@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2018 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="amp_products_list" class="Codazon\GoogleAmpManager\Block\Widget\ProductsList" is_email_compatible="true" placeholder_image="Codazon_GoogleAmpManager::images/widget/amp-products-list.png" ttl="86400">
+        <label translate="true">Codazon AMP Products List</label>
+        <description translate="true">List of Products for AMP pages</description>
+        <parameters>
+            <parameter name="display_type" xsi:type="select" required="true" visible="true" sort_order="10">
+                <label translate="true">Display Type</label>
+                <options>
+                    <option name="default" value="all_products" selected="true">
+                        <label translate="true">All products</label>
+                    </option>
+                    <option name="item2" value="best_selling_products">
+                        <label translate="true">Best selling products</label>
+                    </option>
+                    <option name="item3" value="new_products">
+                        <label translate="true">New products</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true" sort_order="20" class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true" sort_order="30">
+                <label translate="true">Number of Products to Display</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="order_by" xsi:type="select" required="true" visible="true" sort_order="40">
+                <label translate="true">Order by</label>
+                <description translate="true"><![CDATA[This option won't be applied if "Display Type" is "New products".]]></description>
+                <options>
+                    <option name="default" value="name ASC" selected="true">
+                        <label translate="true">Name ASC</label>
+                    </option>
+                    <option name="order1" value="name DESC">
+                        <label translate="true">Name DESC</label>
+                    </option>
+                    <option name="order2" value="price ASC">
+                        <label translate="true">Price ASC</label>
+                    </option>
+                    <option name="order3" value="price DESC">
+                        <label translate="true">Price DESC</label>
+                    </option>
+                    <option name="order4" value="entity_id ASC">
+                        <label translate="true">Product's ID ASC</label>
+                    </option>
+                    <option name="order5" value="entity_id DESC">
+                        <label translate="true">Product's ID DESC</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="show" xsi:type="multiselect" visible="true" source_model="Codazon\GoogleAmpManager\Model\Config\Source\ProductListingElements" sort_order="50">
+                <label translate="true">Show on frontend</label>
+            </parameter>
+            <parameter name="max_desc_length" xsi:type="text" required="true" visible="true" sort_order="51">
+                <label translate="true">Maximum Description Length</label>
+                <description translate="true"><![CDATA[Leave empty to display whole description.]]></description>
+                <value>80</value>
+            </parameter>
+            <parameter name="thumb_width" xsi:type="text" required="true" visible="true" sort_order="60">
+                <label translate="true">Thumbnail Width</label>
+                <value>200</value>
+            </parameter>
+            <parameter name="thumb_height" xsi:type="text" required="true" visible="true" sort_order="61">
+                <label translate="true">Thumbnail Height</label>
+                <value>200</value>
+            </parameter>
+            <parameter name="item_width" xsi:type="text" visible="true" sort_order="70">
+                <label translate="true">Product Item Width</label>
+                <description translate="true"><![CDATA[Use for slider style. Default: 190.]]></description>
+                <value>190</value>
+            </parameter>
+            <parameter name="item_height" xsi:type="text" visible="true" sort_order="71">
+                <label translate="true">Product Item Height</label>
+                <description translate="true"><![CDATA[Use for slider style. Default: 330.]]></description>
+                <value>330</value>
+            </parameter>
+            <parameter name="custom_template" xsi:type="text" visible="true" sort_order="80">
+                <label translate="true">Custom Template</label>
+                <description translate="true"><![CDATA[Leave empty to use default template.]]></description>
+            </parameter>
+            <parameter name="mode" xsi:type="select" required="true" visible="true" sort_order="80">
+                <label translate="true">Display as</label>
+                <options>
+                    <option name="default" value="grid" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="order1" value="list">
+                        <label translate="true">List</label>
+                    </option>
+                    <option name="order2" value="slider">
+                        <label translate="true">Slider</label>
+                    </option>
+                </options>
+            </parameter>
+
+        </parameters>
+    </widget>
+</widgets>

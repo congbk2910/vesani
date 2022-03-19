@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="improvebundle" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Improve Bundle JS</label>
+			<tab>codazon</tab>
+			<resource>Codazon_ImproveBundle::config_codazon_improvebundle</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>General</label>
+				<field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enable JavaScript Bundling Optimization</label>
+					<comment>Please note that this option only works with enabled JavaScript Bundling (Configuration &gt; Advanced &gt; Developer &gt; JavaScript Settings &gt; Enable JavaScript Bundling).</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="included_files" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="textarea">
+                    <label>Included In Bundling</label>
+                    <comment>List of files that included in JS bundle.</comment>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

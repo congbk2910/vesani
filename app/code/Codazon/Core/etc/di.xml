@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="CdzFieldColor" type="Codazon\Core\Block\Adminhtml\Config\Form\Field\Color" />
+    <virtualType name="CdzFieldVariable" type="Codazon\Core\Block\Adminhtml\Config\Form\Field\Variable" />
+    <virtualType name="CdzVariablesCollector" type="Codazon\Core\Block\Adminhtml\Config\Form\Field\VariablesCollector" />
+    <virtualType name="CdzFieldSeparator" type="Codazon\Core\Block\Adminhtml\Config\Form\Field\Separator" />
+    <virtualType name="CdzFieldHeading" type="Codazon\Core\Block\Adminhtml\Config\Form\Field\Heading" />
+</config>

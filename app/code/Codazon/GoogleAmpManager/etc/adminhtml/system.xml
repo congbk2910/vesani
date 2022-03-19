@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="codazon" translate="label" sortOrder="200">
+            <label>Codazon</label>
+        </tab>
+        <section id="googleampmanager" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Google AMP</label>
+            <tab>codazon</tab>
+            <resource>Codazon_GoogleAmpManager::settings</resource>
+            <group id="general" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="logo" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>AMP Logo</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">codazon/amp/logo</upload_dir>
+                    <base_url type="media" scope_info="1">codazon/amp/logo</base_url>
+                </field>
+                <field id="logo_width" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>AMP Logo Width</label>
+                </field>
+                <field id="logo_height" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>AMP Logo Height</label>
+                </field>
+                <field id="logo_position" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>AMP Logo Position</label>
+                    <source_model>Codazon\Core\Model\Config\Source\PositionHorizontal</source_model>
+                </field>
+                <field id="date_format" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Date format</label>
+                </field>
+                <field id="enable_rtl" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable RTL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>CdzFieldVariable</frontend_model>
+                </field>
+                <field id="display_go_top_button" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Go Top Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="custom_css" translate="label comment" type="textarea" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom CSS</label>
+                    <comment><![CDATA[<strong>CAREFUL:</strong> Your CSS need to be satisfied AMP rule. If not, you AMP page will become invalide. <a target="_blank" href="https://amp.dev/documentation/guides-and-tutorials/develop/style_and_layout/style_pages/">View rule</a>.]]></comment>
+                </field>
+                <field id="custom_script" translate="label comment" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom AMP Js Library</label>
+                    <comment><![CDATA[Use to add more AMP components library. E.g.,<br /><span style="background: #f8f8f8;padding: 3px 8px;margin: 10px 0px;display: inline-block;border-radius: 3px;border: 1px solid #b9b5b5;">&lt;script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"&gt;&lt;/script&gt;</span>
+<br /><a target="_blank" href="https://amp.dev/documentation/components/">View AMP components</a></p>]]></comment>
+                </field>
+            </group>
+            <group id="styles" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Styles</label>
+                <field id="variables" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Variables</label>
+                    <frontend_model>CdzVariablesCollector</frontend_model>
+                    <backend_model>Codazon\GoogleAmpManager\Model\Config\Backend\StylesVariables</backend_model>
+                </field>
+                <field id="container_max_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Container Maximum Width</label>
+                    <frontend_model>CdzFieldVariable</frontend_model>
+                </field>
+                <group id="typography" translate="label,comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Typography</label>
+                    <field id="google_web_fonts" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Google Fonts</label>
+                        <source_model>Codazon\Core\Model\Config\Source\FontGoogle</source_model>
+                    </field>
+                    <field id="google_font_weights" translate="label comment" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Google Font Weights</label>
+                    </field>
+                    <field id="google_font_subset" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Google Font Subset</label>
+                    </field>
+                    <field id="h1_font" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H1 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="h2_font" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H2 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="h3_font" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H3 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="h4_font" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H4 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="h5_font" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H5 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="h6_font" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>H6 Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="normal_font" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Normal Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="input_font" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Form Input Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="note_font" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Note Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="product_view_price_font" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Product View - Price Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="product_list_price_font" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Product List - Price Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                    <field id="product_list_name_font" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Product List - Name Font</label>
+                        <frontend_model>CdzFieldVariable</frontend_model>
+                    </field>
+                </group>
+                <group id="header_colors" translate="label,comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Header Colors</label>
+                    <field id="header_text" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="header_background" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="header_border" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="header_label_text" translate="label comment" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Label Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="header_label_background" translate="label comment" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Label Background</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                </group>
+                <group id="main_colors" translate="label,comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Main Content Colors</label>
+                    <field id="heading_1" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>General</label>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="main_title_text" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Page Title Color</label>
+                        <comment>Use for page main title</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="block_title_text" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Block Title Color</label>
+                        <comment>Use for block title</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="text_1" translate="label comment" type="text" sortOrder="12" showInDefault="8" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Normal Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                        <comment>E.g.: Normal text, paragraph text, description text...</comment>
+                    </field>
+                    <field id="secondary_text" translate="label comment" type="text" sortOrder="13" showInDefault="8" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Secondary Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="text_2" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Hyperlink Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="text_8" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Produc List - Name Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="product_view_price_text" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Produc View - Price Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="product_list_price_text" translate="label comment" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Produc List - Price Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="body_background" translate="label comment" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Body background</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="block_background" translate="label comment" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Block background</label>
+                        <comment>E.g.: Product list item background</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_1" translate="label comment" type="text" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    
+                    <!--   separator  -->
+                    <field id="heading_3" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Primary Buttons</label>
+                        <comment>Use for primary buttons: add to cart, product list toolbar buttons, pager links, add review button, ...</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_3" translate="label comment" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color 3</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_3" translate="label comment" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color 3</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_3" translate="label comment" type="text" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color 3</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_3" translate="label comment" type="text" sortOrder="38" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="heading_4" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Secondary Buttons</label>
+                        <comment>Use for secondary buttons...</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_4" translate="label comment" type="text" sortOrder="42" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_4" translate="label comment" type="text" sortOrder="44" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_4" translate="label comment" type="text" sortOrder="46" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_4" translate="label comment" type="text" sortOrder="48" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="heading_5" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Dark Heading</label>
+                        <comment>Use for product detail accordion</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_5" translate="label comment" type="text" sortOrder="52" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_5" translate="label comment" type="text" sortOrder="54" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_5" translate="label comment" type="text" sortOrder="56" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_5" translate="label comment" type="text" sortOrder="58" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="heading_6" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Light Heading</label>
+                        <comment>Use for product review sidebar heading, product list toolbar background,...</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_6" translate="label comment" type="text" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_6" translate="label comment" type="text" sortOrder="64" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_6" translate="label comment" type="text" sortOrder="66" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_6" translate="label comment" type="text" sortOrder="68" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="heading_7" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Side Menu</label>
+                        <comment>Use for side menu</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_7" translate="label comment" type="text" sortOrder="72" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_7" translate="label comment" type="text" sortOrder="74" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_7" translate="label comment" type="text" sortOrder="76" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_7" translate="label comment" type="text" sortOrder="78" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <!-- field id="heading_8" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Small Title</label>
+                        <comment>Use for product name, post name... on listings</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="text_8" translate="label comment" type="text" sortOrder="82" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="background_8" translate="label comment" type="text" sortOrder="84" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="border_8" translate="label comment" type="text" sortOrder="86" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="separator_8" translate="label comment" type="text" sortOrder="88" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field -->
+                    <!--   separator  -->
+                    <field id="heading_9" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Border</label>
+                        <comment>Use for border styles</comment>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="light_border" translate="label comment" type="text" sortOrder="92" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Light Border Color</label>
+                        <comment>E.g.: product item border</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="dark_border" translate="label comment" type="text" sortOrder="94" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Dark Border Color</label>
+                        <comment>E.g.: table border, non-active swatch button border</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="emphasis_border" translate="label comment" type="text" sortOrder="96" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Emphasis Border Color</label>
+                        <comment>E.g.: product more view image border, active swatch button border</comment>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                </group>
+                <group id="footer_colors" translate="label,comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Footer Colors</label>
+                    <field id="footer_heading_1" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Footer Top Content</label>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="footer_top_text" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_top_background" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_separator_1" translate="label comment" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="footer_heading_2" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Footer Main Content</label>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="footer_text" translate="label comment" type="text" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_title" translate="label comment" type="text" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Title Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_background" translate="label comment" type="text" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_border" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_separator_2" translate="label comment" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="footer_heading_3" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Footer Bottom Content</label>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="footer_bottom_text" translate="label comment" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_bottom_background" translate="label comment" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_separator_3" translate="label comment" type="text" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>CdzFieldSeparator</frontend_model>
+                    </field>
+                    <!--   separator  -->
+                    <field id="footer_heading_4" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Footer Buttons</label>
+                        <frontend_model>CdzFieldHeading</frontend_model>
+                    </field>
+                    <field id="footer_button_text" translate="label comment" type="text" sortOrder="42" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Text Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_button_background" translate="label comment" type="text" sortOrder="44" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Background Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                    <field id="footer_button_border" translate="label comment" type="text" sortOrder="46" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Header Border Color</label>
+                        <frontend_model>CdzFieldColor</frontend_model>
+                    </field>
+                </group>
+            </group>
+            <!-- group id="header" translate="label,comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="content_1" translate="label comment" type="editor" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom Text</label>
+                </field>
+            </group -->
+            <group id="footer" translate="label,comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer Content</label>
+                <field id="footer_max_columns" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max Columns</label>
+                    <source_model>Codazon\GoogleAmpManager\Model\Config\Source\FooterMaxColumns</source_model>
+                    <frontend_model>CdzFieldVariable</frontend_model>
+                </field>
+                <field id="content_1" translate="label comment" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Column 1 content</label>
+                </field>
+                <field id="content_2" translate="label comment" type="editor" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Column 2 content</label>
+                </field>
+                <field id="content_3" translate="label comment" type="editor" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Column 3 content</label>
+                </field>
+                <field id="bottom_text" translate="label comment" type="editor" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Bottom Text</label>
+                </field>
+            </group>
+            <group id="images" translate="label,comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Image Settings</label>
+                <field id="product_view_main_image_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product View Main Image Witdh</label>
+                    <frontend_model>CdzFieldVariable</frontend_model>
+                </field>
+                <field id="product_view_main_image_height" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product View Main Image Height</label>
+                </field>
+                <field id="product_more_view_image_width" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product More View Image witdh</label>
+                </field>
+                <field id="product_more_view_image_height" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product More View Image height</label>
+                </field>
+                <field id="product_list_image_width" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product List Image Witdh</label>
+                </field>
+                <field id="product_list_image_height" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product List Image Height</label>
+                </field>
+            </group>
+            <group id="product_view" translate="label,comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product View Page</label>
+            </group>
+            <group id="category_view" translate="label,comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category View Page</label>
+                <field id="product_grid_max_columns" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product Grid Max Columns</label>
+                    <source_model>Codazon\Core\Model\Config\Source\List4Options</source_model>
+                    <frontend_model>CdzFieldVariable</frontend_model>
+                </field>
+                <field id="display_cat_desc" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Category Description</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_cat_img" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Category Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cat_img_height" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Category Image Height</label>
+                </field>
+                <field id="listing_elements" translate="label comment" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display on Listing</label>
+                    <source_model>Codazon\GoogleAmpManager\Model\Config\Source\ProductListingElements</source_model>
+                </field>
+                <field id="max_desc_length" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Maximum Description Length for Grid Mode</label>
+                    <comment>Leave empty to display whole description.</comment>
+                </field>
+            </group>
+            <group id="developer_mode" translate="label,comment" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Developer Mode</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <comment>Don't enable it if you are not sure the result!</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

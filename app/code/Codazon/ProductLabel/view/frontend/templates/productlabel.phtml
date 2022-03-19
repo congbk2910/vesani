@@ -1,0 +1,42 @@
+<?php
+/**
+* Copyright © 2019 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+	$object = $block->getObject();
+	$labels = $object['labels'];
+    $product = $object['product'];
+	$imgHelper = $this->helper('Codazon\ProductLabel\Helper\Image');
+	$objectManager = $this->getObjectManager();
+	$filterObject = $objectManager->get('Magento\Framework\DataObject');
+	$htmlFilter = $objectManager->get('Codazon\ProductLabel\Model\Filter');
+	$filterObject->setData('product', $product);
+?>
+<ul class="cdz-product-labels">
+	<?php foreach($labels as $label): ?>
+    <?php    	
+		$style= $label->getCustomCss();
+    	$filterObject->setData('text',$label->getContent());
+		if($label->getLabelBackground()){
+			$background = (string)$imgHelper->init($label->getLabelBackground());
+			$style .= "background-image: url($background); "	;
+		}
+		if($label->getLabelImage()){
+			$image = (string)$imgHelper->init($label->getLabelImage());
+		}
+		$style .= $label->getCustomCss();
+		$class = $label->getCustomClass();
+	?>
+    
+    <li class="label-item <?php echo $class ?>" style="<?php echo $style ?>" >
+		<div class="label-content">
+			<?php if(isset($image)): ?>
+			<img src="<?php echo $image ?>" />
+			<?php endif ?>
+			<?php echo $htmlFilter->filterLabel($filterObject) ?>
+		</div>
+    </li>
+    <?php endforeach ?>
+</ul>

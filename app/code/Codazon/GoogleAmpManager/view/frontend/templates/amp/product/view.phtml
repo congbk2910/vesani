@@ -1,0 +1,17 @@
+<?php
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+$layout = $this->getLayout();
+?>
+<?= $this->getBlockHtml('product.info.media.image') ?>
+<?= $layout->renderElement('product.info.price') ?>
+<?= $this->getBlockHtml('product.price.tier') ?>
+<?= $layout->renderElement('amp_product.info.main') ?>
+<?= $this->getBlockHtml('product.info') ?>
+<?= $this->getBlockHtml('amp-product.info.details') ?>
+<?= $this->getBlockHtml('catalog.product.related') ?>
+<?= $this->getBlockHtml('product.info.upsell') ?>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Codazon_ThemeLayoutPro:etc/config.xsd">
+    <default>
+        <csp>
+            <mode>
+                <storefront>
+                    <report_uri>http://csp-reporting-service.com/my-project/endpoint</report_uri>
+                </storefront>
+                <admin>
+                    <report_uri>http://csp-reporting-service.com/my-project/endpoint</report_uri>
+                </admin>
+            </mode>
+        </csp>
+	</default>
+</config>

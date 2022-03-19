@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="amp-page-product" />
+        <referenceContainer name="shipping-estimation-simple" remove="true" />
+        <referenceContainer name="shipping-estimation-configurable" remove="true" />
+        <referenceBlock name="product.info.options" display="false" />
+        <referenceBlock name="html_calendar" remove="true" />
+        <referenceBlock name="product.info.social" remove="true" />
+        <referenceBlock name="amp_custom_style">
+            <action method="addCustomStyleFile">
+                <argument name="file" xsi:type="string">product-view-styles.less</argument>
+            </action>
+        </referenceBlock>
+        
+        
+        <!--referenceBlock name="product.info.review" remove="true" /-->
+        
+        <!-- change template -->
+        <referenceBlock name="product.info.media.image">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/gallery.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/form.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.addtocart.additional">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.review">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/review-info.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.review.form">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/review-form.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="reviews.tab">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/review.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.description">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/attribute.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/attributes.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="catalog.product.related">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/list/items.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.info.upsell">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/list/items.phtml</argument>
+            </action>
+        </referenceBlock>
+         <referenceBlock name="breadcrumbs">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/product/view/breadcrumbs.phtml</argument>
+            </action>
+        </referenceBlock>
+        <!-- product tabs -->
+        <referenceContainer name="content">
+            <container name="amp_product.info.main" htmlTag="div" htmlClass="amp-product-info-main" before="product.info.main" />
+        </referenceContainer>
+        <referenceContainer name="product.info.details" remove="true" />
+        <block class="Magento\Catalog\Block\Product\View\Details" name="amp-product.info.details" template="Codazon_GoogleAmpManager::amp/product/view/details.phtml" />
+        <block class="Magento\Catalog\Block\Product\View" name="amp_product_options_reference" template="Codazon_GoogleAmpManager::amp/product/view/options-reference.phtml" />
+        
+        <move element="page.main.title" destination="product.info.price" before="-" />
+        
+        <move element="product.info.description" destination="amp-product.info.details" />
+        <move element="product.attributes" destination="amp-product.info.details" />
+        <move element="reviews.tab" destination="amp-product.info.details" />
+        <!-- move neccessary elements to amp_product.info.main -->        
+        <!-- page content -->
+        <referenceContainer name="amp_head_additional">
+            <block class="Magento\Catalog\Block\Product\View" name="amp_head_additional_product_view" template="Codazon_GoogleAmpManager::amp/product/view/head-config.phtml" />
+        </referenceContainer>
+        <referenceContainer name="amp_page_content">
+            <block class="Magento\Catalog\Block\Product\View" name="amp_page_content.product" template="Codazon_GoogleAmpManager::amp/product/view.phtml" />
+        </referenceContainer>
+    </body>
+</page>

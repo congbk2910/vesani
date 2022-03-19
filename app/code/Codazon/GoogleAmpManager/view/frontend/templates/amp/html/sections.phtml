@@ -1,0 +1,43 @@
+<?php
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+$group = $block->getGroupName();
+$groupCss = $block->escapeHtmlAttr($block->getGroupCss());
+$tabs = [];
+if ($detailedInfoGroup = $block->getGroupChildNames($group, 'getChildHtml')) {
+    $layout = $block->getLayout();
+    foreach ($detailedInfoGroup as $name) {
+        $html = $layout->renderElement($name);
+        if (!trim($html) && ($block->getUseForce() != true)) {
+            continue;
+        }
+        $alias = $layout->getElementAlias($name);
+        $tabs[] = [
+            'title'         => $block->getChildData($alias, 'title'),
+            'content'       => $html,
+            'alias'         => $alias
+        ];
+    }
+}
+?>
+<amp-sidebar id="cdz-amp-menu-sidebar" class="cdz-amp-menu-sidebar cdz-amp-sidebar _nice-scroll" layout="nodisplay" side="<?= $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class)->getSidebarDirection() ?>">
+    <button class="cdz-amp-close-icon" role="button" aria-label="close sidebar" on="tap:cdz-amp-menu-sidebar.toggle" tabindex="0"></button>
+    <?php if (count($tabs)) : ?>
+    <div class="cdz-amp-tabs">
+        <amp-selector id="cdz-amp-sections-title" class="cdz-amp-tabs-title" role="tablist" on="select:cdz-amp-sections-content.toggle(index=event.targetOption, value=true)">
+        <?php foreach ($tabs as $key => $tab) : ?>
+        <div  <?= ($key == 0) ? 'selected ' : '' ?>option="<?= $key ?>" class="item <?= $tab['alias'] ?>" role="tab"><span><?= $tab['title'] ?></span></div>
+        <?php endforeach ?>
+        </amp-selector>
+        <amp-selector id="cdz-amp-sections-content" class="cdz-amp-sections-content cdz-amp-tab-content">
+        <?php foreach ($tabs as $key => $tab) : ?>
+        <div <?= ($key == 0) ? 'selected ' : '' ?>option="<?= $key ?>" class="item <?= $tab['alias'] ?>" role="tabpanel"><?= $tab['content'] ?></div>
+        <?php endforeach ?>
+        </amp-selector>
+    </div>
+    <?php endif ?>
+</amp-sidebar>

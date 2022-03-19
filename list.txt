@@ -1,0 +1,3 @@
+5ea045ddc174919918bef140350ce23471745c19
+app/design/frontend/Codazon/fastest/fashion/Codazon_QuickShop/layout/quickshop_index_view.xml
+app/design/frontend/Codazon/fastest/fashion/Codazon_QuickShop/templates/product/view/gallery.phtml

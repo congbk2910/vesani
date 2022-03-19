@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use \Codazon\GoogleAmpManager\Model\AmpConfig;
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+$width = $ampHelper->getConfig(AmpConfig::LOGO_WIDTH_PATH);
+$height = $ampHelper->getConfig(AmpConfig::LOGO_HEIGHT_PATH);
+$src = $ampHelper->getConfig(AmpConfig::LOGO_PATH);
+$src = $src ? $ampHelper->getMediaUrl('codazon/amp/logo/' . $src) : $block->getLogoSrc();
+?>
+<a class="cdz-amp-logo logo-<?= $ampHelper->getConfig('googleampmanager/general/logo_position') ?>" href="<?= $ampHelper->transformToAmpUrl($block->escapeUrl($block->getUrl(''))) ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>">
+    <amp-img src="<?= $block->escapeUrl($src) ?>"
+         title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+         alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+            width="<?= $block->escapeHtmlAttr($width) ?>"
+            height="<?= $block->escapeHtmlAttr($height) ?>"
+    ></amp-img>
+</a>

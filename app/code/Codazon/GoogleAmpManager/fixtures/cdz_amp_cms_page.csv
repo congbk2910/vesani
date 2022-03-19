@@ -1,0 +1,48 @@
+amp_content,options,is_home_page,identifier
+"<h2>Welcome to Codazon Store</h2>
+<p>We're a team of creative and make amazing site in ecommerce. We love colour pastel, highlight and simple, its make our design look so awesome</p>
+<p><amp-img class=""img-responsive"" src=""{{media url=""wysiwyg/codazon/main-content-10/background-01.jpg""}}"" alt="""" width=""812"" height=""95"" layout=""responsive""></amp-img></p>
+<h3>Infomation Group</h3>
+<p>We differentiate ourselves through a combination of unique designs and styles merged with unequaled standards of quality and authenticity. Our founders have deep roots in yoga and health communities and our selections serve amateur practitioners and professional athletes alike.</p>
+<ul class=""cdz-items"">
+<li class=""cdz-item""><a href=""{{store url=""contact""}}"">Contact Luma</a></li>
+<li class=""cdz-item""><a href=""{{store url=""customer-service""}}"">Customer Service</a></li>
+<li class=""cdz-item""><a href=""{{store url=""privacy-policy""}}"">Luma Privacy Policy</a></li>
+<li class=""cdz-item""><a href=""{{store url=""""}}"">Shop Luma</a></li>
+</ul>
+<h3>Theme Features</h3>
+<h4>Layouted PSD</h4>
+<p>We're a team of creative and make amazing site in ecommerce. We love colour pastel, highlight and simple, its make our design look so awesome:</p>
+<ul class=""items"">
+<li>Named Properly</li>
+<li>Fast to Navigate</li>
+<li>Easy to Customize</li>
+</ul>
+<h4>Multipurpose Design</h4>
+<p>We're a team of creative and make amazing site in ecommerce. We love colour pastel, highlight and simple, its make our design look so awesome:</p>
+<ul>
+<li>For Designers / Creatives</li>
+<li>Design Agency</li>
+<li>Good for you</li>
+</ul>
+<h4>Responsive</h4>
+<p>We're a team of creative and make amazing site in ecommerce. We love colour pastel, highlight and simple, its make our design look so awesome:</p>
+<ul>
+<li>Desktops</li>
+<li>Tablets</li>
+<li>Mobile Phone</li>
+</ul>",,0,about-us
+"<p><a href=""{{store direct_url=""amp/fashion.html""}}""><amp-img class=""cdz-flex-img"" src=""{{media url=""codazon/amp/images/image-01.jpg""}}"" alt="""" width=""760"" height=""214"" layout=""responsive""></amp-img></a></p>
+<div class=""cdz-block _mg-bottom-20"">
+<div class=""cdz-block-title"">Featured products</div>
+<div class=""cdz-block-content"">{{widget type=""Codazon\GoogleAmpManager\Block\Widget\ProductsList"" display_type=""all_products"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`414`^]^]"" products_count=""8"" order_by=""entity_id DESC"" show=""rating,price,addtocart,thumbnail"" max_desc_length=""80"" thumb_width=""200"" thumb_height=""200"" item_width=""190"" item_height=""330"" mode=""slider""}}</div>
+</div>
+<div class=""cdz-block _mg-bottom-20"">
+<div class=""cdz-block-title"">New products</div>
+<div class=""cdz-block-content"">{{widget type=""Codazon\GoogleAmpManager\Block\Widget\ProductsList"" display_type=""all_products"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`412`^]^]"" products_count=""8"" order_by=""entity_id DESC"" show=""rating,price,addtocart,thumbnail"" max_desc_length=""80"" thumb_width=""200"" thumb_height=""200"" item_width=""190"" item_height=""330"" mode=""grid""}}</div>
+</div>
+<p class=""_mg-bottom-20""><a href=""{{store direct_url='amp/fashion.html'}}""><amp-img class=""cdz-flex-img"" src=""{{media url=""codazon/amp/images/image-02.jpg""}}"" alt="""" width=""800"" height=""150"" layout=""responsive""></amp-img></a></p>
+<div class=""cdz-block _mg-bottom-20"">
+<div class=""cdz-block-title"">Top Trending</div>
+<div class=""cdz-block-content"">{{widget type=""Codazon\GoogleAmpManager\Block\Widget\ProductsList"" display_type=""all_products"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`411`^]^]"" products_count=""6"" order_by=""entity_id DESC"" show=""description,rating,price,addtocart,thumbnail"" max_desc_length=""200"" thumb_width=""200"" thumb_height=""200"" item_width=""190"" item_height=""330"" mode=""list""}}</div>
+</div>","{""amp_custom_css"":""""}",1,codazon-home-page

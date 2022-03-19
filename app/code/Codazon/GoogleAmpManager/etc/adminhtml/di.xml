@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cms\Controller\Adminhtml\Page\Save">
+        <plugin name="google_amp_manager_controller_adminhtml_cms_page_save" type="Codazon\GoogleAmpManager\Plugin\Controller\Adminhtml\Cms\Page\Save" />
+    </type>
+    <type name="Magento\Cms\Model\Page\DataProvider">
+        <plugin name="google_amp_manager_model_cms_page_dataprovider" type="Codazon\GoogleAmpManager\Plugin\Model\Cms\Page\DataProvider" />
+    </type>
+</config>

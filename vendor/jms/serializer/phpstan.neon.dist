@@ -1,0 +1,13 @@
+parameters:
+    level: 1
+
+    ignoreErrors:
+        - '~Class Doctrine\\Common\\Persistence\\Proxy not found~'
+        - '~Class Doctrine\\ODM\\MongoDB\\PersistentCollection not found~'
+        - '~Class Symfony\\Component\\Translation\\TranslatorInterface not found~'
+        - '#Instantiated class Doctrine\\Common\\Cache\\FilesystemCache not found\.#'
+        - '#Constructor of class JMS\\Serializer\\Annotation\\.*? has an unused parameter#'
+
+    paths:
+        - %currentWorkingDirectory%/src
+        - %currentWorkingDirectory%/tests

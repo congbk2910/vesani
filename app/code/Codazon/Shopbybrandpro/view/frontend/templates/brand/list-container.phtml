@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © 2017 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php if ($brandList = $this->getChildBlock('brand_list')) : ?>
+<?php
+$widget = [
+    'Codazon_Shopbybrandpro/js/brand-listing' => [
+        'filterUrl' => $brandList->getFilterUrl(),
+        'charUrl' => $brandList->getFilterUrl([], 'first_char')
+    ]
+];
+?>
+<div class="list-container" data-mage-init='<?= json_encode($widget) ?>'><?= $block->getBlockHtml('brand_list'); ?></div>
+<?php endif ?>

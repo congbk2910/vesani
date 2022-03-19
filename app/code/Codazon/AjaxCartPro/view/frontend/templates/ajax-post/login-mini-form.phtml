@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © 2017 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+?>
+<!-- login style default - wishlist -->
+<?php
+$uniqid = "msp-recaptcha-".uniqid();
+?>
+<div class="account-info-summary">
+    <div class="info-summary-top">
+        <div class="block-customer-login">
+            <?= $this->getBlockHtml('mageplaza-social-login-buttons') ?>
+            <form name="loginForm" action="<?php echo $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" data-mage-init='{"themewidgets":{"codazon.customValidation": {}}}'>
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <?= $this->getChildHtml('form_additional_info') ?>
+                <div class="field email required">
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                    <div class="control">
+                        <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?php if ($captcha = $this->getLayout()->getBlock('mini-login-msp-recaptcha')) : ?>
+                <?= $captcha->setCustomRecaptchaId($uniqid)->toHtml(); ?>
+                <?php endif ?>
+                <div data-mage-init='{"themewidgets":{"codazon.ajaxcontent": {"ajaxUrl": "<?= $this->getUrl('themeoptions/ajax/captcha') ?>", "cache": false}}}'></div>
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
+                    <div class="secondary"><a class="action remind" href="<?php echo $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?php echo __('Forgot Your Password?'); ?></span></a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="info-summary-bottom">
+        <p class="secondary"><span class="create-account-question"><?php echo __('New customer?') ?></span> <a class="create-account-link" href="<?php echo $block->getUrl('customer/account/create'); ?>"><?php echo __('Start Here.') ?></a></p>
+    </div>
+</div>
+<script>
+require([
+    'jquery',
+], function($){
+    if ($('#<?= $uniqid ?>-container').length && ($.fn.applyBindings != undefined)) {
+        $('#<?= $uniqid ?>-container').applyBindings();
+    }
+});
+</script>

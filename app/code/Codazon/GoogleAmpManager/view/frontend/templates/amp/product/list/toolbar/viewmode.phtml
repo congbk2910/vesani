@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar as ToolbarModel;
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<?php if ($block->isEnabledViewSwitcher()) :?>
+<?php
+$ampHelper = $this->helper(Codazon\GoogleAmpManager\Helper\Data::class);
+?>
+    <div class="cdz-listing-modes">
+        <?php $_modes = $block->getModes(); ?>
+        <?php if ($_modes && count($_modes) > 1) :?>
+            <?php foreach ($block->getModes() as $_code => $_label) :?>
+                <?php if ($block->isModeActive($_code)) :?>
+                    <span title="<?= $block->escapeHtmlAttr($_label) ?>"
+                            class="cdz-modes-mode cdz-toolbar-icon active mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
+                        <span><?= $block->escapeHtml($_label) ?></span>
+                    </span>
+                <?php else :?><?php
+                    $url = $ampHelper->transformToAmpUrl($block->getPagerUrl([ToolbarModel::MODE_PARAM_NAME => $_code]));
+                    ?>
+                    <a class="cdz-modes-mode cdz-toolbar-icon mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       title="<?= $block->escapeHtmlAttr($_label) ?>"
+                       href="<?= $url ?>">
+                        <span><?= $block->escapeHtml($_label) ?></span>
+                    </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

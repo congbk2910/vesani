@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php
+$helper = $this->helper('Codazon\AjaxLayeredNavPro\Helper\Data');
+$widget = [
+    'Codazon_AjaxLayeredNavPro/js/infinite-scroll' => []
+]
+?>
+<style type="text/css">
+.products.wrapper ~ .toolbar{display:none !important;}
+.infinite-scroll-placeholder{display:block;width:100%;min-height:1px;}
+.toolbar-products .toolbar-amount{display:none;}
+</style>
+
+<div class="infinite-scroll-placeholder" data-mage-init='<?= json_encode($widget) ?>'>
+    <div class="double-bounce-spinner brand-loader" data-role="loader" style="display:none;">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>

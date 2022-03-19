@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+	<referenceContainer name="header.wrapper.content">
+		<container htmlClass="header content" htmlTag="div">
+			<container htmlClass="row" htmlTag="div">
+				<container htmlClass="col-sm-12 col-md-5 col-lg-5" htmlTag="div">
+					<container name="header.wrapper.left" htmlClass="header-wrapper-left" label="Header Wrapper Left" htmlTag="div" >
+						<container name="logo.left" htmlClass="logo-left" htmlTag="div" />
+						</container>
+				</container>
+				<container htmlClass="col-sm-12 col-md-8 col-lg-9" htmlTag="div">
+					<container name="header.wrapper.center" htmlClass="header-wrapper-center" label="Header Wrapper Center" htmlTag="div" />
+				</container>
+				<container htmlClass="col-sm-24 col-md-11 col-lg-10" htmlTag="div">
+					<container name="header.wrapper.right" htmlClass="header-wrapper-right" label="Header Wrapper Right" htmlTag="div" />
+				</container>
+			</container>
+		</container>
+	</referenceContainer>
+	<referenceContainer name="header.panel">
+		<container name="header.panel.row" htmlClass="row" htmlTag="div">
+				<container htmlClass="col-sm-10 col-md-8" htmlTag="div">
+					<container name="header.panel.left" htmlClass="header-panel-left" label="Header Panel Left" htmlTag="div" />						
+				</container>
+				<container htmlClass="col-sm-14 col-md-16" htmlTag="div">
+					<container name="header.panel.right" htmlClass="header-panel-right" label="Header Panel Right" htmlTag="div" />																				
+				</container>				
+			</container>
+	</referenceContainer>
+
+	<referenceContainer name="page.wrapper">        	
+		<container name="header.slideshow.full" as="header_slideshow_full" before="main.content.top" label="Before Main Content Full" htmlTag="div" htmlClass="full-slideshow-wrapper" />	
+	</referenceContainer>
+	<move element="store_switcher" destination="header.panel.right" before="-" />
+	<move element="store_language" destination="header.panel.right" after="store_switcher" />
+	<move element="header.links" destination="header.panel.right" />
+	<move element="currency" destination="header.panel.right" after="-" />
+	
+	<move element="logo" destination="logo.left" />
+	<move element="minicart" destination="header.wrapper.right" />
+	</body>
+</page>

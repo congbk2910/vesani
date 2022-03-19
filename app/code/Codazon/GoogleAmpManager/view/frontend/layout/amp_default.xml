@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>    
+        <referenceBlock name="catalog.topnav" remove="true" />
+        <container name="amp_head_additional" label="Amp Head Additional" />
+        <block class="Magento\Framework\View\Element\Template" name="amp_layout_content" template="Codazon_GoogleAmpManager::amp/html/layout-content.phtml">
+            <container name="amp_page_header" htmlTag="header" htmlId="cdz-amp-header" htmlClass="cdz-amp-header" label="Amp Page Header Container" before="amp_page_container" />
+            <container name="amp_page_container" htmlTag="div" htmlClass="cdz-amp-container cdz-main-content-wrap" label="Amp Page Main Container">
+                <container name="amp_page_content_top" label="Amp Page Main Content Top" />
+                <container name="amp_page_content" htmlTag="div" htmlId="cdz-amp-main-content" htmlClass="cdz-amp-main-content" label="Amp Page Main Content" />
+            </container>
+            <container name="amp_page_footer" htmlTag="footer" htmlId="cdz-amp-footer" htmlClass="cdz-amp-footer" label="Amp Page Footer Container" after="amp_page_container">
+                <container name="amp_page_footer_top" htmlTag="div" htmlId="cdz-footer-top" htmlClass="cdz-footer-top" label="Amp Page Footer Top" before="amp_page_footer_middle">
+                    <container name="amp_page_footer_top_content" htmlTag="div" htmlClass="cdz-amp-container" label="Amp Page Footer Top Content" />
+                </container>
+                <container name="amp_page_footer_middle" htmlTag="div" htmlId="cdz-footer-middle" htmlClass="cdz-footer-middle" label="Amp Page Footer Middle">
+                    <container name="amp_page_footer_middle_content" htmlTag="div" htmlClass="cdz-amp-container" label="Amp Page Footer Middle Content" />
+                </container>
+                <container name="amp_page_footer_bottom" htmlTag="div" htmlId="cdz-footer-bottom" htmlClass="cdz-footer-bottom" label="Amp Page Footer Bottom" after="-">
+                    <container name="amp_page_footer_bottom_content" htmlTag="div" htmlClass="cdz-amp-container" label="Amp Page Footer Bottom Content" />
+                </container>
+            </container>
+            <container name="amp_before_body_end" label="Amp Page Footer Container" after="amp_page_footer" />
+        </block>
+        <referenceContainer name="amp_head_additional">
+            <block class="Codazon\GoogleAmpManager\Block\Styles" name="amp_custom_style" template="Codazon_GoogleAmpManager::amp/head/style.phtml">
+                <action method="addCustomStyleFile">
+                    <argument name="file" xsi:type="string">general-styles.less</argument>
+                </action>
+            </block>
+            <block class="Codazon\GoogleAmpManager\Block\Styles" name="amp_js_library" template="Codazon_GoogleAmpManager::amp/head/script.phtml">
+                <action method="addAmpJs">
+                    <argument name="script" xsi:type="array">
+                        <item name="amp-analytics" xsi:type="string">async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"</item>
+                        <item name="amp-form" xsi:type="string">async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"</item>
+                        <item name="amp-carousel" xsi:type="string">async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"</item>
+                        <item name="amp-mustache" xsi:type="string">async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"</item>
+                        <item name="amp-accordion" xsi:type="string">async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"</item>
+                        <item name="amp-selector" xsi:type="string">async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"</item>
+                        <item name="amp-sidebar" xsi:type="string">async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"</item>
+                        <item name="amp-animation" xsi:type="string">async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"</item>
+                        <item name="amp-position-observer" xsi:type="string">async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"</item>
+                        <item name="amp-list" xsi:type="string">async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"</item>
+                        <item name="amp-bind" xsi:type="string">async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="amp_page_header">
+            <block name="amp_page_header_content" class="Codazon\GoogleAmpManager\Block\AbstractAmp" template="Codazon_GoogleAmpManager::amp/html/header.phtml" />
+            <block name="amp_navigation_sections" class="Codazon\GoogleAmpManager\Block\AbstractAmp" template="Codazon_GoogleAmpManager::amp/html/sections.phtml">
+                <arguments>
+                    <argument name="group_name" xsi:type="string">amp-navigation-sections</argument>
+                    <argument name="group_css" xsi:type="string">cdz-amp-nav-sections</argument>
+                </arguments>
+                <block class="Magento\Framework\View\Element\Template" name="amp-store-menu" group="amp-navigation-sections" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Menu</argument>
+                    </arguments>
+                    <block class="Codazon\GoogleAmpManager\Block\Html\Categorymenu" name="amp-catalog-topnav" template="Codazon_GoogleAmpManager::amp/html/topmenu.phtml" before="-" />
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="amp-store-links" group="amp-navigation-sections" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Account</argument>
+                        <argument name="use_force" xsi:type="boolean">true</argument>
+                    </arguments>
+                    <block class="Magento\Customer\Block\Account\Navigation" name="amp-top-links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">amp-header-links amp-links-list</argument>
+                        </arguments>
+                        <block class="Magento\Customer\Block\Account\Link" name="amp-my-account-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                                <argument name="sortOrder" xsi:type="number">110</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Customer\Block\Account\RegisterLink" name="amp-register-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Customer\Block\Account\AuthorizationLink" name="amp-authorization-link" template="Magento_Customer::account/link/authorization.phtml"/>
+                   </block>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="amp_page_footer">
+            <block name="amp_page_footer_content" class="Codazon\GoogleAmpManager\Block\AbstractAmp" template="Codazon_GoogleAmpManager::amp/html/footer.phtml" />
+        </referenceContainer>
+                
+        <referenceBlock name="logo">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/html/header/logo.phtml</argument>
+            </action>
+        </referenceBlock>
+         <referenceBlock name="breadcrumbs">
+            <action method="setTemplate">
+                <argument name="name" xsi:type="string">Codazon_GoogleAmpManager::amp/html/breadcrumbs.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="amp_page_header_content">
+            <container name="amp_page_header_toolbar" label="Amp Page Header Toolbar" htmlTag="div" htmlClass="cdz-amp-header-toolbar" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="amp_top_search" template="Codazon_GoogleAmpManager::amp/html/header/mini-search-form.phtml" />
+                <block class="Magento\Checkout\Block\Cart\Sidebar" name="amp_top_cart" template="Codazon_GoogleAmpManager::amp/html/header/minicart.phtml" />
+            </container>
+        </referenceBlock>
+        <referenceContainer name="amp_page_footer_top_content">
+            <block class="Magento\Newsletter\Block\Subscribe" name="amp-form-subscribe" before="-" template="Codazon_GoogleAmpManager::amp/html/subscribe-form.phtml" ifconfig="newsletter/general/active" />
+        </referenceContainer>
+        <referenceContainer name="amp_page_footer_middle_content">
+            <block class="Codazon\GoogleAmpManager\Block\AbstractAmp" name="amp-footer-main-content" template="Codazon_GoogleAmpManager::amp/html/footer/content.phtml" />
+        </referenceContainer>
+        <referenceContainer name="amp_page_footer_bottom_content">
+            <block class="Codazon\GoogleAmpManager\Block\AbstractAmp" name="amp-footer-bottom-content" template="Codazon_GoogleAmpManager::amp/html/footer/bottom-content.phtml" />
+        </referenceContainer>
+        <referenceContainer name="amp_before_body_end">
+            <block name="amp_page_features" class="Magento\Framework\View\Element\Template" template="Codazon_GoogleAmpManager::amp/html/page-features.phtml" />
+            <block name="amp_cart_sidebar" class="Magento\Framework\View\Element\Template"  template="Codazon_GoogleAmpManager::amp/html/minicart-sidebar.phtml" />
+            <block name="amp_page_overlay" class="Magento\Framework\View\Element\Template" template="Codazon_GoogleAmpManager::amp/html/overlay.phtml" />
+            <block name="amp_page_message_popup" class="Magento\Framework\View\Element\Template" template="Codazon_GoogleAmpManager::amp/html/message-popup.phtml" after="-" />
+        </referenceContainer>
+        <move element="page.main.title" destination="amp_page_content_top" before="-" />
+        <move element="breadcrumbs" destination="amp_page_content_top" />
+    </body>
+</page>

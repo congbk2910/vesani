@@ -1,0 +1,82 @@
+<?php
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* $block Codazon\ShoppingCartPro\Block\MiniCart */
+?>
+
+<?php $helper = $this->getHelper(); ?>
+
+<?php if ($helper->enableCustomCart()) : ?>
+
+<?php
+$style = $helper->getMiniCartStyle();
+$maxVisibleItems = 2;
+$config = [
+    'optionUrl'     => $this->getUrl('quickview/index/view', ['ajaxcart_option' => 1]),
+    'miniCartStyle' => (int)$helper->getMiniCartStyle(),
+    'popupId'       => 'cdz-minicart-popup',
+    'minicartMaxItemsVisible' => $maxVisibleItems
+];
+?>
+<script type="text/javascript">
+(function() {
+var config = {
+    config: {
+        mixins: {
+            'Magento_Catalog/js/catalog-add-to-cart': {
+                'Codazon_AjaxCartPro/js/catalog-add-to-cart': true
+            }
+        }
+    },
+    map: {
+        '*': {
+            'codazonSidebar': 'Codazon_AjaxCartPro/js/sidebar',
+            'catalogAddToCart': 'Codazon_AjaxCartPro/js/catalog-add-to-cart',
+            'Magento_Catalog/js/catalog-add-to-cart': 'Codazon_AjaxCartPro/js/catalog-add-to-cart',
+            'mage/dataPost': 'Codazon_AjaxCartPro/js/ajax-post',
+            'defaultMageDataPost': 'mage/dataPost' 
+        }
+    },
+	deps: [
+        'Codazon_AjaxCartPro/js/ajax-post'
+    ]
+};
+require.config(config);
+})();
+var ajaxShoppingCart = <?php echo json_encode($config) ?>;
+</script>
+<?php else : ?>
+<script type="text/javascript">
+var ajaxShoppingCart = {minicartMaxItemsVisible: 2};
+</script>
+<?php endif ?>
+
+<?php if ($helper->enableAjaxWishlist() || $helper->enableAjaxCompare()) : ?>
+<?php
+$ajaxPostConfig = [
+    'updateMsgUrl'              => $this->getUrl('customer/section/load', ['_query' => 
+        ['sections' => 'messages', 'update_section_id' => 'true']
+    ])
+];
+$ajaxPostConfig['replacedActions'] = [];
+if ($helper->enableAjaxWishlist()) {
+    $ajaxPostConfig['wishlistEmptyMsg'] = __('You have no items in your wish list.');
+    $ajaxPostConfig['replacedActions']['wishlist/index/add'] = $this->getUrl('ajaxpost/product_wishlist/add');
+    $ajaxPostConfig['replacedActions']['wishlist/index/remove'] = $this->getUrl('ajaxpost/product_wishlist/remove');
+    $ajaxPostConfig['replacedActions']['wishlist/index/fromcart'] = $this->getUrl('ajaxpost/product_wishlist/fromcart');
+    $ajaxPostConfig['replacedActions']['ajaxpost/product_wishlist/moveallfromcart'] = $this->getUrl('ajaxpost/product_wishlist/moveallfromcart');
+    //$ajaxPostConfig['replacedActions']['wishlist/index/updateItemOptions'] = $this->getUrl('ajaxpost/product_wishlist/updateItemOptions');
+}
+if ($helper->enableAjaxCompare()) {
+    $ajaxPostConfig['replacedActions']['catalog/product_compare/add'] = $this->getUrl('ajaxpost/product_compare/add');
+    $ajaxPostConfig['replacedActions']['catalog/product_compare/remove'] = $this->getUrl('ajaxpost/product_compare/remove');
+    $ajaxPostConfig['replacedActions']['catalog/product_compare/clear'] = $this->getUrl('ajaxpost/product_compare/clear');
+}
+?>
+<script type="text/javascript">
+var cdzAjaxPost = <?php echo json_encode($ajaxPostConfig) ?>;
+</script>
+<?php endif ?>

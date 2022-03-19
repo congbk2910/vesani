@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view_type_bundle"/>
+    <move element="product.info.options.wrapper" destination="bundle.product.options.wrapper" before="-" />
+    <move element="product.info.options.wrapper.bottom" destination="bundle.product.options.wrapper" after="product.info.options.wrapper" />
+    <referenceBlock name="quickshop_tabs">
+        <block name="product.type.bundle.options" after="link_to_infomain" class="Codazon\QuickShop\Block\QuickShop" template="quickshop.content.phtml" group="quickshop_tabs" before="product.info.detail">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Options</argument>
+                <argument name="html_id" xsi:type="string">quickshop-product-bundle</argument>
+                <argument name="html_class" xsi:type="string">quickshop-product-bundle</argument>
+            </arguments>
+            <container name="bundle.options.container" htmlTag="div" htmlClass="bundle-options-container" />
+        </block>
+    </referenceBlock>
+    <move element="product.info" destination="bundle.options.container" before="-"/>
+</page>

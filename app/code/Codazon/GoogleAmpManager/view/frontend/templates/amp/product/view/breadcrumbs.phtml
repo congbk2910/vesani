@@ -1,0 +1,9 @@
+<?php
+/**
+ *
+ * Copyright © 2017 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php $crumbs = $this->helper(\Codazon\GoogleAmpManager\Helper\Product::class)->getProductPageCrumbs(); ?>
+<?php include ($block->getTemplateFile('Codazon_GoogleAmpManager::amp/html/breadcrumbs.phtml')) ?>

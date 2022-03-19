@@ -1,0 +1,41 @@
+<?php
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$filter = $this->getOptionsFilter();
+$filterItems = $filter->getItems();
+$helper = $this->helper('Codazon\AjaxLayeredNavPro\Helper\Data');
+$code = $filter->getRequestVar();
+$value = $this->getRequest()->getParam($code, 0);
+$action = $helper->getFilterAction($filter);
+$widgetParams = [
+    'action'        => $action,
+    'code'          => $filter->getRequestVar(),
+    'multiSelect'   => false,
+    'allText'       => __('All'),
+    'itemsData'     => $filter->getItemsData(),
+    'min'           => 0,
+    'max'           => 5
+];
+$width = 100*$value/5;
+?>
+<?php  if (count($filterItems)) : ?>
+<div class="rating-slider-container <?= $code ?>" data-role="rating-slider-container" data-filter='<?= json_encode($widgetParams) ?>'>
+    <form action="<?= $action ?>" method="get" data-role="rating-form" data-code=<?= $code ?>>
+    <div class="slider-wrap">
+        <div class="rating-slider" data-role="rating-slider">
+            <div data-role="slider-handle" class="ui-slider-handle rating-slider-handle"></div>
+        </div>
+    </div>
+    <div class="rating-box">
+        <div class="rating" data-role="rating-bar" style="width: <?= $width ?>%;"></div>
+    </div>
+    <span class="text" data-role="text" style="display:none"></span>
+    <span class="count" data-role="count" style="display:none"></span>
+    <input name="<?= $code ?>" type="hidden" value="<?= $value ?>" />
+    </form>
+</div>
+<?php endif ?>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="amp" xsi:type="array">
+                    <item name="class" xsi:type="string">Codazon\GoogleAmpManager\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">10</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Controller\Category\View">
+        <plugin name="google_amp_manager_controller_catalog_category_view" type="Codazon\GoogleAmpManager\Plugin\Controller\Catalog\Category\View" />
+    </type>
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="google_amp_manager_controller_catalog_product_view" type="Codazon\GoogleAmpManager\Plugin\Controller\Catalog\Product\View" />
+    </type>
+    <type name="Magento\Cms\Controller\Index\Index">
+        <plugin name="google_amp_manager_controller_cms_index_index" type="Codazon\GoogleAmpManager\Plugin\Controller\Cms\Index\Index" />
+    </type>
+    <type name="Magento\Cms\Controller\Page\View">
+        <plugin name="google_amp_manager_controller_cms_page_view" type="Codazon\GoogleAmpManager\Plugin\Controller\Cms\Page\View" />
+    </type>
+</config>

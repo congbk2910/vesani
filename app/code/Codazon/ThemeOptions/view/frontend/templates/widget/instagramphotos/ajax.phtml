@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © 2017 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php
+    $widget = [
+        "Codazon_ProductFilter/js/firstload" => [
+            "ajaxUrl"    => $this->getUrl('themeoptions/ajax/insta'),
+            "currentUrl" => $this->getUrl(),
+            "jsonData"   => $this->getFilterData()
+        ]
+    ]
+?>
+<div class="no-loaded" data-mage-init='<?= json_encode($widget) ?>'>
+    <div class="brand-loader double-bounce-spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!--
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div class="opc-sidebar opc-summary-wrapper">
+    <div id="opc-sidebar">
+        <!-- ko foreach: getRegion('summary') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+
+        <div class="opc-block-shipping-information">
+            <!-- ko foreach: getRegion('shipping-information') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        
+        <div class="opc-place-order-block">
+            <form id="opc-place-order-form" novalidate="novalidate">
+                <div class="checkout-agreements-block">
+                <!-- ko foreach: getRegion('before-place-order') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+                </div>
+                <!-- ko if: enableOrderComment() -->
+                <div class="checkout-comment-block">
+                    <textarea class="input-text" id="osc_order_comment" name="order_note" data-bind="attr:{placeholder: $t('Your note')} "></textarea>
+                </div>
+                <!--/ko-->
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button class="action primary checkout"
+                                type="submit"
+                                data-bind="
+                                click: placeOrder,
+                                attr: {title: getPlaceOrderLabel()}
+                                ">
+                            <span data-bind="text: getPlaceOrderLabel()"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

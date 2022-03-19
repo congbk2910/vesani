@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+  <default>
+    <googleampmanager>
+      <general>
+        <enable>1</enable>
+        <logo>default/logo.png</logo>
+        <logo_width>160</logo_width>
+        <logo_height>28</logo_height>
+        <logo_position>center</logo_position>
+        <date_format>M d Y</date_format>
+        <enable_rtl>0</enable_rtl>
+        <display_go_top_button>1</display_go_top_button>
+      </general>
+      <styles>
+        <container_max_width>800px</container_max_width>
+        <typography>
+          <google_web_fonts>Poppins</google_web_fonts>
+          <google_font_weights>200,300,400,500,600</google_font_weights>
+          <h1_font>500 21px/30px "Poppins",sans-serif</h1_font>
+          <h2_font>600 17px/24px "Poppins",sans-serif</h2_font>
+          <h3_font>600 14px/17px "Poppins",sans-serif</h3_font>
+          <h4_font>500 13px/16px "Poppins",sans-serif</h4_font>
+          <h5_font>normal 12px/16px "Poppins",sans-serif</h5_font>
+          <h6_font>normal 12px/15px "Poppins",sans-serif</h6_font>
+          <normal_font>normal 13px/16px "Poppins",sans-serif</normal_font>
+          <input_font>normal 13px/16px "Poppins",sans-serif</input_font>
+          <product_view_price_font>600 23px/31px "Poppins",sans-serif</product_view_price_font>
+          <product_list_price_font>500 15px/17px "Poppins",sans-serif</product_list_price_font>
+          <product_list_name_font>500 12px/16px "Poppins",sans-serif</product_list_name_font>
+          <note_font>normal 12px/16px "Poppins",sans-serif</note_font>
+        </typography>
+        <main_colors>
+          <main_title_text>#0556b1</main_title_text>
+          <block_title_text>#0071f1</block_title_text>
+          <body_background>#ffffff</body_background>
+          <block_background>#ffffff</block_background>
+          <secondary_text>#717482</secondary_text>
+          <text_1>#121212</text_1>
+          <background_1>#000000</background_1>
+          <border_1>#000000</border_1>
+          <product_view_price_text>#0556b1</product_view_price_text>
+          <product_list_price_text>#0562c9</product_list_price_text>
+          <text_2>#0556b1</text_2>
+          <background_2>#cccccc</background_2>
+          <border_2>#cccccc</border_2>
+          <text_3>#ffffff</text_3>
+          <background_3>#0562c9</background_3>
+          <border_3>#0562c9</border_3>
+          <text_4>#737373</text_4>
+          <background_4>#ffffff</background_4>
+          <border_4>#737373</border_4>
+          <text_5>#524747</text_5>
+          <background_5>#e6e6e6</background_5>
+          <border_5>#c5bebe</border_5>
+          <text_6>#000000</text_6>
+          <background_6>#f0f9ff</background_6>
+          <border_6>#f0f9ff</border_6>
+          <text_7>#000000</text_7>
+          <background_7>#ffffff</background_7>
+          <border_7>#cccccc</border_7>
+          <text_8>#13006f</text_8>
+          <background_8>#000000</background_8>
+          <border_8>#000000</border_8>
+          <light_border>#e1e1e1</light_border>
+          <dark_border>#bfb8b8</dark_border>
+          <emphasis_border>#5c6ac3</emphasis_border>
+        </main_colors>
+        <header_colors>
+          <header_text>#ffffff</header_text>
+          <header_background>#0562c9</header_background>
+          <header_border>#0562c9</header_border>
+          <header_label_text>#ffffff</header_label_text>
+          <header_label_background>#f40000</header_label_background>
+        </header_colors>
+        <footer_colors>
+          <footer_top_text>#ffffff</footer_top_text>
+          <footer_top_background>#313131</footer_top_background>
+          <footer_text>#ffffff</footer_text>
+          <footer_title>#ffffff</footer_title>
+          <footer_background>#313131</footer_background>
+          <footer_border>#000000</footer_border>
+          <footer_bottom_text>#ffffff</footer_bottom_text>
+          <footer_bottom_background>#484747</footer_bottom_background>
+          <footer_button_text>#ffffff</footer_button_text>
+          <footer_button_background>#313131</footer_button_background>
+          <footer_button_border>#ffffff</footer_button_border>
+        </footer_colors>
+      </styles>
+      <footer>
+        <content_1>&lt;div class="cdz-block _mg-bottom-20"&gt;&#xD;
+    &lt;a class="cdz-logo-footer" href="{{store direct_url="amp"}}"&gt;&lt;amp-img layout="responsive" src="{{media url="codazon/amp/logo/default/logo.png"}}" width="241" height="42" alt="Logo"&gt;&lt;/amp-img&gt;&lt;/a&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div class="cdz-block"&gt;&#xD;
+    &lt;div class="cdz-title"&gt;Our Address&lt;/div&gt;&#xD;
+    &lt;div class="cdz-content"&gt;&#xD;
+        6505 boulevard Henri-Bourassa, Montr&#xE9;al, Quebec, H1G2V5&#xD;
+    &lt;/div&gt;&#xD;
+&lt;/div&gt;</content_1>
+        <content_2>&lt;div class="cdz-block"&gt;&#xD;
+    &lt;div class="cdz-title"&gt;Support and Services&lt;/div&gt;&#xD;
+    &lt;ul class="cdz-links-list"&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store direct_url="amp/fashion.html"}}"&gt;Our products&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store direct_url="amp/about-us"}}"&gt;About us&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store direct_url="blog"}}"&gt;Blog&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store direct_url="lookbook"}}"&gt;Lookbooks&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="#"&gt;Schedule a Service&lt;/a&gt;&lt;/li&gt;&#xD;
+    &lt;/ul&gt;&#xD;
+&lt;/div&gt;</content_2>
+        <content_3>&lt;div class="cdz-block"&gt;&#xD;
+    &lt;div class="cdz-title"&gt;Our Privacy&lt;/div&gt;&#xD;
+    &lt;ul class="cdz-links-list"&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store url="search/term/popular"}}"&gt;Search Terms&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store direct_url="privacy-policy-cookie-restriction-mode"}}"&gt;Privacy and Cookie Policy&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store url="contact"}}"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="{{store url="catalogsearch/advanced"}}"&gt;Advanced Search&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;li class="cdz-item"&gt;&lt;a href="#"&gt;Shipping, Delivery &amp; Store Pickup&lt;/a&gt;&lt;/li&gt;&#xD;
+    &lt;/ul&gt;&#xD;
+&lt;/div&gt;</content_3>
+        <bottom_text>&lt;div class="cdz-copyright  _text-center h5"&gt;&#xD;
+    &lt;span&gt;Copyright &#xA9; 2020 Codazon, Inc. All rights reserved.&lt;/span&gt;&#xD;
+&lt;/div&gt;</bottom_text>
+        <footer_max_columns>3</footer_max_columns>
+      </footer>
+      <images>
+        <product_view_main_image_width>530</product_view_main_image_width>
+        <product_view_main_image_height>530</product_view_main_image_height>
+        <product_more_view_image_width>95</product_more_view_image_width>
+        <product_more_view_image_height>95</product_more_view_image_height>
+        <product_list_image_width>200</product_list_image_width>
+        <product_list_image_height>200</product_list_image_height>
+      </images>
+      <category_view>
+        <product_grid_max_columns>4</product_grid_max_columns>
+        <display_cat_desc>1</display_cat_desc>
+        <display_cat_img>1</display_cat_img>
+        <cat_img_height>150</cat_img_height>
+        <listing_elements>rating,price,addtocart,thumbnail</listing_elements>
+        <max_desc_length>80</max_desc_length>
+      </category_view>
+      <developer_mode>
+        <enable>0</enable>
+      </developer_mode>
+    </googleampmanager>
+  </default>
+</config>

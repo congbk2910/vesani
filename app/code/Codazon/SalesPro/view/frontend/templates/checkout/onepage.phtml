@@ -1,0 +1,98 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Checkout\Block\Onepage */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+<?php
+$helper = $this->helper(\Codazon\SalesPro\Helper\Data::class);
+?>
+<div id="checkout" data-bind="scope:'checkout'" class="checkout-container cdz-opc-wrapper">
+    <div id="checkout-loader" data-role="checkout-loader" class="loading-mask" data-mage-init='{"checkoutLoader": {}}'>
+        <div class="loader">
+            <img src="<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>"
+                 alt="<?= $block->escapeHtmlAttr(__('Loading...')) ?>">
+        </div>
+    </div>
+    <?= isset($secureRenderer) ? $secureRenderer->renderStyleAsTag("position: absolute;", "#checkout-loader img") : ''; ?>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script>
+        var cdzOscConfig = <?= $helper->getCustomOptionsJson() ?>;
+        require.config({
+            config: {
+                mixins: {
+                    'Magento_Checkout/js/view/shipping': {
+                        'Codazon_SalesPro/js/checkout/view/shipping-mixin': true
+                    },
+                    'Magento_Checkout/js/view/payment': {
+                        'Codazon_SalesPro/js/checkout/view/payment-mixin': true
+                    },
+                    'Magento_Checkout/js/view/billing-address': {
+                        'Codazon_SalesPro/js/checkout/view/billing-address-mixin': true
+                    },
+                    'Magento_Checkout/js/view/shipping-address/address-renderer/default': {
+                        'Codazon_SalesPro/js/checkout/view/shipping-address/address-renderer/default-mixin': true
+                    },
+                    'Magento_Checkout/js/view/sidebar': {
+                        'Codazon_SalesPro/js/checkout/view/sidebar-mixin': true
+                    },
+                    'Magento_Checkout/js/model/place-order': {
+                        'Codazon_SalesPro/js/checkout/model/place-order-mixin': true
+                    },
+                    'Magento_Checkout/js/model/checkout-data-resolver': {
+                        'Codazon_SalesPro/js/checkout/model/checkout-data-resolver-mixin': true
+                    }
+                }
+            }
+        });
+        <?php /* require(['jquery', 'Magento_Ui/js/core/app'], function($, app) {
+            var opcConfig = <?= $block->getJsLayout() ?>, stepShipping, stepPayment;
+            var steps = opcConfig.components.checkout.children.steps.children;
+            opcConfig.components.checkout.children.sidebar.config.template = 'Codazon_SalesPro/checkout/sidebar';
+            try {
+                opcConfig.components.checkout.children.sidebar.children.agreements = {};
+                opcConfig.components.checkout.children.sidebar.children.agreements = steps['billing-step'].children.payment.children['payments-list'].children['before-place-order'].children.agreements;
+            } catch(err) {
+            }
+            app(opcConfig, $('#checkout'));
+        }); */ ?>
+        var cdzOpcConfig = <?= $block->getJsLayout() ?>, stepShipping, stepPayment;
+        var steps = cdzOpcConfig.components.checkout.children.steps.children;
+        cdzOpcConfig.components.checkout.children.sidebar.config.template = 'Codazon_SalesPro/checkout/sidebar';
+        try {
+            cdzOpcConfig.components.checkout.children.sidebar.children.agreements = {};
+            cdzOpcConfig.components.checkout.children.sidebar.children.agreements = steps['billing-step'].children.payment.children['payments-list'].children['before-place-order'].children.agreements;
+        } catch(err) {
+        }
+        var cdzOpcScript = document.createElement('script');
+        cdzOpcScript.type = 'text/x-magento-init';
+        cdzOpcScript.textContent = '{"#checkout":{"Magento_Ui/js/core/app":'+ JSON.stringify(cdzOpcConfig) + '}}';
+        document.querySelector('body').append(cdzOpcScript)
+    </script>
+    <?php if (isset($secureRenderer)) : ?>
+    <?php include ($block->getTemplateFile('Codazon_SalesPro::checkout/onepage-secure-renderer.phtml')) ?>
+    <?php else : ?>
+    <script>
+        window.checkoutConfig = <?= $block->getSerializedCheckoutConfig() ?>;
+        window.isCustomerLoggedIn = window.checkoutConfig.isCustomerLoggedIn;
+        window.customerData = window.checkoutConfig.customerData;
+    </script>
+    <script>
+        require([
+            'mage/url',
+            'Magento_Ui/js/block-loader'
+        ], function(url, blockLoader) {
+            blockLoader("<?= $block->escapeJs($block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))) ?>");
+            return url.setBaseUrl('<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl())) ?>');
+        })
+    </script>
+    <?php endif ?>
+    <?php if (!((bool)$helper->getConfig('codazon_osc/customization/enable_discount_code'))) : ?>
+    <style>
+    .payment-option.discount-code .payment-option-title, .payment-option.discount-code .payment-option-content{display:none !important;}
+    </style>
+    <?php endif ?>
+</div>

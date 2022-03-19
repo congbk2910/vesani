@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2018 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codazon_ShippingCostCalculator::menu" parent="Magento_Catalog::catalog" title="Shipping Estimation" translate="title" module="Codazon_ShippingCostCalculator" sortOrder="100" resource="Codazon_ShippingCostCalculator::menu" />
+        <add id="Codazon_ShippingCostCalculator::settings" parent="Codazon_ShippingCostCalculator::menu" title="Settings" translate="title" module="Codazon_ShippingCostCalculator" sortOrder="30" resource="Codazon_ShippingCostCalculator::settings" action="adminhtml/system_config/edit/section/codazon_shipping_cost_calculator" />
+    </menu>
+</config>

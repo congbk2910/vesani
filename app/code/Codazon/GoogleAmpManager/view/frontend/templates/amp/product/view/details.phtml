@@ -1,0 +1,33 @@
+<?php
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+
+/**
+ * @var $block \Magento\Catalog\Block\Product\View\Details
+ */
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) :?>
+<div class="cdz-product-info-detailed _mg-top-20 _mg-bottom-20">
+    <?php $layout = $block->getLayout(); ?>
+    <amp-accordion id="cdz-details-accordion" animate class="cdz-amp-accordion" disable-session-states>
+        <?php foreach ($detailedInfoGroup as $name) :?>
+            <?php
+            $html = $layout->renderElement($name);
+            if (!trim($html)) {
+                continue;
+            }
+            $alias = $layout->getElementAlias($name);
+            $label = $block->getChildData($alias, 'title');
+            ?>
+            <section id="section-details-<?= $block->escapeHtmlAttr($alias) ?>" class="cdz-data-section <?= $block->escapeHtmlAttr($alias) ?>">
+                <h2 class="cdz-section-heading"><?= $label ?></h2>
+                <div class="cdz-section-content">
+                    <?= $html ?>
+                </div>
+            </section>
+        <?php endforeach;?>
+    </amp-accordion>
+</div>
+<?php endif; ?>

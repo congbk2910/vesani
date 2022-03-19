@@ -1,0 +1,9 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="form.additional.persistent">
+            <block class="Mageplaza\SocialLogin\Block\Popup\Social" ifconfig="sociallogin/general/enabled" name="social-login-popup-authentication-social-mini-login" template="Mageplaza_SocialLogin::form/social_mini.phtml">
+                <block class="Mageplaza\SocialLogin\Block\Popup" name="social-login-request-info-mini" before="-" as="request.info.mini" template="Mageplaza_SocialLogin::popup/form/email.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

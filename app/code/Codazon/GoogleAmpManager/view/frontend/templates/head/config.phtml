@@ -1,0 +1,15 @@
+<?php
+/**
+* Copyright © 2019 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<script>
+require(['jquery/jquery.cookie'], function() {
+    if (jQuery.cookie('mage-messages')) {
+        require(['Magento_Customer/js/customer-data'], function(customerData) {
+            customerData.reload(['cart'], true);
+        });
+    }
+});
+</script>

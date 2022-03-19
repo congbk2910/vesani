@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
+?>
+
+<nav class="navigation" data-action="navigation">
+    <amp-accordion class="cdz-amp-menu-acc" animate disable-session-states>
+        <?= $_menuHtml?>
+        <?= $block->getChildHtml() ?>
+    </amp-accordion>
+</nav>

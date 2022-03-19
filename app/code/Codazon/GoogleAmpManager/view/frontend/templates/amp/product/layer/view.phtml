@@ -1,0 +1,140 @@
+<?php
+/**
+ * Copyright © Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$filterBlock = $block->getLayout()->getBlock('catalog.leftnav');
+?>
+<?php if ($filterBlock) : ?><?php
+$filters = $filterBlock->getFilters();
+?>
+<?php if ($filters && $filterBlock->canShowBlock()) : ?><?php
+$ampHelper = $this->helper(\Codazon\GoogleAmpManager\Helper\Data::class);
+$swatchHelper = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Swatches\Helper\Data::class);
+$swatchBlock = $this->getLayout()->createBlock(\Magento\Swatches\Block\LayeredNavigation\RenderLayered::class);
+$url = $ampHelper->filterUrl($ampHelper->transformToAmpUrl($block->getUrl('*/*/*', [
+    '_current' => true,
+    '_escape' => false,
+    '_use_rewrite' => true,
+])));
+$activeAttributes = ['p'];
+$queryValues = $this->getRequest()->getQueryValue();
+$clearUrl = $ampHelper->filterUrl($ampHelper->transformToAmpUrl($block->escapeUrl($filterBlock->getClearUrl())));
+$onChangeAttrFormat = ' on="change: AMP.setState({products_filter_clear_btn: true, products_filter_apply_btn: true, disable_active_filter_[filter_name]: true})"';
+?>
+<div class="cdz-product-filters">
+<div class="cdz-block-title"><?= __('Filter by') ?></div>
+<?= $block->getChildHtml('state') ?>
+<form id="cdz-amp-product-filters-form" target="_top" action="<?= $url ?>" method="GET" class="cdz-amp-form">
+    <amp-accordion animate class="cdz-amp-accordion">
+        <?php foreach ($filters as $filter) : ?>
+            <?php if ($filter->getItemsCount()) : ?>
+                <section class="cdz-data-section">
+                    <h4 class="cdz-section-heading"><?= $block->escapeHtml(__($filter->getName())) ?></h4>
+                    <div class="cdz-section-content"><?php
+                        $code = $filter->getRequestVar();
+                        $filterItems = $filter->getItems();
+                        $activeOption = $block->getRequest()->getParam($code);
+                    ?><?php
+                        $isSwatchAttribute = false;
+                        $swatchData = [];
+                        if ($filter->hasAttributeModel()) {
+                            $isSwatchAttribute = $swatchHelper->isSwatchAttribute($filter->getAttributeModel());
+                            if ($isSwatchAttribute) {
+                                $swatchBlock->setOptionsFilter($filter)
+                                    ->setSwatchFilter($filter)
+                                    ->setIsSwatchAttribute($isSwatchAttribute);
+                                $swatchData = $swatchBlock->getSwatchData();
+                                $isVisualSwatch = $swatchHelper->isVisualSwatch($filter->getAttributeModel());
+                            }
+                        }
+                        ?>
+                        <?php if ($swatchData && isset($swatchData['swatches'])) : ?><?php
+                            $options = $swatchData['options'];
+                        ?>
+                        <amp-selector class="cdz-amp-selector">
+                            <div class="cdz-swatch-list <?= $isVisualSwatch ? 'visual' : 'text' ?>">
+                            <?php foreach ($filterItems as $filterItem) : ?>
+                            <?php
+                                $optionId = $filterItem->getValue();
+                                $swatchOption = $swatchData['swatches'][$optionId];
+                                $type = $swatchOption['type'];
+                                $onChangeAttr = str_replace(['[filter_name]', '[option_id]'], [$code, $optionId], $onChangeAttrFormat);
+                                $selected = ($activeOption == $optionId);
+                                $selectedAttr = $selected ? ' checked selected' : '';
+                                $wrapAttr = $selected ? ' selected' : '';
+                                $tagAttr = $onChangeAttr . $selectedAttr;
+                                if ($selected) {
+                                    $activeAttributes[] = $code;
+                                }
+                            ?>
+                                <?php if ($type == '1') : ?>
+                                <div title="<?= $options[$optionId]['label'] . ' (' . $filterItem->getCount() . ')' ?>"
+                                    class="cdz-option <?= $code ?>"
+                                    option="<?= $optionId ?>"
+                                    style="background-color: <?= $swatchOption['value'] ?>"<?= $wrapAttr ?>>
+                                    <input class="cdz-amp-checkbox" type="radio" name="<?= $code ?>" value="<?= $optionId ?>"<?= $tagAttr ?>>
+                                </div>
+                                <?php elseif ($type == '2') : ?>
+                                <div title="<?= $options[$optionId]['label'] . ' (' . $filterItem->getCount() . ')' ?>"
+                                    class="cdz-option <?= $code ?>"
+                                    option="<?= $optionId ?>"
+                                    style="background-image: url(<?= $swatchBlock->getSwatchPath('swatch_image', $swatchOption['value']) ?>)"<?= $wrapAttr ?>>
+                                    <input class="cdz-amp-checkbox" type="radio" name="<?= $code ?>" value="<?= $optionId ?>"<?= $tagAttr ?>>
+                                </div>
+                                <?php else : ?>
+                                <div title="<?= $options[$optionId]['label'] . ' (' . $filterItem->getCount() . ')' ?>"
+                                    class="cdz-option <?= $code ?>"
+                                    option="<?= $optionId ?>"<?= $wrapAttr ?>>
+                                    <?= $swatchOption['value'] ?>
+                                    <input class="cdz-amp-checkbox" type="radio" name="<?= $code ?>" value="<?= $optionId ?>"<?= $tagAttr ?>>
+                                </div>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                            </div>
+                        </amp-selector>
+                        <?php else: ?>
+                        <amp-selector class="cdz-amp-selector">
+                        <ul class="cdz-option-list">
+                        <?php foreach ($filterItems as $filterItem) : ?><?php
+                            $optionId = $filterItem->getValue();
+                            $onChangeAttr = str_replace(['[filter_name]', '[option_id]'], [$code, $optionId], $onChangeAttrFormat);
+                            $selected = ($activeOption == $optionId);
+                            $selectedAttr = $selected ? ' checked selected' : '';
+                            $wrapAttr = $selected ? ' selected' : '';
+                            $tagAttr = $onChangeAttr . $selectedAttr;
+                            if ($selected) {
+                                $activeAttributes[] = $code;
+                            }
+                        ?>
+                        <li class="cdz-item <?= $wrapAttr ?>">
+                            <label class="cdz-label">
+                                <input class="cdz-amp-radio" type="radio" name="<?= $code ?>" value="<?= $optionId ?>" option="<?= $filterItem->getValue() ?>"<?= $tagAttr ?>>
+                                <?= $filterItem->getLabel() ?>
+                                <span class="count"><?= $filterItem->getCount() ?></span></span>
+                            </label>
+                        </li>
+                        <?php endforeach ?>
+                        </ul>
+                        </amp-selector>
+                        <?php endif ?>
+                    </div>
+                </section>
+            <?php endif ?>
+        <?php endforeach ?>
+    </amp-accordion>
+    <?php foreach ($queryValues as $code => $value) : ?>
+    <?php if (!in_array($code, $activeAttributes)) : ?>
+    <input type="hidden" [disabled]="disable_active_filter_<?= $code ?> ? 'disabled' : false" name="<?= $code ?>" value="<?= $value ?>" />
+    <?php endif ?>
+    <?php endforeach ?>
+    <div class="cdz-actions cdz-actions-bottom">
+        <a class="btn btn-small btn-secondary" href="<?= $clearUrl ?>" aria-label="<?= __('Clear all filters') ?>" [hidden]="!products_filter_clear_btn" hidden><?= __('Clear') ?></a>
+        <button class="btn btn-small btn-primary _disabled" type="submit" aria-label="<?= __('Apply filters') ?>" [class]="products_filter_apply_btn ? 'btn btn-small btn-primary' : 'btn btn-small btn-primary _disabled'"><?= __('Apply') ?></button>
+    </div>
+</form>
+</div>
+<?php endif ?>
+<?php endif ?>

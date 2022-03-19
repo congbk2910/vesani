@@ -1,0 +1,44 @@
+<?php
+/**
+* Copyright © 2020 Codazon. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php if ($this->helper(\Codazon\GoogleAmpManager\Helper\Data::class)->getConfig('googleampmanager/general/display_go_top_button')) : ?>
+<amp-position-observer class="cdz-amp-top-btn-observer" layout="nodisplay" viewport-margins="0 130vh" on="enter:showTopBtn.start; exit:hideTopBtn.start"></amp-position-observer>
+<amp-animation id="showTopBtn" layout="nodisplay">
+    <script type="application/json">
+        {
+            "duration": "200ms",
+            "fill": "both",
+            "iterations": "1",
+            "direction": "alternate",
+            "animations": [{
+                "selector": "#cdz-amp-top-btn",
+                "keyframes": [{
+                    "opacity": "1",
+                    "visibility": "visible"
+                }]
+            }]
+        }
+    </script>
+</amp-animation>
+<amp-animation id="hideTopBtn" layout="nodisplay">
+    <script type="application/json">
+        {
+            "duration": "200ms",
+            "fill": "both",
+            "iterations": "1",
+            "direction": "alternate",
+            "animations": [{
+                "selector": "#cdz-amp-top-btn",
+                "keyframes": [{
+                    "opacity": "0",
+                    "visibility": "hidden"
+                }]
+            }]
+        }
+    </script>
+</amp-animation>
+<button id="cdz-amp-top-btn" class="cdz-amp-top-btn" title="<?= __('Go to top') ?>" on="tap: cdz-amp-header.scrollTo(duration=200)"></button>
+<?php endif ?>

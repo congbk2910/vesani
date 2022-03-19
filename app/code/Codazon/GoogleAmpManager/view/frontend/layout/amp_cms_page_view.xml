@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Codazon, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="amp_custom_style">
+            <action method="addCustomStyleFile">
+                <argument name="file" xsi:type="string">cms-page-view.less</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="amp_page_content">
+            <container name="amp_cms_page_container" htmlClass="amp-cms-view" htmlTag="div">
+                <block class="Codazon\GoogleAmpManager\Block\AmpCmsPage" name="amp-cms-page-content"  />
+            </container>
+        </referenceContainer>
+    </body>
+</page>
