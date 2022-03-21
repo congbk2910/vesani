@@ -407,6 +407,19 @@
 			.header-stores {
 				order: 1;
 				width: 33.33%;
+				.contact-number {
+					._hotline.tbl-cell {
+						display: flex;
+						align-items: center;
+						i {
+							font-size: 20px;
+						}
+						span {
+							font-size: 14px;
+    						padding-left: 10px;
+						}
+					}
+				}
 			}
 			.header.links {
 				order: 3;
@@ -423,6 +436,7 @@
 					justify-content: center;
 					span {
 						padding-left: 10px;
+						font-size: 14px;
 					}
 					img {
 						max-width: 35px;
@@ -500,8 +514,23 @@
 					margin: 0 0 0 5px;
 				}
 			}
+			.header-inor {
+				div.info-company span {
+					font-size: 11px;
+				}
+			}
+			.header-stores {
+				.contact-number {
+					a._hotline.tbl-cell {
+						span {
+							font-size: 11px;
+						}
+					}
+				}
+			}
 		}
 	}
+	
 }
 
 // End

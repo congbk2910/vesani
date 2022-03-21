@@ -251,6 +251,43 @@
               margin-bottom: 15px;
             }
           }
+          .socical {
+            .social {
+              display: flex;
+              justify-content: center;
+              &::after {
+                content: '';
+                display: table;
+                clear: both;
+              }
+            }
+            a {
+              display: inline-block;
+              vertical-align: top;
+              width: 30px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              float: left;
+              margin: 5px;
+              -moz-transition: all .5s ease;
+              -webkit-transition: all .5s ease;
+              -o-transition: all .5s ease;
+              transition: all .5s ease;
+              -moz-backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+              border-radius: 50%;
+              border: 1px solid #282828;
+              &:first-child {
+                margin-left: 0;
+              }
+              &:hover {
+                background: #282828;
+                color: #fff;
+              }
+            }
+          }
         }
         .logo-footer-bottom {
           text-align: center;
@@ -272,6 +309,16 @@
             text-align: left;
             .socical {
               margin-bottom: 25px;
+            }
+            .group-images img {
+              max-width: 150px;
+            }
+            > div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
             }
           }
         }
