@@ -91,6 +91,20 @@
 				.action.search:before{ color:#000;}
 			}
 		}
+
+		// Custom style input search
+		.search-wrapper {
+			.block-search {
+				.search-form-container {
+					input[type="text"]{
+						border-bottom: unset;
+						background: #f8f8f8;
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+
 		.cdz-horizontal-menu .groupmenu li.item.level0{
 			float:none;
 			&.parent{
@@ -383,7 +397,144 @@
 			}
 		}
 	}
+
+	// Custom Header Top
+	.page-header {
+		div.header.panel {
+			display: flex;
+			align-items: center;
+			padding: 0 10px;
+			.header-stores {
+				order: 1;
+				width: 33.33%;
+				.contact-number {
+					._hotline.tbl-cell {
+						display: flex;
+						align-items: center;
+						i {
+							font-size: 20px;
+						}
+						span {
+							font-size: 14px;
+    						padding-left: 10px;
+						}
+					}
+				}
+			}
+			.header.links {
+				order: 3;
+				width: 33.33%;
+				display: flex;
+				justify-content: flex-end;
+			}
+			.header-inor {
+				order: 2;
+				width: 33.33%;
+				.info-company {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					span {
+						padding-left: 10px;
+						font-size: 14px;
+					}
+					img {
+						max-width: 35px;
+					}
+				}
+			}
+		}
+		.cdz-main-menu {
+			.cdz-horizontal-menu {
+				li.level0 {
+					> a.menu-link {
+						font-size: 18px;
+						position: relative;
+					}
+					&:hover {
+						> a.menu-link {
+							font-size: 18px;
+						}
+					}
+					&.parent {
+						> a.menu-link {
+							&::after {
+								content: '\e622';
+								font-family: @icons__font-name;
+								font-size: 14px;
+								right: 0;
+								top: auto;
+								bottom: 50%;
+								transform: translate(0, 50%);
+							}
+							span {
+								padding-right: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.cdz-horizontal-menu {
+			.groupmenu {
+				li.item.level0.parent {
+					&::after {
+						bottom: 6px;
+					}
+				}
+			}
+		}
+	}
 }
+
+
+// Custom Header Mobile
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.page-header {
+		div.header.panel {
+			.header-stores {
+				.contact-number {
+					display: none;
+				}
+			}
+			.header-inor {
+				.info-company {
+					display: none;
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 900px) {
+	.page-header {
+		div.header.panel {
+			> .header.links {
+				> li {
+					margin: 0 0 0 5px;
+				}
+			}
+			.header-inor {
+				div.info-company span {
+					font-size: 11px;
+				}
+			}
+			.header-stores {
+				.contact-number {
+					a._hotline.tbl-cell {
+						span {
+							font-size: 11px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+// End
+
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;

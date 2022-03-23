@@ -7,6 +7,22 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
+	<referenceContainer name="header.panel">
+		<container name="header.panel.store" label="Page Header Store" htmlTag="div" htmlClass="header-stores" >
+			<block class="Magento\Cms\Block\Block" name="contact.number">
+				<arguments>
+					<argument name="block_id" xsi:type="string">fastest-westylefashion-header-top-contact-number</argument>
+				</arguments>
+			</block>
+		</container>
+		<container name="header.panel.info" label="Page Header Info" htmlTag="div" htmlClass="header-inor" >
+			<block class="Magento\Cms\Block\Block" name="info.company">
+				<arguments>
+					<argument name="block_id" xsi:type="string">fastest-westylefashion-header-top-info-company</argument>
+				</arguments>
+			</block>
+		</container>
+	</referenceContainer>
 	<referenceContainer name="header.wrapper.content">
 		<container htmlClass="header content" htmlTag="div">
 			<container htmlClass="row" htmlTag="div">
@@ -37,5 +53,6 @@
 	<move element="currency" destination="header.panel.left" after="-" />-->
 	<move element="logo" destination="logo.center" />
 	<move element="minicart" destination="header.wrapper.right" />
+	<referenceBlock name="catalog.compare.link" remove="true"/>
 	</body>
 </page>

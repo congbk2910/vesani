@@ -597,3 +597,73 @@ body{
 .block-brands .block-content .owl-carousel .owl-nav {
     top: -65px;
 }
+
+// Services Content
+
+.services-content {
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	> div {
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+		max-width: 750px;
+		margin: auto;
+		padding: 15px 0;
+	}
+	.text-area {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		span.icon-font {
+			font-size: 20px;
+		}
+		p.text {
+			margin: 0;
+		}
+		&:hover {
+			span.icon-font {
+				color: #fc7070;
+			}
+		}
+	}
+}
+
+// Video Banner
+
+.banner-video {
+	padding: 15px;
+    background: #000;
+	.pagebuilder-column-group {
+		max-width: 1400px;
+		margin: auto;
+	}
+	.adver-content {
+		padding: 25px 25px 25px 40px;
+    	color: #fff;
+		.adver-title {
+			color: #fff;
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.services-content {
+		.text-area {
+			justify-content: flex-start;
+		}
+		> div {
+			display: -ms-grid;
+			display: grid;
+			width: 100%;
+			grid-template-columns: 50% 50%;
+		}
+	}
+	.banner-video {
+		.adver-content {
+			padding-left: 0;
+		}
+	}
+}
