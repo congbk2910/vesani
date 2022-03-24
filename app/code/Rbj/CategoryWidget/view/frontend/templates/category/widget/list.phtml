@@ -54,9 +54,9 @@ $uniqId = uniqid('block_');
                                         <span class="main-image">
                                             <?php if($_category->getImageUrl()): ?>
                                                 <?php $imageResize = $_category->getImage();?>
-                                                <img src="<?php echo $imageResize; ?>" alt="<?php echo $_category->getName(); ?>" />
+                                                <img width="265" height="371" src="<?php echo $imageResize; ?>" alt="<?php echo $_category->getName(); ?>" />
                                             <?php else: ?>
-                                                <img src="<?php echo $block->getPlaceHolderImage(); ?>" alt="<?php echo $_category->getName(); ?>" />
+                                                <img width="265" height="371" src="<?php echo $block->getPlaceHolderImage(); ?>" alt="<?php echo $_category->getName(); ?>" />
                                             <?php endif; ?>
                                         </span>
                                     </a>
