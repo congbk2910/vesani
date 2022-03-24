@@ -413,9 +413,10 @@
 						align-items: center;
 						i {
 							font-size: 20px;
+							padding-left: 2px;
 						}
 						span {
-							font-size: 14px;
+							font-size: 12px;
     						padding-left: 10px;
 						}
 					}
@@ -436,10 +437,11 @@
 					justify-content: center;
 					span {
 						padding-left: 10px;
-						font-size: 14px;
+						font-size: 12px;
 					}
 					img {
 						max-width: 35px;
+						padding: 3px;
 					}
 				}
 			}
@@ -492,10 +494,34 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 	.page-header {
+		.panel.wrapper {
+			&::after {
+				content: '';
+				display: table;
+				clear: both;
+			}
+			background: #fff;
+			padding: 10px 0;
+			border-bottom: 1px solid #000 !important;
+		}
 		div.header.panel {
 			.header-stores {
+				float: none;
+				width: 100%;
+				text-align: center;
 				.contact-number {
-					display: none;
+					a._hotline.tbl-cell {
+						color: #000;
+						display: flex;
+						justify-content: center;
+						i {
+							font-size: 16px;
+						}
+						span {
+							font-size: 12px;
+							padding-left: 10px;
+						}
+					}
 				}
 			}
 			.header-inor {
@@ -530,7 +556,6 @@
 			}
 		}
 	}
-	
 }
 
 // End

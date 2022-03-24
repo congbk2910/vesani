@@ -209,12 +209,19 @@
   }
 }
 .bottom-info {
-  h3 {
+  p.h3 {
     font-size: 25px;
-    margin-bottom: 0;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 5px;
   }
   a {
     text-decoration: underline;
+  }
+  span {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
 .page-footer {
@@ -300,6 +307,9 @@
 
 @media screen and (max-width: 600px) {
   .page-footer {
+    .top-info {
+      margin-bottom: 10px;
+    }
     div.bottom-footer-wrapper {
       .footer.content {
         .footer-custom-block {
