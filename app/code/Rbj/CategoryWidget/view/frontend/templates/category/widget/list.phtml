@@ -1,0 +1,89 @@
+<?php
+use Magento\Framework\App\Action\Action;
+?>
+
+<?php
+$_categoryCollection = $block->getCategory();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$uniqId = uniqid('block_');
+?>
+<?php if (!count($_categoryCollection)): ?>
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find categories matching the selection.') ?></div></div>
+<?php else: ?>
+    <?php
+    $viewMode = 'slider';
+    $image = 'category_page_grid';
+    $title = $block->getTitle() ? __($block->getTitle()) : '';
+    $classid = $block->getBlockId();//uniqid();//md5(json_encode($block->getData()));
+    
+    /**
+     * Position for actions regarding image size changing in vde if needed
+     */
+    $pos = $block->getPositioned();
+    $sliderItem = $block->getData('slider_item') ? $block->getData('slider_item') : 4;
+    ?>
+    <div class="block widget block-products-list <?php /* @escapeNotVerified */ echo $viewMode; ?>"  id="<?php echo $uniqId ?>">
+        <?php if ($title):?>
+        <div class="cdz-block-title">
+            <h2 class="b-title"><span><?php /* @escapeNotVerified */ echo $title; ?></span></h2>
+        </div>
+        <?php endif ?>
+        <div class="block-content">
+            <div class="products products-grid wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
+                <?php $iterator = 1; ?>
+                <div class="products list items product-items cdz-slider"
+                        data-items="<?php echo $sliderItem ?>"
+                        data-items-0="2"
+                        data-items-480="2"
+                        data-items-768="<?php echo abs($sliderItem-2) ?>"                       
+                        data-items-1024="<?php echo abs($sliderItem-1) ?>"  
+                        data-items-1280="<?php echo $sliderItem ?>"
+                        data-items-1440="<?php echo $sliderItem ?>"
+                        data-loop="false"
+                        data-margin="20"
+                        data-autoWidth="false"
+                >
+                    <?php /** @var $_category \Magento\Catalog\Model\Product */ ?>
+                    <?php foreach ($_categoryCollection as $_category): ?>
+                        <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<div class="item product product-item cdz-transparent">' : '</div><div class="item product product-item cdz-transparent">' ?>
+                        <div class="product-item-info" data-container="product-grid">
+                            <div class="cdz-hover-section">
+                                <div class="cdz-product-top">
+                                    
+                                    <a href="<?php /* @escapeNotVerified */ echo $_category->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                        <span class="main-image">
+                                            <?php if($_category->getImageUrl()): ?>
+                                                <?php $imageResize = $_category->getImage();?>
+                                                <img src="<?php echo $imageResize; ?>" alt="<?php echo $_category->getName(); ?>" />
+                                            <?php else: ?>
+                                                <img src="<?php echo $block->getPlaceHolderImage(); ?>" alt="<?php echo $_category->getName(); ?>" />
+                                            <?php endif; ?>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product details product-item-details">
+                                <div class="info-details">
+                                    <strong class="product name product-item-name">
+                                        <a class="product-item-link"
+                                           href="<?php /* @escapeNotVerified */ echo $_category->getUrl() ?>">
+                                            <?php echo $_category->getName();?>
+                                        </a>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <?php echo($iterator == count($_categoryCollection)+1) ? '</div>' : '' ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>  
+<?php endif; ?>
+<script type="text/javascript">
+require(['jquery','Magento_Theme/js/fastest_fashion'],function($){
+    var $_categoryWrap = $("#<?php echo $uniqId ?>");
+    $_categoryWrap.sameHeightItems();
+    $_categoryWrap.appearingEffect();
+});
+</script>

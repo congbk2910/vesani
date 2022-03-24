@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="catalog_category_list"
+            class="Rbj\CategoryWidget\Block\Category\Widget\CategoryList">
+        <label translate="true">Catalog Category List</label>
+        <description translate="true">Category Grid</description>
+        <parameters>
+            <parameter name="page_size" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Category to display</label>
+                <value>5</value>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true" sort_order="10"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label>Template</label>
+                <options>
+                    <option name="list" value="category/widget/list.phtml">
+                        <label translate="true">Category List Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="slider_item" xsi:type="text" visible="true">
+                <label translate="true">Number of Products per Slide</label>
+                <depends>
+                    <parameter name="template" value="category/widget/list.phtml" />
+                </depends>
+                <value>4</value>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="sidebar.main">
+                <template name="default" value="sidebar" />
+            </container>
+            <container name="content">
+                <template name="grid" value="grid" />
+                <template name="list" value="list" />
+            </container>
+            <container name="sidebar.additional">
+                <template name="default" value="sidebar" />
+            </container>
+        </containers>
+    </widget>
+</widgets>

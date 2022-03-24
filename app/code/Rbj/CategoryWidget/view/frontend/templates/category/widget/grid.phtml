@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var $block \Rbj\CategoryWidget\Block\Category\Widget\CategoryList
+ */
+?>
+<div class="category-widget-main">
+    <div class="category">
+        <?php $_category = $block->getCategory(); ?>
+        <?php foreach($_category as $category): ?>
+            <div class="category-list">
+                <a href="<?php echo $category->getUrl(); ?>">
+                    <?php if($category->getImageUrl()): ?>
+                        <?php $imageResize = $block->getResize($category->getImage());?>
+                        <img src="<?php echo $imageResize; ?>" alt="<?php echo $category->getName(); ?>" />
+                    <?php else: ?>
+                        <img src="<?php echo $block->getPlaceHolderImage(); ?>" alt="<?php echo $category->getName(); ?>" />
+                    <?php endif; ?>
+                    <span><?php echo $category->getName(); ?></span>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
