@@ -7,6 +7,9 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
+	<referenceContainer name="after.body.start">
+        <referenceBlock name="cookie-status-check" remove="true"/>
+    </referenceContainer>
 	<referenceContainer name="header.panel">
 		<container name="header.panel.store" label="Page Header Store" htmlTag="div" htmlClass="header-stores" >
 			<block class="Magento\Cms\Block\Block" name="contact.number">
