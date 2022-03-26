@@ -116,16 +116,16 @@ class PostList extends \Magefan\Blog\Block\Post\PostList\AbstractList implements
 
 	public function getTemplate()
     {
-        if ($this->isFullHtml()) {
+        // if ($this->isFullHtml()) {
             $template = $this->getData('post_template');
             if($template == 'custom') {
                 return $this->getData('custom_template');
             } else {
                 return $template;
             }
-        } else {
-            return 'Magefan_Blog::post/widget/ajax-blog.phtml';
-        }
+        // } else {
+        //     return 'Magefan_Blog::post/widget/ajax-blog.phtml';
+        // }
     }
 
     public function isFullHtml()
