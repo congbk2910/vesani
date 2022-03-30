@@ -1,9 +1,49 @@
-& when (@media-common = true) {
-  .cdz-main-menu {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .page-header {
     .cdz-horizontal-menu {
-      li.level0 {
-        > a.menu-link {
-          font-size: 20px;
+      .groupmenu {
+        li.item.level0 {
+          > .groupmenu-drop {
+            top: 53px;
+          }
+          position: static;
+          &.parent {
+            &::after {
+              display: none;
+            }
+            > a.menu-link {
+              &::before {
+                color: #d4d4d4;
+                background: #000;
+                content: " ";
+                width: 80%;
+                height: 3px;
+                position: absolute;
+                bottom: 0;
+                left: auto;
+                right: 50%;
+                -o-transition: .4s ease;
+                transition: .4s ease;
+                transform: translate(50%, 0);
+                visibility: hidden;
+                opacity: 0;
+              }
+            }
+            &:hover {
+              > a.menu-link {
+                &::before {
+                  visibility: visible;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          >.groupmenu-drop {
+            width: 100% !important;
+            left: 50% !important;
+            right: auto;
+            margin-left: -50%;
+          }
         }
       }
     }
