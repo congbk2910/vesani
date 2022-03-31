@@ -12,7 +12,7 @@
         margin-left: auto !important;
         margin-right: auto !important;
         max-width: 1200px;
-        border: 1px solid #dddd;
+        border: 1px solid #ddd;
         padding: 25px 0;
     }
 
@@ -23,7 +23,7 @@
         padding: 25px;
     }
     .top-contact-info {
-        border: 1px solid #dddd;
+        border: 1px solid #ddd;
         padding: 25px 15px;
         margin-bottom: 25px;
         .contact-info-box {
@@ -140,6 +140,7 @@
             font-size: 20px;
             color: #000;
             line-height: 24px;
+            font-weight: 600;
         }
         .desc {
             padding-left: 15px;
@@ -152,6 +153,13 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .content-middle {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+    .team-our {
+        margin: auto 10px auto 10px;
+    }
     .team-our {
         .team-items {
             .item {

@@ -432,9 +432,11 @@
 				order: 2;
 				width: 33.33%;
 				.info-company {
-					display: flex;
-					align-items: center;
-					justify-content: center;
+					a {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
 					span {
 						padding-left: 10px;
 						font-size: 12px;
@@ -532,6 +534,40 @@
 		}
 	}
 }
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .page-header {
+		div.header.panel {
+			> .header.links {
+				> li {
+					font-size: 14px !important;
+					font-weight: 700;
+					text-transform: uppercase;
+				}
+			}
+			.header-inor {
+				div.info-company span {
+					font-size: 14px;
+					font-weight: 700;
+					text-transform: uppercase;
+				}
+			}
+			.header-stores {
+				.contact-number {
+					a._hotline.tbl-cell {
+						span {
+							font-size: 14px;
+							font-weight: 700;
+							text-transform: uppercase;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
 @media screen and (min-width: 768px) and (max-width: 900px) {
 	.page-header {
 		div.header.panel {
