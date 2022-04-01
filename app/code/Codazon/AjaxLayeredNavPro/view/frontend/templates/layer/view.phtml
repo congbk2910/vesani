@@ -49,6 +49,25 @@
                     <?php if (!$wrapOptions): ?>
                         <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?= __('Shopping Options') ?></strong>
                         <div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": <?= $active ?>, "multipleCollapsible": true}}'>
+                            <div data-role="collapsible" class="filter-options-item sort-by">
+                                <div id="sort-by-filter" data-role="title" class="filter-options-title"><span class="sort-by1"><?= __('Sort by:') ?></span><span class="sort-by2"></span></div>
+                                <div data-role="content" class="filter-options-content">
+                                    <div class="filter-options-content-outer">
+                                        <div class="filter-options-content-inner">
+                                            <?= $this->getLayout()->createBlock("Codazon\AjaxLayeredNavPro\Block\Toolbar")->setTemplate("Codazon_AjaxLayeredNavPro::product/list/toolbar.phtml")->toHtml() ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                require([
+                                    'jquery'
+                                ], function ($) {
+                                    $( document ).ready(function() {
+                                        $('#sort-by-filter .sort-by2').text($('#sorter').find(":selected").text());
+                                    });
+                                });
+                            </script>
                     <?php  $wrapOptions = true; endif; ?>
                     <?php //echo $filter->getName();die; ?>
                     <div data-role="collapsible" class="filter-options-item <?= $filter->getRequestVar() ?>">

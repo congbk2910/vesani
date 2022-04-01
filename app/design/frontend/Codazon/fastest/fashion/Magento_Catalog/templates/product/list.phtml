@@ -25,7 +25,7 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
-    <?php echo $block->getToolbarHtml() ?>
+    <?php //echo $block->getToolbarHtml() ?>
     <?php echo $block->getAdditionalHtml() ?>
     <?php
     $showHover = $_optionHelper->getConfig('general_section/category_view/hover_product_effect');

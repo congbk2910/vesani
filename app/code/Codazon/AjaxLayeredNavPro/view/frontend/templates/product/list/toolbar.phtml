@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+?>
+<?php if ($block->getCollection() && $block->getCollection()->getSize()): ?>
+    <?php if ($block->isExpanded()): ?>
+        <?php
+        /**
+         * Copyright © Magento, Inc. All rights reserved.
+         * See COPYING.txt for license details.
+         */
+        ?>
+        <?php
+        /**
+         * Product list toolbar
+         *
+         * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+         */
+        ?>
+        <ol class="items">
+            <?php foreach ($block->getAvailableOrders() as $_key => $_order) :?>
+                <li class="item">
+                    <a href="<?= $block->getPagerUrl(["product_list_order" => $escaper->escapeUrl($_key)]) ?>" rel="nofollow"><?= $block->escapeHtml(__($_order)) ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    <?php endif; ?>
+<?php endif ?>
