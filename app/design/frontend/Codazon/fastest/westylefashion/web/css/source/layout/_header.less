@@ -156,7 +156,15 @@
 				height:16px;
 				min-width:16px;
 				top:1px;
-				background: #282828;
+				background: #fc7070;
+				.counter-number {
+					color: green;
+				}
+				&.empty {
+					.counter-number {
+						color: #000;
+					}
+				}
 			}
 			.text{ 
 				position: relative;
@@ -164,7 +172,13 @@
 			.price-label{padding:0; display:block}
 		}
 	}
-	
+	.cart-items {
+		.cart-items-inner {
+			.item span.item-qty {
+				color: green;
+			}
+		}
+	}
 }
 
 //Desktop
