@@ -63,6 +63,10 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
+            .page-main {
+                max-width: 100%;
+                padding: 0;
+            }
             .image-banner-category {
                 height: 100%;
             }
@@ -152,6 +156,9 @@
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
+            .page-main {
+                padding: 0 15px;
+            }
             .filter .filter-current {
                 margin: 15px 0 0px;
             }
