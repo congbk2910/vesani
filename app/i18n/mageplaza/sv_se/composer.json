@@ -1,0 +1,24 @@
+{
+  "name": "mageplaza/magento-2-swedish-language-pack",
+  "description": "Swedish language package for Magento 2",
+  "homepage": "https://www.mageplaza.com",
+  "type": "magento2-language",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Mageplaza team",
+      "email": "hi@mageplaza.com",
+      "homepage": "https://www.mageplaza.com",
+      "role": "Leader"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

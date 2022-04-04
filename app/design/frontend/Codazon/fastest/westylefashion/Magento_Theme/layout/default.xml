@@ -43,12 +43,12 @@
 			</container>
 		</container>
 	</referenceContainer>
-	<referenceBlock name="logo">
-		<arguments>
-			<argument name="logo_img_width" xsi:type="number">253</argument>
-			<argument name="logo_img_height" xsi:type="number">48</argument>
-		</arguments>
-	</referenceBlock>
+
+	 <referenceBlock name="logo"> 
+		<arguments> 
+			<argument name="logo_width" xsi:type="number">253</argument>
+		</arguments> 
+	</referenceBlock> 
 	<!--<move element="header.panel" destination="panel.wrapper.top" />
 	<move element="header.links" destination="header.panel.right" />
 	<move element="store_switcher" destination="header.panel.left" before="-" />

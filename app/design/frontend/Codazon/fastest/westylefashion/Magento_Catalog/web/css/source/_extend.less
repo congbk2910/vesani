@@ -1,4 +1,19 @@
+// Product List
 
+.product-style10 {
+    .product-item {
+        .product-item-info {
+            .addto-hover-container {
+                top: auto;
+                bottom: 50%;
+                height: auto;
+            }
+        }
+    }
+}
+
+
+// Category page
 .page-layout-1column {
     &.page-with-filter.catalog-category-view {
         .page-title-wrapper {
@@ -19,23 +34,27 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
-    .page-layout-1column.page-with-filter.catalog-category-view .category-view .category-description {
-        margin: 0;
-        padding-bottom: 0;
+    .page-layout-1column {
+        &.page-with-filter.catalog-category-view {
+            .category-view {
+                .category-description {
+                    margin: 0;
+                    padding-bottom: 0;
+                }
+            }
+            .banner-category {
+                padding: 0 100px;
+            }
+        }
     }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
-            .filter-options-item {
-                &:nth-child(5n) {
-                    border-right: 1px solid #e1e1e1;
-                }
-            }
             .filter-options {
                 -ms-grid-columns: 20% 20% 20% 20% 20%;
-                grid-template-columns: 25% 25% 25% 25%;
+                grid-template-columns: 20% 20% 20% 20% 20%;
             }
         }
     }
@@ -44,8 +63,8 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
-            .banner-category {
-                padding: 0 100px;
+            .image-banner-category {
+                height: 100%;
             }
             .breadcrumbs {
                 max-width: 1470px;
@@ -69,13 +88,6 @@
             .filter-options-item {
                 border: 1px solid #e1e1e1;
                 width: 100%;
-                border-right: unset;
-                &:nth-child(4n) {
-                    border-right: 1px solid #e1e1e1;
-                }
-                &:last-child {
-                    border-right: 1px solid #e1e1e1;
-                }
                 .filter-options-content {
                     position: absolute;
                     z-index: 9999999;

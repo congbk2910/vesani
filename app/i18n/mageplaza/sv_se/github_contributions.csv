@@ -1,0 +1,204 @@
+"Proceed to Checkout","Gå till kassan",module,Magento_NegotiableQuote
+"Proceed to Checkout","Gå till kassan",module,Magento_Checkout
+"Shipping Methods","Fraktsätt",module,Magento_Shipping
+"Track your order","Spåra din order",module,Magento_Shipping
+"Track All Shipments","Spåra alla försändelser",module,Magento_Shipping
+"Shipping Methods","Fraktsätt",module,Magento_Support
+"Please select shipping methods for all addresses.","Vänligen välj fraktsätt för alla adresser.",module,Magento_Multishipping
+"Please specify shipping methods for all addresses.","Vänligen specificera fraktmetoder för alla adresser.",module,Magento_Multishipping
+"Get shipping methods and rates","Hämta fraktsätt och avgifter",module,Magento_NegotiableQuote
+"Get shipping methods and rates","Hämta fraktsätt och avgifter",module,Magento_Sales
+"Clear my shopping cart","Töm varukorgen",module,Magento_AdvancedCheckout
+"Shopping Cart for %1 in %2","Varukorg för %1 i %2",module,Magento_AdvancedCheckout
+"Add to Shopping Cart by SKU","Lägg till i varukorg via artikelnummer",module,Magento_AdvancedCheckout
+"Add to Shopping Cart","Lägg till i varukorg",module,Magento_AdvancedCheckout
+"Shopping cart management is disabled for this customer.","Varukorgshantering är avstängt för den här kunden.",module,Magento_AdvancedCheckout
+"Shopping Cart",Varukorg,module,Magento_AdvancedCheckout
+"You added %1 to your shopping cart.","Du har lagt till %1 i din varukorg.",module,Magento_AdvancedCheckout
+"You can't add this many to your cart.","Du kan inte lägga till så många utan denna produkt i varukorgen.",module,Magento_AdvancedCheckout
+"We can't add the item to your cart.","Vi kan inte lägga till denna produkt i varukorgen.",module,Magento_AdvancedCheckout
+"You added %1 product to your shopping cart.","Du har lagt %1 produkt i din varukorg.",module,Magento_AdvancedCheckout
+"You added %1 products to your shopping cart.","Du har lagt %1 produkter i din varukorg.",module,Magento_AdvancedCheckout
+"View Shopping Cart","Visa varukorg",module,Magento_AdvancedCheckout
+"View and modify Shopping Cart","Visa och ändra varukorg",module,Magento_AdvancedCheckout
+"Shopping Cart Promotions Related","Varukorg Reklamrelaterat",module,Magento_Banner
+"Display on Shopping Cart","Vis på varukorg",module,Magento_Braintree
+"Display on Shopping Cart","Visa i varukorg",module,Magento_BraintreeTwo
+"These ""impulse-buy"" products appear next to the shopping cart as cross-sells to the items already in the shopping cart.","Dessa ""impuls-köp"" produkter visas bredvid varukorgen som korsförsäljer till artiklarna redan i varukorgen.",module,Magento_Catalog
+"These ""impulse-buy"" products appear next to the shopping cart as cross-sells to the items already in the shopping cart.","Dessa ""impuls-köp"" produkter visas bredvid varukorgen som korsförsäljer till artiklarna redan i varukorgen.",module,Magento_Catalog
+"Minimum Qty Allowed in Shopping Cart","Minsta antal tillåtna i varukorg",module,Magento_Catalog
+"Maximum Qty Allowed in Shopping Cart","Högsta antal tillåtna i varukorg",module,Magento_Catalog
+"Add To Cart","Lägg till i varukorg",module,Magento_Catalog
+"Add to Cart","Lägg till i varukorg",module,Magento_CatalogPermissions
+"Add to Cart","Lägg till i varukorg",module,Magento_CatalogWidget
+"Shopping Cart",Varukorg,module,Magento_Checkout
+"My Cart (1 item)","Min varukorg (1 artikel)",module,Magento_Checkout
+"My Cart (%1 items)","Min varukorg (%1 artiklar)",module,Magento_Checkout
+"My Cart","Min varukorg",module,Magento_Checkout
+"You added %1 to your shopping cart.","Du har lagt till %1 i din varukorg.",module,Magento_Checkout
+"%1 was updated in your shopping cart.","%1 lades till i din varukorg.",module,Magento_Checkout
+"Display number of items in cart","Visa antal artiklar i varukorgen",module,Magento_Checkout
+"Shipping method is not applicable for empty cart","Leveransmetod går inte att ange för en tom varukorg",module,Magento_Checkout
+"Totals calculation is not applicable to empty cart","Kan inte beräkna summa för en tom varukorg",module,Magento_Checkout
+"Shopping Cart Items","Varukorgens Artiklar",module,Magento_Checkout
+"Clear Shopping Cart","Rensa Varukorg",module,Magento_Checkout
+"Update Shopping Cart","Uppdatera Varukorg",module,Magento_Checkout
+"Update Cart","Uppdatera Varukorg",module,Magento_Checkout
+"You have no items in your shopping cart.","Du har inga artiklar i din varukorg.",module,Magento_Checkout
+"Edit Your Cart","Redigera din varukorg",module,Magento_Checkout
+"Are you sure you would like to remove this item from the shopping cart?","Är du säker du vill ta bort artikeln från varukorgen?",module,Magento_Checkout
+"After Adding a Product Redirect to Shopping Cart","Efter att en Produkt lagts till Omdirigera till Varukorgen",module,Magento_Checkout
+"Item in Cart","Artikel i varukorgen",module,Magento_Checkout
+"Items in Cart","Artiklar i varukorgen",module,Magento_Checkout
+"Shopping Cart from %1","Varukorg från %1",module,Magento_Customer
+"You are not using store credit in your shopping cart.","Du använder inte store-kredit i din varukorg.",module,Magento_CustomerBalance
+"Gift Messages are not applicable for empty cart","Presentkortsmeddelanden är inte möjliga för tom varukorg",module,Magento_GiftMessage
+"Could not add gift message to shopping cart","Kunde inte lägga till gåvomeddelande till varukorg",module,Magento_GiftMessage
+"There is no item with provided id in the cart","Det finns ingen produkt med medföljande id i varukorgen",module,Magento_GiftMessage
+"There is no product with provided  itemId: %1 in the cart","Det finns ingen produkt med id %1 i varukorgen",module,Magento_GiftMessage
+"There is no item with provided id in the order","Det finns ingen produkt med medföljande id i varukorgen",module,Magento_GiftMessage
+"Gift Messages are not applicable for empty order","Presentkortsmeddelanden går ej att tillämpa för tom varukorg",module,Magento_GiftMessage
+"Add to Cart","Lägg till i varukorg",module,Magento_GiftRegistry
+"To see product price, add this item to your cart. You can always remove it later.","Lägg till varan i varukorgen för att se produktpriser. Du kan alltid ta bort den senare.",module,Magento_Msrp
+"Add to Cart","Lägg till i varukorg",module,Magento_Msrp
+"Add to Cart","Lägg till i varukorg",module,Magento_MultipleWishlist
+"Your shopping cart has been updated with new prices.","Din varukorg har uppdaterats med nya priser.",module,Magento_Persistent
+"Persistent Shopping Cart","Persisterande varukorg",module,Magento_Persistent
+"Edit Cart Price Rules","Redigera Varukorgsregler",module,Magento_PromotionPermissions
+"Cart %1 doesn't contain products","Varukorg %1 innehåller inte produkter",module,Magento_Quote
+"Cannot assign customer to the given cart. You don't have permission for this operation.","Kan inte tilldela varukorgen till vald kund. Du har inte behörighet för den här åtgärden.",module,Magento_Quote
+"We found an invalid request for adding product to quote.","Vi hittade en ogiltig begäran för att lägga till produkten i varukorg.",module,Magento_Quote
+"This is the wrong quote item id to update configuration.","Detta är fel varukorgs-id för att uppdatera konfiguration.",module,Magento_Quote
+"Items in Cart","Artiklar i varukorgen",module,Magento_Reports
+"Add to Cart","Lägg till i varukorg",module,Magento_Reports
+"Are you sure you want to delete all items from shopping cart?","Är du säker på att du vill tömma varukorgen?",module,Magento_Sales
+"Cart Price Rule","Varukorg Prisregel",module,Magento_Sales
+"Move to Shopping Cart","Lägg till i varukorgen",module,Magento_Sales
+"Add to Cart","Lägg till i varukorg",module,Magento_Sales
+"This message will be shown in the shopping cart when the subtotal (after discount) is lower than the minimum allowed amount.","Detta meddelande kommer att visas i varukorgen när delsumman (efter rabatt) är lägre än det minsta tillåtna belopp.",module,Magento_Sales
+"Error to Show in Shopping Cart","Går ej att visa i varukorg",module,Magento_Sales
+"Minimum Qty Allowed in Shopping Cart","Minsta antal tillåtna i varukorg",module,Magento_ScalableInventory
+"Maximum Qty Allowed in Shopping Cart","Högsta antal tillåtna i varukorg",module,Magento_ScalableInventory
+"You added %1 to your shopping cart.","Du har lagt till %1 i din varukorg.",module,Magento_Wishlist
+"Add All to Cart","Lägg till alla i varukorgen",module,Magento_Wishlist
+"Add to Cart","Lägg till i varukorg",module,Magento_Wishlist
+"Contact Us","Kontakta oss",module,Magento_NegotiableQuote
+"Contact Us","Kontakta oss",module,Magento_RequisitionList
+"Privacy and Cookie Policy","Sekretess och cookie policy",module,Magento_Cms
+"Orders and Returns","Beställningar och returer",module,Magento_Widget
+"What's this?","Vad är det här?",module,Magento_Persistent
+"What's this?","Vad är det här?",module,Magento_AdvancedCheckout
+"View details","Visa detaljer",module,Magento_Analytics
+"Details","Detaljer",module,Magento_CustomerSegment
+"Details","Detaljer",module,Magento_Catalog
+"Details","Detaljer",module,Magento_Logging
+"Details","Detaljer",module,Magento_Reports
+"Details","Detaljer",module,Magento_Rma
+"Request Details","Begär detaljer",module,Magento_Rma
+"Product Name","Produktnamn",module,Magento_Checkout
+"Product Name","Produktnamn",module,Magento_Downloadable
+"Product Name","Produktnamn",module,Magento_GiftRegistry
+"Product Name","Produktnamn",module,Magento_GroupedProduct
+"Product Name","Produktnamn",module,Magento_Multishipping
+"Product Name","Produktnamn",module,Magento_NegotiableQuote
+"Enter SKU or Product Name","Skriv in SKU eller produktnamn",module,Magento_QuickOrder
+"Product Name","Produktnamn",module,Magento_RequisitionList
+"Product Name","Produktnamn",module,Magento_Review
+"Product Name","Produktnamn",module,Magento_Rma
+"Product Name","Produktnamn",module,Magento_Sales
+"Product Name","Produktnamn",module,Magento_Shipping
+"Product Name","Produktnamn",module,Magento_Wishlist
+"Product Name","Produktnamn",module,Magento_Bundle
+"Product Name","Produktnamn",module,Magento_CatalogInventory
+"Delete User","Radera användare",module,Magento_User
+"Are you sure you want to revoke the user's tokens?","Är du säker på att du vill återkalla användarens tokens?",module,Magento_User
+"New User","Ny användare",module,Magento_User
+"User Email","Användarens E-post",module,Magento_User
+"Password Confirmation","Lösenordsbekräftelse",module,Magento_User
+"This account is","Detta kontot är",module,Magento_User
+"User Information","Användarinformation",module,Magento_User
+"User Info","Användarinfo",module,Magento_User
+"User Role","Användarroll",module,Magento_User
+"Please specify the correct account and try again.","Vänligen specificera rätt konto och försök igen.",module,Magento_User
+"Your password reset link has expired.","Din länk för återställning av lösenord har upphört att gälla.",module,Magento_User
+"We're unable to send the password reset email.","Vi kunde inte skicka mailet för återställning av lösenord.",module,Magento_User
+"We'll email you a link to reset your password.","Vi skickar ett mail med en länk för att återställa ditt lösenord.",module,Magento_User
+"Please correct this email address:","Vänligen korrigera denna E-postadress:",module,Magento_User
+"Please enter an email address.","Vänligen skriv in en E-postadress.",module,Magento_User
+"You updated your password.","Du har uppdaterat ditt lösenord.",module,Magento_User
+"Locked Users","Låsta användare",module,Magento_User
+"Unlocked %1 user(s).","Låste upp %1 användare.",module,Magento_User
+"Permissions","Rättigheter",module,Magento_User
+"You cannot delete your own account.","Du kan inte radera ditt eget konto.",module,Magento_User
+"You have entered an invalid password for current user.","Du har angett ett felaktigt lösenord för nuvarande användare.",module,Magento_User
+"You deleted the user.","Du raderade användaren.",module,Magento_User
+"We can't find a user to delete.","Vi kan inte hitta en användare att radera.",module,Magento_User
+"This user no longer exists.","Denna användare existerar inte längre.",module,Magento_User
+"You have revoked the user's tokens.","Du har återkallat användarens tokens.",module,Magento_User
+"We can't find a user to revoke.","Vi kan inte hitta en användare att återkalla.",module,Magento_User
+"You cannot delete self-assigned roles.","Du kan inte radera egentilldelade roller.",module,Magento_User
+"You deleted the role.","Du raderade rollen.",module,Magento_User
+"An error occurred while deleting this role.","Ett fel inträffade när rollen skulle raderas.",module,Magento_User
+"New Role","Ny roll",module,Magento_User
+"This role no longer exists.","Denna roll existrerar inte längre.",module,Magento_User
+"You saved the role.","Du sparade rollen.",module,Magento_User
+"An error occurred while saving this role.","Ett fel inträffade när rollen skulle sparas.",module,Magento_User
+"You saved the user.","Du sparade användaren.",module,Magento_User
+"A user with the same user name or email already exists.","En användare med samma användarnamn eller e-postadress existerar redan.",module,Magento_User
+"Recommended","Rekommenderad",module,Magento_User
+"Forced","Tvingad",module,Magento_User
+"Sorry, but this password has already been used. Please create another.","Ledsen, men detta lösenord har redan använts. Vänligen skapa ett annat.",module,Magento_User
+"email","e-post",module,Magento_User
+"password","lösenord",module,Magento_User
+"username","användarnamn",module,Magento_User
+"You did not sign in correctly or your account is temporarily disabled.","Du loggade inte in korrekt eller så är ditt konto tillfälligt deaktiverat.",module,Magento_User
+"You need more permissions to access this.","Du behöver ytterligare rättigheter för att få tillgång till detta.",module,Magento_User
+"Your account is temporarily disabled.","Ditt konto är tillfälligt deaktiverat.",module,Magento_User
+"User Name is a required field.","Användarnamn är ett obligatoriskt fält.",module,Magento_User
+"First Name is a required field.","Förnamn är ett obligatoriskt fält.",module,Magento_User
+"Last Name is a required field.","Efternamn är ett obligatoriskt fält.",module,Magento_User
+"Please enter a valid email.","Vänligen skriv in en giltig E-postadress.",module,Magento_User
+"Password is required field.","Lösenord är ett obligatoriskt fält.",module,Magento_User
+"Your password must be at least %1 characters.","Ditt lösenord måste vara minst %1 tecken.",module,Magento_User
+"Your password must include both numeric and alphabetic characters.","Ditt lösenord måste innehålla både siffror och bokstäver.",module,Magento_User
+"Your password confirmation must match your password.","Din lösenordsbekräftelse måste matcha ditt lösenord.",module,Magento_User
+"It's time to change your password.","Det är dags att ändra ditt lösenord.",module,Magento_User
+"Your password has expired; please contact your administrator.","Ditt lösenord har gått ut; vänligen kontakta din administratör.",module,Magento_User
+"Password Help","Lösenordshjälp",module,Magento_User
+"Enter your email address.  You will receive an email with a link to reset your password.","Skriv in din mailadress. Du kommer att få ett mail med en länk för att återställa ditt lösenord.",module,Magento_User
+"Retrieve Password","Hämta lösenord",module,Magento_User
+"Back to Sign in","Tillbaka till inloggning",module,Magento_User
+"Resources","Resurser",module,Magento_User
+"Warning!\r\nThis action will remove this user from already assigned role\r\nAre you sure?","Varning!\r\nDetta kommer radera denna användaren från en redan tilldelad roll\r\nÄr du säker?",module,Magento_User
+"Warning!\r\nThis action will remove those users from already assigned roles\r\nAre you sure?","Varning!\r\nDetta kommer radera dessa användare från redan tilldelade roller\r\nÄr du säker?",module,Magento_User
+"Password Reset Confirmation for %name","Bekräftelse av lösenordsåterställning för %name",module,Magento_User
+"There was recently a request to change the password for your account.","There was recently a request to change the password for your account.",module,Magento_User
+"If you requested this change, reset your password here:","Om du begärde denna ändring, återställ ditt lösenord här:",module,Magento_User
+"If you did not make this request, you can ignore this email and your password will remain the same.","Om du inte begärde denna ändring så kan du ignorera detta mail och ditt lösenord kommer att vara samma.",module,Magento_User
+"New %changes for %user_name","Nya %changes för %user_name",module,Magento_User
+"Hello,","Hej,",module,Magento_User
+"We have received a request to change the following information associated with your account at %store_name: %changes.","Vi har mottagit en begäran om att ändra följande information associerad till ditt konto hos %store_name: %changes.",module,Magento_User
+"If you have not authorized this action, please contact us immediately at %store_email","Om du inte begärt denna ändring, vänligen kontakta oss omedelbart på %store_email",module,Magento_User
+"or call us at %store_phone","eller ring oss på %store_phone",module,Magento_User
+"Thanks,","Tack,",module,Magento_User
+"User Roles","Användarroller",module,Magento_User
+"User Notification Template","Användarnotifikationsmall",module,Magento_User
+"Email template chosen based on theme fallback when ""Default"" option is selected.","Email-mall vald baserat på temats reserv när ""standard"" alternativet är valt.",module,Magento_User
+"Maximum Login Failures to Lockout Account","Maximalt antal felaktiga login för att låsa konto.",module,Magento_User
+"We will disable this feature if the value is empty.","Vi kommer att stänga av denna funktion om värdet är tomt.",module,Magento_User
+"Lockout Time (minutes)","Lås-tid (minuter)",module,Magento_User
+"Password Lifetime (days)","Lösenordets livslängd (dagar)",module,Magento_User
+"We will disable this feature if the value is empty.","Vi kommer att stänga av denna funktion om värdet är tomt.",module,Magento_User
+"Password Change","Lösenordsändring",module,Magento_User
+"Unlock","Lås upp",module,Magento_User
+"ID","ID",module,Magento_User
+"Username","Användarnamn",module,Magento_User
+"Last login","Senaste inloggning",module,Magento_User
+"Failures","Misslyckanden",module,Magento_User
+"Unlocked","Upplåst",module,Magento_User
+"Grid","Rutnät",module,Magento_Catalog
+"List","Listvy",module,Magento_Catalog
+"All","Alla",module,Magento_Catalog
+"Grid Only","Endast rutnät",module,Magento_Catalog
+"Grid","Rutnät",module,Magento_VisualMerchandiser
+"View and Edit Cart","Visa och ändra varukorgen",module,Magento_Checkout
