@@ -50,7 +50,7 @@ $uniqId = uniqid('block_');
                             <div class="cdz-hover-section">
                                 <div class="cdz-product-top">
                                     
-                                    <a href="<?php /* @escapeNotVerified */ echo $_category->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                    <a href="<?php /* @escapeNotVerified */ echo $_category->getUrl() ?>" class="product photo product-item-photo" tabindex="-1">
                                         <span class="main-image">
                                             <?php if($_category->getImageUrl()): ?>
                                                 <?php $imageResize = $_category->getImage();?>
