@@ -165,7 +165,7 @@ switch ($type = $block->getType()) {
     break;
 }
 ?>
-
+<?php $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data'); ?>
 <?php if ($exist):?>
 
     <?php if ($type == 'related' || $type == 'upsell'): ?>
@@ -210,9 +210,9 @@ switch ($type = $block->getType()) {
 								<label class="label" for="related-checkbox<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span></label>
 							</div>
 						<?php endif; ?>
-					<?php endif; ?> 
+					<?php endif; ?>
                 	<div class="cdz-hover-section">
-                           
+
 						<div class="cdz-product-top">
 						<?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
 						<a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
@@ -223,9 +223,10 @@ switch ($type = $block->getType()) {
 								<?php echo $block->getImage($_item, $image_hover)->toHtml(); ?>
 							</span>
 						</a>
+                            <?php $labelHelper->showLabel($_item) ?>
 						</div>
 						<?php if ($showWishlist || $showCompare): ?>
-                        <div class="product actions product-item-actions cdz-product-wishlist show-tooltip">                	                                       
+                        <div class="product actions product-item-actions cdz-product-wishlist show-tooltip">
 							<?php if ($showWishlist || $showCompare): ?>
 								<div class="secondary-addto-links actions-secondary" data-role="add-to-links">
 									<?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && $showWishlist): ?>
@@ -248,7 +249,7 @@ switch ($type = $block->getType()) {
 							<?php endif; ?>
 						</div>
 						<?php endif; ?>
-                            
+
                     </div>
 						<div class="product details product-item-details">
 							<strong class="product name product-item-name"><a class="product-item-link" title="<?php echo $block->escapeHtml($_item->getName()) ?>" href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>">
@@ -263,7 +264,7 @@ switch ($type = $block->getType()) {
 
 							<div class="cdz-product-bottom">
 								<div class="cdz-buttons-container">
-									<div class="cdz-buttons-inner">									
+									<div class="cdz-buttons-inner">
 									 <?php if ($showCart): ?>
 											<?php if ($_item->isSaleable()): ?>
 												<?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
@@ -285,7 +286,7 @@ switch ($type = $block->getType()) {
 															<span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
 														</button>
 													</form>
-													
+
 												<?php endif; ?>
 											<?php else: ?>
 												<?php if ($_item->getIsSalable()): ?>
@@ -294,25 +295,10 @@ switch ($type = $block->getType()) {
 													<div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
 												<?php endif; ?>
 											<?php endif; ?>
-										
-									<?php endif; ?>
-									<?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_item,'show-tooltip'); ?>
-									<?php if ($showCompare): ?>								
-										<?php if ($block->getAddToCompareUrl() && $showCompare): ?>
-											<?php
-											$compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
-											?>
-											<a href="#" class="action tocompare show-tooltip"
-											   data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_item);?>'
-											   data-role="add-to-links"
-											   title="<?php /* @escapeNotVerified */ echo __('Add to Compare'); ?>">
-												<span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
-											</a>
-										<?php endif; ?>								
-									<?php endif; ?>
 
-									</div>	
-								</div>	
+									<?php endif; ?>
+									</div>
+								</div>
 							</div>
                         </div>
                     </div>
@@ -331,7 +317,7 @@ switch ($type = $block->getType()) {
         }
         </script>
 <?php endif; ?>
-<?php 
+<?php
 	$itemSlider = 5;
 	if($type == 'crosssell' || $type == 'crosssell-rule'){
 		$itemSlider = $itemSlider - 1;
@@ -355,13 +341,13 @@ require(['jquery','cdz_slider'],function($){
 			responsiveClass: true,
 			nav: true,
 			dots: false,
-			rtl: ThemeOptions.rtl_layout == 1 ? true : false, 
+			rtl: ThemeOptions.rtl_layout == 1 ? true : false,
 			responsive:{
 				0:{items: <?php echo ($itemSlider > 2)  ?>},
 				480:{items:	<?php echo ($itemSlider > 2)   ?>},
 				640:{items:	<?php echo ($itemSlider > 2)  ?>},
 				768:{items:	<?php echo  ($itemSlider - 1) ?>},
-				1200:{items: <?php echo $itemSlider ?>}			
+				1200:{items: <?php echo $itemSlider ?>}
 			}
 		});
 	}

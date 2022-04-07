@@ -21,7 +21,7 @@ $uniqId = uniqid('block_');
     $title = $block->getTitle() ? __($block->getTitle()) : '';
     $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     $classid = $block->getBlockId();//uniqid();//md5(json_encode($block->getData()));
-	
+
     /**
      * Position for actions regarding image size changing in vde if needed
      */
@@ -44,8 +44,8 @@ $uniqId = uniqid('block_');
 						data-items="<?php echo $slider_item ?>"
 						data-items-0="2"
 						data-items-480="2"
-						data-items-768="<?php echo abs($slider_item-2) ?>"		            	
-						data-items-1024="<?php echo abs($slider_item-1) ?>"	
+						data-items-768="<?php echo abs($slider_item-2) ?>"
+						data-items-1024="<?php echo abs($slider_item-1) ?>"
 						data-items-1280="<?php echo $slider_item ?>"
 						data-items-1440="<?php echo $slider_item ?>"
 						data-loop="false"
@@ -94,13 +94,13 @@ $uniqId = uniqid('block_');
                                         </div>
                                         <?php endif ?>
                                     </div>
-                                    
-						            <div class="addto-hover-container">					            	
+
+						            <div class="addto-hover-container">
                                         <div class="addto-button">
                                             <?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_product) ?>
                                         </div>
 			                    	</div>
-			                    	<?php $labelHelper->showLabel($_product) ?>   
+			                    	<?php $labelHelper->showLabel($_product) ?>
 					        	</div>
 				        	</div>
 				            <div class="product details product-item-details">
@@ -156,7 +156,7 @@ $uniqId = uniqid('block_');
 				                                <?php endif; ?>
 				                            <?php endif; ?>
 				                        </div>
-				                        <?php endif ?>				                        
+				                        <?php endif ?>
 				                    </div>
 				                </div>
 				            </div>
@@ -176,7 +176,7 @@ $uniqId = uniqid('block_');
 				</script>
 			<?php endif; ?>
 		</div>
-	</div>	
+	</div>
 <?php endif; ?>
 <script type="text/javascript">
 require(['jquery','Magento_Theme/js/fastest_fashion'],function($){

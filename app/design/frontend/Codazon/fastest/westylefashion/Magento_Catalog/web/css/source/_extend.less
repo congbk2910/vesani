@@ -73,11 +73,6 @@
                     clear: both;
                 }
             }
-            .product.info.detailed {
-                max-width: 1200px;
-                margin: auto;
-                margin-bottom: 30px;
-            }
             .block.related,
             .block.upsell {
                 text-align: center;
@@ -105,7 +100,7 @@
             }
         }
 
-        // product media 
+        // product media
         .fotorama__thumb-border {
             border: 1px solid #000;
         }
@@ -123,7 +118,7 @@
         // product info main
         .product-info-main {
             position: relative;
-            .product.attibute.overview, 
+            .product.attibute.overview,
             .product.attribute.overview {
                 margin: 15px 0;
                 .title {
@@ -234,6 +229,37 @@
                 bottom: 10px;
             }
         }
+
+        // Related Product
+        .products-grid {
+            .product-item {
+                .product-item-info {
+                    .cdz-product-bottom {
+                        &:not(.non-hover) {
+                            top: 0;
+                            position: static;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .cdz-buttons-container {
+            button.tocart.primary {
+                font-size: 14px;
+                width: auto;
+                height: auto;
+                padding: 0 15px;
+                text-transform: capitalize;
+                color: #fff;
+                background: #000;
+                line-height: 35px;
+                border-radius: 3px;
+                &::before {
+                    display: none;
+                }
+            }
+        }
     }
 }
 
@@ -271,6 +297,13 @@
                 .action span {
                     padding: 11px 10px;
                 }
+            }
+        }
+        .page-main {
+            .product.info.detailed {
+                max-width: 1200px;
+                margin: auto;
+                margin-bottom: 30px;
             }
         }
     }
@@ -409,7 +442,7 @@
             .toolbar-products {
                 padding: 15px;
             }
-            .filter.active {  
+            .filter.active {
                 .filter-subtitle {
                     padding: 20px;
                 }

@@ -10,5 +10,15 @@
 		<referenceBlock name="view.addto.compare" remove="true"/>
 		<move element="product.info.overview" destination="product.info.main" before="product.info.stock.sku"/>
 		<move element="product.info.stock.sku" destination="product.info.main" after="product.price.tier"/>
+        <referenceBlock name="product.info.description">
+            <action method="setTitle">
+                <argument translate="true" name="title" xsi:type="string">Product Description</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <action method="setTitle">
+                <argument translate="true" name="title" xsi:type="string">Technical Information</argument>
+            </action>
+        </referenceBlock>
     </body>
 </page>
