@@ -42,21 +42,112 @@
         .products.owl-loaded {
             position: relative;
         }
+        .read-more-bt {
+            text-align: center;
+            margin: 30px 0 0 0;
+            .showButton {
+                background: #282828;
+                color: #fff;
+                padding: 5px 15px;
+                transition: .4s ease all;
+                cursor: pointer;
+                &:hover {
+                    background: #ffffff;
+                    border: 1px solid #282828;
+                    color: #282828;
+                }
+            }
+        }
+        // text 
+
+        .text-create-builder {
+            margin-top: 20px;
+            font-weight: 500;
+            color: #000;
+        }
+
+        // swatch clolor
+        .product-info-main {
+            .product-options-wrapper {
+                .swatch-attribute {
+                    &.size {
+                        margin-top: 35px;
+                    }
+                }
+            }
+        }
+        .swatch-attribute-options {
+            .swatch-option {
+                position: relative;
+                margin-right: 40px;
+                overflow: inherit;
+                p {
+                    position: absolute;
+                    bottom: -25px;
+                    top: auto;
+                    margin: 0;
+                }
+            }
+        }
+
+        // Block Product
         .block.related,
         .block.upsell {
+            .product-item {
+                .old-price {
+                    color: #999999;
+                    .price {
+                        color: #999999;
+                    }
+                }
+                .special-price {
+                    .price {
+                        color: red;
+                    }
+                }
+                .price-box .price {
+                    font-weight: 400;
+                }
+            }
+            .related-available {
+                .product-item-name {
+                    margin-left: 0;
+                }
+            }
+            .block-actions {
+                display: none;
+            }
             .owl-carousel {
+                transform: none;
                 .owl-nav {
+                    top: auto;
+                    width: 100%;
+                    bottom: 50%;
+                }
+                div.owl-prev,
+                div.owl-next {
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    background:url(../images/gallery.png) center center no-repeat;
+                    border: none;
                     top: auto;
                     bottom: 50%;
                     transform: translate(0, 50%);
-                    width: 100%;
+                    &::before {
+                        display: none;
+                    }
+                }
+                .owl-nav {
                     .owl-prev {
                         left: -5px;
                         right: auto;
+                        background-position: -80px -80px;
                     }
                     .owl-next {
                         right: 5px;
                         left: auto;
+                        background-position: -160px -80px;
                     }
                 }
             }
@@ -401,17 +492,42 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     .catalog-product-view {
-        .block.related,
-        .block.upsell {
-            .owl-carousel {
-                div.owl-nav {
-                    transform: none;
-                    div.owl-prev {
-                        left: 0;
+        .page-main {
+            .block.related,
+            .block.upsell {
+                padding: 10px;
+                .owl-carousel {
+                    div.owl-nav {
+                        div.owl-prev {
+                            left: -40px;
+                        }
+                        div.owl-next {
+                            right: -40px;
+                        }
                     }
-                    div.owl-next {
-                        right: 0;
-                    }
+                }
+            }
+        }
+        .breadcrumbs {
+            display: block;
+            .items > li {
+                margin-bottom: 5px;
+            }
+        }
+        .product.media {
+            .fotorama {
+                padding-right: 0;
+            }
+            .fotorama__stage {
+                margin-left: 0 !important;
+            }
+        }
+        .product.data.items, 
+        .tabs-list.product.data.items {
+            > .item.title.active {
+                > .switch {
+                    background: #fff;
+                    color: #282828;
                 }
             }
         }
