@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="trustpilot" translate="label" sortOrder="10">
+            <label>Trustpilot</label>
+        </tab>
+        
+        <section id="trustpilotGeneral" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>General</label>
+            <tab>trustpilot</tab>
+            <resource>Trustpilot_Reviews::configuration</resource>
+            <group id="general" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                <attribute type="expanded">1</attribute>
+                <field id="messageDefault" type="label" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Trustpilot\Reviews\Block\System\Config\Message</frontend_model>
+                </field>
+                <field id="trustpilot_admin" type="text" showInDefault="0" showInWebsite="1" showInStore="1">
+                    <frontend_model>Trustpilot\Reviews\Block\System\Config\Admin</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -15321,5 +15321,11 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "component.behaviours","component.behaviours",lib,web
 "Add to Cart","Lägg i varukorg",module,Codazon_ProductFilter
 "Add to Cart","Lägg i varukorg",module,Codazon_AjaxCartPro
+"Add","Lägg till",module,Codazon_AjaxCartPro
 "Quick Shop","Snabbvy",module,Codazon_ProductFilter
 "Quick Shop","Snabbvy",module,Codazon_AjaxCartPro
+"Delivery from our warehouse in 1-3 days","Leverans från vårt lager inom 1-3 dagar",module,Magento_Catalog
+"Read More","Läs mer",module,Magento_Catalog
+"Close","Stänga",module,Magento_Catalog
+"Product Description","Produktbeskrivning",module,Magento_Catalog
+"Technical Information","Teknisk information",module,Magento_Catalog

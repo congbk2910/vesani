@@ -1,0 +1,9 @@
+<?php /* @var $block \Trustpilot\Reviews\Block\Trustbox */?>
+<script type="text/javascript" async>
+    const trustpilot_trustbox_settings = <?php echo $block->loadTrustboxes(); ?>;
+    if (trustpilot_trustbox_settings) {
+        document.addEventListener('DOMContentLoaded', function() {
+            tp('trustBox', trustpilot_trustbox_settings);
+        });
+    }
+</script>
