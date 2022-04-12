@@ -45,33 +45,78 @@
         .read-more-bt {
             text-align: center;
             margin: 30px 0 0 0;
-            .showButton {
-                background: #282828;
-                color: #fff;
-                padding: 5px 15px;
-                transition: .4s ease all;
-                cursor: pointer;
-                &:hover {
-                    background: #ffffff;
-                    border: 1px solid #282828;
-                    color: #282828;
-                }
+            text-align: center;
+            background: #282828;
+            color: #fff;
+            padding: 5px 15px;
+            transition: .4s ease all;
+            cursor: pointer;
+            max-width: 100px;
+            margin: 30px auto auto;
+            border: 1px solid #282828;
+            &:hover {
+                background: #ffffff;
+                border-color:#282828;
+                color: #282828;
             }
-        }
-        // text 
-
-        .text-create-builder {
-            margin-top: 20px;
-            font-weight: 500;
-            color: #000;
         }
 
         // swatch clolor
         .product-info-main {
+            .block-shipping-estimation {
+                margin-top: 0;
+            }
             .product-options-wrapper {
+                .swatch-opt {
+                    margin: 5px 0;
+                }
+                .swatch-attribute-label {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .swatch-attribute-selected-option {
+                    display: none;
+                }
                 .swatch-attribute {
                     &.size {
-                        margin-top: 35px;
+                        .swatch-option {
+                            width: 45px;
+                            font-size: 12px;
+                            line-height: 1.5rem;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .swatch-attribute {
+                    margin-bottom: 0;
+                    padding-bottom: 20px;
+                    position: relative;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    .mage-error {
+                        position: absolute;
+                        top: auto;
+                        bottom: 0;
+                        left: 0;
+                        right: auto;
+                        margin-top: 0;
+                    }
+                    .swatch-option {
+                        margin-bottom: 25px;
+                    }
+                }
+                .swatch-attribute,
+                .swatch-attribute.size {
+                    .swatch-option {
+                        &.selected {
+                            &::after {
+                                left: auto;
+                                right: 50%;
+                                transform: translate(50%, 0);
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }
@@ -86,6 +131,9 @@
                     bottom: -25px;
                     top: auto;
                     margin: 0;
+                    font-size: 12px;
+                    width: auto;
+                    font-weight: 600;
                 }
             }
         }
@@ -526,8 +574,8 @@
         .tabs-list.product.data.items {
             > .item.title.active {
                 > .switch {
-                    background: #fff;
-                    color: #282828;
+                    background: #282828;
+                    color: #fff;
                 }
             }
         }
