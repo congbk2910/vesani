@@ -347,31 +347,6 @@ require(['jquery','cdz_slider'],function($){
                 }
             });
         }
-        // Show less or more
-        var $text = '<?php echo __('Read More') ?>';
-        var $heightContent = $('.product.attribute.description .text-create-builder').height();
-        var $showMoreButton = $('<div class="read-more-bt"><span class="showButton">'+ $text +'</span></div>');
-        if ($heightContent > 50) {
-            $('.text-create-builder').css({
-                'overflow': 'hidden',
-                'height': 30
-            }).addClass('active');
-            $showMoreButton.insertAfter( ".text-create-builder");
-        }
-        $('.read-more-bt > span').toggle( function (event) {
-            event.preventDefault();
-            $('.text-create-builder').css({
-                'height': 'auto',
-                'overflow': 'unset'
-            }).removeClass('active');
-            $(this).text('<?php echo __('Close') ?>');
-        }, function () {
-            $('.text-create-builder').css({
-                'overflow': 'hidden',
-                'height': 30
-            }).addClass('active');
-            $(this).text($text);
-        });
     });
 })
 </script>

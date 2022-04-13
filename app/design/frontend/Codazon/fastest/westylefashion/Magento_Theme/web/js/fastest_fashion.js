@@ -1,12 +1,12 @@
 (function (factory) {
     if (typeof define === "function" && define.amd) {
         define([
-            "jquery","cdz_slider",'domReady!','cdz_menu'
+            "jquery","cdz_slider",'domReady!','cdz_menu','mage/translate'
         ], factory);
     } else {
         factory(jQuery);
     }
-}(function ($) {
+}(function ($,$t) {
 	"use strict";
 
 	$.fn.appearingEffect = function(){
@@ -112,7 +112,25 @@
 			this._alignMenu();
 			this._buildMenu();
 			this._resize();
+			this._readMore();
+		},
 
+		_readMore: function () {
+			var $textReadmore = $.mage.__('Read More'),
+			 	$textCloes = $.mage.__('Close'),
+			 	$this = '.product.attribute.description .pagebuilder-column-group div[data-content-type="text"]';
+			$($this).each(function(i) {
+				var len = $(this).text().length;
+				if (len > 150) {
+					$(this).html("<span>" + $(this).text().substr(0, 300) + "</span><span style='display:none'>" + $(this).text().substr(300) + "</span>");
+					var link = $('<div class="read-more-bt"><span class="showButton">'+ $textReadmore +'</span></div>');
+					$(this).append(link);
+					$(link).click(function() {
+						$(this).prev().toggle();
+						$(this).html($(this).html()== $textReadmore ? $textCloes : $textReadmore);
+					});
+				}
+			});
 		},
 
 		_backTopButton: function(){
