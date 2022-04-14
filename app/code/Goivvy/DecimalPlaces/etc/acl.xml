@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+ * @component  Goivvy_DecimalPlaces
+ * @copyright  Copyright (c) 2017 Goivvy.com. (https://www.goivvy.com)
+ * @license    https://www.goivvy.com/license Commercial License
+ * @author     Goivvy.com developer team <team@goivvy.com>
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Goivvy_DecimalPlaces::goivvy_decimalplaces" title="Goivvy Price Decimal Places" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+ * @component  Goivvy_DecimalPlaces
+ * @copyright  Copyright (c) 2017 Goivvy.com. (https://www.goivvy.com)
+ * @license    https://www.goivvy.com/license Commercial License
+ * @author     Goivvy.com developer team <team@goivvy.com>
+ *
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Goivvy\DecimalPlaces\Pricing\PriceCurrencyInterface" type="Goivvy\DecimalPlaces\Model\PriceCurrency" />
+    <type name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier">
+        <plugin name="Goivvy_DecimalPlaces_Modifier_Plugin" type="Goivvy\DecimalPlaces\Plugin\ModifierPlugin"/> 
+    </type>
+    <type name="Magento\Directory\Model\Currency">
+        <plugin name="Goivvy_DecimalPlaces_Directory_Plugin" type="Goivvy\DecimalPlaces\Plugin\DirectoryPlugin"/>     
+    </type>
+    <type name="Magento\Framework\Locale\FormatInterface">
+        <plugin name="Goivvy_DecimalPlaces_Format_Plugin" type="Goivvy\DecimalPlaces\Plugin\FormatPlugin"/>     
+    </type>
+    <!-- not working with vietnamese dong -->
+    <!-- <type name="Magento\Framework\CurrencyInterface">
+        <plugin name="Goivvy_DecimalPlaces_Currency_Plugin" type="Goivvy\DecimalPlaces\Plugin\CurrencyPlugin"/>            
+    </type> -->
+    <type name="Magento\Framework\Pricing\PriceCurrencyInterface">
+        <plugin name="Goivvy_DecimalPlaces_Product_Plugin" type="Goivvy\DecimalPlaces\Plugin\ProductPlugin"/>        
+    </type>
+    <type name="Magento\Checkout\CustomerData\Cart">
+        <plugin name="cart_private_data_tax" disabled="true"/>
+        <plugin name="goi_cart_private_data_tax" type="Goivvy\DecimalPlaces\Plugin\Checkout\CustomerData\Cart" sortOrder="60" disabled="false"/>
+    </type>
+</config>

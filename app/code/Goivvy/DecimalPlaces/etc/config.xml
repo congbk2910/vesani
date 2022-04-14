@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @component  Goivvy_DecimalPlaces
+ * @copyright  Copyright (c) 2017 Goivvy.com. (https://www.goivvy.com)
+ * @license    https://www.goivvy.com/license Commercial License
+ * @author     Goivvy.com developer team <team@goivvy.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+  <default>
+     <goivvydecimalplaces>
+        <general>
+          <active>0</active>
+          <place>2</place>          
+        </general>
+     </goivvydecimalplaces>
+  </default>
+</config>

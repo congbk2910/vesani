@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+ * @component  Goivvy_DecimalPlaces
+ * @copyright  Copyright (c) 2017 Goivvy.com. (https://www.goivvy.com)
+ * @license    https://www.goivvy.com/license Commercial License
+ * @author     Goivvy.com developer team <team@goivvy.com>
+ *
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+ <module name="Goivvy_DecimalPlaces" setup_version="1.0.0">
+ </module>
+</config>
