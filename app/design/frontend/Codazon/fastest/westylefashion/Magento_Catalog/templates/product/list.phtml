@@ -36,35 +36,35 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
         $showDescription = $_optionHelper->getConfig('general_section/category_view/show_short_description');
         $showCompareWishlist = $_optionHelper->getConfig('general_section/category_view/show_action');
         $showReviewRating = $_optionHelper->getConfig('general_section/category_view/review_rating_star');
-		$pageColumn = $_optionHelper->getPageColumns();		                
+		$pageColumn = $_optionHelper->getPageColumns();
         	switch($pageColumn){
-				case '3columns':								
+				case '3columns':
 					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_3col');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_3col');
 					break;
-				case '1column':					
+				case '1column':
 					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_1col');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_1col');
 					break;
-				case '2columns':					
+				case '2columns':
 					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_2col');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_2col');
 					break;
-				default:					
+				default:
 					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_2col');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_2col');
-					break;	
+					break;
 				}
 				//echo $_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_2col');
 				//echo $_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_1col');
 				//echo $columnsDeskClass;
 			$columnsMobileClass = 'mobile_'.$_optionHelper->getConfig('general_section/category_view/category_mobile_view/product_row_mobile');
-		if(!$_mobileHelper->isMobile()){	
+		if(!$_mobileHelper->isMobile()){
 			$columnsClass = $columnsDeskClass;
         }else if($_mobileHelper->isTablet()){
 			$columnsClass = $columnsTabClass;
         }else if($_mobileHelper->isMobile() && !$_mobileHelper->isTablet()){
-			$columnsClass = $columnsMobileClass;	
+			$columnsClass = $columnsMobileClass;
         }
         $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     } else {
@@ -81,8 +81,8 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
      * Position for actions regarding image size changing in vde if needed
      */
     $pos = $block->getPositioned();
-	
-	
+
+
     ?>
     <div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
         <?php $iterator = 1; ?>
@@ -91,10 +91,10 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 				<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 				<?php foreach ($_productCollection as $_product): ?>
 					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
-					<div class="product-item-info" data-container="product-grid">                	
+					<div class="product-item-info" data-container="product-grid">
 						<div class="cdz-hover-section">
 						<div class="cdz-product-top">
-						<?php						
+						<?php
 						$productImage = $block->getImage($_product, $image);
 						$productHoverImage = $block->getImage($_product, $image_hover);
 						$tmp1 = $productImage->getData('image_url');
@@ -134,8 +134,8 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 								   role="button">
 									<span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
 								</a>
-							<?php endif; ?> 
-					</div>										
+							<?php endif; ?>
+					</div>
 						<?php $labelHelper->showLabel($_product) ?>
 						</div>
 						<div class="product details product-item-details">
@@ -148,17 +148,17 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 									<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
 								</a>
 							</strong>
-							
+
 							<?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
 							<?php if($showReviewRating): ?>
-							<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?> 
+							<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
 							<?php endif ?>
 							<?php echo $block->getProductDetailsHtml($_product); ?>
-							
+
 							<div class="product-item-inner">
 								<!--<div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
 									<div class="actions-primary"<?php echo strpos($pos, $viewMode . '-primary') ? $position : ''; ?>>
-										
+
 									</div>
 									<div data-role="add-to-links" class="actions-secondary"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
 									</div>
@@ -170,13 +170,13 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 										   class="action more"><?php /* @escapeNotVerified */ echo __('Learn More') ?></a>
 									</div>
 								<?php endif; ?>
-								 
+
 							</div>
-							
+
 							<!--quiclick-addtocart-->
 							 <div class="cdz-product-bottom <?php echo $showHover ? 'hover-effect' : 'non-hover' ?>">
 								<div class="cdz-buttons-container">
-								<div class="cdz-buttons-inner">								
+								<div class="cdz-buttons-inner">
 									<?php if ($_product->isSaleable()): ?>
 										<?php $postParams = $block->getAddToCartPostParams($_product); ?>
 										<form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
@@ -195,16 +195,19 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 										<?php else: ?>
 											<div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
 										<?php endif; ?>
-									<?php endif; ?>								
+									<?php endif; ?>
 									<?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_product,'show-tooltip'); ?>
 								</div>
 								</div>
-							</div>							
+							</div>
 						</div>
 					</div>
 					<?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
 				<?php endforeach; ?>
 			</ol>
+            <div class="btn-loadmore text-center">
+                <button><?php /* @escapeNotVerified */ echo __('Load more') ?></button>
+            </div>
 		</div>
     </div>
     <?php echo $block->getToolbarHtml() ?>
@@ -219,7 +222,7 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
     <?php endif; ?>
 	<?php if ($block->getMode() == 'grid'): ?>
 		<script type="text/javascript">
-			require(['jquery','Codazon_ThemeOptions/js/is-mobile'],function($,isMobile){			
+			require(['jquery','Codazon_ThemeOptions/js/is-mobile'],function($,isMobile){
 				function setClass(){
 					var widthWindow = $(window).width();
 						var list = $('#category-products-grid');
@@ -233,9 +236,9 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 					$(window).on('resize',function(){
 						setClass();
 						});
-				setClass();						
+				setClass();
 			});
 		</script>
 	<?php endif; ?>
-	
+
 <?php endif; ?>

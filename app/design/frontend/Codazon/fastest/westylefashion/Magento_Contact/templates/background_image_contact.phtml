@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © 2015 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$_optionHelper = $this->helper('Codazon\ThemeOptions\Helper\Data');
+$showBackground = $_optionHelper->getConfig('general_section/contact_us/background_contact/show_bg');
+$urlBackground = $_optionHelper->getConfig('general_section/contact_us/background_contact/url_background');
+$baseUrlImage = $_optionHelper->getMediaUrl() .'codazon/themeoptions/background/';
+?>
+<?php if($showBackground === '1' && strlen($urlBackground) > 0): ?>
+    <div class="background_contac_page" style="background-image: url('<?php echo $baseUrlImage.$urlBackground ?>');"></div>
+<?php endif ?>
