@@ -58,10 +58,10 @@ class PriceCurrency extends AbstractFormat
      * @throws NoSuchEntityException
      * @throws Zend_Currency_Exception
      */
-    public function aroundRound(DirectoryPriceCurrency $subject, callable $proceed, float $price): float
+    public function aroundRound(DirectoryPriceCurrency $subject, callable $proceed, $price): float
     {
         if (!$this->_helperData->isEnabled()) {
-            return $proceed($price);
+            return $proceed(floatval($price));
         }
 
         return round($price, $this->getPrecision());
