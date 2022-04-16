@@ -16,7 +16,7 @@
 
     // End
 
-    // Label discount 
+    // Label discount
     .product-item {
         .product-item-info {
             .cdz-product-wishlist {
@@ -40,13 +40,15 @@
             }
         }
         .price-box {
-            .price {
-                color: #242323;
-            }
-            .old-price {
-                color: red;
+            .special-price {
                 .price {
                     color: red;
+                }
+            }
+            .old-price {
+                color: #242323;
+                .price {
+                    color: #242323;
                 }
             }
         }
@@ -486,6 +488,9 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
+            div.products-grid .desktop_3 .product-items:not(.owl-carousel)>.product-item:nth-child(3n+1) {
+                clear: inherit;
+            }
             .filter-options {
                 -ms-grid-columns: 20% 20% 20% 20% 20%;
                 grid-template-columns: 20% 20% 20% 20% 20%;
@@ -635,7 +640,7 @@
                 margin-left: 0 !important;
             }
         }
-        .product.data.items, 
+        .product.data.items,
         .tabs-list.product.data.items {
             > .item.title.active {
                 > .switch {
