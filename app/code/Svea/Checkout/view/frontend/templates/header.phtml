@@ -1,0 +1,10 @@
+<?php
+// @codingStandardsIgnoreFile
+
+
+/** @var $block Svea\Checkout\Block\Checkout */
+?>
+
+<?php if (!empty($block->helper()->getAdditionalBlock())): ?>
+    <?= $block->helper()->getAdditionalBlock() ?>
+<?php endif; ?>

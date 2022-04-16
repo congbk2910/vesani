@@ -1,0 +1,11 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Svea\Checkout\Block\Widget\ProductCampaign" id="svea_product_campaign">
+        <label>Svea product campaign</label>
+        <description>Posts</description>
+        <parameters>
+            <parameter name="posts" sort_order="10" visible="true" xsi:type="text">
+                <label>Custom Posts Label</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

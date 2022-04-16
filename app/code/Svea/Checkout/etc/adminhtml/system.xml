@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Backend/etc/system_file.xsd">
+    <system>
+        <tab id="svea" translate="label" sortOrder="999" class="svea-extensions-tab">
+            <label>Svea</label>
+        </tab>
+
+        <section id="svea_checkout" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Checkout</label>
+            <tab>svea</tab>
+            <resource>Svea_Checkout::system_config</resource>
+            <group id="svea_info" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <frontend_model>Svea\Checkout\Block\Adminhtml\System\Config\Info</frontend_model>
+            </group>
+            <group id="connection" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Connection</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Testmode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="merchant_id" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                    <label>Merchant ID</label>
+                    <comment>Merchant ID, you will get this from Svea.</comment>
+                </field>
+                <field id="shared_secret" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+                    <label>Shared Secret</label>
+                    <comment>The shared secret, you will get this from Svea.</comment>
+                </field>
+            </group>
+
+            <group id="settings" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+
+                <field id="default_shipping_method" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                    <label>Default Shipping Method</label>
+                    <source_model>Svea\Checkout\Model\System\Config\Source\AllowedShippingMethods</source_model>
+                    <comment>Choose a default shipping method.</comment>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+
+                <field id="default_country" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                    <label>Default Country</label>
+                    <source_model>Svea\Checkout\Model\System\Config\Source\Country</source_model>
+                    <comment>Only if multiple countries are allowed. If this is invalid, the first allowed country will be used</comment>
+                </field>
+
+                <field id="allowed_countries" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allowed Payment Countries</label>
+                    <source_model>Svea\Checkout\Model\System\Config\Source\Country</source_model>
+                    <comment><![CDATA[Assure that selected countries are in <strong>Allow Countries</strong> list (<em>System &raquo; Configuration &raquo; General &raquo; General</em>)]]></comment>
+                </field>
+
+                <field id="customer_types" translate="label comment" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Allowed Customer Types</label>
+                    <source_model>Svea\Checkout\Model\System\Config\Source\ConsumerType</source_model>
+                    <comment>Choose at least one customer type that is allowed in the checkout.</comment>
+                </field>
+
+                <field id="default_customer_type" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Default Customer Type</label>
+                    <source_model>Svea\Checkout\Model\System\Config\Source\ConsumerType</source_model>
+                    <comment>Choose default customer type</comment>
+                </field>
+
+                <field id="can_capture" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Capture/Refund payment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If NO, no payment operations will be done (Capture/Refund/Void) on Invoice/Creditmemo/Order</comment>
+                </field>
+                <field id="can_capture_partial" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Can capture partial </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If NO, you cannot make partial invoices/refunds</comment>
+                </field>
+
+                <field id="newsletter_subscribe" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                    <label>Subscribe Newsletter Checked by default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="register_customer" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
+                    <label>Register Guest Customers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="terms_url" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="130" >
+                    <label>Url for Terms page</label>
+                    <source_model>Magento\Cms\Model\Config\Source\Page</source_model>
+                </field>
+                <field id="replace_checkout" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="140">
+                    <label>Replace checkout url with Svea Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, the "Go to Checkout" button in the minicart and cart will point to Svea checkout.</comment>
+                </field>
+
+                <field id="allow_decimal_diff" translate="label comment" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Decimal Difference</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        If Yes, the module will allow some decimal differences between magento and svea. This may sometimes happen due to conversion of prices with more than 3 decimals.
+                        Most of the times when this occurs, it's about 1 or 2 cents (öre) difference. Caution! If you have other integrations please consider how this affects them.
+                    </comment>
+                </field>
+
+                <field id="maximum_decimal_diff" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="150">
+                    <label>Maximum decimal difference</label>
+                    <comment>Specify how many decimals is accepted maximum. E.g: 50, for maximum 0.50 in difference, or 5 for 0.05 in difference.</comment>
+                    <depends>
+                        <field id="allow_decimal_diff">1</field>
+                    </depends>
+                </field>
+
+                <field id="send_order_email" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send order email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="layout" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Layout options</label>
+                <field id="display_newsletter" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Newsletter checkbox</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_reward_points" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use reward points? (Commerce only)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_campaign_widget" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use campaign widget functionality</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_discount" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Discount Form</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_comment" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Comment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_link" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display link to a different payment method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_additional_block" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Additional block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="additional_block" translate="label" type="editor" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional block Content</label>
+                    <frontend_model>Svea\Checkout\Block\Adminhtml\System\Config\Editor</frontend_model>
+                    <depends>
+                        <field id="display_additional_block">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="crosssell" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Crosssell Products</label>
+                <field id="display_crosssell" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Crosssell Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="crosssell_limit" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Number of Products</label>
+                </field>
+            </group>
+
+            <group id="campaign_widget" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Campaign widget</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Display widgets on product pages?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="campaign_collect" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Svea\Checkout\Block\Widget\System\Config\Collect</frontend_model>
+                    <label>Collect all available campaigns</label>
+                </field>
+            </group>
+        </section>
+
+        <section id="payment">
+            <group id="sveacheckout" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Svea Checkout</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+            </group>
+        </section>
+
+    </system>
+</config>

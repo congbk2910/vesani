@@ -9,6 +9,13 @@
 	<body>
 	<referenceContainer name="after.body.start">
         <referenceBlock name="cookie-status-check" remove="true"/>
+		<container name="header.gg.script" label="Header Google script" htmlTag="div" htmlClass="header-gg-script" >
+			<block class="Magento\Cms\Block\Block" name="gg.script">
+				<arguments>
+					<argument name="block_id" xsi:type="string">fastest-westylefashion-header-top-gg-script</argument>
+				</arguments>
+			</block>
+		</container>
     </referenceContainer>
 	<referenceContainer name="header.panel">
 		<container name="header.panel.store" label="Page Header Store" htmlTag="div" htmlClass="header-stores" >

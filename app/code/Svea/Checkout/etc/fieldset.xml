@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:DataObject/etc/fieldset.xsd">
+    <scope id="global">
+
+        <fieldset id="sales_convert_quote_address">
+            <field name="svea_invoice_fee">
+                <aspect name="to_order"/>
+            </field>
+        </fieldset>
+
+        <fieldset id="sales_convert_quote">
+            <field name="svea_order_id">
+                <aspect name="to_order" />
+            </field>
+
+            <field name="svea_invoice_fee">
+                <aspect name="to_order"/>
+            </field>
+        </fieldset>
+
+        <fieldset id="quote_convert_payment">
+            <field name="svea_order_id">
+                <aspect name="to_order_payment" />
+            </field>
+
+            <field name="svea_invoice_fee">
+                <aspect name="to_order_payment"/>
+            </field>
+        </fieldset>
+    </scope>
+</config>

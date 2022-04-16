@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Svea Checkout</title>
+        <css src="Svea_Checkout::css/svea.css"/>
+    </head>
+    <update handle="checkout_item_price_renderers"/>
+    <body>
+        <move element="breadcrumbs" destination="columns.top" after="page.main.title"/>
+
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components" name="svea_checkout_head_components"
+                   template="Svea_Checkout::js/components.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="page.messages">
+            <block class="Svea\Checkout\Block\Messages" name="svea_checkout.messages"/>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <referenceBlock name="breadcrumbs" remove="true"/>
+            <referenceBlock name="page.main.title">
+                <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs.cms" after="-">
+                    <action method="addCrumb">
+                        <argument name="crumbName" xsi:type="string">Home</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Home</item>
+                            <item name="label" xsi:type="string">Home</item>
+                            <item name="link" xsi:type="string">/</item>
+                        </argument>
+                    </action>
+                    <action method="addCrumb">
+                        <argument name="crumbName" xsi:type="string">Checkout</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Checkout</item>
+                            <item name="label" xsi:type="string">Checkout</item>
+                        </argument>
+                    </action>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Svea\Checkout\Block\Wrapper" name="svea_checkout_design_cfg" as="design_cfg"
+                   template="Svea_Checkout::design_config.phtml">
+                <container name="svea_checkoutHeader" as="svea_checkoutHeader" label="svea_checkout Header"
+                           htmlTag="div" htmlId="svea_checkoutHeader">
+                    <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.header" as="sveaHeader"
+                           template="Svea_Checkout::header.phtml"
+                           ifconfig="svea_checkout/layout/display_additional_block"/>
+                </container>
+                <!-- SIDEBAR -->
+                <container name="svea_checkoutSidebar" as="svea_checkoutSidebar" label="svea_checkout Sidebar"
+                           htmlTag="div" htmlId="svea_checkoutSidebar">
+                    <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.sidebar" as="sidebar"
+                           template="Svea_Checkout::sidebar.phtml" cacheable="false">
+
+                        <!-- Shopping Cart -->
+                        <block class="Svea\Checkout\Block\Checkout\Cart" name="svea_checkout.cart" as="cart"
+                               template="Svea_Checkout::checkout/cart.phtml">
+                            <block class="Magento\Framework\View\Element\RendererList"
+                                   name="checkout.onepage.review.item.renderers" as="renderer.list">
+                                <block class="Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable"
+                                       as="configurable"
+                                       template="Svea_Checkout::checkout/cart/item/item.phtml">
+                                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions"
+                                           name="checkout.cart.item.renderers.configurable.actions" as="actions">
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit"
+                                               name="checkout.cart.item.renderers.configurable.actions.edit"
+                                               template="Magento_Checkout::cart/item/renderer/actions/edit.phtml"/>
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove"
+                                               name="checkout.cart.item.renderers.configurable.actions.remove"
+                                               template="Magento_Checkout::cart/item/renderer/actions/remove.phtml"/>
+                                    </block>
+                                </block>
+                                <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="simple"
+                                       template="Svea_Checkout::checkout/cart/item/item.phtml">
+                                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions"
+                                           name="checkout.cart.item.renderers.simple.actions" as="actions">
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit"
+                                               name="checkout.cart.item.renderers.simple.actions.edit"
+                                               template="Magento_Checkout::cart/item/renderer/actions/edit.phtml"/>
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove"
+                                               name="checkout.cart.item.renderers.simple.actions.remove"
+                                               template="Magento_Checkout::cart/item/renderer/actions/remove.phtml"/>
+                                    </block>
+                                </block>
+                                <block class="Magento\Bundle\Block\Checkout\Cart\Item\Renderer" as="bundle"
+                                       template="Svea_Checkout::checkout/cart/item/item.phtml">
+                                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions"
+                                           name="checkout.cart.item.renderers.bundle.actions" as="actions">
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit"
+                                               name="checkout.cart.item.renderers.bundle.actions.edit"
+                                               template="Magento_Checkout::cart/item/renderer/actions/edit.phtml"/>
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove"
+                                               name="checkout.cart.item.renderers.bundle.actions.remove"
+                                               template="Magento_Checkout::cart/item/renderer/actions/remove.phtml"/>
+                                    </block>
+                                </block>
+
+                                <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="virtual"
+                                       template="Svea_Checkout::checkout/cart/item/item.phtml">
+                                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions"
+                                           name="checkout.cart.item.renderers.virtual.actions" as="actions">
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit"
+                                               name="checkout.cart.item.renderers.virtual.actions.edit"
+                                               template="Magento_Checkout::cart/item/renderer/actions/edit.phtml"/>
+                                        <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove"
+                                               name="checkout.cart.item.renderers.virtual.actions.remove"
+                                               template="Magento_Checkout::cart/item/renderer/actions/remove.phtml"/>
+                                    </block>
+                                </block>
+
+                                <block class="Magento\Bundle\Block\Checkout\Cart\Item\Renderer" as="grouped"
+                                       template="Svea_Checkout::checkout/cart/item/item.phtml"/>
+                            </block>
+                            <block class="Magento\Checkout\Block\Cart\Totals" name="svea_checkout.cart.totals"
+                                   as="totals" template="Svea_Checkout::checkout/cart/totals.phtml"/>
+                            <!-- Subscribe to Newsletter -->
+                            <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.newsletter" as="newsletter"
+                                   template="Svea_Checkout::checkout/subscribe.phtml"
+                                   ifconfig="svea_checkout/layout/display_newsletter"/>
+                        </block>
+                        <!-- Apply Discount Code -->
+                        <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.coupon" as="coupon"
+                               template="Svea_Checkout::checkout/cart/coupon.phtml"
+                               ifconfig="svea_checkout/layout/display_discount"/>
+                        <!-- Shipping Method -->
+                        <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.shipping" as="shipping"
+                               template="Svea_Checkout::checkout/shipping.phtml">
+
+                            <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.shipping_method"
+                                   as="shipping_method" template="Svea_Checkout::checkout/shipping/method.phtml"/>
+                            <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.shipping_address"
+                                   as="shipping_address" template="Svea_Checkout::checkout/shipping/address.phtml"/>
+                        </block>
+                        <!-- Leave a comment -->
+                        <block class="Svea\Checkout\Block\Checkout" name="svea.checkout.comment" as="comment"
+                               template="Svea_Checkout::checkout/comment.phtml"
+                               ifconfig="svea_checkout/layout/display_comment"/>
+                    </block>
+                </container>
+                <!-- CROSSSELL -->
+                <container name="svea_crosssell" as="svea_crosssell" label="svea_Crosssell" htmlTag="div"
+                           htmlId="svea_checkoutCrosssell">
+                    <block class="Svea\Checkout\Block\Checkout\Cart\Crosssell" name="checkout.cart.crosssell"
+                           as="sveaCrosssell"
+                           template="Svea_Checkout::product/list/items.phtml" after="-"
+                           ifconfig="checkout/cart/crosssell_enabled">
+                        <arguments>
+                            <argument name="type" xsi:type="string">crosssell</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <!-- IFRAME -->
+                <container name="svea_checkout.main" as="svea_checkoutMain" label="Main svea_checkout Container"
+                           htmlTag="div" htmlId="svea_checkoutMain">
+                    <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.svea.container"
+                           as="sveaContainer"
+                           template="Svea_Checkout::main.phtml">
+                        <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.svea" as="svea"
+                               template="Svea_Checkout::iframe.phtml" cacheable="false"/>
+                        <block class="Svea\Checkout\Block\Checkout" name="svea_checkout.different.checkout.link"
+                               as="differentCheckoutLink" template="Svea_Checkout::different_checkout_link.phtml"
+                               ifconfig="svea_checkout/layout/display_link"/>
+                    </block>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

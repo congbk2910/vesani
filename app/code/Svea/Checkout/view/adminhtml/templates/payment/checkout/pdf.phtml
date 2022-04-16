@@ -1,0 +1,7 @@
+<?php
+/**
+ * @var $block \Svea\Checkout\Block\Payment\Checkout\Info
+ */
+?>
+<?php echo $block->escapeHtml(__('Svea Checkout Order ID: %1', $block->getInfo()->getAdditionalInformation('svea_order_id'))) ?>
+    {{pdf_row_separator}}

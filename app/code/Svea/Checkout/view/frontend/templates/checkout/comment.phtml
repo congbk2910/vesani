@@ -1,0 +1,26 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<div id="svea_comment" class="svea-block svea-block-discount">
+    <?php $customerComment = $block->getQuote()->getCustomerNote(); ?>
+    <form method="post" action="<?php echo $block->getCommentSubmitUrl(); ?>" id="svea-checkout-comment">
+        <div class="svea-comment-title">
+            <h4><?= __('Order Comment (Optionally)')?></h4>
+            <input type="button" class="svea-btn show-more" value="<?= __('Show More')?>"/>
+            <input type="button" class="svea-btn show-less" value="<?= __('Show Less')?>"/>
+        </div>
+        <div class="fieldset comment">
+            <div class="input-box field">
+                <textarea rows="10" value="" placeholder="<?php echo __('Enter a comment for this order'); ?>"
+                          name="svea_customer_comment" id=svea_order_comment_textarea"
+                          class="svea-show-on-focus input-text"><?php echo $customerComment; ?></textarea>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button id="svea-submit" type="submit" title="<?php echo __('Save'); ?>"
+                            class="action apply svea-button"><?php echo __('Save'); ?></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

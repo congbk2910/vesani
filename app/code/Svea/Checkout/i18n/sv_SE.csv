@@ -1,0 +1,164 @@
+Column1,Column2
+"No country set, change to %1","Inget land satt, ändra till %1"
+"Wrong country set %1, change to %2","Fel land satt %1, ändra till %2"
+"Svea checkout is not available for %1, country was changed to %2.","Svea Checkout är ej tillgängligt för %1, landet blev ändrat till %2."
+Checkout was reloaded.,Kassan har laddat om.
+"The Svea Checkout is not enabled, please use an alternative checkout method.","Svea Checkout är inaktiverat, var god välj en alternativ betalmetod."
+"The Svea Checkout is NOT available (no allowed country), please use an alternative checkout method.","Svea Checkout är ej tillgängligt (ej tillåtet land), var god välj en alternativ betalmetod."
+There are no items in your cart.,Det saknas produkter i din varukorg.
+The cart contains errors.,Varukorgen innehåller fel.
+Subtotal must exceed minimum order amount.,Delsumman av ordern måste överstiga den tillåtna minimala order värdet
+Country is not set.,Landet är ej satt.
+"This currency is not available, please use an alternative checkout.","Valutan är inte tillgänglig, var god välj en annan betalmetod."
+Currency was changed to %1.,Valutan blev ändrad till %1.
+Invalid country (%1),Felaktigt land (%1)
+"Order %1, cannot create customer [%2]: %3","Order %1, kan ej skapa kund [%2]: %3"
+Authorize action is not available.,Authorize action is not available.
+Authorized amount of %1.,Authorized amount of %1.
+Capture action is not available.,Capture action is not available.
+Could not Capture order. %1,Could not Capture order. %1
+Refund action is not available.,Refund action is not available.
+Could not Refund Invoice. %1,Could not Refund Invoice. %1
+Void/Cancel action is not available.,Void/Cancel action is not available.
+Could not cancel order. %1,Could not cancel order. %1
+Detach is not available.,Detach is not available.
+Could not save the push: %1,Could not save the push: %1
+The push doesn't exist.,The push doesn't exist.
+Empty Cart,Töm varukorg
+"Cart has errors, cannot checkout.","Varukorgen innehåller fel, kan ej gå till kassa."
+You need an svea payment ID to void.,"Du behöver ett """"svea payment ID"""" för att makulera."""""
+"Cannot capture online, no invoice set","Kan ej göra en capture online, ingen faktura är satt"
+Could not load svea order,Kunde inte ladda Svea order
+"Could not map order row numbers, so we cannot perform this action. Please do it manually","Kunde inte mappa orderradsnummer, så vi kan inte utföra åtgärden. Var god gör detta manuellt."
+You need an svea payment ID to capture.,"Du behöver ett """"svea payment ID"""" för att göra en capture."""""
+This delivery is still in progress. Try again soon.,"Den här leveransen pågår fortfarande, var god försök igen snart."
+"Found no deliveries to refund on. Please refund offline, and do the rest manually in Svea.",Fann ej någon leverans att göra krediteringen emot. Var god kreditera offline och gör resten i Sveas admin.
+"Can't refund this invoice. Please refund offline, and do the rest manually in Svea.",Kan ej kreditera denna faktura. Var god kreditera offline och gör resten i Sveas admin.
+This is a partial credit memo. You have to add an adjustment fee that is the same amount as the svea invoice fee.,This is a partial credit memo. You have to add an adjustment fee that is the same amount as the svea invoice fee.
+You need an svea ID and Svea Delivery ID to refund.,Du behöver ett svea ID och ett Svea Delivery ID för att kreditera
+Shipping Fee (%1),Fraktavgift (%1)
+Discount (%1),Rabatt (%1)
+The grand total price does not match the price being sent to Svea. Please contact an admin or use another checkout method.,Totalpriset matchar inte beloppet som skickats till Svea. Var god att kontakta en administratör eller använd en annan betalmetod.
+Svea Order ID,Svea Order ID
+Svea Checkout Order ID,Svea Checkout Order ID
+Svea Checkout Order ID: %1,Svea Checkout Order ID: %1
+Order number:,Ordernummer:
+#: %1,#: %1
+Date,Datum
+Order Details,Orderdetaljer
+Product,Produkt
+Discount:,Rabatt:
+Shipping,Frakt
+Payment Method:,Betalmetod:
+Total:,Total:
+Continue Shopping,Fortsätt handla
+Cross-sell products,Cross-sell produkter
+Add to Cart,Lägg till i varukorg
+In stock,I lager
+Out of stock,Ej i lager
+Sign Up for Our Newsletter,Prenumerera på vårt nyhetsbrev
+Checkout,Kassa
+"Sorry, no quotes are available for this order right now.","Sorry, no quotes are available for this order right now."
+Shipping Method,Fraktmetod
+Country,Land
+Postal code,Postkod
+Choose Delivery,Välj frakt
+Item,Produkt
+Description,Beskrivning
+Quantity,Antal
+Use coupon,Använd rabattkod
+Do you have a coupon code?,Har du en rabattkod?
+Click here to enter code,Klicka här för att ange koden
+Coupon Code,Rabattkod
+Enter discount code,Ange en rabattkod
+Apply Discount,Applicera rabatt
+Cancel Coupon,Ta bort rabattkod
+Product Name,Produktnamn
+Price,Pris
+Qty,Antal
+Excl. Tax,Ex. moms
+Incl. Tax,Ink. moms
+Subtotal,Delsumma
+Remove,Ta bort
+Order Comment (Optionally),Kommentar på order
+Enter a comment for this order,Ange en kommentar för denna order
+Save,Spara
+Use a different payment method,Använd en annan betalmetod
+Svea Checkout Order ID ,Svea Checkout Order ID 
+Finish purchase,Avsluta köp
+Submitting order information...,Skickar order information..
+Are you sure you want to remove this?,Är du säker på att du vill ta bort detta?
+"Sorry, something went wrong. Please try again (reload this page)","Något gick fel, var god försök igen (ladda om denna sida)"
+"Sorry, something went wrong. Please try again later.","Något gick fel, var god försök igen."
+"The cart was updated (from another location), reloading the checkout, please wait...","Varukorgen har blivit uppdaterad (från en annan plats), laddar om checkouten, var god vänta.."
+"The requested changes were not applied. The cart was updated (from another location), please review the cart.","De efterfrågade förändringarna blev ej applicerade. Varukorgen har blivit uppdaterad (från en annan plats), var god och observera förändringarna."
+We can't update your subscription.,Vi kan ej uppdatera din prenumeration.
+Coupon code is not valid (or missing),Rabattkoden är ej giltig (eller saknas)
+Coupon code %1 was applied.,Rabattkod %1 applicerad.
+"Coupon code %1 is not valid,","Rabattkod %1 är ej giltig,"
+Coupon code was canceled.,Rabattkoden avbruten
+We can't apply your coupon.,Vi kunde ej applicera din rabattkod.
+We can't update your Country / postal code.,Vi kunde ej uppdatera ditt land / postkod.
+Order redeived,Order mottagen
+We can't update your comment.,Vi kunde inte uppdatera din kommentar.
+Invalid Quote hash,Felaktig Quote hash
+Found no svea order id.,Fann inget Svea Order ID.
+The Svea Order ID is invalid.,Svea Order ID:t var felaktigt.
+Found no Svea Order for this session. Please refresh the site or clear your cookies.,Fann ingen Svea Order för denna session. Var god att ladda om sidan eller rensa dina kakor
+Something went wrong when we tried to retrieve the order from Svea. Please try again or contact an admin.,Något gick fel när vi försökte hämta ordern från Svea. Var god och försök igen eller kontakta en administratör
+Something went wrong... Contact site admin.,"Något gick fel, kontakta webbplatsens administratör"
+Found no quote object for this Svea order ID.,Fann inget quote-objekt för detta Svea order ID.
+Please add shipping information.,Var god och lägg till fraktinformation.
+The country or postal code doesn't match with the one you entered earlier. Please re-enter the new postal code for the shipping above.,Landet eller postkoden matchade inte den du angav tidigare. Var god och ange postkoden för fraktalternativet ovan.
+Please choose a shipping method.,Var god och välj en fraktmetod
+Could not place the order.,Kunde ej lägga ordern.
+We can't update shipping method.,Kunde ej uppdatera fraktmetod.
+Order id missing,Order id:t saknas
+An error occurred...,Ett fel uppstod…
+Cannot update checkout (%1),Kunde ej uppdatera checkouten (%1)
+Cannot initialize Svea Checkout (%1),Kunde ej initisera Svea Checkout (%1)
+Svea Checkout,Svea Checkout
+Invoice Fee,Fakturaavgift
+Crosssell products,Cross-sell produkter
+"Date:,Date:","Datum:,Datum:"
+"Total:,Total:","Totalsumma:,Totalsumma:"
+You will be redirected to the Svea Checkout page.,Du kommer att vidarebefordras till Svea Checkout-sidan
+Svea,Svea
+Connection,Anslutningen
+"Enabled,Enabled","Aktiverad,Aktiverad"
+Testmode,Testläge
+Merchant ID,Merchant ID
+"Merchant ID, you will get this from Svea.","Merchant ID, du får detta av Svea."
+Shared Secret,Shared Secret
+"The shared secret, you will get this from Svea.","Shared secret, du får detta av Svea."
+"Settings,Settings","Inställningar,Inställningar"
+Default Country,Standardland
+"Only if multiple countries are allowed. If this is invalid, the first allowed country will be used",Endast om flera länder är tillåtna. Om denna är inaktiv så väljs första tillåtna landet
+Allowed Payment Countries,Tillåtna länder
+"If NO, no payment operations will be done (Capture/Refund/Void) on Invoice/Creditmemo/Order","Om inställt på """"Nej"""" så skickas inte något anrop till Svea vid fakturering"
+Can capture partial,Kan delleverera
+"If NO, you cannot make partial invoices/refunds","Om inställt på """"Nej"""" så kan du ej delleverera/delkreditera"""""
+Subscribe Newsletter Checked by default,Prenumerera på nyhetsbrevet ikryssat som standard
+Register Guest Customers,Registrera användare vid gästköp
+Url for Terms page,Url till villkorssidan
+Replace checkout url with Svea Checkout,Ersätt kassa url med Svea Checkout
+Layout options,Layout-inställningar
+Display Newsletter checkbox,Visa nyhetsbrevs kryssruta
+Display Discount Form,Visa rabatt-fält
+Display Comment,Visa kommentarsfält
+Display link to a different payment method,Visa länk till andra betalmetoder
+Display Additional block,Visa eget block
+Additional block Content,Innehåll i eget block
+Crosssell Products,Cross-sell produkter
+Display Crosssell Products,Vissa Cross-sell produkter
+Number of Products,Antal av produkter
+New Order Status,Ny orderstatus
+Sort Order,Sort Order
+Title,Titel
+"Grand total","Totalsumman"
+"Show More","Visa mer"
+"Show Less","Visa mindre"
+"Remove","Ta bort"
+"Tax","Moms"
+"Shipping","Frakt"
+"Partial payment from %s / month","Delbetalning från %s / månad"

@@ -1,0 +1,43 @@
+.svea-campaign {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.svea-campaign-description {
+    width: 100%;
+    padding: 20px 15px;
+    border-bottom: 1px solid #D1D1D1;
+    line-height: 24px;
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.svea-logo {
+    img {
+        max-width: 70px;
+        display: inline-block;
+        margin-right: 15px;
+    }
+}
+
+.svea-campaign-pricing {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:after {
+        display: inline-block;
+        content: url("../images/down-arrow.svg");
+        height: 25px;
+        width: 25px;
+        transition: .3s transform ease-in-out;
+    }
+    &[aria-expanded="true"]:after {
+        transform: rotate(180deg);
+    }
+}

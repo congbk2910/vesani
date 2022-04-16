@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Success</title>
+        <css src="Svea_Checkout::css/svea.css"/>
+    </head>
+
+    <body>
+        <referenceContainer name="page.wrapper">
+            <referenceBlock name="breadcrumbs" remove="true"/>
+            <referenceBlock name="page.main.title">
+                <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs.cms" after="-">
+                    <action method="addCrumb">
+                        <argument name="crumbName" xsi:type="string">Home</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Home</item>
+                            <item name="label" xsi:type="string">Home</item>
+                            <item name="link" xsi:type="string">/</item>
+                        </argument>
+                    </action>
+                    <action method="addCrumb">
+                        <argument name="crumbName" xsi:type="string">Checkout</argument>
+                        <argument name="crumbInfo" xsi:type="array">
+                            <item name="title" xsi:type="string">Checkout</item>
+                            <item name="label" xsi:type="string">Checkout</item>
+                        </argument>
+                    </action>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+        <referenceContainer name="page.messages">
+            <block class="Svea\Checkout\Block\Messages" name="svea_checkout_validationmessages"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <container name="svea_checkoutSidebar" as="svea_checkoutSidebar" label="SveacCheckout Sidebar" htmlTag="div"
+                       htmlId="svea_checkoutSidebar">
+                <block class="Svea\Checkout\Block\Success" name="svea_checkout_success" template="success.phtml"
+                       cacheable="false"/>
+                <block class="Magento\GoogleAdwords\Block\Code" name="google.adwords.code" template="code.phtml"/>
+            </container>
+        </referenceContainer>
+
+        <container name="order.success.additional.info" label="Order Success Additional Info"/>
+    </body>
+</page>

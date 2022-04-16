@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <svea_checkout>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <settings>
+                <add_css>0</add_css>
+            </settings>
+            <layout>
+                <display_newsletter>1</display_newsletter>
+                <display_discount>1</display_discount>
+            </layout>
+            <crosssell>
+                <display_crosssell>1</display_crosssell>
+                <crosssell_limit>8</crosssell_limit>
+            </crosssell>
+            <settings>
+                <customer_types>B2C</customer_types>
+                <default_customer_type>B2C</default_customer_type>
+            </settings>
+        </svea_checkout>
+
+        <payment>
+            <sveacheckout>
+                <active>1</active>
+                <model>Svea\Checkout\Model\Payment\Method\Checkout</model>
+                <order_status>pending</order_status>
+                <title>Svea Checkout</title>
+            </sveacheckout>
+        </payment>
+    </default>
+</config>

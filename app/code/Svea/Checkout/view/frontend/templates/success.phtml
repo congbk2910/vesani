@@ -1,0 +1,97 @@
+<?php
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Svea\Checkout\Block\Success */
+$orderId = $block->getOrderId();
+$realId = $block->getRealOrderId();
+?>
+<div class="checkout-success" id="svea-checkout-success">
+    <?php if ($block->getOrderId()): ?>
+        <?php
+        $orderData = $block->getOrderById($realId);
+        $orderItems = $block->getOrderItems($realId);
+        ?>
+        <div id="sveaIframeSnippet">
+            <?php echo $block->getIframeSnippet(); ?>
+        </div>
+
+        <?php echo $block->getAdditionalInfoHtml() ?>
+        <?php if ($orderData) : ?>
+            <div class="order_inside">
+                <ul class="svea-checkout-order-overview svea-checkout-thankyou-order-details order_details">
+                    <li class="svea-checkout-order-overview__order order">
+                        <?= __('Order number:') ?>
+                        <strong>
+                            <?php if ($block->getCanViewOrder()) : ?>
+                                <p><?php echo __('#: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+                            <?php else : ?>
+                                <p><?php echo __('#: %1', $block->escapeHtml($block->getOrderId())) ?></p>
+                            <?php endif; ?>
+                        </strong>
+                    </li>
+
+                    <li class="svea-checkout-order-overview__date date">
+                        <?= __('Date:') ?><strong><?= substr($orderData->getData('created_at'), 0, 10) ?></strong>
+                    </li>
+                    <li class="svea-checkout-order-overview__total total">
+                        <?= __('Total:') ?>
+                        <strong>
+                            <span class="svea-checkout-Price-amount amount"><?= $orderData->formatPrice($orderData->getData('grand_total')) ?></span>
+                        </strong>
+                    </li>
+                    <li class="svea-checkout-order-overview__payment-method method">
+                        <?= __('Payment Method:') ?> <strong><?= __('Svea Checkout') ?></strong>
+                    </li>
+                </ul>
+            </div>
+            <?php if ($orderItems) : ?>
+                <div class="svea-checkout-order__items">
+                <strong><?= __('Order Details') ?></strong>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="col-item"><?= __('Product') ?></th>
+                        <th class="col-subtotal"><?= __('Subtotal') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($orderItems as $orderItem) : ?>
+                        <tr>
+                            <td class="col-item"><?= $orderItem->getData('name') . ' <span class="count"> X ' . round($orderItem->getData('qty_ordered')) . ' </span >' ?></td>
+                            <td class="col-amount"><?= $orderData->formatPrice($orderItem->getData('row_total_incl_tax')) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php if ($orderData->getData('discount_amount') > 0) : ?>
+                        <tr>
+                            <td class="col-item"><?= __('Discount:') ?></td>
+                            <td class="col-amount"><?= $orderData->formatPrice($orderData->formatPrice($orderData->getData('discount_amount'))) ?></td>
+                        </tr>
+                    <?php endif; ?>
+                    <tr>
+                        <td class="col-item"><?= __('Shipping:') ?></td>
+                        <td class="col-amount"><?= $orderData->formatPrice($orderData->getData('shipping_amount')) . '<span class="count">(' . $orderData->getData('shipping_description') . ')</span >' ?></td>
+                    </tr>
+                    <tr>
+                        <td class="col-item"><?= __('Payment Method:') ?></td>
+                        <td class="col-amount"><?= __('Svea Checkout') ?></td>
+                    </tr>
+                    <tr>
+                        <td class="col-item"><?= __('Total:') ?></td>
+                        <td class="col-amount"><?= $orderData->formatPrice($orderData->getData('grand_total')) ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+
+        <?php endif; ?>
+        </div>
+    <?php endif; ?>
+    <div class="actions-toolbar">
+        <div class="svea-primary-wrapper">
+            <a class="action svea-primary svea-btn continue" href="<?php /* @escapeNotVerified */
+            echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */
+                    echo __('Continue Shopping') ?></span></a>
+        </div>
+    </div>
+</div>

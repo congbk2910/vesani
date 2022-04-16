@@ -1,0 +1,18 @@
+<?php
+// @codingStandardsIgnoreFile
+/**
+ * @var $block \Svea\Checkout\Block\Payment\Checkout\Form
+ */
+ 
+ //NOT USED YET
+?>
+<fieldset class="admin__fieldset payment-method" id="payment_form_<?php echo $block->escapeHtml($block->getMethodCode()) ?>" style="display: none">
+    <div class="admin__field _required">
+        <label for="sveacheckout_id" class="admin__field-label"><span><?php echo $block->escapeHtml(__('Svea Order ID')) ?></span></label>
+        <div class="admin__field-control">
+            <input type="text" id="sveacheckout_id" name="payment[svea_order_id]"
+                   title="<?php echo $block->escapeHtml(__("Svea Checkout Order ID")) ?>" class="required-entry admin__control-text"
+                   value="<?php /* @noEscape */ echo $block->getInfoData('svea_order_id') ?>"/>
+        </div>
+    </div>
+</fieldset>

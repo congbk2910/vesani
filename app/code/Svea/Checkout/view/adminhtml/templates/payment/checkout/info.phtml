@@ -1,0 +1,27 @@
+<?php
+use Svea\Checkout\Block\Payment\Checkout\Info;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Info $block
+ * @var Escaper $escaper
+ */
+
+?>
+<div class="order-payment-method-name"><?= $escaper->escapeHtml($block->getMethod()->getTitle()); ?></div>
+<table class="data-table admin__table-secondary">
+    <tr>
+        <th><?= $escaper->escapeHtml(__('Svea Checkout Order ID')); ?>:</th>
+        <td><?= $escaper->escapeHtml($block->getSveaCheckoutId()); ?></td>
+    </tr>
+    <tr>
+        <th><?= $escaper->escapeHtml(__('Svea Payment Method')); ?>:</th>
+        <td><?= $escaper->escapeHtml($block->getSveaPaymentMethod()); ?></td>
+    </tr>
+    <?php if ($block->getSveaCustomerReference()): ?>
+        <tr>
+            <th><?= $escaper->escapeHtml(__('Svea Customer Payment Reference')) ?>:</th>
+            <td><?= $escaper->escapeHtml($block->getSveaCustomerReference()) ?>
+        </tr>
+    <?php endif ?>
+</table>

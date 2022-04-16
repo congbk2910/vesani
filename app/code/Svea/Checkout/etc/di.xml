@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Svea\Checkout\Api\Data\PushInterface" type="Svea\Checkout\Model\Push" />
+    <preference for="Svea\Checkout\Api\PushRepositoryInterface" type="Svea\Checkout\Model\PushRepository" />
+
+    <type name="Svea\Checkout\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Svea\Checkout\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">svea</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Svea\Checkout\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\Request\CsrfValidator">
+        <plugin name="svea_csrf_validator_skip" type="Svea\Checkout\Plugin\CsrfValidatorSkip" />
+    </type>
+
+    <preference for="Magento\Checkout\Block\Cart\Crosssell" type="Svea\Checkout\Block\Checkout\Cart\Crosssell" />
+    <type name="Magento\Checkout\Block\Onepage\Link">
+        <plugin name="sveacheckout_url" type="Svea\Checkout\Plugin\Url" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="sveacheckout_url" type="Svea\Checkout\Plugin\Url" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart">
+        <plugin name="sveacheckout_url" type="Svea\Checkout\Plugin\Url" sortOrder="10" disabled="false"/>
+    </type>
+
+    <type name="Svea\Checkout\Console\Command\FetchCampaigns">
+        <arguments>
+            <argument name="name" xsi:type="string">svea:campaign:fetch</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="svea_campaigns_fetch" xsi:type="object">Svea\Checkout\Console\Command\FetchCampaigns</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Svea\Checkout\Api\GetAvailablePartPaymentCampaigns" type="Svea\Checkout\Model\Campaign\CampaignManagement"/>
+    <preference for="Svea\Checkout\Api\CampaignInfoRepositoryInterface" type="Svea\Checkout\Model\Campaign\CampaignRepository"/>
+
+</config>

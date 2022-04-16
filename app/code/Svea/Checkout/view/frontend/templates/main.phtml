@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $block Svea\Checkout\Block\Checkout
+ */
+
+?>
+<div id="sveaOrder">
+    <div class="svea-checkout-title" data-role="title">
+        <h4 id="svea-checkout-review-heading" role="heading" aria-level="2">
+            <?php echo $block->escapeHtml(__('Finish purchase')) ?>
+        </h4>
+    </div>
+    <?php echo $block->getChildHtml(); ?>
+</div>
+

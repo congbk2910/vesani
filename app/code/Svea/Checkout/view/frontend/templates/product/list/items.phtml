@@ -1,0 +1,178 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Svea\Checkout\Block\Checkout\Cart\Crosssell */
+use Magento\Framework\App\Action\Action;
+?>
+
+<?php
+switch ($type = $block->getType()) {
+    case 'crosssell-rule':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->hasItems()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('Cross-sell products');
+            $items = $block->getItemCollection();
+
+            $showAddTo = true;
+            $showCart = true;
+            $description = false;
+        }
+        break;
+
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = count($block->getItems())) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('Cross-sell products');
+            $items = $block->getItems();
+
+            $showAddTo = true;
+            $showCart = true;
+            $description = false;
+        }
+        break;
+
+    default:
+        $exist = null;
+}
+?>
+
+<?php if ($exist && $block->isEnable()): ?>
+
+<div class="block svea-<?= /* @escapeNotVerified */$class ?>">
+    <div class="block-title title">
+        <span id="block-<?= /* @escapeNotVerified */
+        $class ?>-heading" role="heading" aria-level="2"><?= /* @escapeNotVerified */
+            $title ?></span>
+    </div>
+    <div class="block-content content" aria-labelledby="block-<?= /* @escapeNotVerified */
+    $class ?>-heading">
+
+        <div class="products wrapper grid svea-products-grid products-<?= /* @escapeNotVerified */
+        $type ?>">
+            <ol class="products list items product-items svea-product-items">
+                <?php foreach ($items as $_item): ?>
+                    <?php $available = ''; ?>
+                    <li class="item product product-item">
+                        <div class="product-item-info <?= /* @escapeNotVerified */
+                        $available ?>">
+                            <?= /* @escapeNotVerified */
+                            '<!-- ' . $image . '-->' ?>
+                            <a href="<?= /* @escapeNotVerified */
+                            $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
+                                <?= $block->getImage($_item, $image)->toHtml() ?>
+                            </a>
+                            <div class="product details product-item-details">
+                                <strong class="product name product-item-name">
+                                    <a class="product-item-link"
+                                       title="<?= $block->escapeHtml($_item->getName()) ?>"
+                                       href="<?= /* @escapeNotVerified */
+                                       $block->getProductUrl($_item) ?>">
+                                        <?= $block->escapeHtml($_item->getName()) ?>
+                                    </a>
+                                </strong>
+                                <div class="svea-product-info-btm">
+                                    <?= /* @escapeNotVerified */
+                                    $block->getProductPrice($_item) ?>
+                                    <?php if ($showAddTo || $showCart): ?>
+                                        <div class="product actions product-item-actions">
+                                            <?php if ($showCart): ?>
+                                                <div class="actions-primary">
+                                                    <?php if ($_item->isSaleable()): ?>
+                                                        <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+                                                        <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= /* @NoEscape */ $postParams['action'] ?>" method="post">
+                                                            <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
+                                                            <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+                                                            <?= $block->getBlockHtml('formkey') ?>
+                                                            <button type="submit"
+                                                                    title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+                                                                    class="action tocart primary">
+                                                                <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                                                            </button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <?php if ($_item->getIsSalable()): ?>
+                                                            <div class="stock available"><span><?= /* @escapeNotVerified */
+                                                                    __('In stock') ?></span></div>
+                                                        <?php else: ?>
+                                                            <div class="stock unavailable">
+                                                            <span><?= /* @escapeNotVerified */
+                                                                __('Out of stock') ?></span></div>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach ?>
+            </ol>
+        </div>
+    </div>
+</div>
+<script>
+    require([
+        'jquery',
+        'slick'
+    ], function ($) {
+        jQuery(document).ready(function () {
+            jQuery(".svea-product-items").slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1.5,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            })
+        });
+    });
+</script>
+<?php endif; ?>
+<?php if (!$block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                }
+            }
+        }
+        </script>
+<?php endif; ?>

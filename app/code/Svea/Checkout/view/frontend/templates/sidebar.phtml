@@ -1,0 +1,44 @@
+<?php
+// @codingStandardsIgnoreFile
+
+
+/** @var $block Svea\Checkout\Block\Checkout */
+?>
+<div class="svea-checkout-review" id="svea-checkout-review">
+    <div class="svea-checkout-cart svea-checkout-section" id="svea-checkout-cart">
+        <div class="svea-checkout-section-content" data-role="content"
+             aria-labelledby="svea-checkout-cart-heading">
+            <?php echo $block->getChildHtml('cart'); ?>
+        </div>
+    </div>
+    <div class="svea-checkout-extra">
+        <div class="svea-checkout-extra__right">
+            <?php echo $block->getChildHtml('coupon'); ?>
+        </div>
+    </div>
+    <?php echo $block->getChildHtml('shipping'); ?>
+    <?php echo $block->getChildHtml('comment'); ?>
+</div>
+
+<span class="please-wait load indicator" id="review-please-wait" style="display: none;"
+      data-text="<?php echo $block->escapeHtml(__('Submitting order information...')); ?>">
+    <span><?php echo $block->escapeHtml(__('Submitting order information...')); ?></span>
+</span>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "sveaCheckout": {
+                        "component": "sveaCheckout",
+                        "config": {
+                            "ctrlkey": "<?php echo $block->generateHashSignatureByQuote(); ?>",
+                            "ctrlcookie": "<?php echo $block->getCartCtrlKeyCookieName(); ?>",
+                            "sveaShippingAddressChange": "<?php echo $block->getShippingAddressSubmitUrl(); ?>"
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,10 @@
+.admin__menu .level-0.item-svea > a:before {
+    content: '';
+    background: url('../images/svea-admin-icon.svg') no-repeat center;
+    background-size: contain;
+}
+.svea_info {
+    background: url(../images/svea.svg) no-repeat left;
+    height: 10rem;
+    background-size: 15%;
+}

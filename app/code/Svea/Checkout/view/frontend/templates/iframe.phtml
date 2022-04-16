@@ -1,0 +1,16 @@
+<?php
+/**
+ * @var $block Svea\Checkout\Block\Checkout
+ */
+
+$quote = $block->getQuote();
+
+?>
+<?php if (($quote->getShippingAddress() === null) || !$quote->getShippingAddress()->getShippingMethod() && !$quote->getIsVirtual()) : ?>
+    <div id="iframe-overlay" class="iframe-overlay"></div>
+<?php endif; ?>
+<div id="svea-checkout_svea">
+    <div id="sveaIframeSnippet">
+        <?php echo $block->getIframeSnippet(); ?>
+    </div>
+</div>

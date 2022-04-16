@@ -1,0 +1,17 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Svea\Checkout\Block\Payment\Checkout\Info
+ */
+
+?>
+
+
+<dl class="payment-method sveacheckout order">
+    <dt class="title"><?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?></dt>
+    <dd class="content">
+        <strong><?php echo $block->escapeHtml(__('Svea Checkout Order ID ')) ?></strong>
+        <span class="number"><?php echo $block->escapeHtml($block->getInfo()->getAdditionalInformation('svea_order_id')) ?></span>
+    </dd>
+</dl>

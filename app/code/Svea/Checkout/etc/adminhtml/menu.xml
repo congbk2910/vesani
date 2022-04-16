@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Svea_Checkout::svea" title="SVEA" module="Svea_Checkout" sortOrder="100"
+             resource="Svea_Checkout::system_config"/>
+        <add id="Svea_Checkout::svea_checkout" title="Checkout Configuration" module="Svea_Checkout" sortOrder="100"
+             parent="Svea_Checkout::svea" action="adminhtml/system_config/edit/section/svea_checkout" resource="Svea_Checkout::system_config"/>
+    </menu>
+</config>

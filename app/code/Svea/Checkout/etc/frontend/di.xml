@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Quote\Model\Quote\Item\Processor">
+        <plugin name="sveacheckout_checkout_quantity_fix" type="Svea\Checkout\Plugin\Quote\Model\Quote\Item\Processor" sortOrder="10" disabled="false"/>
+    </type>
+
+    <type name="\Magento\Reward\Controller\Cart\Remove">
+        <plugin name="svea_redirect_back" type="\Svea\Checkout\Plugin\Reward\Controller\Cart\Remove\RedirectBack" />
+    </type>
+
+    <type name="Svea\Checkout\Controller\Index\Index">
+        <plugin name="svea_redirect_on_zero_cart" type="Svea\Checkout\Plugin\Controller\AroundIndex" />
+    </type>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="svea_checkout_config" xsi:type="object">Svea\Checkout\Model\Checkout\CommerceCheckoutConfig</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,51 @@
+<?php
+    use Svea\Checkout\Block\Widget\ProductCampaign;
+
+    /** @var ProductCampaign  $block */
+    $viewModel = $block->getViewModel();
+    $campaigns = $viewModel->getProductCampaigns();
+
+    if (empty($campaigns)) {
+        return;
+    }
+    
+    // Sorting the campaigns by price Ascending
+    usort($campaigns, array($viewModel, 'sortCampaignsByPriceAsc'));
+
+    $cheapestCampaign = reset($campaigns);
+    $productCampaignPrice = $cheapestCampaign->getCampaignPrice();
+?>
+
+<div class="svea-campaigns-container" data-mage-init='
+    {
+        "accordion":
+        {
+            "collapsible": true,
+            "multipleCollapsible": true,
+            "active": ""
+        }
+    }'>
+    <?php if ($block->getCustomPostsLabel()): ?>
+        <div class="svea-campaigns-title">
+            <h2>
+                <?= $block->getCustomPostsLabel(); ?>
+            </h2>
+        </div>
+    <?php endif; ?>
+    <div class="svea-campaign" data-role="collapsible">
+        <div class="svea-logo">
+            <a href="<?= $viewModel->getCheckoutUrl() ?>"
+                title="<?= __('Svea Checkout') ?>">
+                <img src='<?= $block->getViewFileUrl('Svea_Checkout::images/svea-ekonomi.png'); ?>' alt="SVEA logo">
+            </a>
+        </div>
+        <div class="svea-campaign-pricing" data-role="title">
+            <strong>
+                <?= sprintf(__('Partial payment from %s / month'), $productCampaignPrice) ?>
+            </strong>
+        </div>
+        <div class="svea-campaign-description" data-role="content" style="display: none;">
+            <?= $cheapestCampaign->getDescription() ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<?php if ($block->getShippingAddress()): ?>
+<div class="svea-checkout-shipping svea-checkout-section mobile-show" id="svea-checkout-shipping">
+    <div class="svea-checkout-title" data-role="title">
+        <h4 id="svea-checkout-review-heading" role="heading" aria-level="2" style="border-bottom: 0px;">
+            <?php echo $block->escapeHtml(__('Shipping Method')) ?>
+        </h4>
+    </div>
+    <div class="svea-checkout-section-content" data-role="content"
+         aria-labelledby="svea-checkout-review-heading">
+        <form method="post" id="shipping-method-form"
+              action="<?php echo $block->escapeUrl($block->getShippingMethodSubmitUrl()); ?>"
+              class="form">
+            <?php echo $block->getChildHtml('shipping_method'); ?>
+        </form>
+        <?php if ($addrUrl = $block->getShippingAddressSubmitUrl()): ?>
+            <?php echo $block->getChildHtml('shipping_address'); ?>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+        {
+            "#shipping-method-form": {
+                "sveaShippingMethod": {}
+            }
+        }
+</script>
