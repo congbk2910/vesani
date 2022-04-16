@@ -98,6 +98,12 @@
 
     }
   }
+  .cart-footer {
+    div.cart-qty {
+      background-color: #242323;
+      border-color: #242323;
+    }
+  }
 }
 /////////////Resize////////////////
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
@@ -193,6 +199,10 @@
   }
   // cart footer 
   .cart-footer {
+    div.cart-qty {
+      background-color: #242323;
+      border-color: #242323;
+    }
     .footer-mini-cart {
       &::before {
         box-shadow: unset;

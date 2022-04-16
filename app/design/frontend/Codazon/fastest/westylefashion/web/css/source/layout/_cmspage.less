@@ -382,3 +382,25 @@
 @-webkit-keyframes progress-bar-stripes{from{background-position:40px 0}to{background-position:0 0}}
 @-o-keyframes progress-bar-stripes{from{background-position:40px 0}to{background-position:0 0}}
 @keyframes progress-bar-stripes{from{background-position:40px 0}to{background-position:0 0}}
+
+
+// About us page
+
+.cms-about-us {
+	.page-main {
+		max-width: 100%;
+		div[data-appearance="full-bleed"] {
+			img {
+				margin-bottom: 20px;
+				&.pagebuilder-mobile-hidden {
+					width: 100%;
+				}
+			}
+		}
+		div[data-appearance="full-width"],
+		.page-title-wrapper {
+			max-width: 1440px;
+			margin: auto;
+		}
+	}
+}

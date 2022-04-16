@@ -115,7 +115,8 @@ define([
 			$(window).resize(function() {
 				self.basicScrollTop();
 			});
-			var objectVar = jQuery('.swatch-option');
+			// Show value Swatch option
+			var objectVar = jQuery('.catalog-product-view .swatch-option');
 			jQuery.each( objectVar, function(value){
 				var $value = jQuery(this).attr('aria-label');
 				jQuery(this).append( '<p>'+ $value +'</p>' );

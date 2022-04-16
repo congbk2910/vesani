@@ -517,7 +517,13 @@
 
 
 // Custom Header Mobile
-
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header {
+		div.panel.wrapper {
+			background-color: #6c6e6b;
+		}
+	}
+}
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 	.page-header {
 		.panel.wrapper {
