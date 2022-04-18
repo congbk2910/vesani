@@ -2,7 +2,7 @@
  * Copyright © 2018 Codazon. All rights reserved.
  * See COPYING.txt for license details.
  */
- define(['jquery'], function($) {
+define(['jquery'], function($) {
     $.widget('codazon.productListingInfinitScroll', {
         options: {
             nextLink: '.pages-item-next a.next',
@@ -78,6 +78,7 @@
                             } */
                             setTimeout(function() {
                                 $('body').trigger('contentUpdated');
+                                $(`<span class='page-count page-${conf.countPage}'>Page ${conf.countPage}</span>`).insertAfter('li.item.product.product-item:last-child');
                             }, 100);
                         }
                     }).always(function() {
@@ -99,15 +100,7 @@
             $(conf.btnLoad).on('click', function (e) {
                 e.preventDefault();
                 self._ajaxload();
-                $(`<span class='page-count page-${conf.countPage}'>Page ${conf.countPage}</span>`).insertAfter('li.item.product.product-item:last-child');
-                var $currentPage = $('.items.pages-items .item.current span:not(.label)').text();
-                var $numberPage = parseInt($currentPage);
-                if (conf.countPage <= $numberPage) {
-                    $(conf.btnLoad).show();
-                    conf.countPage += 1;   
-                } else {
-                    $(conf.btnLoad).hide();
-                }
+                conf.countPage += 1;
             });
         },
 
