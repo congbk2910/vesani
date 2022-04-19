@@ -205,9 +205,6 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 					<?php echo($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
 				<?php endforeach; ?>
 			</ol>
-            <div class="btn-loadmore text-center">
-                <button><?php /* @escapeNotVerified */ echo __('Load more') ?></button>
-            </div>
 		</div>
     </div>
     <?php echo $block->getToolbarHtml() ?>
