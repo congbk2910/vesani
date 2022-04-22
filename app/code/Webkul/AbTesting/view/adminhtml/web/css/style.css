@@ -1,0 +1,30 @@
+.no-display {display:none;}
+.abtest-goals {
+    float:right;
+}
+.no-display {
+    display:none;
+}
+.admin__field-label {
+    color: #303030;
+    margin: 0;
+    text-align:left;
+}
+.wk-display-inline {
+    display:inline-block;
+}
+.url-info {
+    margin-bottom:10px;
+}
+.admin__field-label {
+    color: #303030;
+    margin: 0;
+    text-align: left;
+}
+p .message {margin-top:10px;}
+.dates-filters-div{display:inline-block;float:right}
+.wk-inline-div {display:inline-block}
+.variant-reports-section{margin-top:30px;}
+.main-url-info-span span {
+ margin-left:10px;
+}

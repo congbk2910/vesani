@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="abtesting_main" resource="default" engine="innodb" comment="Ab/Split Testing Info">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="text" name="test_name" comment="Test Name" nullable="true"/>
+         <column xsi:type="text" name="test_assumption" nullable="true"
+        comment="Test Assumption"/>
+         <column xsi:type="smallint" name="test_status" padding="10" unsigned="true" nullable="true" identity="false"
+        comment="Test Status"/>
+        <column xsi:type="text" name="control_page_url" nullable="true" comment="Main Page Url"/>
+         <column xsi:type="varchar" name="test_type" length="255"
+        comment="Test Type"/>
+        <column xsi:type="timestamp" name="run_from" on_update="false" nullable="false"
+            comment="Run From"/>
+         <column xsi:type="timestamp" name="run_to" on_update="false" nullable="false" 
+            comment="Run To"/>
+         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="abtesting_variants" resource="default" engine="innodb" comment="Ab Testing Variants">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="int" name="test_id" unsigned="true" nullable="false" identity="false" 
+         comment="Test Id"/>
+         <column xsi:type="text" name="variant_name"
+        comment="Varinat Name"/>
+         <column xsi:type="text" name="control_url"
+        comment="Control Url"/>
+         <column xsi:type="text" name="destination_url"
+        comment="Destination Url"/>
+         <column xsi:type="text" name="weight"
+        comment="Weight"/>
+         <column xsi:type="int" name="is_main_variant" unsigned="true" nullable="false" identity="false" 
+         comment="Is main variant"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ABTESTING_VARIANTS_TEST_ID_ABTESTING_MAIN_ENTITY_ID" table="abtesting_variants"
+        column="test_id" referenceTable="abtesting_main" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <table name="abtesting_control_url_info" resource="default" engine="innodb" comment="Ab Testing Control Url Info">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="int" name="test_id" unsigned="true" nullable="false" identity="false" 
+         comment="Test Id"/>
+         <column xsi:type="int" name="url_type_id" unsigned="true" nullable="false" identity="false" 
+         comment="Url Type Id"/>
+         <column xsi:type="text" name="specific_url"
+        comment="Specific Url"/>
+        <column xsi:type="text" name="custom_page_url" 
+         comment="Custom Page Id"/>
+        <column xsi:type="text" name="default_type_id" 
+         comment="Default Type Id"/>
+        
+         <column xsi:type="text" name="page_data_id"
+        comment="page data id"/>
+         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ABTESTING_VARIANTS_TEST_ID_ABTESTING_MAIN_ENTITY_ID" table="abtesting_variants"
+        column="test_id" referenceTable="abtesting_main" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+     <table name="abtesting_goals" resource="default" engine="innodb" comment="Ab TestingGols">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="int" name="test_id" unsigned="true" nullable="false" identity="false" 
+         comment="Test Id"/>
+         <column xsi:type="text" name="goal_name"
+        comment="Goal Name"/>
+        <column xsi:type="text" name="goal_description"
+        comment="Goal Description"/>
+        <column xsi:type="int" name="track_type_id" unsigned="true" nullable="false" identity="false" 
+         comment="Track Type Id"/>
+          <column xsi:type="text" name="tracks"  nullable="false"
+        comment="Tracks"/>
+         <column xsi:type="text" name="conditions"  nullable="false"
+        comment="Track Conditions"/>
+         <column xsi:type="text" name="url"  nullable="false"
+        comment="url"/>
+         <column xsi:type="text" name="css_property"  nullable="false"
+        comment="Css Property"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ABTESTING_GOALS_TEST_ID_ABTESTING_MAIN_ENTITY_ID" table="abtesting_goals"
+        column="test_id" referenceTable="abtesting_main" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+     <table name="tracks_master" resource="default" engine="innodb" comment="Tracks Master">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="int" name="track_type_id" unsigned="true" nullable="false" identity="false" 
+         comment="Track  Type Id"/>
+        <column xsi:type="text" name="track_name"
+        comment="Track Name"/>
+        <column xsi:type="text" name="magento_selector_name"
+        comment="Magento Selector Name"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+     <table name="abtesting_editable_class" resource="default" engine="innodb" comment="Ab Testing Editable Class">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+         <column xsi:type="text" name="parent_class"
+        comment="parent class"/> 
+        <column xsi:type="text" name="page_class"
+        comment="page class"/>
+         <column xsi:type="text" name="edited_class"
+        comment="page class"/>
+        <column xsi:type="text" name="unique_parent_id"
+        comment="unique parent id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+     <table name="abtesting_variants_data" resource="default" engine="innodb" comment="Ab Testing variant Data">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+         <column xsi:type="int" name="variant_id" unsigned="true" nullable="false" identity="false" 
+         comment="Variant Id"/>
+         <column xsi:type="text" name="parent_class"
+        comment="parent class"/>
+         <column xsi:type="text" name="page_class"
+        comment="page class"/>
+        <column xsi:type="text" name="updated_html"
+        comment="updated html"/>
+         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ABTESTING_VARIANTS_DATA_VARIANT_ID_ABTESTING_VARIANTS_ENTITY_ID" table="variants_data"
+        column="variant_id" referenceTable="abtesting_variants" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+     <table name="abtesting_goals_data" resource="default" engine="innodb" comment="Ab Testing Goals Data">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+         <column xsi:type="int" name="variant_id" unsigned="true" nullable="false" identity="false" 
+         comment="Variant Id"/>
+         <column xsi:type="int" name="goal_id" unsigned="true" nullable="false" identity="false" 
+         comment="Goal Id"/>
+         <column xsi:type="int" name="track_number" unsigned="true" nullable="false" identity="false" 
+         comment="Track Number"/>
+         <column xsi:type="date" name="track_date" comment="Track Date"/>
+         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ABTESTING_GOALS_DATA_GOAL_ID_ABTESTING_GOALS_ENTITY_ID" table="abtesting_goals_data"
+        column="goal_id" referenceTable="abtesting_goals" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

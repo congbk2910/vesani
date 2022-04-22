@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Cminds_Salesrep::js/chooseSalesrepAdmin.js"/>
+    </head>
+    <body>
+        <referenceBlock name="content">
+            <referenceBlock name="data" template="Cminds_Salesrep::order/create/data.phtml">
+                <arguments>
+                    <argument name="cacheable" xsi:type="boolean">false</argument>
+                </arguments>
+                <block class="Cminds\Salesrep\Block\Adminhtml\Order\Create" template="Cminds_Salesrep::order/create/salesrep.phtml" name="salesrep_admin_form" after="form_account"/>
+                <referenceBlock name="items">
+                    <block class="Cminds\Salesrep\Block\Adminhtml\Order\Create\Items\Grid" template="Cminds_Salesrep::order/create/items/grid.phtml" name="items_grid">
+                        <block class="Magento\Sales\Block\Adminhtml\Order\Create\Coupons" template="Magento_Sales::order/create/coupons/form.phtml" name="coupons">
+                            <block class="Magento\Sales\Block\Adminhtml\Order\Create\Coupons\Form" template="Magento_Sales::order/create/coupons/form.phtml" name="order_create_coupons_form" as="form"/>
+                        </block>
+                    </block>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>

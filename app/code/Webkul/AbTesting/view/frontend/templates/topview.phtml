@@ -1,0 +1,87 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c)Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+$checkAdminStatusUrl = $block->checkAdminStatus();
+$moduleStatus = $block->checkModuleStatus();
+if (empty($moduleStatus)) {
+    return false;
+}
+$variantId = $block->getRequest()->getParam('variantId');
+$variantToken = $block->getRequest()->getParam('variantToken');
+$currentUrl = $block->getCurrentUrl();
+if (empty($variantId) || empty($variantToken)) {
+    return false;
+}
+$isMainVariant = $block->isMainVariant($variantId);
+if ($isMainVariant) {return false;}
+$isValidated = $block->validateVariantId($variantId, $currentUrl);
+if (empty($isValidated)) {
+    return false;
+}
+$mainControlUrl = $block->getControlUrlFromVariant($variantId);
+$variantData = $block->getVariantDataFromVariantId($variantId);
+?>
+<head>
+</head>
+<style>
+
+</style>
+<?php if (!empty($variantData)) {?>
+    <p style="text-align:center">
+    <?= /* @noEscape */__('Previous Changes saved to database. To view changes click on preview.')?></p>
+<?php }?>
+<div class="top-view-div">
+    <span class="action more button" id= "preview-page">Preview Page</span>
+    <span class="action more button" id="save-local-storage">Save</span>
+</div>
+<?php
+$formData = [
+    'currentVariantId'       =>  $variantId,
+    'baseUrl'               => $block->getUrl(),
+    'mainControlUrl'         => $mainControlUrl,
+    'checkAdminStatusUrl'    => $checkAdminStatusUrl,
+    'variantToken'          => $variantToken
+];
+$serializedFormData = $block->mappingJsonEncode($formData);
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "wkabtesteditor": <?= /* @noEscape */ $serializedFormData; ?>
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/alert',
+        'underscore',
+        'mage/adminhtml/grid',
+        'prototype'
+    ], function($, alert, _) {
+        $( '.page-wrapper' ).click(function( event ) {
+              //  $('#editor').draggable();
+                event.preventDefault();
+                $('.widget-selected').removeClass("widget-selected");
+                $target = $(event.target);
+                var editedClass = $(event.target).attr('class');
+                var parentClass= $target.closest("[wk-data-id^=wk-ab-]").attr('class');
+                if(parentClass == undefined) {
+                    return false;
+                }
+                var targetHtml = $(event.target).html();
+                $('#editor').removeClass('no-display');
+                $("#editor").show();
+                $target.addClass('widget-selected');
+                $("#textBox").html(targetHtml);
+                event.preventDefault();
+          });
+    });
+</script>

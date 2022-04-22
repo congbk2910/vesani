@@ -1,0 +1,62 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+$testType = $block->getRequest()->getParam('type');
+$testId = $block->getRequest()->getParam('id');
+$controlInfoData = $block->getControlUrlData($testId);
+
+?>
+<div class="wk-ctr-url">
+    <input type="hidden" name="test_type" data-form-part= "abtesting_abtest_index"
+     value="<?= /* @noEscape */$testType;?>"/>
+</div>
+<script>
+   require(
+       [
+           'jquery',
+           'Magento_Ui/js/modal/modal',
+           'mage/mage'
+       ],
+       function (
+           $,
+           modal
+       ) {
+        $(document).on('click',"[name='url_type_id']",function () {
+            var urlTypeId = $(this).val();
+            if(urlTypeId == 0  || urlTypeId ==2) {
+                $("div[data-index='category_type']").css('display','none');
+                $("div[data-index='product_type']").css('display','none');
+                $("div[data-index='cms_type']").css('display','none');
+            } else {
+                $("div[data-index='category_type']").css('display','block');
+            } 
+        });
+        $(document).on('click',"[name='default_type_id']",function () {
+            var defaultTypeId = $(this).val();
+            if(defaultTypeId == 'category') {
+                $("div[data-index='category_type']").css('display','block');
+                $("div[data-index='product_type']").css('display','none');
+                $("div[data-index='cms_type']").css('display','none');
+            }
+            if(defaultTypeId == 'product') {
+                $("div[data-index='product_type']").css('display','block');
+                $("div[data-index='category_type']").css('display','none');
+                $("div[data-index='cms_type']").css('display','none');
+            } 
+            if(defaultTypeId == 'cms') {
+                $("div[data-index='cms_type']").css('display','block');
+                $("div[data-index='category_type']").css('display','none');
+                $("div[data-index='product_type']").css('display','none');
+            } 
+        });
+           
+       }
+   );
+</script>

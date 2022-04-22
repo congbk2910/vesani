@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_customer_save_after">
+        <observer name="cminds_customer_save_salesrep" instance="Cminds\Salesrep\Observer\Adminhtml\CustomerSave\SaveSalesrep"/>
+    </event>
+    <event name="admin_system_config_changed_section_cminds_salesrep_configuration">
+        <observer name="custom_admin_system_config_changed_section_general"
+                  instance="Cminds\Salesrep\Observer\Adminhtml\SaveCronSchedule"
+        />
+    </event>
+    <event name="controller_action_predispatch_adminhtml_user_save">
+        <observer name="salesrep_cleanup_user_commission"
+                  instance="Cminds\Salesrep\Observer\Adminhtml\AccountSaveBefore"
+        />
+    </event>
+    <event name="catalog_product_save_before">
+        <observer name="salesrep_cleanup_product_commission"
+                  instance="Cminds\Salesrep\Observer\Adminhtml\ProductSaveBefore"
+        />
+    </event>
+</config>

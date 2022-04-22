@@ -1,0 +1,13 @@
+Legend
+
++ Features
+- Bugs
+-------------------------------- Version 3.0.0 --------------------------------------
+	+ Compatible with Magento 2.3.x
+	+ Run numerous a/b tests simultaneously
+	+ Test particular attributes for a group of products at a time
+	+ Test product page design
+	+ Get informative stats reports
+	+ Manage test duration
+	+ Admin can select options on how variants will be dsipalyed to customer
+	+ Display test variants to customers according to conversion rates

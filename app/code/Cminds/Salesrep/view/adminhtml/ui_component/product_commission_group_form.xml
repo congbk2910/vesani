@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Cminds Core Team
+ * @copyright Copyright (c) 2020 CreativeMinds (https://www.cminds.com)
+ * @package Cminds_Salesrep
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">product_commission_group_form.product_commission_group_form_data_source</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="config" xsi:type="array">
+            <item name="namespace" xsi:type="string">product_commission_group_form</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Cminds\Salesrep\Block\Adminhtml\Product\Commission\Form\Buttons\SaveButton"/>
+            <button name="delete" class="Cminds\Salesrep\Block\Adminhtml\Product\Commission\Form\Buttons\DeleteButton"/>
+            <button name="save_and_continue" class="Cminds\Salesrep\Block\Adminhtml\Product\Commission\Form\Buttons\SaveAndContinueButton"/>
+            <button name="back" class="Cminds\Salesrep\Block\Adminhtml\Product\Commission\Form\Buttons\BackButton"/>
+        </buttons>
+        <deps>
+            <dep>product_commission_group_form.product_commission_group_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="product_commission_group_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="Cminds\Salesrep\Ui\Component\CommissionGroup\DataProvider" name="product_commission_group_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="0">
+        <settings>
+            <collapsible>false</collapsible>
+            <label translate="true">General</label>
+        </settings>
+        <field name="is_active" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Is Active</label>
+                <dataScope>data.is_active</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="name" formElement="input" sortOrder="20">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <dataScope>data.name</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="commission_rate" formElement="input" sortOrder="30">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Commission Rate</label>
+                <dataScope>data.commission_rate</dataScope>
+                <notice>% of commission</notice>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

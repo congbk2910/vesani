@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c)Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+             <argument name="collections" xsi:type="array">
+                <item name="abtesting_analysis_index_data_source" xsi:type="string">Webkul\AbTesting\Model\ResourceModel\TestMain\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Webkul\AbTesting\Model\ResourceModel\TestMain\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">abtesting_main</argument>
+            <argument name="eventPrefix" xsi:type="string">abtesting_main_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">abtesting_main_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Webkul\AbTesting\Model\ResourceModel\TestMain</argument>
+        </arguments>
+    </virtualType>
+     <type name="Webkul\AbTesting\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Webkul\AbTesting\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">abtestinglog</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Webkul\AbTesting\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,153 @@
+@font-face{
+  font-family: 'Admin Icons';
+  src: url('../fonts/admin-icons/admin-icons.eot');
+  src: url('../fonts/admin-icons/admin-icons.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/admin-icons/admin-icons.woff2') format('woff2'),
+       url('../fonts/admin-icons/admin-icons.woff') format('woff'),
+       url('../fonts/admin-icons/admin-icons.ttf') format('truetype'),
+       url('../fonts/admin-icons/admin-icons.svg#Admin Icons') format('svg');
+  font-weight: normal;font-style: normal
+}
+@font-face{
+  font-family: 'icons-blank-theme';
+  src: url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.eot');
+  src: url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.woff2') format('woff2'),
+       url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.woff') format('woff'),
+       url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.ttf') format('truetype'),
+       url('../fonts/Blank-Theme-Icons/Blank-Theme-Icons.svg#icons-blank-theme') format('svg');
+  font-weight: normal;
+  font-style: normal
+}
+@font-face{
+  font-family: 'font-awesome';
+  src: url('../fonts/FontAwesome/fontawesome-webfont.eot');
+  src: url('../fonts/FontAwesome/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/FontAwesome/fontawesome-webfont.woff2') format('woff2'),
+       url('../fonts/FontAwesome/fontawesome-webfont.woff') format('woff'),
+       url('../fonts/FontAwesome/fontawesome-webfont.ttf') format('truetype'),
+       url('../fonts/FontAwesome/fontawesome-webfont.svg#icons-blank-theme') format('svg');
+  font-weight: normal;
+  font-style: normal
+}
+.icons::after {
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    content: '\e616';
+    font-family: 'luma-icons';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+.intLink { cursor: pointer; }
+img.intLink { border: 0; }
+/* #toolBar1 select { font-size:10px; } */
+#textBox {
+  /* width: 540px; */
+  height: 200px;
+  /* border: 1px #000000 solid; */
+  padding: 12px;
+  overflow: scroll;
+  background-color:rgba(204, 204, 204, 0.3);
+}
+#textBox #sourceText {
+  padding: 0;
+  margin: 0;
+  min-width: 498px;
+  min-height: 200px;
+}
+#editMode label { cursor: pointer; }
+.title-formatting {
+  display:inline-block;
+}
+.wk-inline {
+  display:inline-block;
+}
+.toolbar-header {
+  background-color:#373330;
+  
+}
+.wk-preview {
+  text-align:center;
+  background-color: bisque;
+}
+#editor {
+  margin:0 auto;
+  width:30%;
+  box-shadow: -1px 10px 5px grey;
+  background-color: #ffff;
+    left: 20%;
+    position: fixed;
+    top: 5;
+    top: 14%;
+    z-index: 10;
+}
+.header-edit {
+  background-color:#EA5202 ;
+  color:white;
+  width:60px;
+  height:41px;
+  border: 1px solid #EA5202;
+}
+.edit-btn {
+    color:#fff;
+   padding:16px 16px 16px 16px; 
+}
+.toolbar-body {
+  padding:16px;
+}
+#submithtml {
+  background-color:#EA5202 ;
+  color:white;
+  width:60px;
+  height:41px;
+  border: 1px solid #EA5202;
+}
+.toolbar-format1 {
+  margin-bottom:4px;
+}
+.toolbar-format2 {
+  margin-bottom:4px;
+}
+.icons{
+  color:#fff;
+  float:right;
+}
+.editable-border {
+    position: relative;
+    border: 2px dotted red !important;
+    margin: 6px 2px;
+    padding: 18px 2px 2px 2px ;
+}
+.no-display{display:none}
+.top-view-div .button {
+font-size: 1.8rem;
+background-image: none;
+background: #ff5501;
+padding: 7px 15px;
+color: #fff;
+border: 1px solid #ff5501;
+cursor: pointer;
+display: inline-block;
+font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+font-size: 1.4rem;
+font-weight: 700;
+box-sizing: border-box;
+vertical-align: middle;
+border-radius: 3px;
+text-decoration: none;
+padding: 10px 15px;
+margin-right:1%;
+}
+.top-view-div{
+width:100%;
+text-align:right;
+margin-bottom:1%;
+}

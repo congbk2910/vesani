@@ -1,0 +1,126 @@
+page_class,parent_class,edited_class (should only be a class preceded by a dot symbol)
+.contact-index-index,.page-title,.base
+.contact-index-index,.cms-content-important,
+.contact-index-index,.box-phone,.box-title
+.contact-index-index,.box-phone,.contact-info-number
+.contact-index-index,.box-press-inquiries,.box-title
+.contact-index-index,.box-press-inquiries,.box-content
+.contact-index-index,.box-design-inquiries,.box-title
+.contact-index-index,.box-design-inquiries,.box-content
+.contact-index-index,#contact-form,.legend
+.contact-index-index,.contact,.no-label
+.contact-index-index,.name,.label
+.contact-index-index,.email,.label
+.contact-index-index,.telephone,.label
+.contact-index-index,.actions-toolbar,.submit
+.contact-index-index,.comment,.label
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,p
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-1
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-2
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-3
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-4
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-5
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-6
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-7
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-8
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-9
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-10
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-11
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-12
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-13
+.cms-privacy-policy-cookie-restriction-mode,.privacy-policy-content,#privacy-policy-title-14
+.cms-about-us,.page-title,.base
+.cms-about-us,.about-info,.cms-content-important
+.cms-about-us,.about-info,.cms-content-important p
+.cms-about-us,.about-info,.cms-content-important p p
+.cms-about-us,.about-info,ul
+.catalog-category-view,.page-title,.base
+.catalog-category-view,.womens-main,.content
+.catalog-category-view,.page-title,.base
+.catalog-category-view,.page-title,.base
+.catalog-product-view,.page-title,.base
+.catalog-product-view,.reviews-actions,.view
+.catalog-product-view,.reviews-actions,.add
+.catalog-product-view,.product-info-price,
+.catalog-product-view,.detailed,.description
+.catalog-product-view,#tab-label-description,a
+.catalog-product-view,#tab-label-additional,a
+.catalog-product-view,#tab-label-reviews,a
+.cms-home,.home-main,.bg-white
+.cms-home,.home-pants,.content
+.cms-home,.home-t-shirts,.content
+.cms-home,.home-erin,.content
+.cms-home,.home-performance,.content
+.cms-home,.home-eco,.content
+.cms-home,.content-heading,
+.cms-home,.content-heading,
+.cms-home,.content-heading,
+.cms-home,.content-heading,
+.catalog-category-view,.page-title-wrapper,
+.catalog-category-view,.new-main,.content
+.catalog-category-view,.new-performance,.content
+.catalog-category-view,.new-main,.content
+.catalog-category-view,.new-eco,.content
+.catalog-category-view,.content-heading,
+.catalog-category-view,.womens-main,.content
+.catalog-category-view,.womens-t-shirts,.content
+.catalog-category-view,.womens-pants,.content
+.catalog-category-view,.womens-erin,.content
+.catalog-category-view,.womens-category-pants,.content
+.catalog-category-view,.womens-category-shorts,.content
+.catalog-category-view,.womens-category-tanks,.content
+.catalog-category-view,.content-heading,
+.catalog-category-view,.mens-main,.content
+.catalog-category-view,.mens-t-shirts,.content
+.catalog-category-view,.mens-pants,.content
+.catalog-category-view,.womens-category-shorts,.content
+.catalog-category-view,.womens-category-tees,.content
+.catalog-category-view,.womens-category-hoodies,.content
+.catalog-category-view .category-men,.content-heading,
+.catalog-category-view,.gear-main,.content
+.catalog-category-view,.gear-fitness,.content
+.catalog-category-view,.gear-equipment,.content
+.catalog-category-view,.gear-category-bags,.content
+.catalog-category-view,.gear-category-equipment,.content
+.catalog-category-view, gear-category-watches,.content
+.catalog-category-view .category-gear,.content-heading,
+.catalog-category-view,.training-main,.content
+.catalog-category-view,.training-erin,.content
+.catalog-category-view,.training-on-demand,.content
+.catalog-category-view .category-training,.content-heading,
+.catalog-category-view,.sale-main,.content
+.catalog-category-view,.sale-mens,.content
+.catalog-category-view,.sale-womens-t-shirts,.content
+.catalog-category-view,.sale-20-off,.content
+.catalog-category-view,.sale-free-shipping,.content
+.customer-account-create,.page-title,
+.customer-account-create,.info,.legend span
+.customer-account-create,.field-name-firstname,.label
+.customer-account-create,.field-name-lastname,.label
+.customer-account-create,.newsletter,.label
+.customer-account-create,.account,.legend span
+.customer-account-create,.account .password,.label
+.customer-account-create,.actions-toolbar,.submit
+.customer-account-login,.page-title,
+.customer-account-login,#block-customer-login-heading,
+.customer-account-login,.email,.label
+.customer-account-login,.login,.note
+.customer-account-login,.password,.label
+.customer-account-login,.actions-toolbar,.remind
+.customer-account-login,.actions-toolbar,#send2
+.customer-account-login,#block-new-customer-heading,
+.customer-account-login,.block-new-customer,p
+customer-account-forgotpassword,.page-title,
+customer-account-forgotpassword,.forget .fieldset,.note
+customer-account-forgotpassword,.email,.label
+customer-account-forgotpassword,.captcha,.label
+customer-account-forgotpassword,.email,.label
+.catalog-product-view,.related,.title
+.catalog-product-view,#description,.description
+.catalog-product-view,#additional,.additional-attributes-wrapper 
+.catalog-product-view,#product-review-container,.review-list
+.catalog-product-view,#review-form,#review-legend
+.catalog-product-view,.review-field-nickname,.label
+.catalog-product-view,.review-field-summary,.label
+.catalog-product-view,.review-field-text,.label
+.catalog-product-view,.review-form-actions,span

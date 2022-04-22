@@ -1,0 +1,46 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c)Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+$moduleStatus = $block->checkModuleStatus();
+if (empty($moduleStatus)) {
+    return false;
+}
+$variantId = $block->getRequest()->getParam('previewId');
+$currentUrl = $block->getCurrentUrl();
+if (empty($variantId)) {
+    return false;
+}
+$isValidated = $block->validateVariantId($variantId, $currentUrl);
+if (empty($isValidated)) {
+    return false;
+}
+$getVariantData = $block->getVariantDataFromVariantId($variantId);
+if (empty($getVariantData)) {
+    return false;
+}
+?>
+<div class="message">
+    <p class="wk-preview"><strong><?= /* @noEscape */__('This is just a Preview Page
+     to view edits done on the page')?></strong></p>
+</div>
+<?php
+$formData = [
+    'previewVariantId'       =>  $variantId,
+    'previewDataUrl'         =>  $block->getUrl(),
+];
+$serializedFormData = $block->mappingJsonEncode($formData);
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "wkabtestpreview": <?= /* @noEscape */  $serializedFormData; ?>
+        }
+    }
+</script>

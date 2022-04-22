@@ -1,0 +1,42 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+$moduleStatus = $block->checkModuleStatus();
+if (empty($moduleStatus)) {
+    return false;
+}
+$cookieVariant = "";
+$currentUrl = $block->getCurrentUrl();
+$activeTestId = $block->getTestIdFromControlUrl($currentUrl);
+if (empty($activeTestId)) {
+    return false;
+}
+$cookieVariant = $block->getVariantCookie('abtesting_variant');
+$goalsDataArray = $block->getActiveGoalsOnTestId($activeTestId);
+if (empty($goalsDataArray)) {
+    return false;
+}
+?>
+<?php
+$formData = [
+    'cookieVariant'       =>  $cookieVariant,
+    'goalBaseUrl'         => $block->getUrl(),
+    'goalsDataArray'      => $goalsDataArray,
+    'currentUrl'           => $currentUrl
+];
+$serializedFormData = $block->mappingJsonEncode($formData);
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "wkabtestgoals": <?= /* @noEscape */ $serializedFormData; ?>
+        }
+    }
+</script>

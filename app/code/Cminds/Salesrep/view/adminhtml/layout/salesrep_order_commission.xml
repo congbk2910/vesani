@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+        <referenceBlock name="sales_commissions.container">
+            <block class="Cminds\Salesrep\Block\Adminhtml\Order\View\Tab\Tabs\Commissions" name="adminhtml.order.view.tab.commission" cacheable="false"/>
+        </referenceBlock>
+    </body>
+</layout>
