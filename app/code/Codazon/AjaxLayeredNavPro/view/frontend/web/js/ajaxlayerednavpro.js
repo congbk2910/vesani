@@ -302,6 +302,7 @@ define(['jquery','jquery-ui-modules/slider'], function($) {
                     } else {
                         window.history.pushState(ajaxUrl, document.title, ajaxUrl);
                     }
+                    if (res.updated_pagination) $("#category-products-grid .product-items").append(res.updated_pagination);
                     $('body').trigger('contentUpdated');
                     self._prepareHtml();
                     self._attacheEvents();

@@ -76,6 +76,7 @@ class View
                 ]);
                 $result['updated_url'] = str_replace('%2C', ',', $result['updated_url']);
             }
+            $result['updated_pagination'] = $layout->getBlock('infinite_scroll.block')->setTemplate('Magepow_InfiniteScroll::infinitescroll.phtml')->toHtml();
             $json = \Magento\Framework\App\ObjectManager::getInstance()->create('\Magento\Framework\Controller\Result\JsonFactory')->create();
             $json->setData($result);
             return $json;
