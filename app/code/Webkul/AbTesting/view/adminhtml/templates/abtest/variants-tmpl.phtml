@@ -1,0 +1,22 @@
+<?php
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c)Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+
+$currentTestId = $block->getCurrentTestId();
+$controlUrl = $block->getControlUrlFromTestId($currentTestId);
+?>
+<div class="admin__field url-info message">
+        <div class="admin__field-label wk-display-inline">
+            <label><span><?= /* @noEscape */ __('Main Control Url')?></span></label>
+        </div>
+        <div class="main-url-info-span wk-display-inline">
+            <span ><?= /* @noEscape */ $controlUrl;?></span>
+        </div>
+</div>

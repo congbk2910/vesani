@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_AbTesting
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+    <css src="Webkul_AbTesting::css/front_style.css"/>
+  </head>
+  <body>
+    <referenceContainer name="content">
+        <referenceContainer name="header.panel">
+          <block cacheable="false" before="skip_to_content" ifconfig="abtesting/general_settings/enable"  class="Webkul\AbTesting\Block\EditorBlock" name="wk_block" template="Webkul_AbTesting::topview.phtml"/>
+      </referenceContainer>
+    </referenceContainer>
+    
+  </body>
+</page>

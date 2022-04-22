@@ -1,0 +1,106 @@
+<?php
+/**
+ * Webkul Software
+ *
+ * @category Webkul
+ * @package Webkul_AbTesting
+ * @author Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license https://store.webkul.com/license.html
+ */
+$defaultTypeId = "";
+$testType = $block->getRequest()->getParam('type');
+$testId = $block->getRequest()->getParam('id');
+$controlInfoData = $block->getControlUrlData($testId);
+if (!empty($controlInfoData)) {
+    $defaultTypeId = $controlInfoData->getDefaultTypeId();
+    $urlTypeId = $controlInfoData->getUrlTypeId();
+}
+?>
+<style>
+    .wk-cont-url{
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom:2rem;
+    }
+</style>
+<div class="fieldset-wrapper wk-cont-url">
+    <div class="fieldset fieldset-wrapper-title">
+        <span><?= /* @noEscape */ __('Control Page Url')?></span>
+    <input type="hidden" name="test_type" value ="<?= /* @noEscape */ $testType;?>" 
+    data-form-part="abtesting_abtest_index"/>
+    </div>
+</div>
+<script>
+   require(
+       [
+           'jquery',
+           'Magento_Ui/js/modal/modal',
+           'mage/mage'
+       ],
+       function (
+           $,
+           modal
+       ) {
+         var defaultId = '<?= /* @noEscape */ $defaultTypeId;?>';
+         var urlTypeId = '<?= /* @noEscape */ $urlTypeId;?>';
+         if(urlTypeId == 0) {
+            $("div[data-index='default_type_id']").css('display','none');
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','none'); 
+         } else {
+            $("div[data-index='specific_url']").hide(); 
+         }
+         if(urlTypeId == 1 && defaultId == 'category') {
+            $("div[data-index='category_type']").css('display','block');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','none');
+         } else if(urlTypeId == 1 && defaultId == 'product') {
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','block');
+            $("div[data-index='cms_type']").css('display','none');
+         } else if(urlTypeId == 1 && defaultId == 'cms') {
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','block');
+         } else {
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','none');
+         }
+         $(document).on('click',"[name='testcase_info[url_type_id]']",function () {
+            var currentTypeId = $(this).val();
+            if(currentTypeId == 0) {
+               $("div[data-index='specific_url']").css('display','block');
+               $("div[data-index='default_type_id']").css('display','none');
+               $("div[data-index='category_type']").css('display','none');
+               $("div[data-index='product_type']").css('display','none');
+               $("div[data-index='cms_type']").css('display','none');
+            } else {
+               $("div[data-index='specific_url']").css('display','none');
+            $("div[data-index='default_type_id']").css('display','block');
+            $("div[data-index='category_type']").css('display','block');
+            $("div[data-index='product_type']").css('display','none');
+               $("div[data-index='cms_type']").css('display','none');
+            }
+           
+         });
+         $(document).on('click',"[name='testcase_info[default_type_id]']",function () {
+            var defaultTypeId = $(this).val();
+            if(defaultTypeId == 'category') {
+            $("div[data-index='category_type']").css('display','block');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','none');
+         } else if(defaultTypeId == 'product') {
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','block');
+            $("div[data-index='cms_type']").css('display','none');
+         } else if(defaultTypeId == 'cms') {
+            $("div[data-index='category_type']").css('display','none');
+            $("div[data-index='product_type']").css('display','none');
+            $("div[data-index='cms_type']").css('display','block');
+         } 
+        });
+       });
+</script>
