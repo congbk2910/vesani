@@ -1,0 +1,23 @@
+<?php
+
+/** @var $block Omnisend\Omnisend\Block\Product\View\Description */
+?>
+<script id="omnisend-product-viewed" type="text/x-magento-init">
+    {
+	"*": {
+		"Omnisend_Omnisend/js/product-viewed": {
+		    "productID": "<?php echo $block->escapeHtml($block->getProductId()); ?>",
+            "variantID": "<?php echo $block->escapeHtml($block->getProductId()); ?>",
+            "currency": "<?php echo $block->escapeHtml($block->getPriceCurrencyCode()); ?>",
+            "tags": "<?php echo $block->escapeHtml($block->getTags()); ?>",
+            "price": <?php echo $block->escapeHtml($block->getFinalPrice()); ?>,
+            "oldPrice": <?php echo $block->escapeHtml($block->getOldPrice()); ?>,
+            "title": "<?php echo $block->escapeHtml($block->getProductName()); ?>",
+            "description": <?php echo $block->getDescription(); ?>,
+            "imageUrl": "<?php echo $block->escapeHtml($block->getProductImageUrl()); ?>",
+            "productUrl": "<?php echo $block->escapeHtml($block->getProductPageUrl()); ?>",
+            "vendor": "<?php echo $block->escapeHtml($block->getManufacturer()); ?>"
+		  }
+    }
+}
+</script>

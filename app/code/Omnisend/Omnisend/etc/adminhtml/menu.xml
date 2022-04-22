@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Omnisend_Omnisend::content"
+             title="Omnisend"
+             module="Omnisend_Omnisend"
+             sortOrder="20"
+             resource="Omnisend_Omnisend::content" />
+        <add id="Omnisend_Omnisend::omnisend_webpage"
+             title="Go To Omnisend"
+             module="Omnisend_Omnisend"
+             sortOrder="10"
+             action="omnisend/webpage/redirect"
+             parent="Omnisend_Omnisend::content"
+             resource="Magento_Backend::content" />
+        <add id="Omnisend_Omnisend::plugin_settings"
+             title="Plugin Settings"
+             module="Omnisend_Omnisend"
+             sortOrder="20"
+             action="adminhtml/system_config/edit/section/omnisend_config"
+             parent="Omnisend_Omnisend::content"
+             resource="Magento_Backend::content" />
+        <add id="Omnisend_Omnisend::omnisend_order_status_list"
+             title="Omnisend Order Statuses"
+             module="Omnisend_Omnisend"
+             sortOrder="30"
+             action="omnisend/orderstatus/index"
+             parent="Omnisend_Omnisend::content"
+             resource="Magento_Backend::content" />
+        <add id="Omnisend_Omnisend::omnisend_request_log"
+             title="Omnisend Request Log"
+             module="Omnisend_Omnisend"
+             sortOrder="40"
+             action="omnisend/omnisendrequest/index"
+             parent="Omnisend_Omnisend::content"
+             resource="Omnisend_Omnisend::content" />
+    </menu>
+</config>
