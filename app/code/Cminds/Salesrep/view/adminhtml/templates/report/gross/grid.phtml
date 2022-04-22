@@ -1,0 +1,223 @@
+<?php
+/** @var \Cminds\Salesrep\Block\Adminhtml\Reports\Gross\Grid $block */
+
+if (!empty($block->getFilterData()->getData())):
+
+    $filters = $block->getFilterData()->getData();
+    $report_type = $filters['period_type'];
+    $start_date = $block->getFilterDate(strtotime($filters['from'] . ' 00:00:00'));
+    $end_date = $block->getFilterDate(strtotime($filters['to'] . ' 23:59:59'));
+
+    $tmpData = $block->prepareReportData();
+    $data = $block->sortReportData($tmpData);
+
+    if (count($data) > 0) : ?>
+        <style>
+            .dataTableHeadingRow {
+                background-color: #9fd0d9;
+            }
+
+            .dataTableHeadingContent {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 10px;
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                border-right: #5F767F solid 1px;
+            }
+
+            .dataTableRow {
+                background-color: #DADFE0;
+            }
+
+            .dataTableRowSelected {
+                background-color: rgb(222, 228, 232);
+            }
+
+            .dataTableRowOver {
+                background-color: #fcf5dd;
+                cursor: pointer;
+            }
+
+            .dataTableContent {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 10px;
+                color: rgb(0, 0, 0);
+                border-right: #5F767F solid 1px;
+            }
+
+            .dataTableContentRed {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 10px;
+                color: rgb(204, 0, 0);
+            }
+
+            .dataTableContentRedAlert {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 10px;
+                color: rgb(255, 0, 0);
+                font-weight: bold;
+            }
+        </style>
+
+        <div style="width: 100%; font-size: 11px; overflow-x: auto;">
+            <form action="" method="POST" onsubmit="alert('ok');" id="salesrep_form">
+                <table border="0"
+                       width="<?php echo 170 + count($data) * 250; ?>"
+                       cellspacing="2" cellpadding="2">
+                    <tr class="dataTableHeadingRow">
+                        <td class="dataTableHeadingContent" align="center"
+                            width="170" style="background-color: white;">
+                            &nbsp;</td>
+                        <?php
+                        foreach (array_keys($data) as $rep_name) : ?>
+                            <td class="dataTableHeadingContent" align="center"
+                                width="250" style="font-size: 12px;">
+                                <table width="95%" border="0">
+                                    <tr>
+                                        <td style="text-align: center;">
+                                            <?php echo $rep_name; ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        <?php endforeach; ?>
+                        <td style="background-color: white;">&nbsp;</td>
+                    </tr>
+
+                    <?php
+                    $_report_start_date = null;
+                    $_report_end_date = null;
+                    ?>
+                    <?php
+                    while (1) {
+                        $reportDates = $block->getReportDatesRange(
+                            $end_date,
+                            $start_date,
+                            $report_type,
+                            $_report_end_date,
+                            $_report_start_date
+                        );
+                        if ($reportDates == false) {
+                            break;
+                        }
+                        $_report_end_date = $reportDates['report_end_date'];
+                        $_report_start_date = $reportDates['report_start_date'];
+                        $_report_date_label = $reportDates['report_date_label'];
+                        ?>
+                        <tr class="dataTableRow">
+                            <td class="dataTableContent" align="center"><?php echo $_report_date_label; ?></td>
+                            <?php
+                            $currency_symbol = $block->getCurrencySymbol();
+
+                            $subtotals = [];
+
+                            foreach ($data as $rep_name => $admin_data) : ?>
+                                <td class="dataTableContent" align="center"
+                                    valign="top">
+                                    <table width="95%" border="0">
+                                        <?php
+                                        $_has_orders = false;
+
+                                        foreach ($admin_data['orders'] as $_order) {
+                                            if (strtotime($_order['created_at']) > $_report_start_date && strtotime($_order['created_at']) < $_report_end_date) {
+                                                echo '<tr>';
+                                                    echo '<td align="left">';
+                                                        echo '<a style="vertical-align: top;" target="_blank" href="' . $block->getUrl('sales/order/view',
+                                                            ['order_id' => $_order['order_id']]) . '">';
+                                                            echo $_order['order_increment_id'];
+                                                            if ($_order['is_manager'] == 1) {
+                                                                echo ' (M)';
+                                                            }
+                                                            if ($_order['is_manager'] == 2) {
+                                                                echo ' (CO)';
+                                                            }
+                                                        echo '</a>';
+                                                    echo '</td>';
+                                                    echo '<td align="right">';
+                                                        echo $block->getCurrency(abs($_order['value']));
+                                                    echo '</td>';
+                                                echo '</tr>';
+
+                                                // Calc subtotal earned for period
+                                                if (isset($subtotals[$rep_name])) {
+                                                    $subtotals[$rep_name]['subtotal'] += round($_order['value'],
+                                                        2);
+                                                    $subtotals[$rep_name]['orders'] += 1;
+                                                } else {
+                                                    $subtotals[$rep_name] = [
+                                                        'subtotal' => round($_order['value'],
+                                                            2),
+                                                        'orders' => 1
+                                                    ];
+                                                }
+                                                $_has_orders = true;
+                                            }
+                                        }
+
+                                        if (!$_has_orders) {
+                                            $subtotals[$rep_name] = [
+                                                'subtotal' => 0,
+                                                'orders' => 0
+                                            ];
+
+                                            echo '<tr><td colspan="2" align="center">-</td></tr>';
+                                        } ?>
+
+                                    </table>
+                                </td>
+                            <?php endforeach; ?>
+                            <td style="background-color: white;">&nbsp;</td>
+                        </tr>
+                        <tr class="dataTableRow dataTableRowOver">
+                            <td class="dataTableContent">&nbsp;</td>
+                            <?php foreach (array_keys($data) as $rep_name) : ?>
+                                <td class="dataTableContent" align="center"
+                                    valign="top">
+                                    <table style="width: 95%;" border="0">
+                                        <tr>
+                                            <td align="left">
+                                                <b><?php echo __('Orders:')?></b><?php echo $subtotals[$rep_name]['orders']; ?>
+                                            </td>
+                                            <td align="right">
+                                                <b><?php echo __('Subtotal:')?></b> <?php echo $subtotals[$rep_name]['subtotal'] == '' ? $block->getCurrency(0) : $block->getCurrency($subtotals[$rep_name]['subtotal']) ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            <?php endforeach; ?>
+                            <td style="background-color: white;">&nbsp;</td>
+                        </tr>
+                    <?php } ?>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <?php foreach ($data as $rep_name => $admin_data) :
+                            $total = 0;
+                            foreach ($admin_data['orders'] as $_order) {
+                                $total += $_order['value'];
+                            } ?>
+                            <td class="dataTableContent" align="center" style="width: 250px; background-color:#F0F1F1;">
+                                <span style="color: green; display: block; font-size: 15px; font-weight: bold; margin: 10px;"><?php echo __('Grand Total:')?> <?php echo $block->getCurrency($total); ?></span>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <br/>
+
+        <br/><br/>
+        <i><?php echo __('Cancelled orders are still counted towards the total. If you wish to
+            omit them, do so in the "Include Order Status" menu above. You can
+            also use this menu to determine how many orders are cancelled
+            total.')?></i><br/>
+        <i><?php echo __("Please make sure it works this way (unlike commissions report) which
+            does strikethrough for cancelled orders and doesn't add them to the
+            total.")?></i>
+    <?php else : ?>
+        <div class="message message-notice notice" style="background-color: #ffdb94;">
+            <p><?= __('There is no data for report.'); ?></p>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,33 @@
+<!-- ko if: (isSalesrepEnabled()) -->
+<li id="salesrep-choose" role="presentation" class="checkout-payment-method">
+    <div id="checkout-step-payment"
+         class="step-content"
+         data-role="content"
+         role="tabpanel"
+         aria-hidden="false">
+        <form id="co-salesrep-form" class="form payments" novalidate="novalidate">
+            <input type="hidden" name="form_key"/>
+            <fieldset class="fieldset">
+                <br />
+                <br />
+                <span data-bind="text: getSalesrepNote()"></span>
+                <br />
+                <br />
+                <label for="salesrep" data-bind="text: getSalesrepLabel()"></label>
+                <select id="salesrep" name="salesrep" style="width: 300px;"
+                        data-bind="
+                        options: getSalesrepList(),
+                        optionsValue: function(item){
+                            return item.value;
+                        },
+                        optionsText: function(item){
+                            return item.label;
+                        },
+                        optionsCaption: $t('Please select Sales Representative...'),
+                        event: { change: saveSelectedSalesrep() }
+                        "></select>
+            </fieldset>
+        </form>
+    </div>
+</li>
+<!-- /ko -->

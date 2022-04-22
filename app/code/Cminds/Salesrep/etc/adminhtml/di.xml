@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\User\Block\User\Edit\Tabs" 
+        type="Cminds\Salesrep\Block\User\Edit\Tabs" />
+    <preference for="Magento\Sales\Block\Adminhtml\Order\Create\Items\Grid" 
+        type="Cminds\Salesrep\Block\Adminhtml\Order\Create\Items\Grid" />
+    <type name="Magento\Sales\Model\ResourceModel\Order\Grid\Collection">
+        <plugin name="salesrep_order_grid_load_before" 
+            type="Cminds\Salesrep\Plugin\Admin\Order\Grid" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Customer\Model\ResourceModel\Grid\Collection">
+        <plugin name="salesrep_customer_grid_load_before" 
+            type="Cminds\Salesrep\Plugin\Admin\Customer\Grid" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Customer\Collection">
+        <plugin name="salesrep_customer_grid_load_before"
+                type="Cminds\Salesrep\Plugin\Admin\Order\Customer\Grid" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Email\Model\Template">
+        <plugin name="cmindsSalesrepEmailModelTemplatePlugin" 
+            type="\Cminds\Salesrep\Plugin\Email\Model\Template" sortOrder="100"/>
+    </type>
+</config>

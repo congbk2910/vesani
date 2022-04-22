@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Reports::report">
+                    <resource id="Cminds_Salesrep::commissions" title="Commissions" sortOrder="50" />
+                    <resource id="Cminds_Salesrep::gross_sales" title="Gross Sales by Rep" sortOrder="60" />
+                </resource>
+                <resource id="Cminds_Salesrep::salesrep" title="Sales Representative" sortOrder="10000">
+                    <resource id="Cminds_Salesrep::order_grid" title="Order Grid" sortOrder="10" >
+                        <resource id="Cminds_Salesrep::view_rep_name" title="View Rep Name" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::order_grid_view_rep_name_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::order_grid_view_rep_name_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::order_grid_view_rep_name_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::view_commission_amount" title="View Commission Amount" sortOrder="20" >
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_amount_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_amount_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_amount_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::view_commission_payment_status" title="View Commission Payment Status" sortOrder="30" >
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_payment_status_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_payment_status_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::order_grid_view_commission_payment_status_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                    </resource>
+                    <resource id="Cminds_Salesrep::order_detail_page" title="Order Detail Page" sortOrder="20" >
+                        <resource id="Cminds_Salesrep::access_order_detail_page" title="Access Order Detail Page" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::order_detail_page_access_order_detail_page_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::order_detail_page_access_order_detail_page_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::order_detail_page_access_order_detail_page_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::change_representative" title="Change Representative" sortOrder="30" />
+                        <resource id="Cminds_Salesrep::change_representative_commission_status" title="Change Representative Commission Status" sortOrder="40" />
+                        <resource id="Cminds_Salesrep::change_manager" title="Change Manager" sortOrder="50" />
+                        <resource id="Cminds_Salesrep::change_manager_commission_status" title="Change Manager Commission Status" sortOrder="60" />
+                    </resource>
+                    <resource id="Cminds_Salesrep::customer_grid" title="Customer Grid" sortOrder="30" >
+                        <resource id="Cminds_Salesrep::view_assigned_sales_representative" title="View Assigned Sales Representative" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::customer_grid_view_assigned_sales_representative_all_orders" title="All Customers" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::customer_grid_view_assigned_sales_representative_subordinate" title="Customers of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::customer_grid_view_assigned_sales_representative_only_own" title="Own Customers Only" sortOrder="30" />
+                        </resource>
+                    </resource>
+                    <resource id="Cminds_Salesrep::customer_management" title="Customer Management" sortOrder="40" >
+                        <resource id="Cminds_Salesrep::assign_or_change_assigned_sales_rep" title="Assign or Change Assigned Sales Rep" sortOrder="10" />
+                    </resource>
+                    <resource id="Cminds_Salesrep::sales_and_commission_reports" title="Sales and Commission Reports" sortOrder="50" >
+                        <resource id="Cminds_Salesrep::view_order_list_and_representative_name" title="View Order List and Representative Name" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_order_list_and_representative_name_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_order_list_and_representative_name_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_order_list_and_representative_name_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::reports_view_commission_amount" title="View Commission Amount" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_commission_amount_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_commission_amount_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::sales_and_commission_reports_view_commission_amount_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                    </resource>
+                    <resource id="Cminds_Salesrep::emailed_commission_reports" title="Emailed Commission Reports" sortOrder="60" >
+                        <resource id="Cminds_Salesrep::include_order_list_and_representative_name" title="Include Order List and Representative Name" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_order_list_and_representative_name_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_order_list_and_representative_name_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_order_list_and_representative_name_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::include_commission_amount" title="Include Commission Amount" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_amount_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_amount_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_amount_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                        <resource id="Cminds_Salesrep::include_commission_payment_status" title="Include Commission Payment Status" sortOrder="10" >
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_payment_status_all_orders" title="All Orders" sortOrder="10" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_payment_status_subordinate" title="Orders of Subordinate Representatives" sortOrder="20" />
+                            <resource id="Cminds_Salesrep::emailed_commission_reports_include_commission_payment_status_only_own" title="Own Orders Only" sortOrder="30" />
+                        </resource>
+                    </resource>
+                    <resource id="Cminds_Salesrep::user_management" title="User Management" sortOrder="70" >
+                        <resource id="Cminds_Salesrep::edit_sales_rep_commission_rates" title="Edit Sales Rep Commission Rates" sortOrder="10" />
+                        <resource id="Cminds_Salesrep::edit_manager_commission_rates" title="Edit Manager Commission Rates" sortOrder="20" />
+                        <resource id="Cminds_Salesrep::edit_assigned_manager" title="Edit Assigned Manager" sortOrder="30" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

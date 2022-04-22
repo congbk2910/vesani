@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cminds_salesrep_configuration>
+            <email_reports>
+                <template>cminds_salesrep_configuration_email_reports_template</template>
+            </email_reports>
+        </cminds_salesrep_configuration>
+    </default>
+</config>
