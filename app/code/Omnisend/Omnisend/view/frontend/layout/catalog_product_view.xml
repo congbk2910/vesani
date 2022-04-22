@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceBlock name="content">
-            <block class="Omnisend\Omnisend\Block\Product\View\Description" name="product-picker" template="Omnisend_Omnisend::product_picker.phtml"/>
-            <block class="Omnisend\Omnisend\Block\Product\View\Description" name="product-viewed" template="Omnisend_Omnisend::product_viewed.phtml"/>
-        </referenceBlock>
-    </body>
-</page>

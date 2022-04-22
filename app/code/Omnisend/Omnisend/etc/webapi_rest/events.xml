@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <event name="omnisend_contact_access">
-        <observer name="contactAccessObserver" instance="Omnisend\Omnisend\Observer\ContactAccessObserver" />
-    </event>
-    <event name="sales_quote_address_save_after">
-        <observer name="quoteAddressUpdateObserver" instance="Omnisend\Omnisend\Observer\QuoteAddressSaveObserver" />
-    </event>
-</config>
