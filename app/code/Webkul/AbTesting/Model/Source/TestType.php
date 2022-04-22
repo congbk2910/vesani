@@ -31,8 +31,8 @@ class TestType implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => self::ABTEST , 'label' => _('AB Test')],
-            ['value' => self::SPLIT , 'label' => _('Split Test')],
+            ['value' => self::ABTEST , 'label' => __('AB Test')],
+            ['value' => self::SPLIT , 'label' => __('Split Test')],
         ];
     }
 }

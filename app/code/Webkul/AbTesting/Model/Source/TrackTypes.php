@@ -31,9 +31,9 @@ class TrackTypes implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => "" , 'label' => _('Select Track Type')],
-            ['value' => self::MAGENTO_DEFAULTS , 'label' => _('Magento Defaults')],
-            ['value' => self::CUSTOM , 'label' => _('Custom Type')],
+            ['value' => "" , 'label' => __('Select Track Type')],
+            ['value' => self::MAGENTO_DEFAULTS , 'label' => __('Magento Defaults')],
+            ['value' => self::CUSTOM , 'label' => __('Custom Type')],
         ];
     }
 }

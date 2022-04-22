@@ -31,8 +31,8 @@ class ViewPattern implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => self::DISPLAY_SAME , 'label' => _('Show same variants to customer')],
-            ['value' => self::DISPLAY_DIFFERENT , 'label' => _('show different variants to customer')]
+            ['value' => self::DISPLAY_SAME , 'label' => __('Show same variants to customer')],
+            ['value' => self::DISPLAY_DIFFERENT , 'label' => __('show different variants to customer')]
         ];
     }
 }

@@ -36,8 +36,8 @@ class UrlType implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => self::SPECIFIC_URL , 'label' => _('Specific Url')],
-            ['value' => self::DEFAULT_PAGE , 'label' => _('Default Pages')]
+            ['value' => self::SPECIFIC_URL , 'label' => __('Specific Url')],
+            ['value' => self::DEFAULT_PAGE , 'label' => __('Default Pages')]
         ];
     }
 }

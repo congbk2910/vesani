@@ -31,8 +31,8 @@ class TestStatus implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => self::ENABLED , 'label' => _('Enabled')],
-            ['value' => self::DISABLED , 'label' => _('Disabled')],
+            ['value' => self::ENABLED , 'label' => __('Enabled')],
+            ['value' => self::DISABLED , 'label' => __('Disabled')],
         ];
     }
 }
