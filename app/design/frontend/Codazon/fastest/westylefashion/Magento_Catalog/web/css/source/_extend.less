@@ -19,6 +19,11 @@
 
     .quickshop-wrapper {
         .price-box {
+            .price-container {
+                .price {
+                    font-size: 30px;
+                }
+            }
             .old-price {
                 color: #c3c3c3;
                 .price-container {
@@ -353,15 +358,23 @@
         }
 
         // Rating
-        .rating-summary {
-            .rating-result {
-                > span {
-                    &::before {
-                        color: #f9c712;
+        .product-reviews-summary {
+            &.empty {
+                .reviews-actions {
+                    display: none;
+                }
+            }
+            .rating-summary {
+                .rating-result {
+                    > span {
+                        &::before {
+                            color: #f9c712;
+                        }
                     }
                 }
             }
         }
+    
         // product info main
         .product-info-main {
             position: relative;
@@ -376,14 +389,19 @@
                 p {
                     font-size: 16px;
                     color: #000;
-                    padding-left: 27px;
+                    padding-left: 35px;
                     position: relative;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
                     &::before {
                         left: 0;
                         right: auto;
                         position: absolute;
                         content: "\f00c";
                         font-family: 'FontAwesome';
+                        color: #008000;
+                        font-size: 22px;
                     }
                 }
             }
@@ -413,6 +431,7 @@
                 }
                 span {
                     text-transform: capitalize;
+                    font-size: 14.5px;
                 }
             }
 
@@ -443,6 +462,11 @@
                     display: none;
                 }
                 .price-box {
+                    .price-container {
+                        .price {
+                            font-size: 30px;
+                        }
+                    }
                     .special-price {
                         .price-container {
                             .price {
