@@ -26,11 +26,4 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\Console\CommandListInterface">
-        <arguments>
-            <argument name="commands" xsi:type="array">
-                <item name="active_auction_end" xsi:type="object">Cminds\Salesrep\Console\Command\EmulateCron</item>
-            </argument>
-        </arguments>
-    </type>
 </config>
