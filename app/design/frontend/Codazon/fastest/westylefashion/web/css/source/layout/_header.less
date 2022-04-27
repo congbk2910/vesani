@@ -3,7 +3,20 @@
  * ============================================ */
 
 & when (@media-common = true){
+	div.minicart-wrapper {
+		.action.close:hover {
+			color: black;
+		}
+	}
 	.page-header{
+		.header {
+			a {
+				transition: .4s ease all;
+			}
+			a:hover {
+				color: black;
+			}
+		}
 		.panel.wrapper{
 			border-bottom:0 !important;
 		}
@@ -138,6 +151,11 @@
 		
 		.minicart-wrapper .action.showcart{
 			padding:0 0 0 55px;
+			.action.close {
+				&:hover {
+					color: black;
+				} 
+			}
 			&:before{
 				left: 0;
 				position: absolute;
@@ -232,6 +250,11 @@
 		.minicart-wrapper{
 			margin:0;
 			position:static;
+			.block-minicart  {
+				a:hover {
+					color: black;
+				}
+			}
 			.action.showcart{
 				position:absolute;
 				top:15px;
@@ -424,10 +447,28 @@
 
 	// Custom Header Top
 	.page-header {
+		.switcher {
+			.options {
+				div.action.toggle {
+					&:hover {
+						color: black;
+					}
+				}
+			}
+		}
 		div.header.panel {
 			display: flex;
 			align-items: center;
 			padding: 0 10px;
+			.header.links {
+				> li {
+					> a {
+						&:hover {
+							color: black;
+						}
+					}
+				}
+			}
 			.header-stores {
 				order: 1;
 				width: 33.33%;

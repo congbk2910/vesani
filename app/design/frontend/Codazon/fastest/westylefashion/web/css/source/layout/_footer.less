@@ -32,7 +32,9 @@
   .footer-bottom{.lib-css(background, @footer-bottom__background); border-top:1px solid lighten(@footer-bottom__background, 20%); padding:@indent__l 0}
   a{
     .lib-css(color, @footer__text);
-    &:hover{.lib-css(color, @footer__hover__text);}
+    &:hover{
+      color: black;
+    }
   }
   p.h5{.lib-css(color, @footer-title__text); font-weight:600; margin-bottom:@indent__m; text-transform:uppercase; }
   .footer-link{ margin-top:-@indent__s;
