@@ -3,9 +3,14 @@
  * ============================================ */
 
 & when (@media-common = true){
-	div.minicart-wrapper {
+	div.minicart-wrapper.active {
 		.action.close:hover {
 			color: black;
+		}
+		.block-minicart a.action.viewcart {
+			&:hover {
+				color: black;
+			}
 		}
 	}
 	.page-header{

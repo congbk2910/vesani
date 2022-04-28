@@ -390,8 +390,6 @@
 	.page-main {
 		max-width: 100%;
 		div[data-appearance="full-bleed"] {
-			max-width: 1600px;
-			margin: auto;
 			img {
 				margin-bottom: 20px;
 				&.pagebuilder-mobile-hidden {
@@ -408,6 +406,19 @@
 }
 
 body.cms-page-view  {
+	.page-main {
+		> .page-title-wrapper {
+			.page-title {
+				margin: 20px 0;
+			}
+		}
+	}
+	&.cms-about-us {
+		.page-main {
+			max-width: 100%;
+			padding: 0;
+		}
+	}
 	.breadcrumbs,
 	.page-main {
 		max-width: 1620px;
