@@ -1,5 +1,21 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
   .page-header {
+    .cdz-main-menu {
+      .cdz-horizontal-menu {
+        .groupmenu-drop-content {
+          .groupdrop-link {
+            li a{
+              &:hover {
+                color: black;
+                &::before {
+                  background-color: black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     .cdz-horizontal-menu {
       .groupmenu {
         li.item.level0 {

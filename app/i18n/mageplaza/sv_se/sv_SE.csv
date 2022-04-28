@@ -15329,3 +15329,6 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Close","Stänga",module,Magento_Catalog
 "Product Description","Produktbeskrivning",module,Magento_Catalog
 "Technical Information","Teknisk information",module,Magento_Catalog
+"Svea Checkout","Kassa",module,Magento_Checkout
+"Shipping Method","Leverans",module,Magento_Checkout
+"Finish purchase","Betanling",module,Magento_Checkout

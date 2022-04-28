@@ -20,5 +20,6 @@
                 <argument translate="true" name="title" xsi:type="string">Technical Information</argument>
             </action>
         </referenceBlock>
+        <referenceBlock name="product.info.sku" remove="true" />
     </body>
 </page>

@@ -375,7 +375,7 @@
 		}
 	}
 }
-.cdz_wapper-blog05{
+.cdz_wapper-blog05 {
 	overflow:hidden;
 	.post-item{
 		.lib-css(background-color, @main_block_background);
@@ -387,12 +387,14 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		.abs-link(@main_productname_text, @main_hover_text);
-		a{
+		a {
 			.abs-link(@main_productname_text, @main_hover_text);
 			.lib-css(font, @f_h5);
 			font-weight:600;
 			text-transform:uppercase;
-			
+			&:hover {
+				color: black;
+			}
 		}
 	}
 	.blog-text-link{
@@ -634,7 +636,7 @@ body{
 		}
 		&:hover {
 			span.icon-font {
-				color: #fc7070;
+				color: black;
 			}
 		}
 	}
@@ -720,6 +722,52 @@ body{
 		a.product-item-link {
 			font-size: 18px;
 			font-weight: 600;
+			&:hover {
+				color: black;
+			}
+		}
+	}
+}
+
+.abs-product-link {
+	> a {
+		&:hover {
+			color: black !important;
+		}
+	}
+}
+.product-item-name {
+	> a {
+		&:hover {
+			color: black !important;
+		}
+	}
+}
+.product.name {
+	a {
+		> a {
+			&:hover {
+				color: black !important;
+			}
+		}
+	}
+}
+.minicart-items {
+	.product-item-name {
+		> a {
+			&:hover {
+				color: black !important;
+			}
+		}
+	}
+}
+
+.product-item-info {
+	&:hover {
+		div.cdz-product-wishlist  {
+			a.action.towishlist {
+				color: black;
+			}
 		}
 	}
 }
