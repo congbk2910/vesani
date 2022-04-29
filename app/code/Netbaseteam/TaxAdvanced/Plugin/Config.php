@@ -8,7 +8,7 @@ class Config
         $this->request = $request;
     }
 
-    public function afterDisplayCartTaxWithGrandTotal($subject, $result)
+    public function beforeDisplayCartTaxWithGrandTotal($subject, $data)
     {
         $isExkl = $this->request->getParam('exkl');
         if ($isExkl) return false;
