@@ -9,5 +9,94 @@
                 }
             }
         }
+        .cart.table-wrapper {
+            .col.qty {
+                .control.qty {
+                    > label {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                .input-text {
+                    margin-top: 0;
+                }
+                .edit-qty {
+                    width: 25px;
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+        }
+        .related-upsell-crossell {
+            .owl-carousel {
+                transform: none;
+                div.owl-prev,
+                div.owl-next {
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    background:url(../images/gallery.png) center center no-repeat;
+                    border: none;
+                    top: auto;
+                    bottom: 50%;
+                    transform: translate(0, 50%);
+                    &::before {
+                        display: none;
+                    }
+                }
+                .owl-nav {
+                    .owl-prev {
+                        left: -5px;
+                        right: auto;
+                        background-position: -80px -80px;
+                    }
+                    .owl-next {
+                        right: 5px;
+                        left: auto;
+                        background-position: -160px -80px;
+                    }
+                }
+            }
+        }
+    }
+    .svea_checkout-index-index {
+        .svea-checkout-title h4 {
+            border-top: 1px solid #d1d1d1;
+            border-bottom: unset;
+            padding-top: 20px;
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .checkout-cart-index {
+        .related-upsell-crossell {
+            .owl-carousel {
+                .owl-nav {
+                    top: auto;
+                    width: 100%;
+                    bottom: 50%;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .checkout-cart-index {
+        .page-main {
+            .related-upsell-crossell {
+                padding: 10px;
+                .owl-carousel {
+                    div.owl-nav {
+                        div.owl-prev {
+                            left: -40px;
+                        }
+                        div.owl-next {
+                            right: -40px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

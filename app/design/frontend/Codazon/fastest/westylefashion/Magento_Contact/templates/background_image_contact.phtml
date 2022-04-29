@@ -14,5 +14,7 @@ $urlBackground = $_optionHelper->getConfig('general_section/contact_us/backgroun
 $baseUrlImage = $_optionHelper->getMediaUrl() .'codazon/themeoptions/background/';
 ?>
 <?php if($showBackground === '1' && strlen($urlBackground) > 0): ?>
-    <div class="background_contac_page" style="background-image: url('<?php echo $baseUrlImage.$urlBackground ?>');"></div>
+    <div class="background_contac_page">
+        <img width="100%" src="<?php echo $baseUrlImage.$urlBackground ?>" alt="Banner">
+    </div>
 <?php endif ?>
