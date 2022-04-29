@@ -1,7 +1,10 @@
+<?php 
+$isExkl = $this->getRequest()->getParam('exkl');
+?>
 <div class="svea-checkout-wrapper">
     <div class="checkout_vat_trigger">
-        <a class="inkl selected" href="<?=$this->getUrl('sveacheckout')?>"><?= __('Private')?></a>
-        <a class="exkl" href="<?=$this->getUrl('sveacheckout', ['_current' => true,'_use_rewrite' => true, '_query' => ['exkl'=>'1']])?>"><?= __('Business Price')?></a>
+        <a class="inkl <?= $isExkl ? '' : 'selected'?>" href="<?=$this->getUrl('sveacheckout')?>"><?= __('Private')?></a>
+        <a class="exkl <?= $isExkl ? 'selected' : ''?>" href="<?=$this->getUrl('sveacheckout', ['_current' => true,'_use_rewrite' => true, '_query' => ['exkl'=>'1']])?>"><?= __('Business Price')?></a>
     </div>
     <?php echo $this->getChildHtml(); ?>
 </div>
