@@ -17,12 +17,6 @@ $_subTotal=$this->getSubTotalById($quoteId);
                 <th class="data-grid-th">
                     <span class="data-grid-cell-content" data-bind="i18n: label">Unit Price</span>
                 </th>
-                <th class="data-grid-th">
-                    <span class="data-grid-cell-content" data-bind="i18n: label">Sub Total</span>
-                </th>
-                <th class="data-grid-th">
-                    <span class="data-grid-cell-content" data-bind="i18n: label">Total</span>
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -36,13 +30,11 @@ $_subTotal=$this->getSubTotalById($quoteId);
                 <td>
                     <div class="data-grid-cell-content"><?php echo $item->getQty()*$item->getPrice()?></div>
                 </td>
-                <td>
-                    <div class="data-grid-cell-content"><?php echo $_subTotal?></div>
-                </td>
-                <td>
-                    <div class="data-grid-cell-content"><?php echo $_grandTotal?></div>
-                </td>
             </tr>
         </tbody>
     </table>
+    <div style="padding-top: 15px; padding-right: 15px; float: right; ">
+        <div><span style="font-weight:bold; ">Sub Total : <?php echo $_subTotal;?></span></div>
+        <div><span style="font-weight:bold; ">Total : <?php echo $_grandTotal;?></span></div> 
+    </div>
 <?php endforeach;?>
