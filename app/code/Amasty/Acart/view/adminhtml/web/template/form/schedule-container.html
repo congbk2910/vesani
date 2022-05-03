@@ -1,0 +1,43 @@
+<!-- ko if: $data.quoteLifetimeNoticeIsAvailable -->
+<div class="fields-comment message"
+     data-bind="i18n: 'Please, mind that your emails sending period is greater than Quote Lifetime (days).
+     (To check it, please, go to Stores->Configuration->Sales->Checkout->Shopping Cart->Quote Lifetime).'">
+</div>
+<!-- /ko -->
+<legend class="admin__legend legend">
+    <span class="amacard-title" data-bind="i18n: 'Schedule'"></span>
+    <div class="admin__field-tooltip">
+        <span class="admin__field-tooltip-action action-help amasty-tooltip-action" target="_blank"></span>
+        <div class="admin__field-tooltip-content amasty-tooltip-content">
+            <span data-bind="i18n: 'Please make sure that your cron is properly configured. We recommend to run cron every 5 minutes.'"></span>
+            <a target="_blank" data-bind="i18n: 'Learn more', attr: {href: $data.cronUrl}"></a>
+        </div>
+    </div>
+</legend>
+<div class="field">
+    <table class="admin-control-table amacart-schedule-table" id="fields_table">
+        <thead>
+        <tr>
+            <th class="amacart-th" data-bind="i18n: 'Transactional Email'"></th>
+            <th class="amacart-th" data-bind="i18n: 'Delivery Time'"></th>
+            <th class="amacart-th" data-bind="i18n: 'Coupon'"></th>
+            <th class="amacart-th -delete" data-bind="i18n: 'Action'"></th>
+        </tr>
+        </thead>
+        <tbody class="amacart-schedule-container">
+        <!-- ko if: $data.elems() -->
+            <!-- ko foreach: $data.elems() -->
+                <!--ko template: getTemplate()--><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4" class="col-actions-add amacart-tr -addrecord">
+                <button class="amacart-button"
+                        data-bind="i18n: 'Add Record', click: $data.addRecord.bind($data)"></button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

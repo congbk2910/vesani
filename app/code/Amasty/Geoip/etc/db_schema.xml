@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="amasty_geoip_block" resource="default" engine="innodb" comment="Amasty Geoip Block Table">
+    <column xsi:type="int" name="block_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Block Id"/>
+    <column xsi:type="int" name="start_ip_num" padding="10" unsigned="true" nullable="false" identity="false" comment="Start Ip Num"/>
+    <column xsi:type="int" name="end_ip_num" padding="10" unsigned="true" nullable="false" identity="false" comment="End Ip Num"/>
+    <column xsi:type="int" name="geoip_loc_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Geoip Loc Id"/>
+    <column xsi:type="text" name="postal_code" nullable="true" comment="Postal Code"/>
+    <column xsi:type="float" name="latitude" scale="0" precision="10" unsigned="false" nullable="true" comment="Latitude"/>
+    <column xsi:type="float" name="longitude" scale="0" precision="10" unsigned="false" nullable="true" comment="Longitude"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="block_id"/>
+    </constraint>
+    <index referenceId="AMASTY_GEOIP_BLOCK_GEOIP_LOC_ID" indexType="btree">
+      <column name="geoip_loc_id"/>
+    </index>
+    <index referenceId="AMASTY_GEOIP_BLOCK_START_IP_NUM_END_IP_NUM" indexType="btree">
+      <column name="start_ip_num"/>
+      <column name="end_ip_num"/>
+    </index>
+  </table>
+  <table name="amasty_geoip_location" resource="default" engine="innodb" comment="Amasty Geoip Location Table">
+    <column xsi:type="int" name="location_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Location Id"/>
+    <column xsi:type="int" name="geoip_loc_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Geoip Loc Id"/>
+    <column xsi:type="text" name="country" nullable="true" comment="Country"/>
+    <column xsi:type="text" name="city" nullable="true" comment="City"/>
+    <column xsi:type="text" name="region" nullable="true" comment="Region"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="location_id"/>
+    </constraint>
+    <index referenceId="AMASTY_GEOIP_LOCATION_GEOIP_LOC_ID" indexType="btree">
+      <column name="geoip_loc_id"/>
+    </index>
+  </table>
+  <table name="amasty_geoip_block_v6" resource="default" engine="innodb" comment="Amasty Geoip Block Table IpV6">
+    <column xsi:type="int" name="block_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Block Id"/>
+    <column xsi:type="varchar" name="start_ip_num" nullable="false" length="40" comment="Start Ip Num"/>
+    <column xsi:type="varchar" name="end_ip_num" nullable="false" length="40" comment="End Ip Num"/>
+    <column xsi:type="int" name="geoip_loc_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Geoip Loc Id"/>
+    <column xsi:type="text" name="postal_code" nullable="true" comment="Postal Code"/>
+    <column xsi:type="float" name="latitude" scale="0" precision="10" unsigned="false" nullable="true" comment="Latitude"/>
+    <column xsi:type="float" name="longitude" scale="0" precision="10" unsigned="false" nullable="true" comment="Longitude"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="block_id"/>
+    </constraint>
+  </table>
+</schema>

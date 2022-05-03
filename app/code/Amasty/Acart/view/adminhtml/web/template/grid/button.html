@@ -1,0 +1,11 @@
+<div class="amacard-column-container">
+    <button data-bind="
+        text: getButtonText(),
+        attr: {title: getButtonText()},
+        click: send.bind($data, $row().entity_id)">
+    </button>
+    <!-- ko if: $data.test -->
+    <span class="amacard-text" data-bind="i18n: 'to'"></span>
+    <span class="amacard-text -italic" data-bind="text: $data.test"></span>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,26 @@
+<div class="amacart-chart-buttons">
+    <button class="amacart-button -rate"
+            data-bind="
+                i18n: 'Cart Abandonment Rate',
+                css: {'-active': $data.activeReport() === $data.reports.rate},
+                click: $data.useReport.bind($data, 'rate')"></button>
+    <button class="amacart-button -revenue"
+            data-bind="
+                i18n: 'Revenue',
+                css: {'-active': $data.activeReport() === $data.reports.revenue},
+                click: $data.useReport.bind($data, 'revenue')"></button>
+    <button class="amacart-button -efficiency"
+            data-bind="
+                i18n: 'Abandoned Cart Email Efficiency',
+                css: {'-active': $data.activeReport() === $data.reports.efficiency},
+                click: $data.useReport.bind($data, 'efficiency')"></button>
+</div>
+<div class="amacart-chart-wrapper">
+    <!-- ko foreach: $data.elems() -->
+            <div class="amacart-list-wrapper"
+                 data-bind="visible: $parent.activeReport() === $data.report">
+                <!--ko template: getTemplate()--><!-- /ko -->
+            </div>
+    <!-- /ko -->
+    <div class="amacart-chart-container" afterRender="$data.initChartElement.bind($data, $element)"></div>
+</div>

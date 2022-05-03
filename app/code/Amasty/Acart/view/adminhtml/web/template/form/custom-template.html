@@ -1,0 +1,21 @@
+<tr>
+    <td></td>
+    <td colspan="2" class="amacart-custom-template">
+        <h3 class="amacart-custom-title" data-bind="i18n: 'Custom Template'"></h3>
+        <div class="admin__fieldset amacart-load-template">
+            <!-- ko foreach: $data.elems() -->
+                <!-- ko if: $data.firstContainer -->
+                    <!--ko template: getTemplate()--><!-- /ko -->
+                <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <div class="admin__fieldset amacart-template-block">
+            <!-- ko foreach: $data.elems() -->
+                <!-- ko ifnot: $data.firstContainer -->
+                    <!--ko template: getTemplate()--><!-- /ko -->
+                <!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </td>
+    <td></td>
+</tr>

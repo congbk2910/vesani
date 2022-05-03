@@ -1,0 +1,184 @@
+//
+//  Amasty Acart Email Base styles
+//  ----------------------------------------------
+
+body {
+    background-color: #f1f8ff;
+}
+
+.email-non-inline() {
+    .acart-link:hover {
+        color: @acart-text__color__primary !important; // Browser links styles overriding
+        text-decoration: none !important; // Browser links styles overriding
+    }
+
+    .acart-link.-checkout:hover {
+        background: darken(#1979c2, 10%) !important; // Browser links styles overriding
+        color: #fff !important; // Browser links styles overriding
+    }
+}
+
+.acart-link {
+    color: @acart-text__color__primary !important; // Browser links styles overriding
+    vertical-align: top;
+    text-decoration: none !important; // Browser links styles overriding
+}
+
+td.header {
+    & {
+        padding: 40px 25px 0;
+        background: #fff;
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+}
+
+.main-content {
+    padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.acart-link.-checkout {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 11px 10px;
+    max-width: 186px;
+    width: 100%;
+    border-radius: 3px;
+    background: #1979c2;
+    color: #fff !important; // Browser links styles overriding
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.acart-footer-block {
+    & {
+        color: @acart-text__color__secodary;
+        text-align: center;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .acart-contacts {
+        & {
+            margin: 0;
+            padding: 0 0 10px;
+        }
+
+        span {
+            padding: 0 7px;
+        }
+
+        .acart-phone img {
+            margin: -1px;
+            max-width: 12px;
+        }
+
+        .acart-mail img {
+            max-width: 14px;
+        }
+    }
+
+    .acart-copyright {
+        margin: 0;
+        padding: 0 0 5px;
+    }
+}
+
+.acart-content-block {
+    & {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    > li {
+        margin: 0 0 30px;
+    }
+
+    > li:last-child {
+        margin: 0 0 50px;
+    }
+}
+
+.acart-header-block {
+    & {
+        margin: 0;
+        padding: 0;
+        font-weight: 300;
+    }
+
+    .acart-header {
+        display: block;
+        padding: 0 0 5px;
+        color: @acart-text__color__primary;
+        font-size: 2.4rem;
+    }
+
+    .acart-description {
+        font-weight: 400;
+        font-size: 1.6rem;
+    }
+
+    b {
+        font-weight: 700;
+    }
+}
+
+.acart-coupon-block {
+    & {
+        margin: 0 0 30px;
+        padding: 15px;
+        border-radius: 3px;
+        background-color: #efffe2;
+        font-size: 10pt;
+    }
+
+    b {
+        padding-left: 10px;
+        font-size: 9pt;
+    }
+}
+
+.acart-subtotal-block {
+    & {
+        padding: 20px 0;
+        color: @acart-text__color__primary;
+        font-size: 12px;
+    }
+
+    .acart-table {
+        margin: 0 auto;
+    }
+
+    td {
+        padding: 0 0 5px;
+        vertical-align: middle;
+        line-height: 19px;
+    }
+
+    .acart-label {
+        font-weight: 400;
+    }
+
+    .acart-value {
+        padding-left: 10px;
+        text-align: right;
+        font-weight: 700;
+    }
+
+    .acart-total {
+        & {
+            padding-top: 5px;
+        }
+
+        .acart-value {
+            font-size: 2.4rem;
+            line-height: 33px;
+        }
+    }
+}

@@ -1,0 +1,164 @@
+//
+//  Amasty Acart Product Card Component
+//  ----------------------------------------------
+
+.acart-products-list {
+    & {
+        margin: 0;
+        margin: 0 -15px;
+        padding: 0;
+        width: ~'calc(100% + 30px)';
+        border-spacing: 15px;
+        border-collapse: separate;
+    }
+
+    tr {
+        margin-bottom: 30px;
+    }
+}
+
+.acart-product-card.-table {
+    & {
+        padding: 15px;
+        width: 50%;
+    }
+
+    .acart-link {
+        display: block;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    .acart-title-sku-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .acart-sku {
+        display: flex;
+        justify-content: start;
+        padding: 0 0 10px;
+    }
+}
+
+.acart-product-card.-list {
+    & {
+        display: table;
+        box-sizing: border-box;
+        margin: 0 0 30px;
+        width: 100%;
+        border: 15px solid transparent;
+    }
+
+    img {
+        display: table-cell;
+    }
+
+    .acart-title-block {
+        display: table-cell;
+        padding: 0 0 0 10px;
+    }
+
+    .acart-title-sku-block {
+        display: flex;
+    }
+
+    .acart-sku {
+        display: flex;
+        justify-content: flex-end;
+        flex-basis: 60%;
+    }
+}
+
+.acart-product-card {
+    & {
+        border-radius: 5px;
+        box-shadow: 0 8px 16px rgba(181, 183, 186, .12);
+    }
+
+    .acart-title-block {
+        width: 100%;
+        vertical-align: top;
+    }
+
+    .acart-title {
+        display: block;
+        margin: 0;
+        padding: 0 0 10px;
+        width: 100%;
+        font-weight: 500;
+        font-size: 1.8rem;
+    }
+
+    .acart-description {
+        & {
+            padding: 0 0 15px;
+            color: @acart-text__color__primary;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+
+        p {
+            &{
+                margin: 0;
+            }
+
+            &:last-child {
+                color: @acart-text__color__secodary;
+                font-size: 1.2rem;
+            }
+
+            &:first-child {
+                padding: 0 0 15px;
+                color: @acart-text__color__primary;
+            }
+        }
+    }
+
+    .acart-options {
+        & {
+            margin: 0;
+            padding: 0 0 30px;
+            list-style: none;
+            font-size: 1.2rem;
+        }
+
+        .acart-option {
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            color: @acart-text__color__secodary;
+            font-weight: 400;
+        }
+
+        b {
+            color: @acart-text__color__primary;
+            font-weight: 700;
+        }
+    }
+
+    .acart-price-block {
+        .acart-value,
+        .acart-label {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 33px;
+        }
+
+        .acart-label {
+            padding: 0 10px 0 0;
+            color: @acart-text__color__secodary;
+            font-size: 1.2rem;
+        }
+
+        .acart-value {
+            color: @acart-text__color__primary;
+            font-weight: 700;
+            font-size: 2.4rem;
+        }
+    }
+}

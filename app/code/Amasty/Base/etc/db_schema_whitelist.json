@@ -1,0 +1,9 @@
+{
+    "adminnotification_inbox": {
+        "column": {
+            "is_amasty": true,
+            "expiration_date": true,
+            "image_url": true
+        }
+    }
+}

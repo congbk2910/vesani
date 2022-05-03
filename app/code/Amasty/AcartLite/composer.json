@@ -1,0 +1,22 @@
+{
+    "name": "amasty\/abandoned-cart-lite",
+    "description": "Abandoned Cart Email Lite by Amasty",
+    "require": {
+        "php": ">=7.3",
+        "amasty\/amcart": ">=1.9.2",
+        "amasty\/base": ">=1.13.3"
+    },
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\AcartLite\\": ""
+        }
+    }
+}

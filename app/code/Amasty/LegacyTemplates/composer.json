@@ -1,0 +1,22 @@
+{
+    "name": "amasty/module-legacy-templates",
+    "description": "Legacy Templates by Amasty",
+    "require": {
+        "php": ">=7.3",
+        "amasty/base": ">=1.13.2"
+    },
+    "homepage": "https://amasty.com/",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\LegacyTemplates\\": ""
+        }
+    }
+}

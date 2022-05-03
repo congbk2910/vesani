@@ -1,0 +1,21 @@
+<table class="amacart-table-container">
+    <thead class="amacart-thead">
+        <tr>
+            <!-- ko repeat: {foreach: getColumns(), item: '$subCol'} -->
+            <th class="amacart-th" data-bind="template: $subCol().getHeader()"></th>
+            <!-- /ko -->
+        </tr>
+    </thead>
+    <tbody class="amacart-tbody">
+        <!-- ko repeat: {foreach: $row().product_data, item: '$subRow'} -->
+        <tr>
+            <!-- ko repeat: {foreach: getColumns(), item: '$subCol'} -->
+
+            <td data-bind="css: $subCol().getFieldClass(),
+                       template: $subCol().getBody()">
+            </td>
+            <!-- /ko -->
+        </tr>
+        <!-- /ko -->
+    </tbody>
+</table>

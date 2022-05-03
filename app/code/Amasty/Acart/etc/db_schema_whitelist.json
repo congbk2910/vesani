@@ -1,0 +1,215 @@
+{
+    "amasty_acart_rule": {
+        "column": {
+            "rule_id": true,
+            "name": true,
+            "is_active": true,
+            "priority": true,
+            "conditions_serialized": true,
+            "store_ids": true,
+            "customer_group_ids": true,
+            "cancel_condition": true,
+            "utm_source": true,
+            "utm_medium": true,
+            "utm_term": true,
+            "utm_content": true,
+            "utm_campaign": true
+        },
+        "index": {
+            "FTI_20E92A70B7022B6D3721BA343A07BC85": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_acart_schedule": {
+        "column": {
+            "schedule_id": true,
+            "rule_id": true,
+            "template_id": true,
+            "days": true,
+            "hours": true,
+            "minutes": true,
+            "simple_action": true,
+            "discount_amount": true,
+            "expired_in_days": true,
+            "discount_qty": true,
+            "discount_step": true,
+            "subtotal_is_greater_than": true,
+            "use_shopping_cart_rule": true,
+            "sales_rule_id": true,
+            "created_at": true,
+            "send_same_coupon": true,
+            "use_campaign_utm": true,
+            "utm_source": true,
+            "utm_medium": true,
+            "utm_campaign": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_SCHEDULE_RULE_ID_AMASTY_ACART_RULE_RULE_ID": true,
+            "AMASTY_ACART_SCHEDULE_TEMPLATE_ID_EMAIL_TEMPLATE_TEMPLATE_ID": true,
+            "AMASTY_ACART_SCHEDULE_SALES_RULE_ID_SALESRULE_RULE_ID": true
+        }
+    },
+    "amasty_acart_rule_quote": {
+        "column": {
+            "rule_quote_id": true,
+            "quote_id": true,
+            "rule_id": true,
+            "status": true,
+            "store_id": true,
+            "customer_id": true,
+            "customer_email": true,
+            "customer_firstname": true,
+            "customer_lastname": true,
+            "test_mode": true,
+            "created_at": true,
+            "abandoned_status": true,
+            "customer_phone": true
+        },
+        "index": {
+            "AMASTY_ACART_RULE_QUOTE_STATUS": true,
+            "AMASTY_ACART_RULE_QUOTE_CUSTOMER_EMAIL": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_RULE_QUOTE_RULE_ID_AMASTY_ACART_RULE_RULE_ID": true,
+            "AMASTY_ACART_RULE_QUOTE_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "AMASTY_ACART_RULE_QUOTE_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "amasty_acart_history": {
+        "column": {
+            "history_id": true,
+            "rule_quote_id": true,
+            "schedule_id": true,
+            "status": true,
+            "public_key": true,
+            "email_subject": true,
+            "email_body": true,
+            "sales_rule_id": true,
+            "sales_rule_coupon_id": true,
+            "sales_rule_coupon": true,
+            "scheduled_at": true,
+            "executed_at": true,
+            "finished_at": true,
+            "sales_rule_coupon_expiration_date": true,
+            "opened": true
+        },
+        "index": {
+            "AMASTY_ACART_HISTORY_STATUS": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_819FFF7D7B22D8B71DEF484849FC07B4": true,
+            "AMASTY_ACART_HISTORY_SALES_RULE_ID_SALESRULE_RULE_ID": true,
+            "FK_CF4615181E7052E66CC2B0BB51853F2F": true,
+            "FK_A2FF7CCCBC2589647A3585E511AE08D7": true
+        }
+    },
+    "amasty_acart_quote_email": {
+        "column": {
+            "quote_email_id": true,
+            "quote_id": true,
+            "customer_email": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_QUOTE_EMAIL_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "AMASTY_ACART_QUOTE_EMAIL_QUOTE_ID": true
+        }
+    },
+    "amasty_acart_blacklist": {
+        "column": {
+            "blacklist_id": true,
+            "customer_email": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_BLACKLIST_CUSTOMER_EMAIL": true
+        }
+    },
+    "amasty_acart_attribute": {
+        "column": {
+            "attr_id": true,
+            "rule_id": true,
+            "code": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_ATTRIBUTE_RULE_ID_AMASTY_ACART_RULE_RULE_ID": true
+        }
+    },
+    "amasty_acart_rule_store": {
+        "column": {
+            "rule_store_id": true,
+            "rule_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_RULE_STORE_RULE_ID_AMASTY_ACART_RULE_RULE_ID": true,
+            "AMASTY_ACART_RULE_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "amasty_acart_rule_customer_group": {
+        "column": {
+            "rule_customer_group_id": true,
+            "rule_id": true,
+            "customer_group_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_RULE_CSTR_GROUP_RULE_ID_AMASTY_ACART_RULE_RULE_ID": true,
+            "FK_898E5863210B2932733BE8D92E7347DC": true
+        }
+    },
+    "amasty_acart_history_details": {
+        "column": {
+            "detail_id": true,
+            "history_id": true,
+            "product_name": true,
+            "sku": true,
+            "price": true,
+            "qty": true,
+            "store_id": true,
+            "currency_code": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_C7E6BE039262C00423961543E039EC67": true
+        }
+    },
+    "amasty_acart_email_template": {
+        "column": {
+            "template_id": true,
+            "schedule_id": true,
+            "template_code": true,
+            "template_text": true,
+            "template_styles": true,
+            "template_type": true,
+            "template_subject": true,
+            "orig_template_variables": true,
+            "is_legacy": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_F4B32E69000BFF66607568C4933D66BA": true,
+            "AMASTY_ACART_EMAIL_TEMPLATE_TEMPLATE_CODE": true
+        }
+    },
+    "amasty_acart_guest_customer_quotes": {
+        "column": {
+            "customer_id": true,
+            "quote_id": true,
+            "orig_quote_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_ACART_GUEST_CSTR_QUOTES_CSTR_ID_CSTR_ENTT_ENTT_ID": true,
+            "AMASTY_ACART_GUEST_CUSTOMER_QUOTES_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "AMASTY_ACART_GUEST_CUSTOMER_QUOTES_ORIG_QUOTE_ID_QUOTE_ENTITY_ID": true
+        }
+    }
+}

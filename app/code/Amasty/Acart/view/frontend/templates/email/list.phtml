@@ -1,0 +1,24 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+?>
+<?php
+/**
+ * @var \Amasty\Acart\Block\Email\Items $block
+ * @var \Magento\Catalog\Api\Data\ProductInterface $product
+ * @var \Amasty\Acart\ViewModel\Email\ProductViewModel $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getData('viewModel');
+?>
+<?php if ($block->getQuote()): ?>
+    <?php foreach ($block->getItems() as $item): ?>
+        <?php $product = $viewModel->getProduct($item, $block->showConfigurableImage()); ?>
+        <a class="acart-product-card acart-link -list" href="<?= $escaper->escapeUrl($viewModel->getProductUrl($product)); ?>">
+            <?= $block->getItemBlockHtml($item); ?>
+        </a>
+    <?php endforeach; ?>
+<?php endif; ?>

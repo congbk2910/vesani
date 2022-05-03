@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="amasty_acart_rule" resource="default" engine="innodb" comment="Amasty Acart Rule Grid">
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Rule Id"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+    <column xsi:type="smallint" name="is_active" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Is Active"/>
+    <column xsi:type="smallint" name="priority" padding="6" unsigned="false" nullable="false" identity="false" default="1" comment="Priority"/>
+    <column xsi:type="mediumtext" name="conditions_serialized" nullable="true" comment="Conditions Serialized"/>
+    <column xsi:type="varchar" name="store_ids" nullable="false" length="255" default="" comment="Stores" disabled="true"/>
+    <column xsi:type="varchar" name="customer_group_ids" nullable="false" length="255" default="" comment="Customer Groups" disabled="true"/>
+    <column xsi:type="varchar" name="cancel_condition" nullable="false" length="255" default="" comment="Cancel Condition"/>
+    <column xsi:type="varchar" name="utm_source" nullable="true" length="255" comment="Utm Source"/>
+    <column xsi:type="varchar" name="utm_medium" nullable="true" length="255" comment="Utm Medium"/>
+    <column xsi:type="varchar" name="utm_term" nullable="true" length="255" comment="Utm Term"/>
+    <column xsi:type="varchar" name="utm_content" nullable="true" length="255" comment="Utm Content"/>
+    <column xsi:type="varchar" name="utm_campaign" nullable="true" length="255" comment="Utm Campaign"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="rule_id"/>
+    </constraint>
+    <index referenceId="FTI_20E92A70B7022B6D3721BA343A07BC85" indexType="fulltext">
+      <column name="name"/>
+      <column name="utm_source"/>
+      <column name="utm_medium"/>
+      <column name="utm_term"/>
+      <column name="utm_content"/>
+      <column name="utm_campaign"/>
+    </index>
+  </table>
+  <table name="amasty_acart_schedule" resource="default" engine="innodb" comment="amasty_acart_schedule">
+    <column xsi:type="int" name="schedule_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Schedule Id"/>
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Rule ID"/>
+    <column xsi:type="int" name="template_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Template ID"/>
+    <column xsi:type="smallint" name="days" padding="5" unsigned="true" nullable="true" identity="false" comment="Days"/>
+    <column xsi:type="smallint" name="hours" padding="5" unsigned="true" nullable="true" identity="false" comment="Hours"/>
+    <column xsi:type="smallint" name="minutes" padding="5" unsigned="true" nullable="true" identity="false" comment="Minutes"/>
+    <column xsi:type="varchar" name="simple_action" nullable="true" length="32" comment="Simple Action"/>
+    <column xsi:type="decimal" name="discount_amount" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Discount Amount"/>
+    <column xsi:type="smallint" name="expired_in_days" padding="5" unsigned="true" nullable="true" identity="false" comment="Expired In Days"/>
+    <column xsi:type="decimal" name="discount_qty" scale="4" precision="12" unsigned="false" nullable="true" comment="Discount Qty"/>
+    <column xsi:type="int" name="discount_step" padding="10" unsigned="true" nullable="false" identity="false" comment="Discount Step"/>
+    <column xsi:type="smallint" name="subtotal_is_greater_than" padding="5" unsigned="true" nullable="true" identity="false" comment="Subtotal Is Greater Than"/>
+    <column xsi:type="boolean" name="use_shopping_cart_rule" nullable="false" comment="Use Shopping Cart Rule"/>
+    <column xsi:type="int" name="sales_rule_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Sales Rule ID"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" comment="Creation Date"/>
+    <column xsi:type="smallint" name="send_same_coupon" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Send Same Coupon"/>
+    <column xsi:type="boolean" name="use_campaign_utm" nullable="false" default="true" comment="Use Schedule Google Analytics UTM Parameters"/>
+    <column xsi:type="varchar" name="utm_source" nullable="true" length="255" comment="Utm Source"/>
+    <column xsi:type="varchar" name="utm_medium" nullable="true" length="255" comment="Utm Medium"/>
+    <column xsi:type="varchar" name="utm_campaign" nullable="true" length="255" comment="Utm Campaign"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="schedule_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_SCHEDULE_RULE_ID_AMASTY_ACART_RULE_RULE_ID" table="amasty_acart_schedule" column="rule_id" referenceTable="amasty_acart_rule" referenceColumn="rule_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_SCHEDULE_TEMPLATE_ID_EMAIL_TEMPLATE_TEMPLATE_ID" table="amasty_acart_schedule" column="template_id" referenceTable="email_template" referenceColumn="template_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_SCHEDULE_SALES_RULE_ID_SALESRULE_RULE_ID" table="amasty_acart_schedule" column="sales_rule_id" referenceTable="salesrule" referenceColumn="rule_id" onDelete="SET NULL"/>
+  </table>
+  <table name="amasty_acart_rule_quote" resource="default" engine="innodb" comment="amasty_acart_rule_quote">
+    <column xsi:type="int" name="rule_quote_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Rule Quote Id"/>
+    <column xsi:type="int" name="quote_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Quote ID"/>
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Rule ID"/>
+    <column xsi:type="varchar" name="status" nullable="true" length="32" comment="Status"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Store Id"/>
+    <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Customer Id"/>
+    <column xsi:type="varchar" name="customer_email" nullable="true" length="255" comment="Customer Email"/>
+    <column xsi:type="varchar" name="customer_firstname" nullable="true" length="255" comment="Customer Firstname"/>
+    <column xsi:type="varchar" name="customer_lastname" nullable="true" length="255" comment="Customer Lastname"/>
+    <column xsi:type="smallint" name="test_mode" padding="6" unsigned="false" nullable="false" identity="false" default="0" comment="Test Mode"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" comment="Creation Date"/>
+    <column xsi:type="varchar" name="abandoned_status" nullable="false" length="25" default="notrestored" comment="Abandoned Cart Status"/>
+    <column xsi:type="varchar" name="customer_phone" nullable="true" length="50" comment="Phone Number"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="rule_quote_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_QUOTE_RULE_ID_AMASTY_ACART_RULE_RULE_ID" table="amasty_acart_rule_quote" column="rule_id" referenceTable="amasty_acart_rule" referenceColumn="rule_id" onDelete="SET NULL"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_QUOTE_QUOTE_ID_QUOTE_ENTITY_ID" table="amasty_acart_rule_quote" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="SET NULL"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_QUOTE_STORE_ID_STORE_STORE_ID" table="amasty_acart_rule_quote" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+    <index referenceId="AMASTY_ACART_RULE_QUOTE_STATUS" indexType="btree">
+      <column name="status"/>
+    </index>
+    <index referenceId="AMASTY_ACART_RULE_QUOTE_CUSTOMER_EMAIL" indexType="btree">
+      <column name="customer_email"/>
+    </index>
+  </table>
+  <table name="amasty_acart_history" resource="default" engine="innodb" comment="amasty_acart_history">
+    <column xsi:type="int" name="history_id" padding="10" unsigned="true" nullable="false" identity="true" comment="History Id"/>
+    <column xsi:type="int" name="rule_quote_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Rule Quote ID"/>
+    <column xsi:type="int" name="schedule_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Schedule ID"/>
+    <column xsi:type="varchar" name="status" nullable="true" length="32" comment="Status"/>
+    <column xsi:type="varchar" name="public_key" nullable="true" length="32" comment="Public Key"/>
+    <column xsi:type="varchar" name="email_subject" nullable="true" length="255" comment="Email Subject"/>
+    <column xsi:type="mediumtext" name="email_body" nullable="true" comment="Email Body"/>
+    <column xsi:type="int" name="sales_rule_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Sales Rule ID"/>
+    <column xsi:type="int" name="sales_rule_coupon_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Sales Rule Coupon ID"/>
+    <column xsi:type="varchar" name="sales_rule_coupon" nullable="true" length="255" comment="Sales Rule Coupon"/>
+    <column xsi:type="timestamp" name="scheduled_at" on_update="false" nullable="true" comment="Dcheduled Date"/>
+    <column xsi:type="timestamp" name="executed_at" on_update="false" nullable="true" comment="Executed Date"/>
+    <column xsi:type="timestamp" name="finished_at" on_update="false" nullable="true" comment="Finished Date"/>
+    <column xsi:type="timestamp" name="sales_rule_coupon_expiration_date" on_update="false" nullable="true" comment="Expiration Date"/>
+    <column xsi:type="int" name="opened" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Email open counter"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="history_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_819FFF7D7B22D8B71DEF484849FC07B4" table="amasty_acart_history" column="rule_quote_id" referenceTable="amasty_acart_rule_quote" referenceColumn="rule_quote_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_HISTORY_SALES_RULE_ID_SALESRULE_RULE_ID" table="amasty_acart_history" column="sales_rule_id" referenceTable="salesrule" referenceColumn="rule_id" onDelete="SET NULL"/>
+    <constraint xsi:type="foreign" referenceId="FK_7A03CD2AE836B6F728B65DF1B24EDE36" table="amasty_acart_history" column="sales_rule_coupon_id" referenceTable="salesrule_coupon" referenceColumn="coupon_id" onDelete="SET NULL"/>
+    <constraint xsi:type="foreign" referenceId="FK_A2FF7CCCBC2589647A3585E511AE08D7" table="amasty_acart_history" column="schedule_id" referenceTable="amasty_acart_schedule" referenceColumn="schedule_id" onDelete="SET NULL"/>
+    <index referenceId="AMASTY_ACART_HISTORY_STATUS" indexType="btree">
+      <column name="status"/>
+    </index>
+  </table>
+  <table name="amasty_acart_quote_email" resource="default" engine="innodb" comment="amasty_acart_quote_email">
+    <column xsi:type="int" name="quote_email_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Quote Email Id"/>
+    <column xsi:type="int" name="quote_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Quote ID"/>
+    <column xsi:type="varchar" name="customer_email" nullable="true" length="255" comment="Customer Email"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="quote_email_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_QUOTE_EMAIL_QUOTE_ID_QUOTE_ENTITY_ID" table="amasty_acart_quote_email" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="AMASTY_ACART_QUOTE_EMAIL_QUOTE_ID">
+      <column name="quote_id"/>
+    </constraint>
+  </table>
+  <table name="amasty_acart_blacklist" resource="default" engine="innodb" comment="amasty_acart_blacklist">
+    <column xsi:type="int" name="blacklist_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Blacklist Id"/>
+    <column xsi:type="varchar" name="customer_email" nullable="true" length="255" comment="Customer Email"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="blacklist_id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="AMASTY_ACART_BLACKLIST_CUSTOMER_EMAIL">
+      <column name="customer_email"/>
+    </constraint>
+  </table>
+  <table name="amasty_acart_attribute" resource="default" engine="innodb" comment="Amasty Acart Attribute">
+    <column xsi:type="int" name="attr_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Attribute Id"/>
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Rule Id"/>
+    <column xsi:type="varchar" name="code" nullable="false" length="255" comment="Email"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="attr_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_ATTRIBUTE_RULE_ID_AMASTY_ACART_RULE_RULE_ID" table="amasty_acart_attribute" column="rule_id" referenceTable="amasty_acart_rule" referenceColumn="rule_id" onDelete="CASCADE"/>
+  </table>
+  <table name="amasty_acart_rule_store" resource="default" engine="innodb" comment="Amasty Acart Rule-Store Relation Table">
+    <column xsi:type="int" name="rule_store_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Rule-Store Relation Id"/>
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Rule Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" comment="Store Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="rule_store_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_STORE_RULE_ID_AMASTY_ACART_RULE_RULE_ID" table="amasty_acart_rule_store" column="rule_id" referenceTable="amasty_acart_rule" referenceColumn="rule_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_STORE_STORE_ID_STORE_STORE_ID" table="amasty_acart_rule_store" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+  </table>
+  <table name="amasty_acart_rule_customer_group" resource="default" engine="innodb" comment="Amasty Acart Rule-Customer Relation Table">
+    <column xsi:type="int" name="rule_customer_group_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Rule-Customer Relation Id"/>
+    <column xsi:type="int" name="rule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Rule Id"/>
+    <column xsi:type="int" name="customer_group_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Customer Group Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="rule_customer_group_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_RULE_CSTR_GROUP_RULE_ID_AMASTY_ACART_RULE_RULE_ID" table="amasty_acart_rule_customer_group" column="rule_id" referenceTable="amasty_acart_rule" referenceColumn="rule_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_898E5863210B2932733BE8D92E7347DC" table="amasty_acart_rule_customer_group" column="customer_group_id" referenceTable="customer_group" referenceColumn="customer_group_id" onDelete="CASCADE"/>
+  </table>
+  <table name="amasty_acart_history_details" resource="default" engine="innodb" comment="Amasty Acart History Product Details Table">
+    <column xsi:type="int" name="detail_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Detail Id"/>
+    <column xsi:type="int" name="history_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Associated History Id"/>
+    <column xsi:type="text" name="product_name" nullable="false" comment="Product Name"/>
+    <column xsi:type="text" name="sku" nullable="false" comment="Product SKU"/>
+    <column xsi:type="decimal" name="price" scale="0" precision="10" unsigned="true" nullable="false" comment="Product Price"/>
+    <column xsi:type="int" name="qty" padding="10" unsigned="true" nullable="false" identity="false" comment="Product Qty"/>
+    <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Associated Store ID to quote item"/>
+    <column xsi:type="text" name="currency_code" nullable="false" comment="Associated currency code to quote item"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="detail_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_C7E6BE039262C00423961543E039EC67" table="amasty_acart_history_details" column="history_id" referenceTable="amasty_acart_history" referenceColumn="history_id" onDelete="CASCADE"/>
+  </table>
+  <table name="amasty_acart_email_template" resource="default" engine="innodb" comment="Amasty Acart Email Template Table">
+    <column xsi:type="int" name="template_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Template Id"/>
+    <column xsi:type="int" name="schedule_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Schedule Id"/>
+    <column xsi:type="varchar" name="template_code" nullable="false" length="150" default="" comment="Template Name"/>
+    <column xsi:type="text" name="template_text" nullable="false" comment="Template Content"/>
+    <column xsi:type="text" name="template_styles" nullable="true" comment="Template Styles"/>
+    <column xsi:type="int" name="template_type" padding="10" unsigned="true" nullable="true" identity="false" comment="Template Type"/>
+    <column xsi:type="varchar" name="template_subject" nullable="false" length="200" comment="Template Subject"/>
+    <column xsi:type="text" name="orig_template_variables" nullable="true" comment="Original Template Variables"/>
+    <column xsi:type="boolean" name="is_legacy" nullable="false" comment="Is Legacy"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="template_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_F4B32E69000BFF66607568C4933D66BA" table="amasty_acart_email_template" column="schedule_id" referenceTable="amasty_acart_schedule" referenceColumn="schedule_id" onDelete="CASCADE"/>
+    <constraint xsi:type="unique" referenceId="AMASTY_ACART_EMAIL_TEMPLATE_TEMPLATE_CODE">
+      <column name="template_code"/>
+    </constraint>
+  </table>
+  <table name="amasty_acart_guest_customer_quotes" resource="default" engine="innodb" comment="Amasty Acart Guest Customer Quotes Table">
+    <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Customer Id"/>
+    <column xsi:type="int" name="quote_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Quote Id"/>
+    <column xsi:type="int" name="orig_quote_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Original Quote Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="customer_id"/>
+      <column name="quote_id"/>
+      <column name="orig_quote_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_GUEST_CSTR_QUOTES_CSTR_ID_CSTR_ENTT_ENTT_ID" table="amasty_acart_guest_customer_quotes" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_GUEST_CUSTOMER_QUOTES_QUOTE_ID_QUOTE_ENTITY_ID" table="amasty_acart_guest_customer_quotes" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="AMASTY_ACART_GUEST_CUSTOMER_QUOTES_ORIG_QUOTE_ID_QUOTE_ENTITY_ID" table="amasty_acart_guest_customer_quotes" column="orig_quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="CASCADE"/>
+  </table>
+</schema>

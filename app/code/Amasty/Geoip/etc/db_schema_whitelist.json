@@ -1,0 +1,49 @@
+{
+    "amasty_geoip_block": {
+        "column": {
+            "block_id": true,
+            "start_ip_num": true,
+            "end_ip_num": true,
+            "geoip_loc_id": true,
+            "postal_code": true,
+            "latitude": true,
+            "longitude": true
+        },
+        "index": {
+            "AMASTY_GEOIP_BLOCK_GEOIP_LOC_ID": true,
+            "AMASTY_GEOIP_BLOCK_START_IP_NUM_END_IP_NUM": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_geoip_location": {
+        "column": {
+            "location_id": true,
+            "geoip_loc_id": true,
+            "country": true,
+            "city": true,
+            "region": true
+        },
+        "index": {
+            "AMASTY_GEOIP_LOCATION_GEOIP_LOC_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_geoip_block_v6": {
+        "column": {
+            "block_id": true,
+            "start_ip_num": true,
+            "end_ip_num": true,
+            "geoip_loc_id": true,
+            "postal_code": true,
+            "latitude": true,
+            "longitude": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

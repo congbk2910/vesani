@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Amasty\Acart\Ui\DataProvider\History\Listing">
+        <arguments>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="status" xsi:type="object">Amasty\Acart\Ui\DataProvider\History\Filter\AddStatusFilterToCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Asset\ConfigInterface">
+        <plugin name="Amasty_Acart::reports_disable_bundling" type="Amasty\Acart\Plugin\DisableBundling" />
+    </type>
+    <type name="Amasty\Acart\Ui\DataProvider\Rule\Form">
+        <arguments>
+            <argument name="modifiersPool" xsi:type="object">Amasty\Acart\Ui\DataProvider\Rule\Modifier\Pool</argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\Acart\Ui\DataProvider\Rule\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="schedule" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Acart\Ui\DataProvider\Rule\Modifier\Schedule</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

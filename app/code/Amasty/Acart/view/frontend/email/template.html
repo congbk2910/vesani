@@ -1,0 +1,125 @@
+<!--
+// @codingStandardsIgnoreFile
+-->
+<!--@subject {{var store.getFrontendName()}}: Items in your shopping bag  @-->
+<!--@vars
+{"var store.getFrontendName()":"Store Name",
+"var urlmanager.unsubscribeUrl()":"Unsubscribe Url",
+"var urlmanager.mageUrl('checkout/cart/index')":"Place Order Url",
+"var urlmanager.mageUrl('checkout/index/index')":"Checkout Url",
+"var history.getSalesRuleCoupon()":"Coupon Code",
+"var history.getSalesRuleCouponExpirationDate()":"Coupon Expiration Date",
+"var formatmanager.formatTime('quote','updated_at') | raw":"Abandonment Date With Time",
+"var formatmanager.formatDate('quote','updated_at') | raw":"Abandonment Date",
+"var ruleQuote.getCustomerFirstname()":"First Name",
+"var ruleQuote.getCustomerLastname()":"Last Name",
+"var quote.getCustomerMiddlename()":"Middle Name",
+"var quote.getCustomerSuffix()":"Suffix",
+"var var formatmanager.formatPrice('quote','base_subtotal') | raw":"Subtotal",
+"var formatmanager.formatPrice('quote','discount') | raw":"Discount",
+"var formatmanager.formatPrice('quote','base_subtotal_with_discount') | raw":"Subtotal With Discount",
+"var formatmanager.formatPrice('quote','base_grand_total') | raw":"Grand Total",
+"var customerIsGuest":"Customer Is Guest",
+"var quote.getTax()":"Product tax",
+"layout area=\"frontend\" handle=\"amasty_acart_email\" rule=$rule quote=$quote history=$history ruleQuote=$ruleQuote mode=list showImage=yes showConfigurableImage=no showPrice=yes priceFormat=excludeTax showDescription=yes optionList=yes showSKU=no":"Quote Products",
+"layout area=\"frontend\" handle=\"amasty_acart_email_related\" rule=$rule quote=$quote history=$history ruleQuote=$ruleQuote mode=list showImage=yes showConfigurableImage=no showPrice=yes priceFormat=excludeTax showDescription=yes optionList=yes showSKU=no":"Related Products",
+"layout area=\"frontend\" handle=\"amasty_acart_email_crosssell\" rule=$rule quote=$quote history=$history ruleQuote=$ruleQuote mode=list showImage=yes showConfigurableImage=no showPrice=yes priceFormat=excludeTax showDescription=yes optionList=yes showSKU=no":"Cross-Sell Products",
+"layout area=\"frontend\" handle=\"amasty_acart_email_upsell\" rule=$rule quote=$quote history=$history ruleQuote=$ruleQuote mode=list showImage=yes showConfigurableImage=no showPrice=yes priceFormat=excludeTax showDescription=yes optionList=yes showSKU=no":"Up-Sell Products",
+"layout area=\"frontend\" handle=\"amasty_acart_email_wishlist\" rule=$rule quote=$quote history=$history ruleQuote=$ruleQuote mode=list showImage=yes showConfigurableImage=no showPrice=yes priceFormat=excludeTax showDescription=yes optionList=yes showSKU=no":"WishList Products"
+}
+@-->
+{{template config_path="design/email/header_template"}}
+<ul class="acart-content-block">
+    <li class="acart-header-block">
+        <span class="acart-header">
+            {{if customerIsGuest}}
+                {{trans "Hello,"}}
+            {{else}}
+                {{trans "Dear %firstName %lastName,"
+                firstName=$ruleQuote.getCustomerFirstname()
+                lastName=$ruleQuote.getCustomerLastname()}}
+            {{/if}}
+        </span>
+        <span class="acart-description">
+            {{trans "You have"}} <b>{{var formatmanager.countArray($quote.getAllVisibleItems()) | raw}} {{trans " item(s)"}}</b> {{trans " in your shopping bag."}}
+            {{depend quote.getDiscount()}}
+                {{trans "Get them with discount!"}}
+            {{/depend}}
+        </span>
+    </li>
+    {{depend history.getSalesRuleCoupon()}}
+    <li class="acart-coupon-block">
+        {{trans "Save money with coupon code: <b>%coupon</b>" coupon=$history.getSalesRuleCoupon() | raw }}<br/>
+        {{if history.getSalesRuleCouponExpirationDate()}}
+        {{trans "Coupon expiration date: <b>%expiration_date</b> " expiration_date=$history.getSalesRuleCouponExpirationDate() | raw }}<br/>
+        {{/if}}
+    </li>
+    {{/depend}}
+    <li>
+        {{layout
+            handle="amasty_acart_email"
+            rule=$rule
+            quote=$quote
+            history=$history
+            ruleQuote=$ruleQuote
+            mode=list
+            showImage=yes
+            showConfigurableImage=no
+            showPrice=yes
+            priceFormat=excludeTax
+            showDescription=yes
+            optionList=yes
+            showSKU=no
+        }}
+    </li>
+    <li class="acart-subtotal-block">
+        <table class="acart-table">
+            <tr>
+                <td class="acart-label">{{trans "Subtotal"}}:</td>
+                <td class="acart-value">
+                    {{var formatmanager.formatPrice('quote','base_subtotal') | raw}}
+                </td>
+            </tr>
+            {{if quote.getTax()}}
+                <tr>
+                    <td class="acart-label">{{trans "Tax"}}:</td>
+                    <td class="acart-value">{{var formatmanager.formatPrice('quote','tax') | raw}}</td>
+                </tr>
+            {{/if}}
+            {{if quote.getDiscount()}}
+                <tr>
+                    <td class="acart-label">{{trans "Discount"}}:</td>
+                    <td class="acart-value">{{var formatmanager.formatPrice('quote','discount') | raw}}</td>
+                </tr>
+            {{/if}}
+            <tr class="acart-total">
+                <td class="acart-label">{{trans "Total"}}:</td>
+                <td class="acart-value">{{var formatmanager.formatPrice('quote','base_grand_total') | raw}}</td>
+            </tr>
+        </table>
+    </li>
+    <li>
+        <a class="acart-link -checkout" href="{{var urlmanager.mageUrl('checkout/cart/index')}}">
+            {{trans "Go to Checkout"}}
+        </a>
+    </li>
+</ul>
+<div class="acart-footer-block">
+    <p class="acart-contacts">
+        <span class="acart-phone">
+            <img src="{{view url='Amasty_Acart/images/phone.png'}}" alt="{{trans 'Phone'}}" />
+            {{var store_phone}}
+        </span>
+
+        <span class="acart-mail">
+            <img src="{{view url='Amasty_Acart/images/mail.png'}}" alt="{{trans 'Message'}}" />
+            {{var store_email}}
+        </span>
+    </p>
+    <p class="acart-copyright">
+        {{config path="general/store_information/name"}} {{config path="general/store_information/street_line1"}} {{config path="general/store_information/city"}}
+    </p>
+    <a href="{{var urlmanager.unsubscribeUrl()}}">
+        {{trans "Unsubscribe"}}
+    </a>
+</div>

@@ -1,0 +1,154 @@
+//
+//  Amasty Acart Rule styles
+//  ____________________________________________
+
+//
+//  Variables
+//  _____________________________________________
+
+@amacart-icon-delete__background: url('@{baseDir}Amasty_Acart/images/delete.svg') no-repeat center;
+@amacart-icon-arrow__container__size: 20px;
+@amacart-icon-arrow__size: 7px;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amacart-schedule-container {
+        .amacart-field.-template {
+            margin: 24px 0 15px 0;
+        }
+
+        .amacart-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            max-width: 205px;
+        }
+
+        .amacart-label {
+            margin-bottom: 5px;
+        }
+
+        .amacart-delete {
+            & {
+                position: relative;
+                padding: 10px 7px;
+                border: none;
+                background: none;
+            }
+
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 14px;
+                height: 20px;
+                background: @amacart-icon-delete__background;
+                content: '';
+            }
+        }
+
+        .amacart-link {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .admin__fieldset & .amacart-checkbox {
+            & {
+                border-radius: 1px;
+            }
+
+            &:checked:after {
+                width: 14px;
+                background: #007bdb;
+                color: #fff;
+                font-size: 10px;
+                line-height: 14px;
+            }
+        }
+
+        .amacart-td .amacart-select,
+        .amacart-ruleid {
+            display: block;
+            max-width: 205px;
+        }
+    }
+
+    .amacart-arrow-container {
+        & {
+            position: relative;
+            display: block;
+            margin-left: 7px;
+            width: @amacart-icon-arrow__container__size;
+            height: @amacart-icon-arrow__container__size;
+        }
+
+        .amacart-arrow {
+            position: absolute;
+            top: 30%;
+            width: @amacart-icon-arrow__size;
+            height: @amacart-icon-arrow__size;
+            border-top: 2px solid;
+            border-left: 2px solid;
+            transform: rotate(225deg);
+        }
+
+        .amacart-link.-show & .amacart-arrow {
+            top: 45%;
+            transform: rotate(45deg);
+        }
+    }
+
+    .amacart-schedule-table {
+        & {
+            width: 100%;
+        }
+
+        .amacart-th.-delete,
+        .amacart-td.-delete {
+            padding-right: 10px;
+            text-align: center;
+        }
+
+        .amacart-td,
+        .amacart-th {
+            padding-right: 50px;
+            width: 32%;
+        }
+    }
+
+    .amacart-sales-select {
+        margin-top: .5rem;
+    }
+
+    .amacart-schedule-table .amacart-tr.-addrecord {
+        & {
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .amacart-button {
+            padding: 5px 20px;
+            border-radius: 3px;
+            background: #5a5552;
+            color: #fff;
+            transition: background-color .3s ease-in;
+        }
+
+        .amacart-button:hover {
+            background-color: #7b776b;
+        }
+    }
+
+    .amacart-same-box {
+        margin-bottom: 15px;
+    }
+
+    .amacart-checkbox-container {
+        margin-bottom: 15px;
+    }
+}

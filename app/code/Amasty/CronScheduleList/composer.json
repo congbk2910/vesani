@@ -1,0 +1,21 @@
+{
+    "name": "amasty/cron-schedule-list",
+    "description": "Cron Schedule List by Amasty",
+    "require": {
+        "php": ">=7.3",
+        "amasty/base": ">=1.13.2"
+    },
+    "type": "magento2-module",
+    "version": "1.0.6",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\CronScheduleList\\": ""
+        }
+    }
+}

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+-->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amasty_acart_rule_form.amasty_acart_rule_form_data_source</item>
+            <item name="deps" xsi:type="string">amasty_acart_rule_form.amasty_acart_rule_form_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">amasty_acart_rule_form_data_source</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="delete" xsi:type="string">Amasty\Acart\Block\Adminhtml\Buttons\DeleteButton</item>
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">save</item>
+                <item name="label" xsi:type="string" translate="true">Save</item>
+                <item name="class" xsi:type="string">save primary</item>
+            </item>
+            <item name="save_and_continue" xsi:type="array">
+                <item name="name" xsi:type="string">save_and_continue</item>
+                <item name="label" xsi:type="string" translate="true">Save and Continue Edit</item>
+                <item name="class" xsi:type="string">save_and_continue</item>
+            </item>
+        </item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+            <item name="navContainerName" xsi:type="string">left</item>
+        </item>
+    </argument>
+    <dataSource name="amasty_acart_rule_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\Acart\Ui\DataProvider\Rule\Form</argument>
+            <argument name="name" xsi:type="string">amasty_acart_rule_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">rule_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="amasty_acart/rule/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" path="amasty_acart/rule/save" xsi:type="url" />
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="label" xsi:type="string" translate="true">General</item>
+            </item>
+        </argument>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\Acart\Model\OptionSource\Status</item>
+            </argument>
+        </field>
+        <field name="priority">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Priority</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-digits" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="cancel_condition">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Cancel Condition</item>
+                    <item name="notice" xsi:type="string" translate="true">Note! Additional to the listed actions Order Placed action will always cancel the abandoned cart email</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\Acart\Model\OptionSource\CancelCondition</item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="apply_in">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="label" xsi:type="string" translate="true">Stores &amp; Customer Groups</item>
+            </item>
+        </argument>
+        <field name="store_ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Stores</item>
+                    <item name="notice" xsi:type="string" translate="true">Leave empty or select all to apply the campaign to any store</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+                <item name="options" xsi:type="object">Magento\Store\Model\System\Store</item>
+            </argument>
+        </field>
+        <field name="customer_group_ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Customer Groups</item>
+                    <item name="notice" xsi:type="string" translate="true">Leave empty or select all to apply the campaign to any group</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\Acart\Model\OptionSource\Groups</item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="conditions_fieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="label" xsi:type="string" translate="true">Conditions</item>
+            </item>
+        </argument>
+        <container name="conditions_apply_to">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Amasty\Acart\Block\Adminhtml\Conditions\Rule\Conditions</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+    <fieldset name="schedule_fieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="additionalClasses" xsi:type="string">amacard-shedule-fieldset</item>
+                <item name="wasActivated" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">Schedule</item>
+            </item>
+        </argument>
+        <container name="schedule">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="template" xsi:type="string">Amasty_Acart/form/schedule-container</item>
+                    <item name="component" xsi:type="string">Amasty_Acart/js/schedule</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="schedules" xsi:type="string">${ $.provider }:${ $.dataScope }</item>
+                    </item>
+                </item>
+            </argument>
+        </container>
+    </fieldset>
+    <fieldset name="analytics_fieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="label" xsi:type="string" translate="true">Google Analytics</item>
+            </item>
+        </argument>
+        <field name="utm_source">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Campaign Source</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[<b>Required.</b> Use <b>utm_source</b> to identify a search engine, newsletter name, or other source.<br/><i>Example:</i> utm_source=google]]></item>
+                </item>
+            </argument>
+        </field>
+        <field name="utm_medium">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Campaign Medium</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[<b>Required.</b> Use <b>utm_medium</b> to identify a medium such as email or cost-per- click<br/><i>Example:</i> utm_medium=cpc]]></item>
+                </item>
+            </argument>
+        </field>
+        <field name="utm_campaign">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Campaign Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[<b>Required.</b> Used for keyword analysis. Use <b>utm_campaign</b> to identify a specific product promotion or strategic campaign.<br/><i>Example:</i> utm_campaign=spring_sale]]></item>
+                </item>
+            </argument>
+        </field>
+        <field name="utm_term">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Campaign Term</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[Used for paid search. Use <b>utm_term</b> to note the keywords for this ad.<br/><i>Example:</i> utm_term=running+shoes]]></item>
+                </item>
+            </argument>
+        </field>
+        <field name="utm_content">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Campaign Content</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[Used for A/B testing and content-targeted ads. Use <b>utm_content</b> to differentiate ads or links that point to the same URL.<br/><i>Example:</i> utm_content=logolink <i>or</i> utm_content=textlink]]></item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="test" class="Amasty\Acart\Ui\Component\Form\TestFieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data</item>
+                <item name="label" xsi:type="string" translate="true">Test</item>
+                <item name="additionalClasses" xsi:type="string">amacard-codes-grid</item>
+            </item>
+        </argument>
+        <insertListing name="test_grid">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataScope" xsi:type="string">data</item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="selectionsProvider" xsi:type="string">amasty_acart_test_grid.amasty_acart_test_grid.amasty_acart_test_columns.ids</item>
+                    <item name="externalProvider" xsi:type="string">amasty_acart_test_grid.amasty_acart_test_grid_data_source</item>
+                    <item name="ns" xsi:type="string">amasty_acart_test_grid</item>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="behaviourType" xsi:type="string">edit</item>
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="imports" xsi:type="array">
+                        <item name="ruleId" xsi:type="string">${ $.provider }:data.rule_id</item>
+                    </item>
+                    <item name="exports" xsi:type="array">
+                        <item name="ruleId" xsi:type="string">${ $.externalProvider }:ruleId</item>
+                    </item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+</form>

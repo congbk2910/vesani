@@ -1,0 +1,22 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+?>
+<?php
+/** @var \Amasty\Acart\Block\GrabEmail $block */
+?>
+<?php if ($block->isGrabbingAllowed()): ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Amasty_Acart/js/grabemail": {
+                "isNeedLogEmail" : "<?= /* @noEscape */ (int)$block->isNeedLogEmail() ?>",
+                "grabEmailUrl": "<?= $block->escapeUrl($block->getGrabUrl()) ?>"
+            }
+        }
+    }
+</script>
+<?php endif; ?>

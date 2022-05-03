@@ -1,0 +1,7 @@
+<ul class="amacart-list-container" repeat="foreach: rows, item: '$row'">
+    <li class="amacart-row" outerfasteach="data: getVisible(), as: '$col'"
+        css="getFieldClass($row())">
+        <span if="$col.label" class="amacart-caption" data-bind="text: $col.label"></span>
+        <render args="getBody()"/>
+    </li>
+</ul>

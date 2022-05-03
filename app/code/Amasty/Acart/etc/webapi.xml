@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Email blacklist CRUD interface -->
+    <route url="/V1/amasty_acart/blacklist/:id" method="GET">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_acart/blacklist/getByCustomerEmail/:customerEmail" method="GET">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="getByCustomerEmail"/>
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_acart/blacklist/all" method="GET">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_acart/blacklist" method="POST">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_acart/blacklist/:id" method="PUT">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_acart/blacklist/:id" method="DELETE">
+        <service class="Amasty\Acart\Api\BlacklistRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Amasty_Acart::acart_blacklist" />
+        </resources>
+    </route>
+</routes>

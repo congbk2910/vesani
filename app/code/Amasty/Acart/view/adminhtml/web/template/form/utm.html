@@ -1,0 +1,51 @@
+<div class="amacart-checkbox-container">
+    <input type="checkbox"
+           class="amacart-checkbox"
+           data-bind="
+                        checked: $data.use_campaign_utm,
+                        event: {change: $data.onCheckedChanged.bind($data, $data.use_campaign_utm)},
+                        attr: {
+                            id: $parent.htmlId + '_' + $index() + '_use_campaign_utm',
+                            name: $parent.htmlName + '[' + $index() + '][use_campaign_utm]'
+                        }"/>
+    <label class="amacart-label" data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_use_campaign_utm'}">
+        <span data-bind="i18n: 'Use'"></span>
+        <a href="#" data-bind="i18n: 'Google Analytics', click: $data.openGaTab.bind($data)"></a>
+        <span data-bind="i18n: 'UTM Parameters'"></span>
+    </label>
+</div>
+<!-- ko ifnot: $data.use_campaign_utm -->
+<div class="amacart-row">
+    <label class="amacart-label"
+           data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_utm_source'}, i18n: 'UTM Source'"></label>
+    <input type="text"
+           class="admin__control-text"
+           data-bind="value: $data.utm_source,
+                      attr: {
+                            id: $parent.htmlId + '_' + $index() + '_utm_source',
+                            name: $parent.htmlName + '[' + $index() + '][utm_source]'
+                        }"/>
+</div>
+<div class="amacart-row">
+    <label class="amacart-label"
+           data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_utm_medium'}, i18n: 'UTM Medium'"></label>
+    <input type="text"
+           class="admin__control-text"
+           data-bind="value: $data.utm_medium,
+                      attr: {
+                          id: $parent.htmlId + '_' + $index() + '_utm_medium',
+                          name: $parent.htmlName + '[' + $index() + '][utm_medium]'
+                      }"/>
+</div>
+<div class="amacart-row">
+    <label class="amacart-label"
+           data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_utm_campaign'}, i18n: 'UTM Campaign'"></label>
+    <input type="text"
+           class="admin__control-text"
+           data-bind="value: $data.utm_campaign,
+                      attr: {
+                          id: $parent.htmlId + '_' + $index() + '_utm_campaign',
+                          name: $parent.htmlName + '[' + $index() + '][utm_campaign]'
+                      }"/>
+</div>
+<!-- /ko -->

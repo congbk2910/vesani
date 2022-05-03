@@ -1,0 +1,21 @@
+{
+    "name": "amasty/geoip",
+    "description": "Amasty Geoip Data",
+    "require": {
+        "php": ">=7.3",
+        "amasty/base": ">=1.13.2"
+    },
+    "type": "magento2-module",
+    "version": "1.5.7",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\Geoip\\": ""
+        }
+    }
+}

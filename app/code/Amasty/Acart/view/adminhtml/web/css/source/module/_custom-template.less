@@ -1,0 +1,102 @@
+//
+//  Amasty Acart Custom Template Styles
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+& when (@media-common = true) {
+    .amacart-custom-template {
+        .amacart-load-template {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 0;
+        }
+
+        .amacart-custom-title {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .amacart-template-block {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+    }
+
+    .amacart-custom-title,
+    .amacart-template-block,
+    .amacart-load-template {
+        max-width: 460px;
+    }
+
+    .amacart-template-block > .amacart-button {
+        align-self: baseline;
+        margin-bottom: 15px;
+    }
+
+    .amacart-load-template > .amacart-button {
+        align-self: flex-end;
+    }
+
+    .amacart-load-template > .admin__field.amacart-row {
+        margin: 0;
+    }
+
+    .amacart-custom-template {
+        .amacart-row {
+            margin: 0 0 15px;
+            max-width: 100%;
+        }
+
+        .amacart-row.-template {
+            max-width: 270px;
+        }
+
+        .amacart-row .admin__field-control,
+        .amacart-row .admin__field-label {
+            float: none;
+            margin-left: 0;
+            width: auto;
+        }
+
+        .amacart-row .admin__field-label {
+            margin-bottom: 5px;
+            text-align: left;
+            line-height: 19px;
+        }
+
+        .amacart-button {
+            padding: 6px 20px;
+            border: 1px solid #adadad;
+            border-radius: 3px;
+            background: #f6f6f6;
+            color: #5a5552;
+            text-shadow: none;
+            transition: background-color .3s ease-in;
+        }
+
+        .amacart-button:hover {
+            background-color: #dbdbdb;
+            box-shadow: none;
+        }
+
+        .amacart-textarea {
+            border-radius: 1px;
+        }
+
+        .amacart-input {
+            height: 33px;
+            border: 1px solid #adadad;
+            border-radius: 1px;
+        }
+
+        .amacart-label {
+            margin-bottom: 5px;
+        }
+    }
+}

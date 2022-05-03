@@ -1,0 +1,213 @@
+<tr data-bind="attr: {id: $parent.htmlId + '_' + $index() + '_schedule'}">
+    <td class="amacart-td">
+        <input type="hidden"
+               data-bind="
+                    attr: {
+                        id: $parent.htmlId + '_' + $index() + '_schedule_id',
+                        name: $parent.htmlName + '[' + $index() + '][schedule_id]'},
+                    value: $data.schedule_id"/>
+        <select class="amacart-field -template"
+                data-bind="
+                    attr: {
+                        id: $parent.htmlId + '_' + $index() + '_template_id',
+                        name: $parent.htmlName + '[' + $index() + '][template_id]'},
+                        options: $parent.emailTemplates,
+                        optionsText: 'label',
+                        optionsValue: 'value',
+                        value: $data.template_id">
+        </select>
+        <!-- ko template: $data.utmTemplate --><!-- /ko -->
+    </td>
+    <td class="amacart-td">
+        <div class="amacart-row">
+            <label class="amacart-label"
+                   data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_days'}, i18n: 'Days'"></label>
+            <input type="text"
+                   class="validate-greater-than-zero amacart-field"
+                   data-bind="
+                        value: $data.days,
+                        attr: {
+                            id: $parent.htmlId + '_' + $index() + '_days',
+                            name: $parent.htmlName + '[' + $index() + '][delivery_time][days]'
+                        }"/>
+        </div>
+        <div class="amacart-row">
+            <label class="amacart-label"
+                   data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_hours'}, i18n: 'Hours'"></label>
+            <select class="amacart-field"
+                    data-bind="attr: {
+                                    id: $parent.htmlId + '_' + $index() + '_hours',
+                                    name: $parent.htmlName + '[' + $index() + '][delivery_time][hours]'},
+                                    options: $parent.getNumericOptions(24),
+                                    optionsText: 'label',
+                                    optionsValue: 'value',
+                                    value: $data.hours"></select>
+        </div>
+        <div class="amacart-row">
+            <label class="amacart-label"
+                   data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_minutes'}, i18n: 'Minutes'"></label>
+            <select class="amacart-field"
+                    data-bind="attr: {
+                                    id: $parent.htmlId + '_' + $index() + '_minutes',
+                                    name: $parent.htmlName + '[' + $index() + '][delivery_time][minutes]'},
+                                    options: $parent.getNumericOptions(60),
+                                    optionsText: 'label',
+                                    optionsValue: 'value',
+                                    value: $data.minutes"></select>
+        </div>
+    </td>
+    <td class="amacart-td">
+        <!-- ko ifnot: $data.use_shopping_cart_rule -->
+        <div data-bind="attr: {id: $parent.htmlId + '_' + $index() + '_coupon_own'}">
+            <div>
+                <div class="amacart-row">
+                    <label class="amacart-label"
+                           data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_simple_action'}, i18n: 'Type'"></label>
+                    <select class="amacart-field"
+                            data-bind="
+                                    disable: $data.send_same_coupon,
+                                    attr: {
+                                        id: $parent.htmlId + '_' + $index() + '_simple_action',
+                                        name: $parent.htmlName + '[' + $index() + '][coupon][simple_action]'},
+                                        value: $data.simple_action,
+                                        event: {change: $parent.setSameCouponValue.bind($parent, $data, $index())}">
+                        <option value="" data-bind="i18n: 'None'"></option>
+                        <option value="by_percent" data-bind="i18n: 'Percent of product price discount'"></option>
+                        <option value="by_fixed" data-bind="i18n: 'Fixed amount discount'"></option>
+                        <option value="cart_fixed" data-bind="i18n: 'Fixed amount discount for whole cart'"></option>
+                    </select>
+                </div>
+                <div class="amacart-row">
+                    <label class="amacart-label"
+                           data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_discount_amount'},
+                                      i18n: 'Discount Amount'"></label>
+                    <input type="text"
+                           class="validate-not-negative-number amacart-field"
+                           data-bind="
+                            value: $data.discount_amount,
+                            disable: $data.send_same_coupon,
+                            attr: {
+                                id: $parent.htmlId + '_' + $index() + '_discount_amount',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][discount_amount]'
+                            }"/>
+                </div>
+            </div>
+            <a class="amacart-link"
+               data-bind="click: $data.toggleMoreInfo.bind($data), css: {'-show': $data.isShowExtra}">
+                <span data-bind="text: $data.isShowExtra() ? $t('Collapse') : $t('Expand')"></span>
+                <span class="amacart-arrow-container"><span class="amacart-arrow"></span></span>
+            </a>
+            <!-- ko if: $data.isShowExtra -->
+            <div>
+                <div class="amacart-row">
+                    <label class="amacart-label" data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_expired_in_days'}, i18n: 'Expired in (days)'"></label>
+                    <input type="text"
+                           class="amacart-field"
+                           data-bind="
+                            value: $data.expired_in_days,
+                            disable: $data.send_same_coupon,
+                            attr: {
+                                id: $parent.htmlId + '_' + $index() + '_expired_in_days',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][expired_in_days]'
+                            }"/>
+                </div>
+                <div class="amacart-row">
+                    <label class="amacart-label" data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_discount_qty'}, i18n: 'Maximum Qty Discount is Applied To'"></label>
+                    <input type="text"
+                           class="amacart-field"
+                           data-bind="
+                            value: $data.discount_qty,
+                            disable: $data.send_same_coupon,
+                            attr: {
+                                id: $parent.htmlId + '_' + $index() + '_discount_qty',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][discount_qty]'
+                            }"/>
+                </div>
+                <div class="amacart-row">
+                    <label class="amacart-label" data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_discount_step'}, i18n: 'Discount Qty Step (Buy X)'"></label>
+                    <input type="text"
+                           class="amacart-field"
+                           data-bind="
+                            value: $data.discount_step,
+                            disable: $data.send_same_coupon,
+                            attr: {
+                                id: $parent.htmlId + '_' + $index() + '_discount_step',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][discount_step]'
+                            }"/>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+        <!-- ko if: $index() > 0 && !$data.use_shopping_cart_rule() -->
+        <div class="amacart-same-box">
+            <input type="checkbox"
+                   class="amacart-checkbox"
+                   data-bind="
+                        checked: $data.send_same_coupon,
+                        event: {change: $data.onCheckedChanged.bind($data, $data.send_same_coupon, $index())},
+                        enable: $data.parentCouponType() || $data.prevSameCoupon() || $data.prevUseCartRule(),
+                        attr: {
+                            id: $parent.htmlId + '_' + $index() + '_send_same_coupon',
+                            name: $parent.htmlName + '[' + $index() + '][coupon][send_same_coupon]'
+                        }"/>
+            <label class="amacart-label"
+                   data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_send_same_coupon'},
+                              i18n: 'Send the Same Coupon Again'"></label>
+        </div>
+        <!-- /ko -->
+        <div data-bind="visible: !$data.send_same_coupon()">
+            <input type="checkbox"
+                   class="amacart-checkbox"
+                   data-bind="
+                        checked: $data.use_shopping_cart_rule,
+                        event: {change: $data.onCheckedChanged.bind($data, $data.use_shopping_cart_rule)},
+                        attr: {
+                            id: $parent.htmlId + '_' + $index() + '_use_shopping_cart_rule',
+                            name: $parent.htmlName + '[' + $index() + '][coupon][use_shopping_cart_rule]'
+                        }"/>
+            <label class="amacart-label" data-bind="attr: {for: $parent.htmlId + '_' + $index() + '_use_shopping_cart_rule'}, i18n: 'Use Shopping Cart Rule'"></label>
+        </div>
+        <!-- ko if: $data.use_shopping_cart_rule -->
+        <div class="amacart-sales-select">
+            <!-- ko if: $parent.isShowSalesRuleSelect() -->
+            <select class="amacart-select amacart-field" data-bind="attr: {
+                                id: $parent.htmlId + '_' + $index() + '_sales_rule_id',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][sales_rule_id]'},
+                                options: $parent.salesRuleData,
+                                optionsText: 'label',
+                                optionsValue: 'value',
+                                value: $data.sales_rule_id"></select>
+            <!-- /ko -->
+            <!-- ko ifnot: $parent.isShowSalesRuleSelect() -->
+            <input type="text"
+                   class="amacart-ruleid amacart-field"
+                   data-bind="value: $data.sales_rule_id,
+                              attr: {
+                                placeholder: 'Rule ID',
+                                id: $parent.htmlId + '_' + $index() + '_sales_rule_id',
+                                name: $parent.htmlName + '[' + $index() + '][coupon][sales_rule_id]'}"/>
+            <!-- /ko -->
+            <small data-bind="i18n: 'Rule option `Use Auto Generation` should be turned on'"></small>
+            <!-- ko if: $parent.isModuleRulesEnabled -->
+            <div>
+                <small>
+                    <span data-bind="i18n: 'Enrich your cart price rules list with 20 more promo actions. Run a great variety of exclusive promotions to easily attract customers attention and increase sales. See more details'"></span>
+                    <a target='_blank' data-bind="i18n: 'here', attr: {href: $parent.promotionExtensionUrl}"></a>
+                </small>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+    </td>
+    <td class="amacart-td -delete">
+        <button class="amacart-delete" data-bind="
+                        attr: {title: $t('Delete')},
+                        click: $parent.deleteItem.bind($parent, $data, false)"></button>
+    </td>
+</tr>
+<!-- ko if: $data.elems() -->
+    <!-- ko foreach: $data.elems() -->
+        <!--ko template: getTemplate()--><!-- /ko -->
+    <!-- /ko -->
+<!-- /ko -->

@@ -1,0 +1,60 @@
+//
+//  Amasty Acart Config styles
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amacart-upload-container {
+        .amacart-file {
+            display: none;
+        }
+
+        .amacart-upload {
+            & {
+                box-sizing: border-box;
+                padding: 8px 20px;
+                border: 1px solid #adadad;
+                border-radius: 3px;
+                background: #f6f6f6;
+                cursor: pointer;
+                transition: opacity .3s ease-in;
+            }
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+
+        .amacart-filename {
+            margin-left: 10px;
+        }
+    }
+
+    .amacart-input + .ui-widget {
+        .tagit-new {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ui-autocomplete-input {
+            padding: .5rem;
+            height: 29px;
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .tagit-choice-editable {
+            padding: .1em 1.8em .1em .5em;
+        }
+    }
+
+    #row_amasty_acart_general_import {
+        .label,
+        .value {
+            padding-top: 40px;
+        }
+    }
+}

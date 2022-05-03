@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Acart\Api\RuleRepositoryInterface"
+                type="Amasty\Acart\Model\Rule\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\RuleInterface"
+                type="Amasty\Acart\Model\Rule"/>
+    <preference for="Amasty\Acart\Api\Data\BlacklistInterface"
+                type="Amasty\Acart\Model\Blacklist"/>
+    <preference for="Amasty\Acart\Api\BlacklistRepositoryInterface"
+                type="Amasty\Acart\Model\Blacklist\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\BlacklistSearchResultsInterface"
+                type="Amasty\Acart\Model\BlacklistSearchResults" />
+    <preference for="Amasty\Acart\Api\Data\HistoryInterface"
+                type="Amasty\Acart\Model\History"/>
+    <preference for="Amasty\Acart\Api\HistoryRepositoryInterface"
+                type="Amasty\Acart\Model\History\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\RuleQuoteInterface"
+                type="Amasty\Acart\Model\RuleQuote"/>
+    <preference for="Amasty\Acart\Api\RuleQuoteRepositoryInterface"
+                type="Amasty\Acart\Model\RuleQuote\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\ScheduleInterface"
+                type="Amasty\Acart\Model\Schedule"/>
+    <preference for="Amasty\Acart\Api\Data\HistoryDetailInterface"
+                type="Amasty\Acart\Model\History\ProductDetails\Detail"/>
+    <preference for="Amasty\Acart\Api\ScheduleRepositoryInterface"
+                type="Amasty\Acart\Model\Schedule\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\QuoteEmailInterface"
+                type="Amasty\Acart\Model\QuoteEmail"/>
+    <preference for="Amasty\Acart\Api\QuoteEmailRepositoryInterface"
+                type="Amasty\Acart\Model\QuoteEmail\Repository"/>
+    <preference for="Amasty\Acart\Api\Data\ScheduleEmailTemplateInterface"
+                type="Amasty\Acart\Model\EmailTemplate"/>
+    <preference for="Amasty\Acart\Api\ScheduleEmailTemplateRepositoryInterface"
+                type="Amasty\Acart\Model\EmailTemplate\Repository"/>
+
+    <preference for="Amasty\Acart\Api\QueueManagementInterface"
+                type="Amasty\Acart\Model\QueueManagement"/>
+    <preference for="Amasty\Acart\Api\QuoteManagementInterface"
+                type="Amasty\Acart\Model\QuoteManagement"/>
+
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="Amasty_Acart::handle-quote-extensions" type="Amasty\Acart\Plugin\Quote\CartRepositoryPlugin" />
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_acart_rule_grid_data_source" xsi:type="string">Amasty\Acart\Model\ResourceModel\Rule\Grid\Collection</item>
+                <item name="amasty_acart_blacklist_grid_data_source" xsi:type="string">Amasty\Acart\Model\ResourceModel\Blacklist\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\Acart\Model\SalesRule\Condition\CombineFactory" type="Magento\SalesRule\Model\Rule\Condition\CombineFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">\Amasty\Acart\Model\SalesRule\Condition\Combine</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\Acart\Model\SalesRule">
+        <arguments>
+            <argument name="condCombineFactory" xsi:type="object">Amasty\Acart\Model\SalesRule\Condition\CombineFactory</argument>
+        </arguments>
+    </type>
+    <virtualType name="AmastyAcartRuleRelationsComposite" type="Magento\Framework\Model\ResourceModel\Db\VersionControl\RelationComposite">
+        <arguments>
+            <argument name="relationProcessors" xsi:type="array">
+                <item name="store" xsi:type="object">Amasty\Acart\Model\Rule\Relation\StoreProcessor</item>
+                <item name="customerGroup" xsi:type="object">Amasty\Acart\Model\Rule\Relation\CustomerGroupProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\Acart\Model\ResourceModel\Rule">
+        <arguments>
+            <argument name="entityRelationComposite" xsi:type="object">AmastyAcartRuleRelationsComposite</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Acart\Model\EmailTemplate\LegacyTemplateProcessor">
+        <arguments>
+            <argument name="defaultProcessor" xsi:type="object">Amasty\Acart\Model\EmailTemplate\ProcessorPool\DefaultLegacyTemplateProcessor</argument>
+            <argument name="templateProcessors" xsi:type="array">
+                <item name="Amasty\Acart\Api\Data\ScheduleEmailTemplateInterface" xsi:type="object">Amasty\Acart\Model\EmailTemplate\ProcessorPool\ScheduleLegacyTemplateProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Email\Model\Template\Filter">
+        <plugin name="Amasty_Acart::cache-css-file-content" type="Amasty\Acart\Plugin\Email\Model\Template\FilterPlugin"/>
+    </type>
+    <type name="Amasty\Base\Plugin\Setup\Model\DeclarationInstaller\ApplyPatchesBeforeDeclarativeSchema">
+        <arguments>
+            <argument name="moduleNames" xsi:type="array">
+                <item name="amasty_acart" xsi:type="string">Amasty_Acart</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

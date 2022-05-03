@@ -1,0 +1,241 @@
+//
+//  Amasty Tags Component
+//  ____________________________________________
+
+//
+//  Variables
+//  _____________________________________________
+
+@am-link-color: #222;
+@am-border: #aaa;
+@am-background: #dadada;
+@am-color: #212121;
+@am-border-color: #6d95e0;
+@am-state-border: #999;
+@am-hover-background: #bbcef1;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    ul.tagit {
+        & {
+            overflow: auto;
+            margin-right: inherit;
+            padding: 1px 5px;
+            border: 1px solid #c6c6c6;
+            background: inherit;
+        }
+
+        li {
+            display: block;
+            float: left;
+            margin: 2px 5px 2px 0;
+        }
+
+        li.tagit-choice {
+            & {
+                position: relative;
+                border: 1px solid #cad8f3;
+                border-radius: 6px;
+                background: none;
+                background-color: #dee7f8 !important;
+                font-weight: normal;
+                line-height: inherit;
+            }
+
+            a.tagit-label {
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .tagit-close {
+                position: absolute;
+                top: 50%;
+                right: .4em;
+                margin-top: -8px;
+                line-height: 17px;
+                cursor: pointer;
+            }
+
+            .tagit-close .text-icon {
+                display: inline;
+                color: #777;
+                font-size: 16px;
+                font-family: arial, sans-serif;
+                line-height: 16px;
+            }
+
+            input {
+                display: block;
+                float: left;
+                margin: 2px 5px 2px 0;
+            }
+
+            .tagit-label {
+                &:not(a) {
+                    color: #555;
+                }
+            }
+
+            a.tagit-close {
+                text-decoration: none;
+            }
+
+            a.tagit-close .text-icon {
+                &:hover {
+                    color: @am-link-color;
+                }
+            }
+
+            .ui-icon {
+                display: none;
+            }
+
+            &:hover {
+                border-color: @am-border-color;
+                background-color: @am-hover-background;
+            }
+
+            a.tagLabel {
+                &:hover {
+                    color: @am-link-color;
+                }
+            }
+        }
+
+        li.tagit-choice-read-only {
+            padding: .2em .5em;
+        }
+
+        li.tagit-choice-editable {
+            padding: .2em 18px .2em .5em;
+        }
+
+        li.tagit-new {
+            padding: .25em 4px .25em 0;
+            width: 250px;
+        }
+
+        input[type='text'] {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: inherit;
+            outline: none;
+            border: none;
+            background: none;
+            background-color: inherit;
+            box-shadow: none;
+            color: #333;
+        }
+
+        li.tagit-choice.remove {
+            border-color: @am-border-color;
+            background-color: @am-hover-background;
+        }
+    }
+
+    input.tagit-hidden-field {
+        display: none;
+    }
+
+    .ui-widget {
+        font-size: 1.1em;
+    }
+
+    .tagit-autocomplete.ui-autocomplete {
+        position: absolute;
+        width: 1px;
+        cursor: default;
+    }
+
+    .tagit-autocomplete.ui-menu {
+        & {
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 2px;
+            list-style: none;
+        }
+
+        .ui-menu {
+            margin-top: -3px;
+        }
+
+        .ui-menu-item {
+            float: left;
+            clear: left;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            zoom: 1;
+        }
+
+        .ui-menu-item a {
+            display: block;
+            padding: .2em .4em;
+            text-decoration: none;
+            line-height: 1.5;
+            zoom: 1;
+        }
+    }
+
+    .tagit-autocomplete {
+        .ui-menu {
+            .ui-menu-item a.ui-state-hover {
+                margin: -1px;
+                font-weight: normal;
+            }
+
+            .ui-menu-item a.ui-state-active {
+                margin: -1px;
+                font-weight: normal;
+            }
+        }
+
+        .ui-corner-all {
+            border-radius: 4px;
+        }
+
+        .ui-state-hover {
+            border: 1px solid @am-state-border;
+            background: @am-background;
+            color: @am-color;
+            font-weight: normal;
+        }
+
+        .ui-state-focus {
+            border: 1px solid @am-state-border;
+            background: @am-background;
+            color: @am-color;
+            font-weight: normal;
+        }
+
+        .ui-state-active {
+            border: 1px solid @am-border;
+        }
+
+        .ui-widget-content {
+            border: 1px solid @am-border;
+        }
+    }
+
+    .tagit-autocomplete.ui-widget-content {
+        border: 1px solid @am-border;
+        background: #fff 50% 50% repeat-x;
+        color: @am-link-color;
+    }
+
+    .tagit-autocomplete.ui-corner-all {
+        border-radius: 4px;
+    }
+
+    .tagit {
+        .ui-helper-hidden-accessible {
+            position: absolute !important;
+            clip: rect(1px, 1px, 1px, 1px);
+        }
+    }
+}

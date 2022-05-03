@@ -1,0 +1,10 @@
+<?php /** @var \Amasty\CronScheduleList\Block\Adminhtml\Notice $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
+
+<div class="amasty_cron_notice">
+    <div class="message">
+        <p>
+            <?= $escaper->escapeHtml(__('Last Cron Activity: %1', $block->getLastActivity())); ?>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Acart
+*/
+?>
+<?php
+/** @var \Amasty\Acart\Block\Adminhtml\System\Config\Field\Blacklist $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="amacart-upload-container" data-amacart-js="upload">
+    <label for="<?= $escaper->escapeHtmlAttr($block->getHtmlId()) ?>" class="amacart-upload">
+        <input name="<?= $escaper->escapeHtmlAttr($block->getName()) ?>"
+               id="<?= $escaper->escapeHtmlAttr($block->getHtmlId()) ?>"
+               class="amacart-file"
+               data-amacart-js="file"
+               type="file"
+               accept=".csv"
+        />
+        <?= $escaper->escapeHtml(__('Select CSV File')) ?>
+    </label>
+    <span class="amacart-filename" data-amacart-js="filename"></span>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-amacart-js='upload']": {
+            "Amasty_Acart/js/upload": {}
+        }
+    }
+</script>

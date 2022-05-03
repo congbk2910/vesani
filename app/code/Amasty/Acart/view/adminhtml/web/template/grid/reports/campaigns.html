@@ -1,0 +1,17 @@
+<table class="amacart-table-statistics">
+    <tr class="amacart-tr">
+        <th class="amacart-th -campaign" data-bind="i18n: 'Campaign Name'"></th>
+        <th class="amacart-th" data-bind="i18n: 'Status'"></th>
+        <th class="amacart-th" data-bind="i18n: 'Statistic'"></th>
+    </tr>
+    <tr class="amacart-tr" repeat="foreach: rows, item: '$row'">
+        <td class="amacart-td" outerfasteach="data: getVisible(), as: '$col'"
+            css="getFieldClass($row())">
+            <span if="$col.label" class="amacart-caption" data-bind="text: $col.label"></span>
+            <render args="getBody()"/>
+        </td>
+    </tr>
+    <tr ifnot="hasData()" class="data-grid-tr-no-data">
+        <td attr="colspan: countVisible()" translate="'We couldn\'t find any records.'"/>
+    </tr>
+</table>

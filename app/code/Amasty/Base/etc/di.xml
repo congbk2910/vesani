@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Amasty_Base
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Base\Model\Feed\Response\FeedResponseInterface" type="Amasty\Base\Model\Feed\Response\FeedResponse"/>
+    <preference for="Magento\Framework\Filesystem\DriverInterface" type="Magento\Framework\Filesystem\Driver\File" />
+
+    <type name="Amasty\Base\Model\Response\OctetResponseInterfaceFactory">
+        <arguments>
+            <argument name="responseFactoryAssociationMap" xsi:type="array">
+                <item name="file" xsi:type="object">Amasty\Base\Model\Response\File\FileOctetResponseFactory</item>
+                <item name="url" xsi:type="object">Amasty\Base\Model\Response\File\FileUrlOctetResponseFactory</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\TemplateEngine\Php">
+        <plugin name="Amasty_Base::AddEscaperToPhpRenderer" type="Amasty\Base\Plugin\Framework\View\TemplateEngine\Php" sortOrder="10"/>
+    </type>
+
+    <!--Add possibility for apply patches before DS start-->
+    <virtualType name="Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader" type="Magento\Framework\Setup\Patch\PatchReader">
+        <arguments>
+            <argument name="type" xsi:type="string">declarativeSchemaApplyBefore</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Base\Setup\Patch\PatchApplier" type="Magento\Framework\Setup\Patch\PatchApplier">
+        <arguments>
+            <argument name="dataPatchReader" xsi:type="object">Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader</argument>
+            <argument name="schemaPatchReader" xsi:type="object">Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Base\Plugin\Setup\Model\DeclarationInstaller\ApplyPatchesBeforeDeclarativeSchema">
+        <arguments>
+            <argument name="patchApplier" xsi:type="object">Amasty\Base\Setup\Patch\PatchApplier</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Setup\Model\DeclarationInstaller">
+        <plugin name="Amasty_Base::execute-patches-before-schema-apply"
+                type="Amasty\Base\Plugin\Setup\Model\DeclarationInstaller\ApplyPatchesBeforeDeclarativeSchema"/>
+    </type>
+    <!--Add possibility for apply patches before DS end-->
+
+    <virtualType name="Amasty\Base\Model\LicenceService\Response\Entity\Config\RegisteredInstance"
+                 type="Amasty\Base\Utils\Http\Response\Entity\Config">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="class_name" xsi:type="string">Amasty\Base\Model\LicenceService\Response\Data\RegisteredInstance</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\Base\Utils\Http\Response\Entity\ConfigPool">
+        <arguments>
+            <argument name="configs" xsi:type="array">
+                <item name="/api/v1/instance_client/registration" xsi:type="object">
+                    Amasty\Base\Model\LicenceService\Response\Entity\Config\RegisteredInstance
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Base\Model\SysInfo\Provider\CollectorPool">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="licenceService" xsi:type="array">
+                    <item name="modules" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\LicenceService\Module</item>
+                    <item name="domains" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\LicenceService\Domain</item>
+                    <item name="platform" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\LicenceService\Platform</item>
+                </item>
+                <item name="sysInfoService" xsi:type="array">
+                    <item name="module" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\Module</item>
+                    <item name="config" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\Config</item>
+                    <item name="system" xsi:type="object">Amasty\Base\Model\SysInfo\Provider\Collector\System</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Config\FileResolverByModule">
+        <plugin name="AmBase::FileResolverByModule"
+                type="Amasty\Base\Plugin\Framework\Setup\Declaration\Schema\FileSystem\XmlReader\RestrictDropOperationsPlugin"/>
+    </type>
+
+    <!-- CLI Configuration Start -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="AmBase::sendSysInfo" xsi:type="object">Amasty\Base\Console\Command\SendSysInfo</item>
+                <item name="AmBase::registerLicenceKey" xsi:type="object">Amasty\Base\Console\Command\RegisterLicenceKey</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- CLI Configuration End -->
+</config>
