@@ -30,6 +30,7 @@ use Magento\Framework\UrlInterface;
 class Actions extends Column
 {
     const URL_PATH_EDIT = 'sharecart/sharecart/edit';
+    const URL_PATH_DETAILS = 'sharecart/sharecart/details';
     const URL_PATH_DELETE = 'sharecart/sharecart/delete';
     const URL_PATH_PLACEORDER = 'sharecart/placeorder/edit';
     protected $actionUrlBuilder;
@@ -61,6 +62,10 @@ class Actions extends Column
                     $item[$name]['edit'] = [
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['sharecart_id' => $item['sharecart_id']]),
                         'label' => __('Edit')
+                    ];
+                    $item[$name]['details'] = [
+                        'href' => $this->urlBuilder->getUrl(self::URL_PATH_DETAILS, ['quote_id' => $item['quote_id']]),
+                        'label' => __('Details')
                     ];
                     $item[$name]['placeorder'] = [
                         'href' => $this->urlBuilder->getUrl(self::URL_PATH_PLACEORDER, ['sharecart_id' => $item['sharecart_id']]),

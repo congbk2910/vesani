@@ -1,0 +1,48 @@
+<?php
+$quoteId = $this->getRequest()->getParam('quote_id'); 
+$_items=$this->getCartdetailById($quoteId);
+$_grandTotal=$this->getGrandTotalById($quoteId);
+$_subTotal=$this->getSubTotalById($quoteId);
+?>
+<?php foreach ($_items as $item): ?>
+    <table class="data-grid data-grid-draggable" data-role="grid">
+       <thead>
+            <tr>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content" data-bind="i18n: label">Product Name</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content" data-bind="i18n: label">Qty</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content" data-bind="i18n: label">Unit Price</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content" data-bind="i18n: label">Sub Total</span>
+                </th>
+                <th class="data-grid-th">
+                    <span class="data-grid-cell-content" data-bind="i18n: label">Total</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="data-row">
+                <td>
+                    <div class="data-grid-cell-content"><?php echo $item->getName();?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content"><?php echo $item->getQty();?></div>
+                </td> 
+                <td>
+                    <div class="data-grid-cell-content"><?php echo $item->getQty()*$item->getPrice()?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content"><?php echo $_subTotal?></div>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content"><?php echo $_grandTotal?></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php endforeach;?>
