@@ -194,12 +194,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $collection = $this->adminUsers->setOrder('firstname', 'asc')->load();
 
-        $adminsConfig = array_values(
-            explode(
-                ",",
-                $this->scopeConfig->getValue('cminds_salesrep_configuration/checkout/sales_rep_list')
-            )
-        );
+        $adminsConfig = array();
+        
+        if ($this->scopeConfig->getValue('cminds_salesrep_configuration/checkout/sales_rep_list')) {
+            $adminsConfig = array_values(
+                explode(",",$this->scopeConfig->getValue('cminds_salesrep_configuration/checkout/sales_rep_list'))
+            );
+        }
 
         $result = [];
 
