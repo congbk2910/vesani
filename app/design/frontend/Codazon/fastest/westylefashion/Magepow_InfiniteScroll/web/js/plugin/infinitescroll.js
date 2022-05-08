@@ -8,6 +8,13 @@ if(typeof(IASCallbacks) == "undefined"){
      */
     
     var countPage = 1;
+    var counts = 0;
+    var lastNum = jQuery(".toolbar-number.last-num").text(),
+        totalNum =  jQuery(".toolbar-number.total-num").text();
+    var firstNum = parseInt(lastNum);
+    if (jQuery('.item.product.product-item').length >= parseInt(lastNum)) {
+        jQuery('.products.list.items.product-items.same-height').append("<span class='text-of-number'>Showing <span class='first-num-text'>"+ firstNum +"</span> out of <span class='first-total-text'>"+ parseInt(totalNum) +"</span> products</span>");
+    }
     var IASCallbacks = function () {
         this.list = [];
         this.fireStack = [];
@@ -346,7 +353,6 @@ if(typeof(IASCallbacks) == "undefined"){
                 var loadEvent = {
                     url: url
                 };
-    
                 self.fire('load', [loadEvent]);
     
                 return $.get(loadEvent.url, null, $.proxy(function(data) {
@@ -361,7 +367,6 @@ if(typeof(IASCallbacks) == "undefined"){
                             items.push(this);
                         });
                     }
-    
                     self.fire('loaded', [data, items]);
     
                     if (callback) {
@@ -980,43 +985,43 @@ if(typeof(IASCallbacks) == "undefined"){
      * Copyright 2014 Webcreate (Jeroen Fiege)
      */
     
-    var IASNoneLeftExtension = function(options) {
-        options = jQuery.extend({}, this.defaults, options);
-    
-        this.ias = null;
-        this.uid = (new Date()).getTime();
-        this.html = (options.html).replace('{text}', options.text);
-    
-        /**
-         * Shows none left message
-         */
-        this.showNoneLeft = function() {
-            var $element = jQuery(this.html).attr('id', 'ias_noneleft_' + this.uid),
-                $lastItem = this.ias.getLastItem();
-    
-            $lastItem.after($element);
-            $element.fadeIn();
+        var IASNoneLeftExtension = function(options) {
+            options = jQuery.extend({}, this.defaults, options);
+        
+            this.ias = null;
+            this.uid = (new Date()).getTime();
+            this.html = (options.html).replace('{text}', options.text);
+        
+            /**
+             * Shows none left message
+             */
+            this.showNoneLeft = function() {
+                var $element = jQuery(this.html).attr('id', 'ias_noneleft_' + this.uid),
+                    $lastItem = this.ias.getLastItem();
+        
+                $lastItem.after($element);
+                $element.fadeIn();
+            };
+        
+            return this;
         };
-    
-        return this;
-    };
-    
-    /**
-     * @public
-     */
-    IASNoneLeftExtension.prototype.bind = function(ias) {
-        this.ias = ias;
-    
-        ias.on('noneLeft', jQuery.proxy(this.showNoneLeft, this));
-    };
-    
-    /**
-     * @public
-     */
-    IASNoneLeftExtension.prototype.defaults = {
-        text: 'You reached the end.',
-        html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
-    };
+        
+        /**
+         * @public
+         */
+        IASNoneLeftExtension.prototype.bind = function(ias) {
+            this.ias = ias;
+        
+            ias.on('noneLeft', jQuery.proxy(this.showNoneLeft, this));
+        };
+        
+        /**
+         * @public
+         */
+        IASNoneLeftExtension.prototype.defaults = {
+            text: 'You reached the end.',
+            html: '<div class="ias-noneleft" style="text-align: center;">{text}</div>'
+        };
     }
     if(typeof(IASPagingExtension) == "undefined"){
     /**
@@ -1393,6 +1398,15 @@ if(typeof(IASCallbacks) == "undefined"){
             this.$triggerNext = null;
         }
         ++countPage;
+        ++counts;
+        var surplus = parseInt(totalNum) % parseInt(lastNum);
+        var pageNumbers = Math.floor(parseInt(totalNum) / parseInt(lastNum));
+        if (counts === pageNumbers) {
+            firstNum += surplus;
+        } else {
+            firstNum += parseInt(lastNum);
+        }
+        jQuery('.first-num-text').text(firstNum);
         this.ias.next();
     };
     

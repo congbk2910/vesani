@@ -7482,7 +7482,7 @@ Now Shopping by,Handlar nu enligt,module,Magento_LayeredNavigation
 Previous,Föregående,module,Magento_LayeredNavigation
 Remove,Ta bort,module,Magento_LayeredNavigation
 Remove This Item,Ta bort Denna Artikel,module,Magento_LayeredNavigation
-Shop By,Handla enligt,module,Magento_LayeredNavigation
+Shop By,Filter,module,Magento_LayeredNavigation
 Clear All,Rensa alla,module,Magento_LayeredNavigation
 Shopping Options,Shoppingalternativ,module,Magento_LayeredNavigation
 Layered Navigation,Filternavigering,module,Magento_LayeredNavigation
@@ -13792,7 +13792,7 @@ Store View,Butiksvy,module,Magento_Theme
 ID,ID,module,Magento_Theme
 Skip to Content,Hoppa till innehållet,module,Magento_Theme
 Menu,Meny,module,Magento_Theme
-Account,Konto,module,Magento_Theme
+Account,Mina Sidor,module,Magento_Theme
 Settings,Inställningar,module,Magento_Theme
 2 columns with left bar,2 kolumner med vänster bar,module,Magento_Theme
 2 columns with right bar,2 kolumner med höger sektion,module,Magento_Theme
@@ -15144,7 +15144,7 @@ Now Shopping by,Handlar nu enligt,theme,frontend/Magento/luma
 Previous,Föregående,theme,frontend/Magento/luma
 Remove,Ta bort,theme,frontend/Magento/luma
 Remove This Item,Ta bort Denna Artikel,theme,frontend/Magento/luma
-Shop By,Handla enligt,theme,frontend/Magento/luma
+Shop By,Filter,theme,frontend/Magento/luma
 Clear All,Rensa alla,theme,frontend/Magento/luma
 Shopping Options,Shoppingalternativ,theme,frontend/Magento/luma
 Welcome to %store_name,Välkommen till %store_name,theme,frontend/Magento/luma

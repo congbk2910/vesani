@@ -87,7 +87,7 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
     <div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
         <?php $iterator = 1; ?>
 		<div class="<?php echo $columnsClass ?>" id="category-products-grid">
-			<ol class="products list items product-items same-height">
+			<ol class="products list items product-items same-height" style="display: flex;flex-wrap: wrap;">
 				<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 				<?php foreach ($_productCollection as $_product): ?>
 					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
@@ -237,5 +237,4 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 			});
 		</script>
 	<?php endif; ?>
-
 <?php endif; ?>

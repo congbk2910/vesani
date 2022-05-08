@@ -66,6 +66,25 @@
             padding-top: 20px;
         }
     }
+    .svea_checkout-order-success {
+        #svea_checkoutSidebar {
+            .svea-primary.svea-btn {
+                background: #000;
+                padding: 0;
+                line-height: 50px;
+                transition: .4s ease all;
+                border: 1px solid;
+                &:hover {
+                    border-color: #333;
+                    background: #fff;
+                    color: #333 !important;
+                    span {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
 }
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .checkout-cart-index {

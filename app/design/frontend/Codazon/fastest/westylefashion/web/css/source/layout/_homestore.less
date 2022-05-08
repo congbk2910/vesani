@@ -660,6 +660,13 @@ body{
 	}
 }
 
+.text-of-number {
+	display: block;
+    text-align: center;
+    padding: 15px;
+	width: 100%;
+}
+
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 	.services-content {
 		.text-area {
@@ -675,7 +682,22 @@ body{
 	}
 	.banner-video {
 		.adver-content {
-			padding-left: 0;
+			padding-left: 25px;
+		}
+	}
+	.cms-index-index {
+		.read-more-bt {
+			text-align: center;
+			max-width: 90px;
+			margin: 15px auto 0 auto;
+			background: #fff;
+			padding: 5px;
+			color: #333;
+		}
+	}
+	.block.widget {
+		&.block-products-list.slider {
+			margin-bottom: 0;
 		}
 	}
 }
