@@ -118,13 +118,23 @@
 		_readMore: function () {
 			var $textReadmore = $.mage.__('Read More'),
 			 	$textCloes = $.mage.__('Close'),
-			 	$this = '.product.attribute.description .pagebuilder-column-group div[data-content-type="text"]';
+			 	$this = '.pagebuilder-column-group div[data-content-type="text"]';
+			var mobileW = $(window).width();
 			$($this).each(function(i) {
 				var len = $(this).text().length;
 				if (len > 150) {
-					$(this).html("<span>" + $(this).text().substr(0, 300) + "</span><span style='display:none'>" + $(this).text().substr(300) + "</span>");
-					var link = $('<div class="read-more-bt"><span class="showButton">'+ $textReadmore +'</span></div>');
-					$(this).append(link);
+					var link = $('<div class="read-more-bt"><span class="showButton">'+ $textReadmore +'</span></div>'),
+						textList = "<span>" + $(this).text().substr(0, 300) + "</span><span style='display:none'>" + $(this).text().substr(300) + "</span>";
+					if ($('body').hasClass('cms-index-index')){
+						if (mobileW <= 767) {
+							$(this).html("<span>" + $(this).text().substr(0, 150) + "</span><span style='display:none'>" + $(this).text().substr(150) + "</span>");
+							$(this).append(link);
+						}
+					}
+					if ($('body').hasClass('catalog-product-view')){
+						$(this).html(textList);
+						$(this).append(link);
+					}
 					$(link).click(function() {
 						$(this).prev().toggle();
 						$(this).html($(this).html()== $textReadmore ? $textCloes : $textReadmore);

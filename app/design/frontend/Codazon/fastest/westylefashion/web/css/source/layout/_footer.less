@@ -109,6 +109,9 @@
 }
 /////////////Resize////////////////
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .bottom-info {
+    margin-top: 25px;
+  }
   .footer-top-ads{
     .ftop-newsletter{ margin:0 5%;}
   }
@@ -230,34 +233,69 @@
 .top-info {
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   img {
     max-width: 50px;
     height: auto;
   }
   span {
     padding-left: 15px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
   }
 }
 .bottom-info {
   p.h3 {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 500;
     color: #000;
     margin-bottom: 5px;
+    &:not(.adress) {
+      a {
+        padding-left: 5px;
+      }
+    }
+    &.adress {
+      a {
+        display: block;
+        text-decoration: unset;
+      }
+    }
+  }
+  .opening {
+    margin: 10px 0;
+  }
+  .info {
+    p {
+      margin: 0;
+      a {
+        text-decoration: unset;
+        span {
+          color: #1979c3;
+        }
+      }
+    }
   }
   a {
     text-decoration: underline;
   }
   span {
     color: #000;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
   }
 }
 .page-footer {
+  .footer-link {
+    &.top,
+    &.bottom {
+      display: flex;
+      justify-content: center;
+      li {
+        margin: 0 10px;
+      }
+    }
+  }
   div.bottom-footer-wrapper {
     .footer.content {
       display: flex;
