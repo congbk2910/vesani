@@ -10,5 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 		<css src="css/fontawesome/font-awesome.css" media="all" />
 		<css src="css/fontpeicon/pe-icon-7-stroke.css" media="all" />
+        <css src="css/fonts/_bask_old_face.css" media="all" />
     </head>
 </page>
