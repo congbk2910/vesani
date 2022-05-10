@@ -424,3 +424,153 @@ body.cms-page-view  {
 		max-width: 1620px;
 	}
 }
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.page-layout-1column.page-with-filter.catalog-category-view {
+		.filter-options {
+			-ms-grid-columns: 20% 20% 20% 20% 20%;
+			grid-template-columns: 20% 20% 20% 20% 20%;
+		}
+		div.filter-options-item {
+			&:last-child {
+				margin-bottom: 5px;
+			}
+		}
+	}
+	body.cms-page-view.cms-about-us {
+		.page-main {
+			padding: 0 15px;
+		}
+	}
+	.contact-index-index {
+		.page-main {
+			padding: 0 15px;
+		}
+	}
+	div.cdz_wapper-blog05 {
+		.cdz-blog-bottom {
+			padding: 0 15px 20px;
+		}
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1460px) {
+	body.cms-page-view.cms-about-us {
+		.page-main {
+			.columns {
+				.about-content {
+					padding: 25px 50px;
+				}
+			}
+			padding: inherit;
+			.about-content {
+				margin: auto 50px;
+			}
+		}
+	}
+	.contact-index-index {
+		.page-main {
+			.columns {
+				padding: 25px 50px;
+			}
+			>.page-title-wrapper {
+				.page-title {
+					padding: 25px 50px;
+				}
+			}
+		}
+	}
+	.cms-about-us {
+		.page-main {
+			.page-title-wrapper {
+				padding: 0 50px;
+			}
+		}
+	}
+}
+div.products-grid {
+	.desktop_3 {
+		.product-items {
+			&:not(.owl-carousel) {
+				display: flex;
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
+.products-grid {
+	.desktop_3 {
+		.product-items {
+			&:not(.owl-carousel) {
+				display: flex;
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
+.catalog-category-view {
+	.products.wrapper.grid.products-grid {
+		max-width: 1470px;
+		margin: auto;
+		padding: 0 15px;
+	}
+	.toolbar.toolbar-products {
+		max-width: 1470px;
+		margin: auto;
+		padding: 0 15px;
+	}
+}
+.checkout_vat_trigger {
+	padding: 25px 0;
+	margin: 25px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	a {
+		background: #f3f3f3;
+		padding: 0 25px;
+		color: #092839;
+		width: 200px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		transition: .4s ease all;
+		text-decoration: unset;
+		&:hover {
+			background: #092839;
+			color: #fff;
+		}
+	}
+	a.selected {
+		background: #092839;
+		color: #fff;
+	}
+}
+.background_contac_page {
+	img {
+		max-height: 250px;
+		object-fit: cover;
+	}
+}
+.cms-about-us {
+	.page-main {
+		div[data-appearance=full-bleed] {
+			img.pagebuilder-mobile-hidden {
+				max-height: 250px;
+				object-fit: cover;
+			}
+		}
+	}
+}
+.tabs-list-sty04 {
+	.tabs-list {
+		div.block-content {
+			padding: 50px 15px;
+		}
+	}
+}
+._hotline.tbl-cell {
+	span {
+		font-family: 'baskerville-old-face-regular', sans-serif;
+	}
+}

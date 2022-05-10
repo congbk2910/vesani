@@ -123,11 +123,11 @@
 			$($this).each(function(i) {
 				var len = $(this).text().length;
 				if (len > 150) {
-					var link = $('<div class="read-more-bt"><span class="showButton">'+ $textReadmore +'</span></div>'),
+					var link = $('<span class="showButton">'+ $textReadmore +'</span>'),
 						textList = "<span>" + $(this).text().substr(0, 300) + "</span><span style='display:none'>" + $(this).text().substr(300) + "</span>";
 					if ($('body').hasClass('cms-index-index')){
 						if (mobileW <= 767) {
-							$(this).html("<span>" + $(this).text().substr(0, 150) + "</span><span style='display:none'>" + $(this).text().substr(150) + "</span>");
+							$(this).html("<span>" + $(this).text().substr(0, 122) + "</span><span style='display:none'>" + $(this).text().substr(122) + "</span>");
 							$(this).append(link);
 						}
 					}
@@ -136,8 +136,9 @@
 						$(this).append(link);
 					}
 					$(link).click(function() {
+						console.log($(this).html());
 						$(this).prev().toggle();
-						$(this).html($(this).html()== $textReadmore ? $textCloes : $textReadmore);
+						$(this).html($(this).html() === $textReadmore ? $textCloes : $textReadmore);
 					});
 				}
 			});
