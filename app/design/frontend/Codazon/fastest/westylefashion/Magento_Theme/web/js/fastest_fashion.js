@@ -113,6 +113,21 @@
 			this._buildMenu();
 			this._resize();
 			this._readMore();
+			this._mobileMypageButton();
+		},
+
+		_mobileMypageButton: function () {
+			var $section_title = $('.section-item-title.nav-sections-item-title');
+			$('.toggle-button-mypage').on('click',function(e) {
+				e.preventDefault();
+				$('.action.nav-toggle').trigger('click');
+				$section_title.each(function(index, e) {
+					$(e).removeClass('active');
+				});
+				$('.nav-sections-item-title[aria-controls="store.links"]').addClass('active');
+				$('.nav-sections-item-content').hide();
+				$('.nav-sections-item-content[id="store.links"]').show();
+			})
 		},
 
 		_readMore: function () {

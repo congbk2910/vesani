@@ -55,6 +55,10 @@
                     <label>Enable Search in Category</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="mypage_button_in_mobile_enable" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInStore="1">
+                    <label>Enable My Page Button In Mobile</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
             <group id="category_view" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1">
                 <label>Category View</label>

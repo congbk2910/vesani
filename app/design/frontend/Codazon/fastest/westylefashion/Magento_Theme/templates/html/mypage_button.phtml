@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © 2015 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$_optionHelper = $this->helper('Codazon\ThemeOptions\Helper\Data');
+$_enableButton = $_optionHelper->getConfig('general_section/header/mypage_button_in_mobile_enable');
+?>
+<?php if($_enableButton === '1'): ?>
+    <div class="toggle-button-mypage hidden-sm hidden-md hidden-lg">
+        <span><?php /* @escapeNotVerified */ echo __('My pages') ?></span>
+    </div>
+<?php endif ?>

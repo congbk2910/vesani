@@ -24,6 +24,7 @@
 					<argument name="block_id" xsi:type="string">fastest-westylefashion-header-top-contact-number</argument>
 				</arguments>
 			</block>
+			<block class="Magento\Framework\View\Element\Template" name="mypage_button" before="-" template="Magento_Theme::html/mypage_button.phtml" />
 		</container>
 		<container name="header.panel.info" label="Page Header Info" htmlTag="div" htmlClass="header-inor" >
 			<block class="Magento\Cms\Block\Block" name="info.company">
