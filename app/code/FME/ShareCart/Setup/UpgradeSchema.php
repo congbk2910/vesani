@@ -41,6 +41,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '1.0.9', '<')) {
             $this->addImageTagsColumn($setup);
         }
+
+        if (version_compare($context->getVersion(), '1.1.6', '<')) {
+            $this->addSaleRepColumn($setup);
+        }
         
         $setup->endSetup();
     }
@@ -58,6 +62,34 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'nullable' => false,
                     'default' => '',
                     'comment' => 'cart Name'
+                ]
+            );
+            $setup->startSetup();
+            $installer = $setup;
+            $installer->endSetup();
+    }
+
+    private function addSaleRepColumn(SchemaSetupInterface $setup)
+    {
+        
+            $connection = $setup->getConnection();
+            $tableName = $setup->getTable('fme_sharecart');
+            $connection->addColumn(
+                $tableName,
+                'order_id',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    'nullable' => true,
+                    'comment' => 'Order ID'
+                ]
+            )->addColumn(
+                $tableName,
+                'is_used',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                    'nullable' => false,
+                    'default' => '0',
+                    'comment' => 'Is Used'
                 ]
             );
             $setup->startSetup();
