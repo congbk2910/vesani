@@ -82,7 +82,8 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'nullable' => true,
                     'comment' => 'Order ID'
                 ]
-            )->addColumn(
+            );
+            $connection->addColumn(
                 $tableName,
                 'is_used',
                 [
