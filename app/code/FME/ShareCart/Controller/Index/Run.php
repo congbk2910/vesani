@@ -66,8 +66,8 @@ class Run extends \Magento\Framework\App\Action\Action
         $this->_checkoutSession = $checkoutSession;
         $this->quoteFactory = $quoteFactory;
         $this->request = $request;
-                           //	$this->cart = $cart;
-   	        $this->product = $product;
+                           //   $this->cart = $cart;
+            $this->product = $product;
         $this->quoteRepository = $quoteRepository;
 
     $this->_cacheFrontendPool = $cacheFrontendPool;
@@ -154,6 +154,8 @@ class Run extends \Magento\Framework\App\Action\Action
                                 $this->cart->addProduct($_product, $request1);
                                 
                 }
+                $this->cart->getQuote()->setParentQuoteId($id);
+                
                 $this->cart->save();   
             }
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
@@ -201,7 +203,10 @@ class Run extends \Magento\Framework\App\Action\Action
                                     $this->cart->addProduct($_product, $request1);
                                     
                     }
-                    $this->cart->save();   
+                    $this->cart->getQuote()->setParentQuoteId($id);
+
+                    $this->cart->save();
+
                 }
                 
             }
@@ -209,7 +214,7 @@ class Run extends \Magento\Framework\App\Action\Action
             {
                 $this->messageManager->addError( __($e->getMessage()) );
             }
-           	 
+             
 
         }
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
@@ -269,6 +274,8 @@ class Run extends \Magento\Framework\App\Action\Action
                                     $this->cart->addProduct($_product, $request1);
                                     
                     }
+                    $this->cart->getQuote()->setParentQuoteId($id);
+
                     $this->cart->save();   
                 }
                 
@@ -277,7 +284,7 @@ class Run extends \Magento\Framework\App\Action\Action
             {
                 $this->messageManager->addError( __($e->getMessage()) );
             }
-           	 
+             
 
 
 
