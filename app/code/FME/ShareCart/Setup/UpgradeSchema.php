@@ -49,6 +49,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '1.1.7', '<')) {
             $this->addParentQuoteColumn($setup);
         }
+
+        if (version_compare($context->getVersion(), '1.1.8', '<')) {
+            $this->addParentQuoteColumnIntoOrder($setup);
+        }
         
         $setup->endSetup();
     }
@@ -107,6 +111,25 @@ class UpgradeSchema implements UpgradeSchemaInterface
         
             $connection = $setup->getConnection();
             $tableName = $setup->getTable('quote');
+            $connection->addColumn(
+                $tableName,
+                'parent_quote_id',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    'nullable' => true,
+                    'comment' => 'Parent Quote ID'
+                ]
+            );
+            $setup->startSetup();
+            $installer = $setup;
+            $installer->endSetup();
+    }
+
+    private function addParentQuoteColumnIntoOrder(SchemaSetupInterface $setup)
+    {
+        
+            $connection = $setup->getConnection();
+            $tableName = $setup->getTable('sales_order');
             $connection->addColumn(
                 $tableName,
                 'parent_quote_id',
