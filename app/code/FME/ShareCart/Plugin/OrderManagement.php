@@ -42,9 +42,11 @@ class OrderManagement
             if($shareCartCollection->getSize()){
                 $shareCartId = $shareCartCollection->getFirstItem()->getId();
                 $shareCart = $this->shareCartFactory->create()->load($shareCartId);
-                $shareCart->setOrderId($result->getOrderId());
-                $shareCart->setIsUsed(1);
-                $shareCart->save();
+                if (!$shareCart->getIsUsed()) {
+                    $shareCart->setOrderId($result->getId());
+                    $shareCart->setIsUsed(1);
+                    $shareCart->save();
+                }
             }
         }
     }
