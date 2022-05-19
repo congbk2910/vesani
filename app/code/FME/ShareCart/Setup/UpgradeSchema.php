@@ -102,7 +102,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $installer->endSetup();
     }
 
-    private function addImageTagsColumn(SchemaSetupInterface $setup)
+    private function addParentQuoteColumn(SchemaSetupInterface $setup)
     {
         
             $connection = $setup->getConnection();
