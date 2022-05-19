@@ -16,9 +16,11 @@ class OrderManagement
 
     public function __construct(
         \Magento\Quote\Model\QuoteFactory $quoteFactory
+        \FME\ShareCart\Model\SharecartFactory $shareCartFactory
     )
     {
         $this->quoteFactory = $quoteFactory;
+        $this->shareCartFactory = $shareCartFactory;
     }
 
     /**
@@ -33,9 +35,17 @@ class OrderManagement
         OrderInterface $result
     ) {
         $quote = $this->quoteFactory->create()->load($result->getQuoteId());
-        if ($quote) {
+        if ($quote && $quote->getParentQuoteId()) {
             $result->setParentQuoteId($quote->getParentQuoteId());
             $result->save();
+            $shareCartCollection = $this->shareCartFactory->create()->getCollection()->addFieldToFilter('quote_id', $quote->getParentQuoteId());
+            if($shareCartCollection->getSize()){
+                $shareCartId = $shareCartCollection->getFirstItem()->getId();
+                $shareCart = $this->shareCartFactory->create()->load($shareCartId);
+                $shareCart->setOrderId($result->getOrderId());
+                $shareCart->setIsUsed(1);
+                $shareCart->save();
+            }
         }
     }
 }
