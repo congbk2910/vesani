@@ -15,7 +15,7 @@ class OrderManagement
     protected $quoteFactory;
 
     public function __construct(
-        \Magento\Quote\Model\QuoteFactory $quoteFactory
+        \Magento\Quote\Model\QuoteFactory $quoteFactory,
         \FME\ShareCart\Model\SharecartFactory $shareCartFactory
     )
     {
