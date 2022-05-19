@@ -140,23 +140,25 @@ class Run extends \Magento\Framework\App\Action\Action
             if($id > 0)
             {
                 $quote = $this->quoteFactory->create()->load($id);
-                $items = $quote->getAllVisibleItems();
+                if (!$quote->isUsed()) {
+                    $items = $quote->getAllVisibleItems();
                 
-                foreach ($items as $item)
-                {
-                    $productId =$item->getProductId();
-                    $_product = $this->product->create()->load($productId); 
-                    $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
-                    $info = $options['info_buyRequest'];
-                                $request1 = new \Magento\Framework\DataObject();
-                                $request1->setData($info);
-                                
-                                $this->cart->addProduct($_product, $request1);
-                                
+                    foreach ($items as $item)
+                    {
+                        $productId =$item->getProductId();
+                        $_product = $this->product->create()->load($productId); 
+                        $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
+                        $info = $options['info_buyRequest'];
+                                    $request1 = new \Magento\Framework\DataObject();
+                                    $request1->setData($info);
+                                    
+                                    $this->cart->addProduct($_product, $request1);
+                                    
+                    }
+                    $this->cart->getQuote()->setParentQuoteId($id);
+                    
+                    $this->cart->save(); 
                 }
-                $this->cart->getQuote()->setParentQuoteId($id);
-                
-                $this->cart->save();   
             }
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
             $resultRedirect->setPath('checkout/cart/');
@@ -189,23 +191,25 @@ class Run extends \Magento\Framework\App\Action\Action
                 if($id > 0)
                 {
                     $quote = $this->quoteFactory->create()->load($id);
-                    $items = $quote->getAllVisibleItems();
-                    
-                    foreach ($items as $item)
-                    {
-                        $productId =$item->getProductId();
-                        $_product = $this->product->create()->load($productId); 
-                        $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
-                        $info = $options['info_buyRequest'];
-                                    $request1 = new \Magento\Framework\DataObject();
-                                    $request1->setData($info);
-                                    
-                                    $this->cart->addProduct($_product, $request1);
-                                    
-                    }
-                    $this->cart->getQuote()->setParentQuoteId($id);
+                    if (!$quote->isUsed()) {
+                        $items = $quote->getAllVisibleItems();
+                        
+                        foreach ($items as $item)
+                        {
+                            $productId =$item->getProductId();
+                            $_product = $this->product->create()->load($productId); 
+                            $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
+                            $info = $options['info_buyRequest'];
+                                        $request1 = new \Magento\Framework\DataObject();
+                                        $request1->setData($info);
+                                        
+                                        $this->cart->addProduct($_product, $request1);
+                                        
+                        }
+                        $this->cart->getQuote()->setParentQuoteId($id);
 
-                    $this->cart->save();
+                        $this->cart->save();
+                    }
 
                 }
                 
@@ -260,23 +264,25 @@ class Run extends \Magento\Framework\App\Action\Action
                 if($id > 0)
                 {
                     $quote = $this->quoteFactory->create()->load($id);
-                    $items = $quote->getAllVisibleItems();
-                    
-                    foreach ($items as $item)
-                    {
-                        $productId =$item->getProductId();
-                        $_product = $this->product->create()->load($productId); 
-                        $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
-                        $info = $options['info_buyRequest'];
-                                    $request1 = new \Magento\Framework\DataObject();
-                                    $request1->setData($info);
-                                    
-                                    $this->cart->addProduct($_product, $request1);
-                                    
-                    }
-                    $this->cart->getQuote()->setParentQuoteId($id);
+                    if (!$quote->isUsed()) {
+                        $items = $quote->getAllVisibleItems();
+                        
+                        foreach ($items as $item)
+                        {
+                            $productId =$item->getProductId();
+                            $_product = $this->product->create()->load($productId); 
+                            $options = $item->getProduct()->getTypeInstance(true)->getOrderOptions($item->getProduct());
+                            $info = $options['info_buyRequest'];
+                                        $request1 = new \Magento\Framework\DataObject();
+                                        $request1->setData($info);
+                                        
+                                        $this->cart->addProduct($_product, $request1);
+                                        
+                        }
+                        $this->cart->getQuote()->setParentQuoteId($id);
 
-                    $this->cart->save();   
+                        $this->cart->save();  
+                    } 
                 }
                 
             }
