@@ -30,7 +30,7 @@
         </argument>
     </dataSource>
     <columns name="sales_order_columns">
-        <column name="sale_rep" class="FME\ShareCart\Ui\Component\Listing\Column\SaleRep">
+        <column name="sale_rep_id" class="FME\ShareCart\Ui\Component\Listing\Column\SaleRep">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
