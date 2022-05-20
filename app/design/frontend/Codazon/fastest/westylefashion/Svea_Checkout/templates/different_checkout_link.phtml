@@ -3,8 +3,14 @@
 
 
 /** @var $block Svea\Checkout\Block\Checkout */
-$customerGroupId = $this->helper('\Magento\Customer\Helper\Session\CurrentCustomer')->getCustomer()->getGroupId();
-if ($customerGroupId != 4) return;
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('\Magento\Customer\Model\Session');
+if ($customerSession->isLoggedIn()) {
+   $customerGroupId = $customerSession->getCustomer()->getGroupId();
+   if ($customerGroupId != 4) return;
+} else {
+   return;
+}
 ?>
 
 <div class="different-checkout-link">
