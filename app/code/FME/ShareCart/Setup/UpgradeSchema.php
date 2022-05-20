@@ -117,11 +117,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $tableName = $setup->getTable('quote');
             $connection->addColumn(
                 $tableName,
-                'parent_quote_id',
+                'sharecart_id',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     'nullable' => true,
-                    'comment' => 'Parent Quote ID'
+                    'comment' => 'Share Cart Id'
                 ]
             );
             $setup->startSetup();
@@ -136,11 +136,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $tableName = $setup->getTable('sales_order');
             $connection->addColumn(
                 $tableName,
-                'parent_quote_id',
+                'sharecart_id',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     'nullable' => true,
-                    'comment' => 'Parent Quote ID'
+                    'comment' => 'Share Cart Id'
                 ]
             );
             $setup->startSetup();

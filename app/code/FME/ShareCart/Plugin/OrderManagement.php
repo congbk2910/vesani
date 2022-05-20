@@ -35,18 +35,16 @@ class OrderManagement
         OrderInterface $result
     ) {
         $quote = $this->quoteFactory->create()->load($result->getQuoteId());
-        if ($quote && $quote->getParentQuoteId()) {
-            $result->setParentQuoteId($quote->getParentQuoteId());
-            $result->save();
-            $shareCartCollection = $this->shareCartFactory->create()->getCollection()->addFieldToFilter('quote_id', $quote->getParentQuoteId());
-            if($shareCartCollection->getSize()){
-                $shareCartId = $shareCartCollection->getFirstItem()->getId();
-                $shareCart = $this->shareCartFactory->create()->load($shareCartId);
-                if (!$shareCart->getIsUsed()) {
-                    $shareCart->setOrderId($result->getId());
-                    $shareCart->setIsUsed(1);
-                    $shareCart->save();
-                }
+        if ($quote && $quote->getSharecartId()) {
+            $shareCart = $this->shareCartFactory->create()->load($quote->getSharecartId());
+            if($shareCart->getId() && !$shareCart->getIsUsed()){
+                $shareCart->setOrderId($result->getId());
+                $shareCart->setIsUsed(1);
+                $shareCart->save();
+
+                $result->setSharecartId($shareCart->getSharecartId());
+                $result->setSaleRepId($shareCart->getCustomerId());
+                $result->save();
             }
         }
     }
