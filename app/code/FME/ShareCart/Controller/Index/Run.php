@@ -120,7 +120,6 @@ class Run extends \Magento\Framework\App\Action\Action
         $helper = $this->_objectManager->create('FME\ShareCart\Helper\Data');
         $isclean=$this->request->getParam('clean');
         $quote_id=$this->request->getParam('quote_id');
-        $shareCart = $this->shareCartFactory->create()->getCollection()->addFieldToFilter('quote_id', $quote_id)->getFirstItem();
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $url=$helper->getBaseUrl();
         if($isclean=="1")
@@ -137,9 +136,11 @@ class Run extends \Magento\Framework\App\Action\Action
         {
             $quote_id=$helper->my_simple_crypt($quote_id,"d");
         }
+        $shareCart = $this->shareCartFactory->create()->getCollection()->addFieldToFilter('quote_id', $quote_id)->getFirstItem();
+        
         if($isclean=="2")
         {
-            $id = $quote_id;                
+            $id = $quote_id;            
             if($id > 0 && !$shareCart->getIsUsed())
             {
                 $quote = $this->quoteFactory->create()->load($id);
