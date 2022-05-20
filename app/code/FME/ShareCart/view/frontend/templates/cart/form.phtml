@@ -21,7 +21,7 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $helper = $objectManager->create('FME\ShareCart\Helper\Data');
 $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
 $checkoutSession = $objectManager->create('\Magento\Checkout\Model\Session');
-$parentQuoteId = $checkoutSession->getQuote()->getParentQuoteId();
+$sharecartId = $checkoutSession->getQuote()->getSharecartId();
 ?>
 <?php $mergedCells = ($this->helper('Magento\Tax\Helper\Data')->displayCartBothPrices() ? 2 : 1); ?>
 <?= $block->getChildHtml('form_before') ?>
@@ -74,7 +74,7 @@ $parentQuoteId = $checkoutSession->getQuote()->getParentQuoteId();
                 class="action clear" id="empty_cart_button">
             <span><?= /* @escapeNotVerified */ __('Clear Shopping Cart') ?></span>
         </button>
-        <?php if ($helper->isEnabledInFrontend() && !$parentQuoteId) : ?>
+        <?php if ($helper->isEnabledInFrontend() && !$sharecartId) : ?>
             <?php if ($helper->getBtnPosition()=="middlebtn") : ?>
                 <button   style="background-color: <?= $helper->getBtnBackColor() ?>;     color: <?= $helper->getBtnTextColor() ?>; " type="button"><a style="color:white;" href="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/pdfgen') ?>"><?= $block->escapeHtml(__("Generate PDF")) ?></a></button>
                 <button id="btnpop"  style="background-color: <?= $helper->getBtnBackColor() ?>;     color: <?= $helper->getBtnTextColor() ?>; " type="button"><?= $block->escapeHtml(__($helper->getBtntext())) ?></button>
@@ -94,7 +94,7 @@ $parentQuoteId = $checkoutSession->getQuote()->getParentQuoteId();
         <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
     </div>
 </form>
-<?php if ($helper->isEnabledInFrontend() && !$parentQuoteId) : ?>
+<?php if ($helper->isEnabledInFrontend() && !$sharecartId) : ?>
             <?php if ($helper->getBtnPosition()=="middlebtn") : ?>
             <form action="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/save') ?>" method="post" >
                 <input style="margin-left: 34%;width: 29%;" type="text" name="cartname" placeholder="Cart Label" required>
