@@ -589,12 +589,13 @@ $imageUrl=$block->getMediaUrl().$url;
         //$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
        // $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
         $quote_id=$this->getQuoteIdforSharing();
+        $sale_rep_id=$this->_customerSession->getCustomerId();
         if($quote_id>0)
         {
             $quote_id=$this->my_simple_crypt($quote_id,"e");
             //$quote_id=$this->my_simple_crypt($quote_id,"d");
             $url=$this->_currentStoreView->getBaseUrl();
-            $url=$url."sharecart/index/run?quote_id=".$quote_id;
+            $url=$url."sharecart/index/run?quote_id=".$quote_id."&sale_rep_id=".$sale_rep_id;
             return $url;
         }
         return  $this->_currentStoreView->getBaseUrl();

@@ -118,6 +118,7 @@ class Run extends \Magento\Framework\App\Action\Action
         $helper = $this->_objectManager->create('FME\ShareCart\Helper\Data');
         $isclean=$this->request->getParam('clean');
         $quote_id=$this->request->getParam('quote_id');
+        $sale_rep_id=$this->request->getParam('sale_rep_id');
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $url=$helper->getBaseUrl();
         if($isclean=="1")
@@ -126,13 +127,17 @@ class Run extends \Magento\Framework\App\Action\Action
                 $cartObject = $objectManager->create('Magento\Checkout\Model\Cart')->truncate(); 
                 $cartObject->saveQuote();
                 $this->flushCache();
-                $url=$url."sharecart/index/run?quote_id=".$quote_id."&clean=2";
+                $url=$url."sharecart/index/run?quote_id=".$quote_id."&sale_rep_id=".$sale_rep_id."&clean=2";
                 $result->setUrl($url);
                 return $result;
         }
         if(strlen($quote_id)>0)
         {
             $quote_id=$helper->my_simple_crypt($quote_id,"d");
+        }
+        if(strlen($sale_rep_id)>0)
+        {
+            $sale_rep_id=$helper->my_simple_crypt($sale_rep_id,"d");
         }
         if($isclean=="2")
         {
@@ -156,6 +161,7 @@ class Run extends \Magento\Framework\App\Action\Action
                                     
                     }
                     $this->cart->getQuote()->setParentQuoteId($id);
+                    $this->cart->getQuote()->setSaleRepId($sale_rep_id);
                     
                     $this->cart->save(); 
                 }
@@ -207,6 +213,7 @@ class Run extends \Magento\Framework\App\Action\Action
                                         
                         }
                         $this->cart->getQuote()->setParentQuoteId($id);
+                        $this->cart->getQuote()->setSaleRepId($sale_rep_id);
 
                         $this->cart->save();
                     }
@@ -280,6 +287,7 @@ class Run extends \Magento\Framework\App\Action\Action
                                         
                         }
                         $this->cart->getQuote()->setParentQuoteId($id);
+                        $this->cart->getQuote()->setSaleRepId($sale_rep_id);
 
                         $this->cart->save();  
                     } 

@@ -53,6 +53,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '1.1.8', '<')) {
             $this->addParentQuoteColumnIntoOrder($setup);
         }
+
+        if (version_compare($context->getVersion(), '1.1.9', '<')) {
+            $this->addSaleRepColumnIntoOrder($setup);
+        }
         
         $setup->endSetup();
     }
@@ -137,6 +141,25 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     'nullable' => true,
                     'comment' => 'Parent Quote ID'
+                ]
+            );
+            $setup->startSetup();
+            $installer = $setup;
+            $installer->endSetup();
+    }
+
+    private function addSaleRepColumnIntoOrder(SchemaSetupInterface $setup)
+    {
+        
+            $connection = $setup->getConnection();
+            $tableName = $setup->getTable('sales_order');
+            $connection->addColumn(
+                $tableName,
+                'sale_rep_id',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    'nullable' => true,
+                    'comment' => 'Sale Representative'
                 ]
             );
             $setup->startSetup();
