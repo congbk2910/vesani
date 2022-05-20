@@ -55,7 +55,8 @@ class Run extends \Magento\Framework\App\Action\Action
         \Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
-        \Magento\Store\Model\StoreManagerInterface $storeManager
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \FME\ShareCart\Model\SharecartFactory $shareCartFactory
     ) { 
              $this->_transportBuilder = $transportBuilder;
         $this->storeManager = $storeManager;
@@ -72,6 +73,7 @@ class Run extends \Magento\Framework\App\Action\Action
 
     $this->_cacheFrontendPool = $cacheFrontendPool;
         $this->scopeConfig = $scopeConfig;
+        $this->shareCartFactory = $shareCartFactory;
         parent::__construct($context);
     }
     public function flushCache()
@@ -118,7 +120,8 @@ class Run extends \Magento\Framework\App\Action\Action
         $helper = $this->_objectManager->create('FME\ShareCart\Helper\Data');
         $isclean=$this->request->getParam('clean');
         $quote_id=$this->request->getParam('quote_id');
-        $sale_rep_id=$this->request->getParam('sale_rep_id');
+        $shareCart = $this->shareCartFactory->create()->getCollection()->addFieldToFilter('quote_id', $quote_id)->getFirstItem();
+        $sale_rep_id=$shareCart->getCustomerId();
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $url=$helper->getBaseUrl();
         if($isclean=="1")
@@ -145,7 +148,7 @@ class Run extends \Magento\Framework\App\Action\Action
             if($id > 0)
             {
                 $quote = $this->quoteFactory->create()->load($id);
-                if (!$quote->isUsed()) {
+                if (!$shareCart->getIsUsed()) {
                     $items = $quote->getAllVisibleItems();
                 
                     foreach ($items as $item)
@@ -197,7 +200,7 @@ class Run extends \Magento\Framework\App\Action\Action
                 if($id > 0)
                 {
                     $quote = $this->quoteFactory->create()->load($id);
-                    if (!$quote->isUsed()) {
+                    if (!$shareCart->getIsUsed()) {
                         $items = $quote->getAllVisibleItems();
                         
                         foreach ($items as $item)
@@ -271,7 +274,7 @@ class Run extends \Magento\Framework\App\Action\Action
                 if($id > 0)
                 {
                     $quote = $this->quoteFactory->create()->load($id);
-                    if (!$quote->isUsed()) {
+                    if (!$shareCart->getIsUsed()) {
                         $items = $quote->getAllVisibleItems();
                         
                         foreach ($items as $item)
