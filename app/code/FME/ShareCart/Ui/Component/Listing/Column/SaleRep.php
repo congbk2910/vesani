@@ -9,7 +9,7 @@ class SaleRep extends \Magento\Ui\Component\Listing\Columns\Column
     /**
      * Column name
      */
-    const NAME = 'column.sale_rep_id';
+    const NAME = 'column.sale_rep';
 
     /**
      * @var \Magento\Framework\Locale\CurrencyInterface
