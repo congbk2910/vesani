@@ -17,6 +17,11 @@
                         </resource>
                     </resource>
                 </resource>
+                <resource id="Magento_Reports::report">
+                    <resource id="Magento_Reports::report_sales">
+                        <resource id="FME_ShareCart::salerep_reports" title="Sale Representative" />
+                    </resource>
+                </resource>
             </resource> 
         </resources>
     </acl>

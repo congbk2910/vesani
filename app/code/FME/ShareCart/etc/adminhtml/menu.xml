@@ -20,6 +20,7 @@
              action="adminhtml/system_config/edit/section/sharecart"
              resource="FME_ShareCart::sharecart_config" /> 
         
-        
+        <add id="FME_ShareCart::salerep_reports" title="Sale Representative" sortOrder="100" module="FME_ShareCart" parent="Magento_Reports::report_sales" action="sharecart/report/" resource="FME_ShareCart::salerep_reports"/>
+
         </menu>
 </config> 
