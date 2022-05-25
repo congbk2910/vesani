@@ -11,3 +11,4 @@ interface SalerepManagementInterface {
      */
     
     public function getList($param);
+}
