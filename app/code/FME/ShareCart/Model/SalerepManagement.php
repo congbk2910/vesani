@@ -7,7 +7,7 @@ class SalerepManagement {
     /**
      * {@inheritdoc}
      */
-    public function getList();
+    public function getList()
     {
         return 'success';
     }
