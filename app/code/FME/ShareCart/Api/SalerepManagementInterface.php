@@ -6,9 +6,9 @@ interface SalerepManagementInterface {
 
     /**
      * GET for Salerep api
-     * @param string $param
+     * @param array $params
      * @return string
      */
     
-    public function getList($param);
+    public function getList($params);
 }
