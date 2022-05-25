@@ -9,6 +9,6 @@ class SalerepManagement {
      */
     public function getList();
     {
-        return $params;
+        return 'success';
     }
 }
