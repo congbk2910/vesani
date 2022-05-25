@@ -52,4 +52,6 @@
             <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
         </arguments>
     </type>
+
+    <preference for="FME\ShareCart\Api\SalerepManagementInterface" type="FME\ShareCart\Model\SalerepManagement"/>
 </config>
