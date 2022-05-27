@@ -281,7 +281,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $quoteFactory =$objectManager->create('\Magento\Quote\Model\QuoteFactory');
-        $currentQuoteObj = $quoteFactory->create()->load($post1['quote_id']);
+        $currentQuoteObj = $quoteFactory->create()->load($this->getQuoteIdforSharing());
         $currentQuoteObj->setIsActive(false)->save();
        
        // print_r($post );exit;
