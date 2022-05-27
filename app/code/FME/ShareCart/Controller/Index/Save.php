@@ -278,7 +278,11 @@ class Save extends \Magento\Framework\App\Action\Action
 
      //   exit;
         $resultJson = $this->jsonFactory->create();
-       
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $quoteFactory =$objectManager->create('\Magento\Quote\Model\QuoteFactory');
+        $currentQuoteObj = $quoteFactory->create()->load($post1['quote_id']);
+        $currentQuoteObj->setIsActive(false)->save();
        
        // print_r($post );exit;
         $error = false;
@@ -290,7 +294,7 @@ class Save extends \Magento\Framework\App\Action\Action
         $post1['share_from']="";
         $post1['share_to']="";
         $post1['message']=$helper->getUrlforSharing();//can use for link
-        $post1['grand_total']= "0";//Need to WOrk
+        $post1['grand_total']= $currentQuoteObj->getGrandTotal();//Need to WOrk
         $model = $this->_objectManager->create('FME\ShareCart\Model\Sharecart');
         //$model->deleteShareCartByQuoteId($post1['quote_id'],$post1['customer_id']);
       /*$post1['customer_id']= 23;
@@ -301,16 +305,7 @@ class Save extends \Magento\Framework\App\Action\Action
       $post1['message']="My Name is Khan";
       $post1['grand_total']= "20";//Need t
         */
-       
-       
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $quoteFactory =$objectManager->create('\Magento\Quote\Model\QuoteFactory');
-        $currentQuoteObj = $quoteFactory->create()->load($post1['quote_id']);
-        $currentQuoteObj->setIsActive(false)->save();
-
-    
         
-
         try {
             //if ((!empty($post)) && (! $error)) {
                 if (true) {

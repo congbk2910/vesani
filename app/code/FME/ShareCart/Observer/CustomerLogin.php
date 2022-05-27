@@ -102,6 +102,10 @@ class CustomerLogin implements ObserverInterface
             $quote_id =$this->getSessionforquoteid();
         
             $quote_id=$this->my_simple_crypt($quote_id,"e");
+
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $quoteFactory =$objectManager->create('\Magento\Quote\Model\QuoteFactory');
+            $currentQuoteObj = $quoteFactory->create()->load($this->getSessionforquoteid());
         
             $url=$this->_currentStoreView->getBaseUrl();
             $url=$url."sharecart/index/run?quote_id=".$quote_id;
@@ -113,7 +117,7 @@ class CustomerLogin implements ObserverInterface
             $post1['share_from']="";
             $post1['share_to']="";
             $post1['message']=$url;//can use for link
-            $post1['grand_total']= "0";//Need to WOrk
+            $post1['grand_total']= $currentQuoteObj->getGrandTotal();//Need to WOrk
             $model = $this->_objectManager->create('FME\ShareCart\Model\Sharecart');
             $model->setData($post1);
             $model->save();
