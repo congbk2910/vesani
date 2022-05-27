@@ -57,6 +57,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '1.1.9', '<')) {
             $this->addSaleRepColumnIntoOrder($setup);
         }
+
+        if (version_compare($context->getVersion(), '1.2.0', '<')) {
+            $this->addTotalOrderColumnIntoShareCart($setup);
+        }
         
         $setup->endSetup();
     }
@@ -160,6 +164,25 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     'nullable' => true,
                     'comment' => 'Sale Representative'
+                ]
+            );
+            $setup->startSetup();
+            $installer = $setup;
+            $installer->endSetup();
+    }
+
+    private function addTotalOrderColumnIntoShareCart(SchemaSetupInterface $setup)
+    {
+        
+            $connection = $setup->getConnection();
+            $tableName = $setup->getTable('fme_sharecart');
+            $connection->addColumn(
+                $tableName,
+                'order_total',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                    'nullable' => true,
+                    'comment' => 'Order Total'
                 ]
             );
             $setup->startSetup();

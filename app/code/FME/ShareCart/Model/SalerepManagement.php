@@ -8,10 +8,16 @@ class SalerepManagement {
      * @param CollectionFactory $productsFactory
      */
     public function __construct(
-        \Magento\Framework\App\RequestInterface $request
+        \Magento\Framework\App\RequestInterface $request,
+        \Magento\Customer\Model\CustomerFactory $customerFactory
     )
     {
         $this->request = $request;
+        $this->_customerFactory = $customerFactory;
+    }
+
+    public function getSalerepCollection() {
+        return $this->_customerFactory->create()->getCollection()->addAttributeToFilter("group_id", 4)->load();
     }
 
     /**
@@ -19,6 +25,8 @@ class SalerepManagement {
      */
     public function getList()
     {
-        return $this->request->getPostValue();
+        // $this->response[] = $this->request->getParams();
+        $this->response[] = $this->getSalerepCollection()->getData();
+        return $this->response;
     }
 }
