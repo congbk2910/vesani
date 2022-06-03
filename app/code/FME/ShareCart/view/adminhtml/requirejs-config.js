@@ -1,7 +1,5 @@
 var config = {
-    map: {
-        '*': {
-            chartJs : 'FME_ShareCart/js/Chart.js/Chart.min'
-        }
+    paths: {
+        'salerep_report': 'FME_ShareCart/js/main',
     }
 };
