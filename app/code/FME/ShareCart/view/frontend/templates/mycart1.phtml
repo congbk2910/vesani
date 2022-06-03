@@ -158,16 +158,26 @@ table tr:nth-child(2n) {
       <td><?php echo $data1->getQuoteId();?></td>
       <td style="text-align: left;"><?php echo $data1->getCartname();?></td>
       <td><?php echo $data1->getSharingDate();?></td>
-      <td><input id="<?php echo "a".$sp;?>" type = "text"  value = "<?php echo $helper->get_tiny_url($data1->getMessage());?>" /></td>
-      <td><button id=""  onclick="" class=""><a   href="<?php echo $helper->get_tiny_url($helper->getUrlforEditing($data1->getQuoteId())); ?>">Edit</a></button></td>
-      <td><div class="copybtn" id="<?php echo "b".$sp;?>" onclick="save('<?php echo 'a'.$sp;?>','<?php echo 'b'.$sp;?>')" class="">Copy</div></td>
-      <td><button  onclick="" class="deletebtn"><a   href="<?= $helper->get_tiny_url($block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/delete?id='.$data1->getSharecartId())) ?>">Delete</a></button></td>
-      <td>
-        <div class="copybtn getdetailbtn" quote-id="<?php echo $data1->getQuoteId(); ?>" id="<?php echo "detail".$sp;?>" >Detail</div>
-      </td>
+      <?php if($data1->getOrderId() || $data1->getIsUsed()):?>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn2.iconfinder.com/data/icons/product-features-2/512/20.Sold_Out-512.png" alt="Smiley face" height="24" width="30"></td>
+      <?php else:?>
+        <td><input id="<?php echo "a".$sp;?>" type = "text"  value = "<?php echo $helper->get_tiny_url($data1->getMessage());?>" /></td>
+        <td><button id=""  onclick="" class=""><a   href="<?php echo $helper->get_tiny_url($helper->getUrlforEditing($data1->getQuoteId())); ?>">Edit</a></button></td>
+        <td><div class="copybtn" id="<?php echo "b".$sp;?>" onclick="save('<?php echo 'a'.$sp;?>','<?php echo 'b'.$sp;?>')" class="">Copy</div></td>
+        <td><button  onclick="" class="deletebtn"><a   href="<?= $helper->get_tiny_url($block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/delete?id='.$data1->getSharecartId())) ?>">Delete</a></button></td>
+        <td>
+          <div class="copybtn getdetailbtn" quote-id="<?php echo $data1->getQuoteId(); ?>" id="<?php echo "detail".$sp;?>" >Detail</div>
+        </td>
+        
+        
+        <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn3.iconfinder.com/data/icons/user-interface-3-3/34/251-512.png" alt="Smiley face" height="24" width="30"></td>
+      <?php endif;?>
       
-      
-      <td><img style="margin-top: 4%;" class="sharebtn" url-data="<?php echo $helper->get_tiny_url($data1->getMessage());?>" src="https://cdn3.iconfinder.com/data/icons/user-interface-3-3/34/251-512.png" alt="Smiley face" height="24" width="30"></td>
       <?php $sp++;?>
       <?php  
       $block1 = $objectManager->create('FME\ShareCart\Block\ShareCart');

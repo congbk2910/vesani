@@ -193,9 +193,6 @@ $linkedinurl=$helper->linkedinfunction();
 
 <?php if ($helper->isEnabledInFrontend() && !$sharecartId) : ?>
   <?php if ($helper->getBtnPosition()=="sbtn") : ?>
-    <li> <button   type="button" class="action primary checkout"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;  margin-bottom: 9%;   " > <a style="color:white;" href="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/pdfgen') ?>"> <?php /* @escapeNotVerified */ echo __("Generate PDF") ?> </a></button></li>
-    
-    <li> <button id="btnpop"   type="button" class="action primary checkout"  style="background-color: <?= $helper->getBtnBackColor() ?>;   color: <?= $helper->getBtnTextColor() ?>;     " ><?php /* @escapeNotVerified */ echo __( $helper->getBtntext()) ?></button></li>
     <form action="<?= $block->escapeUrl($storeManager->getStore()->getBaseUrl().'sharecart/index/save') ?>" method="post" >
     <li> <input style="margin-top: 8%;" type="text" name="cartname" placeholder="Cart Label" required></li>
     <li><br> 
