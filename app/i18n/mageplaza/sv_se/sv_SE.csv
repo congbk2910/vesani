@@ -15333,3 +15333,6 @@ Technical Information,Teknisk information,module,Magento_Catalog
 Svea Checkout,Kassa,module,Magento_Checkout
 Shipping Method,Leverans,module,Magento_Checkout
 Finish purchase,Betalning,module,Magento_Checkout
+item(s) in your cart,Varukorg,module,Codazon_AjaxCartPro
+Sort by:,Sortera efter:,module,Magento_Catalog
+Page,Sida,module,Magepow_InfiniteScroll

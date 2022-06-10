@@ -13,7 +13,7 @@ if(typeof(IASCallbacks) == "undefined"){
         totalNum =  jQuery(".toolbar-number.total-num").text();
     var firstNum = parseInt(lastNum);
     if (jQuery('.item.product.product-item').length >= parseInt(lastNum)) {
-        jQuery('.products.list.items.product-items.same-height').append("<span class='text-of-number'>Showing <span class='first-num-text'>"+ firstNum +"</span> out of <span class='first-total-text'>"+ parseInt(totalNum) +"</span> products</span>");
+        jQuery('.products.list.items.product-items.same-height').append("<span class='text-of-number'>Visar <span class='first-num-text'>"+ firstNum +"</span> av <span class='first-total-text'>"+ parseInt(totalNum) +"</span> produkter</span>");
     }
     var IASCallbacks = function () {
         this.list = [];
@@ -180,7 +180,8 @@ if(typeof(IASCallbacks) == "undefined"){
      * Copyright 2014 Webcreate (Jeroen Fiege)
      */
     define([
-        'jquery'
+        'jquery',
+        'mage/translate'
     ], function () {
     (function($) {
     
@@ -346,7 +347,7 @@ if(typeof(IASCallbacks) == "undefined"){
                     items = [],
                     timeStart = +new Date(),
                     timeDiff,
-                    htmlPrev = `<span class='page-count page-${countPage}'>Page ${countPage}</span>`;
+                    htmlPrev = `<span class='page-count page-${countPage}'>${$.mage.__('Page')} ${countPage}</span>`;
     
                 delay = delay || this.defaultDelay;
     
