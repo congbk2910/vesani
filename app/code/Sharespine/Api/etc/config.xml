@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <payment>
+            <sharespine_cdon>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Cdon</model>
+                <active>1</active>
+                <title>Cdon</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_cdon>
+            <sharespine_fyndiq>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Fyndiq</model>
+                <active>1</active>
+                <title>Fyndiq</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_fyndiq>
+            <sharespine_afound>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Afound</model>
+                <active>1</active>
+                <title>Afound</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_afound>
+            <sharespine_ahlens>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Ahlens</model>
+                <active>1</active>
+                <title>Ahlens</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_ahlens>
+            <sharespine_elkjop>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Elkjop</model>
+                <active>1</active>
+                <title>Elkjop</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_elkjop>
+            <sharespine_tradera>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Tradera</model>
+                <active>1</active>
+                <title>Tradera</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_tradera>
+            <sharespine_sharespine>
+                <payment_action>capture</payment_action><!-- You can use another methor like capture  -->
+                <model>Sharespine\Api\Model\Payment\Sharespine</model>
+                <active>1</active>
+                <title>Sharespine</title>
+                <order_status>processing</order_status><!-- set default order status-->
+            </sharespine_sharespine>
+        </payment>
+    </default>
+</config>

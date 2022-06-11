@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="GET" url="/V1/sharespine/info">
+		<service class="Sharespine\Api\Api\InfoManagementInterface" method="getInfo"/>
+		<resources>
+			<resource ref="Magento_Catalog::products"/>
+		</resources>
+	</route>
+	<route method="POST" url="/V1/sharespine/order">
+		<service class="Sharespine\Api\Api\OrderManagementInterface" method="postOrder"/>
+		<resources>
+			<resource ref="Magento_Sales::create"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/sharespine/orderstatuses">
+		<service class="Sharespine\Api\Api\OrderstatusesManagementInterface" method="getOrderstatuses"/>
+		<resources>
+			<resource ref="Magento_Sales::actions_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/sharespine/product/:productId">
+		<service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getById"/>
+		<resources>
+			<resource ref="Magento_Catalog::products" />
+		</resources>
+	</route>
+	<route method="GET" url="/V1/sharespine/orderstates">
+		<service class="Sharespine\Api\Api\OrderstatesManagementInterface" method="getOrderstates"/>
+		<resources>
+			<resource ref="Magento_Sales::actions_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/sharespine/shippingmethods">
+		<service class="Sharespine\Api\Api\ShippingmethodsManagementInterface" method="getShippingmethods"/>
+		<resources>
+			<resource ref="Magento_Cart::manage"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/sharespine/paymentmethods">
+		<service class="Sharespine\Api\Api\PaymentmethodsManagementInterface" method="getPaymentmethods"/>
+		<resources>
+			<resource ref="Magento_Cart::manage"/>
+		</resources>
+	</route>
+</routes>

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Sharespine\Api\Api\InfoManagementInterface" type="Sharespine\Api\Model\InfoManagement"/>
+	<preference for="Sharespine\Api\Api\OrderManagementInterface" type="Sharespine\Api\Model\OrderManagement"/>
+	<preference for="Sharespine\Api\Api\OrderstatusesManagementInterface" type="Sharespine\Api\Model\OrderstatusesManagement"/>
+	<preference for="Sharespine\Api\Api\ProductManagementInterface" type="Sharespine\Api\Model\ProductManagement"/>
+	<preference for="Sharespine\Api\Api\OrderstatesManagementInterface" type="Sharespine\Api\Model\OrderstatesManagement"/>
+	<preference for="Sharespine\Api\Api\ShippingmethodsManagementInterface" type="Sharespine\Api\Model\ShippingmethodsManagement"/>
+	<preference for="Sharespine\Api\Api\PaymentmethodsManagementInterface" type="Sharespine\Api\Model\PaymentmethodsManagement"/>
+</config>
