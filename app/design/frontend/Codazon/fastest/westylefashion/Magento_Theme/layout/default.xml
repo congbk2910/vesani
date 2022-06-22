@@ -18,7 +18,10 @@
 		</container>
     </referenceContainer>
 	<referenceContainer name="header.panel">
-		<container name="header.panel.store" label="Page Header Store" htmlTag="div" htmlClass="header-stores" >
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Template" name="minasidor_button" before="-" template="Magento_Theme::html/minasidor_button.phtml" />
+        </referenceBlock>
+        <container name="header.panel.store" label="Page Header Store" htmlTag="div" htmlClass="header-stores" >
 			<block class="Magento\Cms\Block\Block" name="contact.number">
 				<arguments>
 					<argument name="block_id" xsi:type="string">fastest-westylefashion-header-top-contact-number</argument>
@@ -52,11 +55,11 @@
 		</container>
 	</referenceContainer>
 
-	 <referenceBlock name="logo"> 
-		<arguments> 
+	 <referenceBlock name="logo">
+		<arguments>
 			<argument name="logo_width" xsi:type="number">253</argument>
-		</arguments> 
-	</referenceBlock> 
+		</arguments>
+	</referenceBlock>
 	<!--<move element="header.panel" destination="panel.wrapper.top" />
 	<move element="header.links" destination="header.panel.right" />
 	<move element="store_switcher" destination="header.panel.left" before="-" />
@@ -65,5 +68,9 @@
 	<move element="logo" destination="logo.center" />
 	<move element="minicart" destination="header.wrapper.right" />
 	<referenceBlock name="catalog.compare.link" remove="true"/>
+	<referenceBlock name="authorization-link-login" remove="true"/>
+	<referenceBlock name="register-link" remove="true" />
+	<referenceBlock name="wish-list-link" remove="true" />
+	<referenceBlock name="my-account-link" remove="true" />
 	</body>
 </page>

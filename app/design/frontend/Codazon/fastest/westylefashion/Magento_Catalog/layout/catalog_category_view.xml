@@ -7,6 +7,14 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="common_questions" before="category.products.list">
+                <arguments> 
+                    <argument name="block_id" xsi:type="string">catalog_common_questions</argument> 
+                </arguments> 
+            </block>
+            <block class="Magento\Catalog\Block\Category\View" name="category.cms" template="Magento_Catalog::html/cms_block_catalog.phtml" after="common_questions" />
+        </referenceContainer>
         <move element="breadcrumbs" destination="content" before="-"/>
         <referenceBlock name="category.image" remove="true"/>
     </body>
