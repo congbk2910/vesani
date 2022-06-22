@@ -7,6 +7,59 @@
             margin-bottom: 10px;
         }
     }
+    div.products.wrapper ~ .toolbar .pages {
+        float: none;
+    }
+    .products.wrapper ~ .toolbar .limiter {
+        display: none;
+    }
+    .pages {
+        .items.pages-items {
+            display: block !important;
+            span.page-count {
+                display: none;
+            }
+        }
+    }
+
+    .load-more {
+        margin-bottom: 15px;
+    }
+
+    // Common Qs
+
+    .common_question_item {
+        background-color: #fff;
+        border: 1px solid transparent;
+        -webkit-box-shadow: 0 1px 1px rgb(0, 0, 0, 5%);
+        box-shadow: 0 1px 1px rgb(0, 0, 0, 5%);
+        border-color: #ddd;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        .panel-heading {
+            color: #333;
+            background-color: #f5f5f5;
+            border-color: #ddd;
+            padding: 10px 15px;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            .panel-title {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 16px;
+                color: inherit;
+            }
+        }
+        .panel-content {
+            display: none;
+        }
+        .panel-content {
+            padding: 15px;
+            font-size: 16px;
+            border-top: 1px solid #ddd;
+        }
+    }
+
 
     // fotorama
 
@@ -16,7 +69,24 @@
                 display: none;
             }
         }
-    }   
+        .fotorama__stage {
+            max-height: 748px;
+            a.full-view {
+                &::before {
+                    display: none;
+                }
+                img {
+                    position: absolute;
+                    left: auto;
+                    right: 50%;
+                    top: auto;
+                    bottom: 50%;
+                    transform: translate(50%, 50%);
+                    max-width: 20px;
+                }
+            }
+        }
+    }
 
     // product media
     .fotorama__nav.fotorama__nav--thumbs {
@@ -133,6 +203,11 @@
     // Category page
     .page-layout-1column {
         &.page-with-filter.catalog-category-view {
+            .row-full-width-inner {
+                max-width: 1470px;
+                margin: auto;
+                padding: 0 15px;
+            }
             .products.wrapper.grid.products-grid,
             .toolbar.toolbar-products {
                 max-width: 1470px;
@@ -402,7 +477,7 @@
                 }
             }
         }
-    
+
         // product info main
         .product-info-main {
             position: relative;

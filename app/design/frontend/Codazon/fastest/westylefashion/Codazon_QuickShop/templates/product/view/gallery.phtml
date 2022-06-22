@@ -33,7 +33,7 @@
 			if( $('#cdz-img-box').length == 0 ){
 				var $this = $(this);
 				var $wrap = $('.fotorama__wrap',$this);
-				var $viewFullBtn = $('<a class="full-view" href="javascript:void(0)">Full</a>');
+				var $viewFullBtn = $('<a class="full-view" href="javascript:void(0)"><img src="<?php echo $this->getViewFileUrl('Magento_Catalog::images/full.png'); ?>" /></a>');
 				$imgBox = $('<div class="cdz-img-box" id="cdz-img-box"><div class="img-box-inner"><img class="full-img" src="" /></div></div>');
 				$viewFullBtn.appendTo($('.fotorama__stage',$wrap));
 				$imgBox.hide().appendTo('body');
@@ -74,13 +74,6 @@
 	})
 </script>
 <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder-q">
-    <div class="cdz-product-wishlist">
-        <a class="action towishlist" 
-            aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>" 
-            href="<?php echo $this->getUrl('wishlist') ?>">
-            <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
-        </a>
-    </div>
     <div class="loader gallery-placeholder__image" data-role="loader"></div>
 </div>
 <!--Fix for jumping content. Loader must be the same size as gallery.-->

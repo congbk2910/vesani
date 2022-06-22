@@ -7,6 +7,29 @@
 // @codingStandardsIgnoreFile
 
 ?>
+<?php
+    $_optionHelper = $this->helper('Codazon\DynamicRow\Helper\Data');
+    $subs = $_optionHelper->getConfig('dynamic_row/general/dynamic_field');
+    $dataSub = json_decode($subs,true);
+    $initSubject = [
+        "1" => [
+            "subject" => "Sales & product consulting",
+            "value_subject" => "forsaljning@vesani.se"
+        ],
+        "2" => [
+            "subject" => "Complaints & Regrets",
+            "value_subject" => "reklamation@vesani.se"
+        ],
+        "3" => [
+            "subject" => "Delivery & Transport",
+            "value_subject" => "logistik@vesani.se"
+        ],
+        "4" => [
+            "subject" => "Invoice & Finance",
+            "value_subject" => "ekonomi@vesani.se"
+        ]
+    ];
+?>
 <form class="form contact"
       action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
       id="contact-form"
@@ -19,12 +42,14 @@
         <!-- Custom field -->
         <div class="field subject required">
             <div class="control">
+                <?php
+                    $dataOptions = count($dataSub) === 0 ? $initSubject : $dataSub;
+                ?>
                 <select id="subject">
                     <option value="">Select an option&hellip;</option>
-                    <option value="subject1">Subject1</option>
-                    <option value="subject2">Subject2</option>
-                    <option value="subject3">Subject4</option>
-                    <option value="subject4">Subject4</option>
+                    <?php foreach ($dataOptions as $data) : ?>
+                        <option value="subject1"><?php echo $data['value_subject'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
         </div>

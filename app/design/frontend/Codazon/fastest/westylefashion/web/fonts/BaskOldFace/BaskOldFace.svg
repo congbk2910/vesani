@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20170731 at Tue Aug 17 14:17:57 1999
+Created by FontForge 20170731 at Tue Mar  5 20:50:57 1996
  By Aleksey,,,
 Typeface (c) 1992 Stephenson Blake (Holdings) Ltd. Data (c) 1992 URW. Portions (c) 1992 Microsoft Corp. All rights reserved.
 </metadata>
@@ -712,9 +712,6 @@ q0 167 -82 255q-57 62 -133 62q-74 0 -131 -70q-35 -43 -55.5 -109t-20.5 -137z" />
 d="M268 436l123 -256q9 -20 9 -28l-15 -13q-11 0 -29 18l-253 250q-26 26 -26 33q0 8 24 29l262 235l12 11q7 6 15 6q5 0 10 -5t5 -11q0 -11 -9 -27z" />
     <glyph glyph-name="guilsinglright" unicode="&#x203a;" horiz-adv-x="485" 
 d="M216 423l-122 257q-10 20 -10 28l15 13q11 0 29 -18l253 -250q26 -26 26 -33q0 -8 -23 -29l-263 -235l-12 -11q-7 -6 -14 -6q-6 0 -10.5 5t-4.5 11q0 11 8 27z" />
-    <glyph glyph-name="Euro" unicode="&#x20ac;" horiz-adv-x="1008" 
-d="M930 401q-87 -419 -328 -419q-184 0 -318.5 159.5t-160.5 438.5h-103l21 45h76v57l-1 30q0 13 1 21h-97l21 45h80q28 281 150 442.5t292 161.5q80 0 180 -47q62 -30 95 -30q35 0 47 51h22l6 -398h-22q-91 402 -328 402q-114 0 -186.5 -151.5t-91.5 -430.5h311l-21 -45
-h-292q-2 -17 -2 -51q0 -38 2 -57h313l-21 -45h-290q8 -272 97.5 -423t219.5 -151q211 0 303 397z" />
     <glyph glyph-name="trademark" unicode="&#x2122;" horiz-adv-x="1945" 
 d="M367 1338q-151 0 -210 -26q-44 -19 -69 -57.5t-39 -108.5l-22 2l11 217h801l11 -217l-23 -2q-14 70 -37.5 106t-69.5 57q-31 15 -79.5 22t-121.5 7h-15v-569q0 -57 6.5 -84t23.5 -44q32 -32 93 -32v-22h-383v22q61 0 93 32q17 17 23.5 44t6.5 84v569zM1894 1343
 q-41 -2 -64.5 -12t-39.5 -32q-19 -28 -19 -115v-415q0 -57 6.5 -84.5t24.5 -43.5q33 -32 92 -32v-22h-384v22q65 3 93 32q18 17 24 44t6 84v480l-293 -662h-18l-292 652v-470q0 -57 6.5 -84t23.5 -44q32 -32 93 -32v-22h-279v22q61 0 92 32q18 17 24.5 44t6.5 84v415

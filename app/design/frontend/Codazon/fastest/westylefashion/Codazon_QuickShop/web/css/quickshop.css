@@ -76,6 +76,22 @@
     font-size: 22px;
 }
 
+#quickshop .quickshop-media a.action.towishlist::before {
+	position: absolute;
+    top: 9%;
+    left: auto;
+	content: "\f004";
+    font-size: 18px;
+    font-family: 'FontAwesome';
+	z-index: 999;
+}
+
+#quickshop .product-info-main .qs_link_product_page {
+	width: 100%;
+    text-align: center;
+    margin-bottom: 25px;		
+}
+
 @media only screen and (min-width: 768px) {
 	#quickshop .cdz-product-wishlist {
 		left: 100px;

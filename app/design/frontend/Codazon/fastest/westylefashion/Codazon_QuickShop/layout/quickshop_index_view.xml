@@ -1,8 +1,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">	
-	<body>		
-		<referenceBlock name="product.info.addto" remove="true"/>
+	<body>
+        <referenceBlock name="product.info.options.wrapper.bottom">
+            <block class="Magento\Catalog\Block\Product\View" name="qs_link" as="qs_link" template="Codazon_QuickShop::product/view/qs_link_product.phtml" />
+        </referenceBlock>
         <referenceBlock name="product.info.sku" remove="true"/>
+        <referenceBlock name="product.info.addtocart.additional" remove="true"/>
         <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
-        <move element="product.info.stock.sku" destination="product.info.main" before="product.info "/>
+        <move element="product.info.stock.sku" destination="product.info.main" before="product.info"/>
+        <move element="product.info.addto" destination="quickshop_media" before="-"/>
 	</body>
 </page>
