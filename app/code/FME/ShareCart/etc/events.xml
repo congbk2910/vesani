@@ -3,4 +3,7 @@
     <event name="customer_login">
         <observer name="customer_login_observer" instance="FME\ShareCart\Observer\CustomerLogin" />
     </event>
+    <event name="sales_order_place_after">
+        <observer name="share_cart_sales_order_place_after" instance="FME\ShareCart\Observer\SalesOrderAfterPlaceObserver" />
+    </event>
 </config>

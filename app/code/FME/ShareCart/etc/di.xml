@@ -34,10 +34,10 @@
         </arguments>
     </virtualType>
 
-    <type name="Magento\Sales\Api\OrderManagementInterface">
+   <!--  <type name="Magento\Sales\Api\OrderManagementInterface">
         <plugin name="after_place_order_operation"
                 type="FME\ShareCart\Plugin\OrderManagement"/>
-    </type>
+    </type> -->
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
