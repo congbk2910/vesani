@@ -7,11 +7,6 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 class SaleRep extends \Magento\Ui\Component\Listing\Columns\Column
 {
     /**
-     * Column name
-     */
-    const NAME = 'column.sale_rep';
-
-    /**
      * @var \Magento\Framework\Locale\CurrencyInterface
      */
     protected $localeCurrency;
@@ -53,7 +48,6 @@ class SaleRep extends \Magento\Ui\Component\Listing\Columns\Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
                 $saleRepId = $item['sale_rep_id'];
-                if (!$saleRepId) break; 
                 $saleRep = $this->customerFactory->create()->load($saleRepId);
 
                 $item[$this->getData('name')]['edit'] = [

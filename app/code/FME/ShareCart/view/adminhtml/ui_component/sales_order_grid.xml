@@ -33,7 +33,6 @@
         <actionsColumn name="sale_rep" class="FME\ShareCart\Ui\Component\Listing\Column\SaleRep">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">sale_rep_id</item>
                     <item name="label" xsi:type="string" translate="true">Sale Representative</item>
                 </item>
             </argument>

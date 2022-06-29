@@ -38,13 +38,13 @@ class SalesOrderAfterPlaceObserver implements ObserverInterface
         if ($quote && $quote->getSharecartId()) {
             $shareCart = $this->shareCartFactory->create()->load($quote->getSharecartId());
             if($shareCart->getId() && !$shareCart->getIsUsed()){
-                $shareCart->setOrderId($order->getId());
-                $shareCart->setIsUsed(1);
-                $shareCart->save();
-
                 $order->setSharecartId($shareCart->getSharecartId());
                 $order->setSaleRepId($shareCart->getCustomerId());
                 $order->save();
+
+                $shareCart->setOrderId((int)$order->getId());
+                $shareCart->setIsUsed(1);
+                $shareCart->save();
             }
         }
     }
