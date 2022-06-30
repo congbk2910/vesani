@@ -119,7 +119,6 @@
 ############################################
 ## Enable rewrites
 
-    Options +FollowSymLinks
     RewriteEngine on
 
 ############################################

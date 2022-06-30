@@ -20,7 +20,6 @@ SetHandler default-handler
 ############################################
 ## enable rewrites
 
-    Options +FollowSymLinks
     RewriteEngine on
 
     ## you can put here your pub/media folder path relative to web root
