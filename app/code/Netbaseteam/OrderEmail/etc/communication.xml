@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
-    <topic name="vesani.ordermail.queue.topic" request="string">
+    <topic name="vesani.ordermail.queue.topic" request="int">
         <handler name="vesaniOrderEmail"  type="Netbaseteam\OrderEmail\Model\Queue\Consumer" method="process" />
     </topic>
 </config>

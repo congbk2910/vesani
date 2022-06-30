@@ -74,6 +74,7 @@ class Consumer extends Sender
         $this->eventManager = $eventManager;
         $this->helper = $helper;
         $this->orderFactory = $orderFactory;
+        $this->logger = $logger ?: ObjectManager::getInstance()->get(LoggerInterface::class);
     }
 
     /**
@@ -170,8 +171,13 @@ class Consumer extends Sender
      */
     public function process($id)
     {
-        $orderId = intval($id);
-        $order = $this->orderFactory->create()->load($orderId);
-        $this->send($order, true);
+        try {
+            $orderId = intval($id);
+            $order = $this->orderFactory->create()->load($orderId);
+            $this->send($order, true);
+        } catch (\Exception $e){
+            //logic to catch and log errors 
+            $this->logger->critical($e->getMessage());
+        }
     }
 }
