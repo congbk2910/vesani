@@ -43,14 +43,16 @@
         <div class="field subject required">
             <div class="control">
                 <?php
-                    $dataOptions = count($dataSub) === 0 ? $initSubject : $dataSub;
+                    $dataOptions = $dataSub ? $dataSub : $initSubject;
                 ?>
-                <select id="subject">
-                    <option value="">Select an option&hellip;</option>
-                    <?php foreach ($dataOptions as $data) : ?>
-                        <option value="subject1"><?php echo $data['value_subject'] ?></option>
-                    <?php endforeach; ?>
-                </select>
+                <?php if(count($dataOptions)):?>
+                    <select id="subject">
+                        <option value="">Select an option&hellip;</option>
+                        <?php foreach ($dataOptions as $data) : ?>
+                            <option value="<?php echo $data['value_subject'] ?>"><?php echo $data['subject'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php endif;?>
             </div>
         </div>
         <div class="field name required">
