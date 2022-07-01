@@ -46,7 +46,7 @@
                     $dataOptions = $dataSub ? $dataSub : $initSubject;
                 ?>
                 <?php if(count($dataOptions)):?>
-                    <select id="subject">
+                    <select id="subject" name="subject">
                         <option value="">Select an option&hellip;</option>
                         <?php foreach ($dataOptions as $data) : ?>
                             <option value="<?php echo $data['value_subject'] ?>"><?php echo $data['subject'] ?></option>
