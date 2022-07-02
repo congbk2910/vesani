@@ -15,11 +15,13 @@ class SalesOrderState implements ObserverInterface
 
     public function __construct(
         PublisherInterface $publisher,
-        ManagerInterface $messageManager
+        ManagerInterface $messageManager,
+        \Netbaseteam\OrderEmail\Model\Queue\Consumer $consumer
     )
     {
         $this->publisher = $publisher;
         $this->messageManager = $messageManager;
+        $this->consumer = $consumer;
     }
 
     /**
@@ -30,7 +32,7 @@ class SalesOrderState implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $order = $observer->getEvent()->getOrder();
-        $orderId = $order->getId();
+        $orderId = (int)$order->getId();
 
         if ($order instanceof \Magento\Framework\Model\AbstractModel) {
             if ($order->getState() == 'complete') {

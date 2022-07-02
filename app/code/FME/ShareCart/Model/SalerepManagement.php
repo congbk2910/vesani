@@ -70,7 +70,7 @@ class SalerepManagement {
                 }
                 if (isset($data['order_id']) && $data['order_id']) {
                     $result['sum']['orders'] += 1;
-                    $result['sum']['total_order_value'] = $data['grand_total'];
+                    $result['sum']['total_order_value'] += $data['grand_total'];
                     if (isset($result['items']) && isset($result['items'][$data['entity_id']]) && isset($result['items'][$data['entity_id']]['orders'])) {
                         $result['items'][$data['entity_id']]['orders'] += 1;
                         $result['items'][$data['entity_id']]['total_order_value'] += $data['grand_total'];
@@ -120,6 +120,8 @@ class SalerepManagement {
             $this->response[] = [
                 'weborders' => $webOrders/$totalOrders * 100,
                 'salereporders' => $salerepOrders/$totalOrders * 100,
+                'weborders_count' => $webOrders,
+                'salereporders_count' => $salerepOrders,
             ];
         } else {
             $this->response[] = [
