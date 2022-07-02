@@ -518,6 +518,12 @@
 				}
 			}
 		}
+		.customer-welcome {
+			span {
+				font-size: 14px;
+				font-weight: 700;
+			}
+		}
 		.cdz-main-menu {
 			.cdz-horizontal-menu {
 				li.level0 {
@@ -642,6 +648,7 @@
 					font-size: 14px;
 					font-weight: 700;
 					text-transform: uppercase;
+					font-family: 'Baskerville Old Face';
 				}
 			}
 			.header-stores {
@@ -711,4 +718,102 @@
     -webkit-transform: none;
     transform: none;
   }
+}
+
+
+// Customer header link
+
+.btn-mypage-desktop {
+	margin: 0;
+    background: transparent;
+    border: navajowhite;
+    color: #fff;
+	font-family: 'Baskerville Old Face';
+	&::after {
+		content: '\e622';
+		font-family: 'luma-icons';
+		font-size: 10px;
+		right: 0;
+		top: auto;
+		bottom: 50%;
+		transform: translate(0, 50%);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		border: none;
+		background: transparent;
+	}
+}
+
+.page-header {
+	.header.links {
+		.customer-welcome {
+			ul.dropdown-options {
+				width: 200px;
+				li {
+					a {
+						font-family: 'Baskerville Old Face';
+						font-size: 16px;
+					}
+					.link.wishlist {
+						a {
+							font-size: 16px;
+							font-family: 'Baskerville Old Face';
+							font-weight: 400;
+						}
+					}
+				}	
+			}
+		}
+	}
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.page-header {
+		.header.links {
+			.customer-welcome {
+				ul.dropdown-options {
+					li {
+						a {
+							&::before {
+								display: none;
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.btn-mypage-desktop {
+		display: none;
+	}
+	.page-header {
+		.header.links {
+			.customer-welcome {
+				ul.dropdown-options {
+					width: 100%;
+					padding: 0;
+					li {
+						.wishlist {
+							a {
+								&::before {
+									content: "\f08a";
+									display: inline-block;
+									font-family: 'FontAwesome';
+									font-style: normal;
+									font-weight: 400;
+									line-height: 1;
+									font-size: 12px;
+									margin-right: 5px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,18 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="dynamic_row" translate="label" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Dynamic Row</label>
+            <tab>codazon</tab>
+            <resource>Codazon_DynamicRow::config_extension</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="dynamic_field" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dynamic Field</label>
+                    <backend_model>Codazon\DynamicRow\Block\Adminhtml\Config\Backend\ArraySerialized</backend_model>
+                    <frontend_model>Codazon\DynamicRow\Block\Adminhtml\DynamicFieldData</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

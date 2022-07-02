@@ -10,6 +10,13 @@
 		<referenceBlock name="view.addto.compare" remove="true"/>
 		<move element="product.info.overview" destination="product.info.main" before="product.info.stock.sku"/>
 		<move element="product.info.stock.sku" destination="product.info.main" after="product.price.tier"/>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="custom.tab" template="Magento_Catalog::product/view/instructions.phtml" group="detailed_info" >
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Instructions</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
         <referenceBlock name="product.info.description">
             <action method="setTitle">
                 <argument translate="true" name="title" xsi:type="string">Product Description</argument>

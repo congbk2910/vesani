@@ -114,6 +114,7 @@
 			this._resize();
 			this._readMore();
 			this._mobileMypageButton();
+			this._toggleCommonQs();
 		},
 
 		_mobileMypageButton: function () {
@@ -128,6 +129,15 @@
 				$('.nav-sections-item-content').hide();
 				$('.nav-sections-item-content[id="store.links"]').show();
 			})
+		},
+
+		_toggleCommonQs: function () {
+			$(document).ready(function($) {
+				$('[data-role="title_qs"]').click(function(){
+					$(this).toggleClass("active");
+					$(this).next().slideToggle(200);
+				});
+			});
 		},
 
 		_readMore: function () {

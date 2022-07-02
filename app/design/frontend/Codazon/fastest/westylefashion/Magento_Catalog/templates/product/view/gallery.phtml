@@ -43,7 +43,7 @@
 			if( $('#cdz-img-box').length == 0 ){
 				var $this = $(this);
 				var $wrap = $('.fotorama__wrap',$this);
-				var $viewFullBtn = $('<a class="full-view" href="javascript:void(0)">Full</a>');
+				var $viewFullBtn = $('<a class="full-view" href="javascript:void(0)"><img src="<?php echo $this->getViewFileUrl('Magento_Catalog::images/full.png'); ?>" /></a>');
 				$imgBox = $('<div class="cdz-img-box" id="cdz-img-box"><div class="img-box-inner"><img class="full-img" src="" /></div></div>');
 				$viewFullBtn.appendTo($('.fotorama__stage',$wrap));
 				$imgBox.hide().appendTo('body');

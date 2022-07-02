@@ -417,11 +417,34 @@ body.cms-page-view  {
 		.page-main {
 			max-width: 100%;
 			padding: 0;
-		}
+		}	
 	}
+	
 	.breadcrumbs,
 	.page-main {
 		max-width: 1620px;
+	}
+	
+	.page-main {
+		div[data-appearance=full-width] {
+			.row-full-width-inner {
+				max-width: 100%;
+				img.pagebuilder-mobile-hidden {
+					max-height: 250px;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}
+
+.contact-index-index {
+	.background_contac_page {
+		max-width: 1600px;
+		img {
+			max-height: 250px;
+			object-fit: cover;
+		}
 	}
 }
 
@@ -546,12 +569,6 @@ div.products-grid {
 		color: #fff;
 	}
 }
-.background_contac_page {
-	img {
-		max-height: 250px;
-		object-fit: cover;
-	}
-}
 .cms-about-us {
 	.page-main {
 		div[data-appearance=full-bleed] {
@@ -561,7 +578,7 @@ div.products-grid {
 			}
 		}
 	}
-}
+}	
 .tabs-list-sty04 {
 	.tabs-list {
 		div.block-content {
@@ -571,6 +588,6 @@ div.products-grid {
 }
 ._hotline.tbl-cell {
 	span {
-		font-family: 'baskerville-old-face-regular', sans-serif;
+		font-family: 'Baskerville Old Face';
 	}
 }
