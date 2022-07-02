@@ -228,6 +228,57 @@
             .desc-banner-category {
                 color: #fff;
             }
+
+            .filter-options {
+                .filter-options-item {
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        top: auto;
+                        bottom: 50%;
+                        left: 10px;
+                        transform: translate(0, 50%);
+                    }
+                    &.cat {
+                        padding-left: 45px;
+                        &::after {
+                            background:url(../images/category_icon.jpeg) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.color {
+                        padding-left: 45px;
+                        &::after {
+                            background:url(../images/color_icon.jpeg) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.price {
+                        padding-left: 45px;
+                        &::after {
+                            background:url(../images/price_icon.jpeg) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.size {
+                        padding-left: 45px;
+                        &::after {
+                            background:url(../images/size_icon.jpeg) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                    &.sort-by {
+                        padding-left: 45px;
+                        &::after {
+                            background:url(../images/sort_by_icon.jpeg) center center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
         }
         span.page-count {
             display: inline-block;

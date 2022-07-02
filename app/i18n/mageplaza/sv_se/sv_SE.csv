@@ -15333,3 +15333,11 @@ Technical Information,Teknisk information,module,Magento_Catalog
 Svea Checkout,Kassa,module,Magento_Checkout
 Shipping Method,Leverans,module,Magento_Checkout
 Finish purchase,Betalning,module,Magento_Checkout
+item(s) in your cart,Varukorg,module,Codazon_AjaxCartPro
+Sort by:,Sortera efter:,module,Magento_Catalog
+Page,Sida,module,Magepow_InfiniteScroll
+Instructions,Anvisningar,module,Magento_Catalog
+Load more items,Visa fler,module,Magepow_InfiniteScroll
+Logout,Logga ut,module,Magento_Theme
+My Account,Mitt konto,module,Magento_Theme
+Go to product page,Gå till produktsida,module,Codazon_QuickShop
