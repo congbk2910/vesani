@@ -20,3 +20,12 @@
         </div>
     <?php endif; ?>
 <?php endif; ?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$rule = $objectManager->create('Magento\SalesRule\Model\RuleFactory')->create()->load(2);
+$item = $block->getProduct();
+?>
+
+<?php if($rule->getActions()->validate($item)):?>
+    <strong>Shipping Icon Here</strong>
+<?php endif;?>
