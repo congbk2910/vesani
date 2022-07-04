@@ -2,10 +2,15 @@
 	<body>
         <referenceBlock name="product.info.options.wrapper.bottom">
             <block class="Magento\Catalog\Block\Product\View" name="qs_link" as="qs_link" template="Codazon_QuickShop::product/view/qs_link_product.phtml" />
+            <block class="Magento\Cms\Block\Block" name="short_text">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">short_text_quickview</argument>
+                </arguments>
+            </block>
         </referenceBlock>
         <referenceBlock name="product.info.sku" remove="true"/>
         <referenceBlock name="product.info.addtocart.additional" remove="true"/>
-        <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
+        <move element="short_text" destination="product.info.main" after="product.info.price"/>
         <move element="product.info.stock.sku" destination="product.info.main" before="product.info"/>
         <move element="product.info.addto" destination="quickshop_media" before="-"/>
 	</body>
