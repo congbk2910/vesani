@@ -58,13 +58,31 @@
     margin-bottom: 10px;
 }
 
-#quickshop .product-info-main .product.attibute.overview {
-	margin-top: 15px;
+#quickshop .product-info-main .short_text {
+    margin-top: 20px;
 }
 
-#quickshop .product-info-main .product.attibute.overview .title {
-	display: none;
+#quickshop .product-info-main .short_text p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #282828;
+    padding-left: 30px;
+    position: relative;
 }
+
+#quickshop .product-info-main .short_text p:after {
+    left: 0;
+    right: auto;
+    position: absolute;
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    color: #000;
+    font-size: 20px;
+}
+
+#quickshop .product-info-main .product.attibute.overview {
+	margin-top: 15px;
+}	
 
 #quickshop .product-info-main div#short_description_content p::before {
     left: 0;
@@ -84,6 +102,30 @@
     font-size: 18px;
     font-family: 'FontAwesome';
 	z-index: 999;
+} 
+.product-info-stock-sku {
+	display: flex;
+    align-items: center;
+}
+
+.product-info-stock-sku .stock.available {
+	margin: 0;
+}
+
+.product-info-stock-sku .stock.available span {
+	margin-top: 7px;
+    display: block;
+}
+
+.product-info-stock-sku .shipping-box {
+	display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.product-info-stock-sku .shipping-box strong {
+	margin-top: 7px;
+	padding-left: 5px;
 }
 
 #quickshop .product-info-main .qs_link_product_page {
@@ -95,6 +137,18 @@
 @media only screen and (min-width: 768px) {
 	#quickshop .cdz-product-wishlist {
 		left: 100px;
+	}
+}
+
+@media only screen and  (max-width: 991px) {
+	.product-info-main .product-info-stock-sku {
+		display: block;
+	}
+	.product-info-stock-sku .stock.available {
+		margin-bottom: 15px;
+	}
+	.product-info-stock-sku .shipping-box {
+		margin-left: 0;
 	}
 }
 

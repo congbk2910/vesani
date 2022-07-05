@@ -109,6 +109,9 @@
 			if(ThemeOptions.sticky_header){
 				this._stickyMenu();
 			}
+			if ($('body').hasClass('catalog-category-view')) {
+				$( ".filter-options-item.sort-by" ).insertAfter( $( ".filter-options > div:last-child" ));
+			}
 			this._alignMenu();
 			this._buildMenu();
 			this._resize();
