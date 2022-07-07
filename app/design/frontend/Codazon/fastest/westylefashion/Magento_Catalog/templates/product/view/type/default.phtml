@@ -23,13 +23,12 @@
 <?php endif; ?>
 <?php
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$rule = $objectManager->create('Magento\SalesRule\Model\RuleFactory')->create()->load(2);
-$item = $block->getProduct();
+$freeShippingAmount = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('carriers/freeshipping/free_shipping_subtotal');
 ?>
 
-<?php if($rule->getActions()->validate($item)):?>
+<?php if($freeShippingAmount):?>
     <div class="shipping-box">
         <img src="<?= $this->getViewFileUrl('Codazon_QuickShop::images/ship.png'); ?>">
-        <strong><?= $block->escapeHtml(__('Free shipping over NOK 600')) ?></strong>
+        <strong><?= $block->escapeHtml(__('Free shipping over NOK ' . $freeShippingAmount)) ?></strong>
     </div>
 <?php endif;?>
