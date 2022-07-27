@@ -99,8 +99,8 @@
                 <height>2000</height>
             </image>
             <image id="product_page_image_small" type="thumbnail">
-                <width>88</width>
-                <height>110</height>
+                <width>100</width>
+                <height>100</height>
             </image>
             <image id="product_page_main_image" type="image">
                 <width>2000</width>
