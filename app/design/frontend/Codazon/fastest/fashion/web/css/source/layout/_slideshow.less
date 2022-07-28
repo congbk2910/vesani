@@ -85,14 +85,30 @@
 			span{ 
 				background:transparent;
 				color:@main_note_text;
+				position: relative;
 				&:before{
-					.abs-iconfont('\f192', 14px);
-					.abs-opacity(1);
+					background: #fff;
+					border: 1px solid #ccc;
+					border-radius: 10px;
+					content: ' ';
+					display: inline-block;
+					height: 12px;
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%,-50%);
+					transition: all .3s;
+					width: 12px;
 				}
 			}
 			&.active,
 			&:hover{
-				span{ .abs-opacity(1); color:@main_hover_text;}
+				span{
+					&::before {
+						background: #373330;
+						transition: all .3s;
+					}
+				}
 			}
 		}
 	}

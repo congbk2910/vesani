@@ -1,6 +1,47 @@
 // Product page
 
 & when (@media-common = true) {
+    div.product-info-main {
+        .stock {
+            &.available {
+                .abs-csscf(#000, @f_note);
+
+            }
+            &.unavailable {
+                .abs-csscf(#000, @f_note);
+            }
+        }
+    }
+
+    .stock {
+        display: flex;
+        align-items: center;
+        span.circle {
+            width: 13px;
+            height: 13px;
+            background: #22b14c;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        &.available {
+            .abs-csscf(#000, @f_note);
+            span.circle {
+                background: green;
+            }
+        }
+        &.unavailable {
+            .abs-csscf(#000, @f_note);
+            span.circle {
+                background: #f5bb19;
+            }
+        }
+        span {
+            text-transform: capitalize;
+            font-size: 14.5px;
+        }
+    }
+
     // Product-reviews-summary
     .product-item {
         .product-item .product-reviews-summary {
@@ -62,8 +103,21 @@
 
 
     // fotorama
-
+    .fotorama-item {
+        &.fotorama--fullscreen {
+            .fotorama__nav.fotorama__nav--thumbs {
+                .fotorama__thumb-border {
+                    display: none;
+                }
+            }
+        }
+    }
     .fotorama__wrap {
+        .fotorama__nav-wrap--vertical {
+            .fotorama__thumb__arr--right {
+                bottom: 90px;
+            }
+        }
         &.fotorama__wrap--fade {
             .full-view {
                 display: none;
@@ -102,6 +156,7 @@
             .price-container {
                 .price {
                     font-size: 30px;
+                    color:  #ca0d0d;
                 }
             }
             .old-price {
@@ -194,7 +249,7 @@
             .old-price {
                 color: #242323;
                 .price {
-                    color: #242323;
+                    color:  #ca0d0d;
                 }
             }
         }
@@ -207,6 +262,18 @@
                 max-width: 1470px;
                 margin: auto;
                 padding: 0 15px;
+            }
+            .stock {
+                &.available {
+                    padding: 5px 0 15px 0;
+                    display: flex;
+                    justify-content: center;
+                }
+                &.unavailable {
+                    padding: 5px 0 15px 0;
+                    display: flex;
+                    justify-content: center;
+                }  
             }
             .products.wrapper.grid.products-grid,
             .toolbar.toolbar-products {
@@ -331,6 +398,27 @@
 
         // swatch clolor
         .product-info-main {
+            .product.alert {
+                background: #282828;
+                border: 1px solid #282828;
+                cursor: pointer;
+                display: inline-block;
+                font-weight: 600;
+                padding: 10px 15px;
+                font-size: 1.4rem;
+                vertical-align: top;
+                margin-top: 15px;
+                a {
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+                &:hover {
+                    background: transparent;
+                    a {
+                        color: #282828;
+                    }
+                }
+            }
             .block-shipping-estimation {
                 margin-top: 0;
             }
@@ -554,38 +642,9 @@
                         position: absolute;
                         content: "\f00c";
                         font-family: 'FontAwesome';
-                        color: #008000;
+                        color: #000;
                         font-size: 22px;
                     }
-                }
-            }
-            .stock {
-                display: flex;
-                align-items: center;
-                span.circle {
-                    width: 13px;
-                    height: 13px;
-                    background: #22b14c;
-                    display: inline-block;
-                    border-radius: 50%;
-                    margin-right: 15px;
-                }
-                &.available {
-                    span.circle {
-                        background: #22b14c;
-                    }
-                }
-                &.unavailable {
-                    span.circle {
-                        background: yellow;
-                    }
-                    span {
-                        color: yellow;
-                    }
-                }
-                span {
-                    text-transform: capitalize;
-                    font-size: 14.5px;
                 }
             }
 
@@ -619,6 +678,7 @@
                     .price-container {
                         .price {
                             font-size: 30px;
+                            color:  #ca0d0d;
                         }
                     }
                     .special-price {

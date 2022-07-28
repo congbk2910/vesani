@@ -4352,7 +4352,7 @@ Phone,Phone,module,Magento_Contact
 Message,Message,module,Magento_Contact
 Contacts Section,Sektion för kontakter,module,Magento_Contact
 Contacts,Kontakter,module,Magento_Contact
-Contact Us,Kontakta oss,module,Magento_Contact
+Contact Us,Kontakta-oss,module,Magento_Contact
 Enable Contact Us,Aktivera kontakta oss,module,Magento_Contact
 Email Options,E-postalternativ,module,Magento_Contact
 Send Emails To,Skicka e-postmeddelande till,module,Magento_Contact
@@ -9518,7 +9518,7 @@ Error Email Recipient,Fel E-post mottagare,module,Magento_ProductAlert
 Error Email Sender,Fel E-post avsändare,module,Magento_ProductAlert
 Error Email Template,Felmeddelande E-post-mall,module,Magento_ProductAlert
 Notify me when the price drops,Meddela mig när priset sänks,module,Magento_ProductAlert
-Notify me when this product is in stock,Meddela mig när denna produkt är i lager,module,Magento_ProductAlert
+Notify me when this product is in stock,Meddela mig när åter i lager,module,Magento_ProductAlert
 Url,Url,module,Magento_ProductVideo
 Title,Titel,module,Magento_ProductVideo
 Description,Beskrivning,module,Magento_ProductVideo
@@ -15341,3 +15341,4 @@ Load more items,Visa fler,module,Magepow_InfiniteScroll
 Logout,Logga ut,module,Magento_Theme
 My Account,Mitt konto,module,Magento_Theme
 Go to product page,Gå till produktsida,module,Codazon_QuickShop
+Free shipping over,Fri Frakt över,module,Magento_Catalog
