@@ -29,6 +29,6 @@ $freeShippingAmount = $objectManager->get('Magento\Framework\App\Config\ScopeCon
 <?php if($freeShippingAmount):?>
     <div class="shipping-box">
         <img src="<?= $this->getViewFileUrl('Codazon_QuickShop::images/ship.png'); ?>">
-        <strong><?= $block->escapeHtml(__('Free shipping over NOK ' . $freeShippingAmount)) ?></strong>
+        <strong><?= $block->escapeHtml(__('Free shipping over')) ?><span><?php echo $freeShippingAmount ?> kr</span></strong>
     </div>
 <?php endif;?>

@@ -150,6 +150,17 @@ $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 							</strong>
 
 							<?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
+							<?php if ($_product->getIsSalable()): ?>
+								<div class="stock available">
+									<span class="circle"></span>
+									<span><?php /* @escapeNotVerified */ echo __('In stock') ?></span>
+								</div>
+							<?php else: ?>
+								<div class="stock unavailable">
+									<span class="circle"></span>
+									<span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span>
+								</div>
+							<?php endif; ?>
 							<?php if($showReviewRating): ?>
 							<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
 							<?php endif ?>
